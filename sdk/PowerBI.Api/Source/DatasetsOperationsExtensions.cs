@@ -4720,6 +4720,12 @@ namespace Microsoft.PowerBI.Api
             /// </summary>
             /// <remarks>
             ///
+            /// &gt; [!TIP]
+            /// &gt; To create embed tokens, it's recommended to use the latest API,
+            /// [Generate Token](/rest/api/power-bi/embed-token/generate-token). Generate
+            /// token supports additional functions, such as creating a token for multiple
+            /// items.
+            ///
             /// &gt; [!NOTE]
             /// &gt; An embed token can be used to [embed
             /// Q&amp;A](/power-bi/developer/qanda) within your application.
@@ -4768,6 +4774,12 @@ namespace Microsoft.PowerBI.Api
             /// workspace.
             /// </summary>
             /// <remarks>
+            ///
+            /// &gt; [!TIP]
+            /// &gt; To create embed tokens, it's recommended to use the latest API,
+            /// [Generate Token](/rest/api/power-bi/embed-token/generate-token). Generate
+            /// token supports additional functions, such as creating a token for multiple
+            /// items.
             ///
             /// &gt; [!NOTE]
             /// &gt; An embed token can be used to [embed

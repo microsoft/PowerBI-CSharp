@@ -2202,8 +2202,7 @@
                 "consumes": [
                     "application/json"
                 ],
-                "produces": [
-                ],
+                "produces": [],
                 "parameters": [
                     {
                         "name": "groupId",
@@ -2412,8 +2411,7 @@
                 "consumes": [
                     "application/json"
                 ],
-                "produces": [
-                ],
+                "produces": [],
                 "parameters": [
                     {
                         "name": "datasetId",
@@ -7987,7 +7985,7 @@
                     "EmbedToken"
                 ],
                 "summary": "Generates an embed token to allow report creation in the specified workspace based on the specified dataset.",
-                "description": "\n> [!IMPORTANT]\n> This API call is only relevant to the [embed for your customers](/power-bi/developer/embed-sample-for-customers) scenario. To learn more about using this API, see [Considerations when generating an embed token](/power-bi/developer/embedded/generate-embed-token).\n\n## Permissions\n\n- When using a service principal for authentication, refer to [Embed Power BI content with service principal](/power-bi/developer/embed-service-principal) and [Considerations and limitations](/power-bi/developer/embedded/embed-service-principal#considerations-and-limitations).\n- This API call can be called by a service principal profile. For more information see: [Service principal profiles in Power BI Embedded](/power-bi/developer/embedded/embed-multi-tenancy).\n\n## Required Scope\n\nAll of the following:\n\n- Content.Create\n- Report.ReadWrite.All or Report.Read.All\n- Dataset.ReadWrite.All or Dataset.Read.All\n\n## Limitations\n\nFor Azure Analysis Services or Analysis Services on-premises live connection reports, generating an embed token with row-level security may not work for several minutes after a [Rebind Report](/rest/api/power-bi/reports/rebind-report) api call.\n<br><br>",
+                "description": "\n> [!TIP]\n> To create embed tokens, it's recommended to use the latest API, [Generate Token](/rest/api/power-bi/embed-token/generate-token). Generate token supports additional functions, such as creating a token for multiple items.  \n\n> [!IMPORTANT]\n> This API call is only relevant to the [embed for your customers](/power-bi/developer/embed-sample-for-customers) scenario. To learn more about using this API, see [Considerations when generating an embed token](/power-bi/developer/embedded/generate-embed-token).\n\n## Permissions\n\n- When using a service principal for authentication, refer to [Embed Power BI content with service principal](/power-bi/developer/embed-service-principal) and [Considerations and limitations](/power-bi/developer/embedded/embed-service-principal#considerations-and-limitations).\n- This API call can be called by a service principal profile. For more information see: [Service principal profiles in Power BI Embedded](/power-bi/developer/embedded/embed-multi-tenancy).\n\n## Required Scope\n\nAll of the following:\n\n- Content.Create\n- Report.ReadWrite.All or Report.Read.All\n- Dataset.ReadWrite.All or Dataset.Read.All\n\n## Limitations\n\nFor Azure Analysis Services or Analysis Services on-premises live connection reports, generating an embed token with row-level security may not work for several minutes after a [Rebind Report](/rest/api/power-bi/reports/rebind-report) api call.\n<br><br>",
                 "operationId": "Reports_GenerateTokenForCreateInGroup",
                 "consumes": [
                     "application/json"
@@ -8080,7 +8078,7 @@
                     "EmbedToken"
                 ],
                 "summary": "Generates an embed token to view or edit the specified report from the specified workspace.",
-                "description": "\n> [!IMPORTANT]\n> This API call is only relevant to the [embed for your customers](/power-bi/developer/embed-sample-for-customers) scenario. To learn more about using this API, see [Considerations when generating an embed token](/power-bi/developer/embedded/generate-embed-token).\n\n## Permissions\n\n- When using a service principal for authentication, refer to [Embed Power BI content with service principal](/power-bi/developer/embed-service-principal) and [Considerations and limitations](/power-bi/developer/embedded/embed-service-principal#considerations-and-limitations).\n- This API call can be called by a service principal profile. For more information see: [Service principal profiles in Power BI Embedded](/power-bi/developer/embedded/embed-multi-tenancy).\n\n## Required Scope\n\nAll of the following, unless a requirement doesn't apply:\n\n- Report.ReadWrite.All or Report.Read.All\n- Dataset.ReadWrite.All or Dataset.Read.All\n- Content.Create, required if the `allowSaveAs` flag is specified in [GenerateTokenRequest](/rest/api/power-bi/embed-token/reports-generate-token-for-create-in-group#generatetokenrequest)\n\n## Limitations\n\nFor Azure Analysis Services or Analysis Services on-premises live connection reports, generating an embed token with row-level security may not work for several minutes after a [Rebind Report](/rest/api/power-bi/reports/rebind-report).\n<br><br>",
+                "description": "\n> [!TIP]\n> To create embed tokens, it's recommended to use the latest API, [Generate Token](/rest/api/power-bi/embed-token/generate-token). Generate token supports additional functions, such as creating a token for multiple items.  \n\n> [!IMPORTANT]\n> This API call is only relevant to the [embed for your customers](/power-bi/developer/embed-sample-for-customers) scenario. To learn more about using this API, see [Considerations when generating an embed token](/power-bi/developer/embedded/generate-embed-token).\n\n## Permissions\n\n- When using a service principal for authentication, refer to [Embed Power BI content with service principal](/power-bi/developer/embed-service-principal) and [Considerations and limitations](/power-bi/developer/embedded/embed-service-principal#considerations-and-limitations).\n- This API call can be called by a service principal profile. For more information see: [Service principal profiles in Power BI Embedded](/power-bi/developer/embedded/embed-multi-tenancy).\n\n## Required Scope\n\nAll of the following, unless a requirement doesn't apply:\n\n- Report.ReadWrite.All or Report.Read.All\n- Dataset.ReadWrite.All or Dataset.Read.All\n- Content.Create, required if the `allowSaveAs` flag is specified in [GenerateTokenRequest](/rest/api/power-bi/embed-token/reports-generate-token-for-create-in-group#generatetokenrequest)\n\n## Limitations\n\nFor Azure Analysis Services or Analysis Services on-premises live connection reports, generating an embed token with row-level security may not work for several minutes after a [Rebind Report](/rest/api/power-bi/reports/rebind-report).\n<br><br>",
                 "operationId": "Reports_GenerateTokenInGroup",
                 "consumes": [
                     "application/json"
@@ -8325,7 +8323,7 @@
                     "EmbedToken"
                 ],
                 "summary": "Generates an embed token based on the specified dataset from the specified workspace.",
-                "description": "\n> [!NOTE]\n> An embed token can be used to [embed Q&A](/power-bi/developer/qanda) within your application.\n\n> [!IMPORTANT]\n> This API call is only relevant to the [embed for your customers](/power-bi/developer/embed-sample-for-customers) scenario. To learn more about using this API, see [Considerations when generating an embed token](/power-bi/developer/embedded/generate-embed-token).\n\n## Permissions\n\n- When using a service principal for authentication, refer to [Embed Power BI content with service principal](/power-bi/developer/embed-service-principal) and [Considerations and limitations](/power-bi/developer/embedded/embed-service-principal#considerations-and-limitations).\n- This API call can be called by a service principal profile. For more information see: [Service principal profiles in Power BI Embedded](/power-bi/developer/embedded/embed-multi-tenancy).\n\n## Required Scope\n\nDataset.ReadWrite.All or Dataset.Read.All\n<br><br>",
+                "description": "\n> [!TIP]\n> To create embed tokens, it's recommended to use the latest API, [Generate Token](/rest/api/power-bi/embed-token/generate-token). Generate token supports additional functions, such as creating a token for multiple items.  \n\n> [!NOTE]\n> An embed token can be used to [embed Q&A](/power-bi/developer/qanda) within your application.\n\n> [!IMPORTANT]\n> This API call is only relevant to the [embed for your customers](/power-bi/developer/embed-sample-for-customers) scenario. To learn more about using this API, see [Considerations when generating an embed token](/power-bi/developer/embedded/generate-embed-token).\n\n## Permissions\n\n- When using a service principal for authentication, refer to [Embed Power BI content with service principal](/power-bi/developer/embed-service-principal) and [Considerations and limitations](/power-bi/developer/embedded/embed-service-principal#considerations-and-limitations).\n- This API call can be called by a service principal profile. For more information see: [Service principal profiles in Power BI Embedded](/power-bi/developer/embedded/embed-multi-tenancy).\n\n## Required Scope\n\nDataset.ReadWrite.All or Dataset.Read.All\n<br><br>",
                 "operationId": "Datasets_GenerateTokenInGroup",
                 "consumes": [
                     "application/json"
@@ -8396,7 +8394,7 @@
                     "EmbedToken"
                 ],
                 "summary": "Generates an embed token to view the specified dashboard from the specified workspace.",
-                "description": "\n> [!IMPORTANT]\n> This API call is only relevant to the [embed for your customers](/power-bi/developer/embed-sample-for-customers) scenario. To learn more about using this API, see [Considerations when generating an embed token](/power-bi/developer/embedded/generate-embed-token).\n\n## Permissions\n\n- When using a service principal for authentication, refer to [Embed Power BI content with service principal](/power-bi/developer/embed-service-principal) and [Considerations and limitations](/power-bi/developer/embedded/embed-service-principal#considerations-and-limitations).\n- This API call can be called by a service principal profile. For more information see: [Service principal profiles in Power BI Embedded](/power-bi/developer/embedded/embed-multi-tenancy).\n\n## Required Scope\n\nAll of the following:\n\n- Dashboard.ReadWrite.All or Dashboard.Read.All\n- Report.ReadWrite.All or Report.Read.All\n- Dataset.ReadWrite.All or Dataset.Read.All\n<br><br>",
+                "description": "\n> [!TIP]\n> To create embed tokens, it's recommended to use the latest API, [Generate Token](/rest/api/power-bi/embed-token/generate-token). Generate token supports additional functions, such as creating a token for multiple items.\n\n> [!IMPORTANT]\n> This API call is only relevant to the [embed for your customers](/power-bi/developer/embed-sample-for-customers) scenario. To learn more about using this API, see [Considerations when generating an embed token](/power-bi/developer/embedded/generate-embed-token).\n\n## Permissions\n\n- When using a service principal for authentication, refer to [Embed Power BI content with service principal](/power-bi/developer/embed-service-principal) and [Considerations and limitations](/power-bi/developer/embedded/embed-service-principal#considerations-and-limitations).\n- This API call can be called by a service principal profile. For more information see: [Service principal profiles in Power BI Embedded](/power-bi/developer/embedded/embed-multi-tenancy).\n\n## Required Scope\n\nAll of the following:\n\n- Dashboard.ReadWrite.All or Dashboard.Read.All\n- Report.ReadWrite.All or Report.Read.All\n- Dataset.ReadWrite.All or Dataset.Read.All\n<br><br>",
                 "operationId": "Dashboards_GenerateTokenInGroup",
                 "consumes": [
                     "application/json"
@@ -8516,7 +8514,7 @@
                     "EmbedToken"
                 ],
                 "summary": "Generates an embed token to view the specified tile from the specified workspace.",
-                "description": "\n> [!IMPORTANT]\n> This API call is only relevant to the [embed for your customers](/power-bi/developer/embed-sample-for-customers) scenario. To learn more about using this API, see [Considerations when generating an embed token](/power-bi/developer/embedded/generate-embed-token).\n\n## Permissions\n\n- When using a service principal for authentication, refer to [Embed Power BI content with service principal](/power-bi/developer/embed-service-principal) and [Considerations and limitations](/power-bi/developer/embedded/embed-service-principal#considerations-and-limitations).\n- This API call can be called by a service principal profile. For more information see: [Service principal profiles in Power BI Embedded](/power-bi/developer/embedded/embed-multi-tenancy).\n\n## Required Scope\n\nAll of the following:\n\n- Dashboard.ReadWrite.All or Dashboard.Read.All\n- Report.ReadWrite.All or Report.Read.All\n- Dataset.ReadWrite.All or Dataset.Read.All\n<br><br>",
+                "description": "\n> [!TIP]\n> To create embed tokens, it's recommended to use the latest API, [Generate Token](/rest/api/power-bi/embed-token/generate-token). Generate token supports additional functions, such as creating a token for multiple items.  \n\n> [!IMPORTANT]\n> This API call is only relevant to the [embed for your customers](/power-bi/developer/embed-sample-for-customers) scenario. To learn more about using this API, see [Considerations when generating an embed token](/power-bi/developer/embedded/generate-embed-token).\n\n## Permissions\n\n- When using a service principal for authentication, refer to [Embed Power BI content with service principal](/power-bi/developer/embed-service-principal) and [Considerations and limitations](/power-bi/developer/embedded/embed-service-principal#considerations-and-limitations).\n- This API call can be called by a service principal profile. For more information see: [Service principal profiles in Power BI Embedded](/power-bi/developer/embedded/embed-multi-tenancy).\n\n## Required Scope\n\nAll of the following:\n\n- Dashboard.ReadWrite.All or Dashboard.Read.All\n- Report.ReadWrite.All or Report.Read.All\n- Dataset.ReadWrite.All or Dataset.Read.All\n<br><br>",
                 "operationId": "Tiles_GenerateTokenInGroup",
                 "consumes": [
                     "application/json"
@@ -19012,9 +19010,7 @@
                 "summary": "Returns a list of service principal profiles.",
                 "description": "<br/>Returns a list of profiles that belongs to service principal caller.\n\n## Limitations\n\nCan only be called by a service principal.",
                 "operationId": "Profiles_GetProfiles",
-                "consumes": [
-
-                ],
+                "consumes": [],
                 "produces": [
                     "application/json"
                 ],
@@ -19147,9 +19143,7 @@
                 "summary": "Returns the specified service principal profile.",
                 "description": "<br/>Returns the specified profile if it exists and belongs to service principal caller.\n\n## Limitations\n\nCan only be called by a service principal.",
                 "operationId": "Profiles_GetProfile",
-                "consumes": [
-
-                ],
+                "consumes": [],
                 "produces": [
                     "application/json"
                 ],
@@ -19255,12 +19249,8 @@
                 "summary": "Deletes the specified service principal profile.",
                 "description": "<br/>Deletes the specified profile if it exists and belongs to service principal caller.\n\n## Limitations\n\nCan only be called by a service principal.",
                 "operationId": "Profiles_DeleteProfile",
-                "consumes": [
-
-                ],
-                "produces": [
-
-                ],
+                "consumes": [],
+                "produces": [],
                 "parameters": [
                     {
                         "name": "profileId",
@@ -28125,7 +28115,6 @@
                         "value": "NoDifference",
                         "description": "Before deployment, the item in the source stage was identical to the one in the target stage."
                     }
-
                 ]
             }
         },
