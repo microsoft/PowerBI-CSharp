@@ -375,7 +375,7 @@
                                 "serializerSettings": {
                                     "includeNulls": true
                                 },
-								"impersonatedUserName": "someuser@mycompany.com"
+                                "impersonatedUserName": "someuser@mycompany.com"
                             }
                         },
                         "responses": {
@@ -2202,8 +2202,7 @@
                 "consumes": [
                     "application/json"
                 ],
-                "produces": [
-                ],
+                "produces": [],
                 "parameters": [
                     {
                         "name": "groupId",
@@ -2412,8 +2411,7 @@
                 "consumes": [
                     "application/json"
                 ],
-                "produces": [
-                ],
+                "produces": [],
                 "parameters": [
                     {
                         "name": "datasetId",
@@ -3540,7 +3538,7 @@
                 "tags": [
                     "Reports"
                 ],
-                "summary": "Returns the file from the [Export to File](/rest/api/power-bi/reports/export-to-file) job for the specified report from **My workspace**.",
+                "summary": "Returns the file from the [Export to File](/rest/api/power-bi/reports/export-to-file) job for the specified report from **My workspace**.\\n\\nWhen you export a multi-page report to a *.png* file, the pages are compressed into a *.zip* file with each file in the *.zip* representing a report page.",
                 "description": "\n## Required Scope\n\nReport.ReadWrite.All or Report.Read.All\n<br><br>",
                 "operationId": "Reports_GetFileOfExportToFile",
                 "consumes": [],
@@ -6291,7 +6289,7 @@
                     "application/json"
                 ],
                 "parameters": [
-					{
+                    {
                         "name": "groupId",
                         "in": "path",
                         "required": true,
@@ -6328,7 +6326,7 @@
                 "x-ms-examples": {
                     "Execute queries example": {
                         "parameters": {
-							"groupId": "f089354e-8366-4e18-aea3-4cb4a3a50b48",
+                            "groupId": "f089354e-8366-4e18-aea3-4cb4a3a50b48",
                             "datasetId": "cfafbeb1-8037-4d0c-896e-a46fb27ff229",
                             "requestMessage": {
                                 "queries": [
@@ -6339,7 +6337,7 @@
                                 "serializerSettings": {
                                     "includeNulls": true
                                 },
-								"impersonatedUserName": "someuser@mycompany.com"
+                                "impersonatedUserName": "someuser@mycompany.com"
                             }
                         },
                         "responses": {
@@ -13217,7 +13215,7 @@
                                 "datamarts": [
                                     {
                                         "sourceId": "6bfe235c-6d7b-41b7-98a6-2b8276b3e82b",
-                                         "options": {
+                                        "options": {
                                             "allowOverwriteArtifact": true,
                                             "allowCreateArtifact": true
                                         }
@@ -15062,7 +15060,7 @@
                 "parameters": [
                     {
                         "name": "groupId",
-                        "in": "path", 
+                        "in": "path",
                         "required": true,
                         "description": "The workspace ID",
                         "type": "string",
@@ -18831,9 +18829,7 @@
                 "summary": "Returns a list of service principal profiles.",
                 "description": "<br/>Returns a list of profiles that belongs to service principal caller.\n\n## Limitations\n\nCan only be called by a service principal.",
                 "operationId": "Profiles_GetProfiles",
-                "consumes": [
-
-                ],
+                "consumes": [],
                 "produces": [
                     "application/json"
                 ],
@@ -18966,9 +18962,7 @@
                 "summary": "Returns the specified service principal profile.",
                 "description": "<br/>Returns the specified profile if it exists and belongs to service principal caller.\n\n## Limitations\n\nCan only be called by a service principal.",
                 "operationId": "Profiles_GetProfile",
-                "consumes": [
-
-                ],
+                "consumes": [],
                 "produces": [
                     "application/json"
                 ],
@@ -19074,12 +19068,8 @@
                 "summary": "Deletes the specified service principal profile.",
                 "description": "<br/>Deletes the specified profile if it exists and belongs to service principal caller.\n\n## Limitations\n\nCan only be called by a service principal.",
                 "operationId": "Profiles_DeleteProfile",
-                "consumes": [
-
-                ],
-                "produces": [
-
-                ],
+                "consumes": [],
+                "produces": [],
                 "parameters": [
                     {
                         "name": "profileId",
