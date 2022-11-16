@@ -808,7 +808,7 @@
                     }
                 },
                 "x-ms-examples": {
-                    "Example": {
+                    "Example of refreshing a dataset": {
                         "parameters": {
                             "datasetId": "cfafbeb1-8037-4d0c-896e-a46fb27ff229",
                             "refreshRequest": {
@@ -824,9 +824,30 @@
                                 }
                             }
                         }
-                    }
+                    },                  
+                    "Example of refreshing one partition": {
+                        "parameters": {
+                            "datasetId": "cfafbeb1-8037-4d0c-896e-a46fb27ff229",
+                            "datasetRefreshRequest" : {
+                                "type": "full",
+                                "commitMode": "transactional",
+                                "objects": [
+                                    {
+                                        "table": "Customer",
+                                        "partition": "Robert"
+                                    }
+                                ],
+                                "applyRefreshPolicy": "false"                                                                                    
+                            }
+                        },                      
+						"responses": {
+							"200": {
+								"description": "OK"
+							}
+						}  
+                    }              
                 },
-                "deprecated": false
+                "deprecated": false                 
             }
         },
         "/v1.0/myorg/datasets/{datasetId}/refreshes/{refreshId}": {
@@ -4777,7 +4798,7 @@
                     }
                 },
                 "x-ms-examples": {
-                    "Example": {
+                    "Example of refreshing a dataset": {
                         "parameters": {
                             "groupId": "f089354e-8366-4e18-aea3-4cb4a3a50b48",
                             "datasetId": "cfafbeb1-8037-4d0c-896e-a46fb27ff229",
@@ -4794,7 +4815,28 @@
                                 }
                             }
                         }
-                    }
+                    },
+                    "Example of refreshing one partition": {
+                        "parameters": {
+                            "datasetId": "cfafbeb1-8037-4d0c-896e-a46fb27ff229",
+                            "datasetRefreshRequest" : {
+                                "type": "full",
+                                "commitMode": "transactional",
+                                "objects": [
+                                    {
+                                        "table": "Customer",
+                                        "partition": "Robert"
+                                    }
+                                ],
+                                "applyRefreshPolicy": "false"                                                                                    
+                            }
+                        },                      
+						"responses": {
+							"200": {
+								"description": "OK"
+							}
+						}  
+                    }                                  
                 },
                 "deprecated": false
             }
