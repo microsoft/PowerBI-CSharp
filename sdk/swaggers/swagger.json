@@ -18380,7 +18380,7 @@
                     {
                         "name": "$filter",
                         "in": "query",
-                        "description": "Filters the results based on a boolean condition.",
+                        "description": "Filters the results based on a boolean condition. This API only supports filtering for [orphaned deployment pipelines](#get-orphaned-deployment-pipelines-example). Unsupported filters will return unfiltered results.",
                         "required": false,
                         "type": "string"
                     },

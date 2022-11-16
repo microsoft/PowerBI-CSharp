@@ -2416,7 +2416,10 @@ namespace Microsoft.PowerBI.Api
         /// in the response. Supports `users` and `stages`.
         /// </param>
         /// <param name='filter'>
-        /// Filters the results based on a boolean condition.
+        /// Filters the results based on a boolean condition. This API only supports
+        /// filtering for [orphaned deployment
+        /// pipelines](#get-orphaned-deployment-pipelines-example). Unsupported filters
+        /// will return unfiltered results.
         /// </param>
         /// <param name='top'>
         /// Returns only the first n results. This parameter must be in the range of
