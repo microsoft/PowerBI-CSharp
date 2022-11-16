@@ -7512,7 +7512,7 @@
                 "tags": [
                     "Reports"
                 ],
-                "summary": "Returns the file from the [Export to File In Group](/rest/api/power-bi/reports/export-to-file-in-group) job for the specified report from the specified workspace.",
+                "summary": "Returns the file from the [Export to File In Group](/rest/api/power-bi/reports/export-to-file-in-group) job for the specified report from the specified workspace.\n\nWhen you export a multi-page report to a *.png* file, the pages are compressed into a *.zip* file with each file in the *.zip* representing a report page.",
                 "description": "\n## Permissions\n\nThis API call can be called by a service principal profile. For more information see: [Service principal profiles in Power BI Embedded](/power-bi/developer/embedded/embed-multi-tenancy).\n\n## Required Scope\n\nReport.ReadWrite.All or Report.Read.All\n<br><br>",
                 "operationId": "Reports_GetFileOfExportToFileInGroup",
                 "consumes": [],
