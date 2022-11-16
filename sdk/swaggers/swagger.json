@@ -28287,7 +28287,7 @@
             "properties": {
                 "updateAppInTargetWorkspace": {
                     "type": "boolean",
-                    "description": "Whether to update the app in the target workspace"
+                    "description": "Whether to update the app in the target workspace. Only deployed items that already exist in the app are updated. New deployed items are not added to the app."
                 }
             }
         },

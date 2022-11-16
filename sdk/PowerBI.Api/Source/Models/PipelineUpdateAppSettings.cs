@@ -26,7 +26,9 @@ namespace Microsoft.PowerBI.Api.Models
         /// Initializes a new instance of the PipelineUpdateAppSettings class.
         /// </summary>
         /// <param name="updateAppInTargetWorkspace">Whether to update the app
-        /// in the target workspace</param>
+        /// in the target workspace. Only deployed items that already exist in
+        /// the app are updated. New deployed items are not added to the
+        /// app.</param>
         public PipelineUpdateAppSettings(bool? updateAppInTargetWorkspace = default(bool?))
         {
             UpdateAppInTargetWorkspace = updateAppInTargetWorkspace;
@@ -39,7 +41,9 @@ namespace Microsoft.PowerBI.Api.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets whether to update the app in the target workspace
+        /// Gets or sets whether to update the app in the target workspace.
+        /// Only deployed items that already exist in the app are updated. New
+        /// deployed items are not added to the app.
         /// </summary>
         [JsonProperty(PropertyName = "updateAppInTargetWorkspace")]
         public bool? UpdateAppInTargetWorkspace { get; set; }
