@@ -11277,7 +11277,7 @@
                     {
                         "name": "$expand",
                         "in": "query",
-                        "description": "Accepts a comma-separated list of data types, which will be expanded inline in the response. Supports `capacities` and `groups`.",
+                        "description": "Accepts a comma-separated list of data types, which will be expanded inline in the response. Supports `capacity` and `group`.",
                         "required": false,
                         "type": "string"
                     },
@@ -11503,7 +11503,7 @@
                     {
                         "name": "$expand",
                         "in": "query",
-                        "description": "Accepts a comma-separated list of data types, which will be expanded inline in the response. Supports `capacities` and `groups`.",
+                        "description": "Accepts a comma-separated list of data types, which will be expanded inline in the response. Supports `capacity` and `group`.",
                         "required": false,
                         "type": "string"
                     },
@@ -11736,7 +11736,7 @@
                     {
                         "name": "$expand",
                         "in": "query",
-                        "description": "Accepts a comma-separated list of data types, which will be expanded inline in the response. Supports `capacities` and `groups`.",
+                        "description": "Accepts a comma-separated list of data types, which will be expanded inline in the response. Supports `capacity` and `group`.",
                         "required": false,
                         "type": "string"
                     }
@@ -16469,7 +16469,7 @@
                     {
                         "name": "$expand",
                         "in": "query",
-                        "description": "Accepts a comma-separated list of data types, which will be expanded inline in the response. Supports `capacities` and `groups`.",
+                        "description": "Accepts a comma-separated list of data types, which will be expanded inline in the response. Supports `capacity` and `group`.",
                         "required": false,
                         "type": "string"
                     },
@@ -16695,7 +16695,7 @@
                     {
                         "name": "$expand",
                         "in": "query",
-                        "description": "Accepts a comma-separated list of data types, which will be expanded inline in the response. Supports `capacities` and `groups`.",
+                        "description": "Accepts a comma-separated list of data types, which will be expanded inline in the response. Supports `capacity` and `group`.",
                         "required": false,
                         "type": "string"
                     },
@@ -16928,7 +16928,7 @@
                     {
                         "name": "$expand",
                         "in": "query",
-                        "description": "Accepts a comma-separated list of data types, which will be expanded inline in the response. Supports `capacities` and `groups`.",
+                        "description": "Accepts a comma-separated list of data types, which will be expanded inline in the response. Supports `capacity` and `group`.",
                         "required": false,
                         "type": "string"
                     }

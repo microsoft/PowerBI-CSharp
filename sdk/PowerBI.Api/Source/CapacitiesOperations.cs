@@ -660,7 +660,7 @@ namespace Microsoft.PowerBI.Api
         /// </param>
         /// <param name='expand'>
         /// Accepts a comma-separated list of data types, which will be expanded inline
-        /// in the response. Supports `capacities` and `groups`.
+        /// in the response. Supports `capacity` and `group`.
         /// </param>
         /// <param name='filter'>
         /// Filters the results based on a boolean condition
@@ -840,7 +840,7 @@ namespace Microsoft.PowerBI.Api
         /// </param>
         /// <param name='expand'>
         /// Accepts a comma-separated list of data types, which will be expanded inline
-        /// in the response. Supports `capacities` and `groups`.
+        /// in the response. Supports `capacity` and `group`.
         /// </param>
         /// <param name='filter'>
         /// Filters the results based on a boolean condition
@@ -1022,7 +1022,7 @@ namespace Microsoft.PowerBI.Api
         /// </param>
         /// <param name='expand'>
         /// Accepts a comma-separated list of data types, which will be expanded inline
-        /// in the response. Supports `capacities` and `groups`.
+        /// in the response. Supports `capacity` and `group`.
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
