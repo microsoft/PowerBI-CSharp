@@ -21,12 +21,6 @@ namespace Microsoft.PowerBI.Api
             /// </summary>
             /// <remarks>
             ///
-            /// &gt; [!TIP]
-            /// &gt; To create embed tokens, it's recommended to use the latest API,
-            /// [Generate Token](/rest/api/power-bi/embed-token/generate-token). Generate
-            /// token supports additional functions, such as creating a token for multiple
-            /// items.
-            ///
             /// &gt; [!IMPORTANT]
             /// &gt; This API call is only relevant to the [embed for your
             /// customers](/power-bi/developer/embed-sample-for-customers) scenario. To
@@ -78,12 +72,6 @@ namespace Microsoft.PowerBI.Api
             /// workspace.
             /// </summary>
             /// <remarks>
-            ///
-            /// &gt; [!TIP]
-            /// &gt; To create embed tokens, it's recommended to use the latest API,
-            /// [Generate Token](/rest/api/power-bi/embed-token/generate-token). Generate
-            /// token supports additional functions, such as creating a token for multiple
-            /// items.
             ///
             /// &gt; [!IMPORTANT]
             /// &gt; This API call is only relevant to the [embed for your

@@ -824,11 +824,11 @@
                                 }
                             }
                         }
-                    },                  
+                    },
                     "Example of refreshing one partition": {
                         "parameters": {
                             "datasetId": "cfafbeb1-8037-4d0c-896e-a46fb27ff229",
-                            "datasetRefreshRequest" : {
+                            "datasetRefreshRequest": {
                                 "type": "full",
                                 "commitMode": "transactional",
                                 "objects": [
@@ -837,17 +837,17 @@
                                         "partition": "Robert"
                                     }
                                 ],
-                                "applyRefreshPolicy": "false"                                                                                    
+                                "applyRefreshPolicy": "false"
                             }
-                        },                      
-						"responses": {
-							"200": {
-								"description": "OK"
-							}
-						}  
-                    }              
+                        },
+                        "responses": {
+                            "200": {
+                                "description": "OK"
+                            }
+                        }
+                    }
                 },
-                "deprecated": false                 
+                "deprecated": false
             }
         },
         "/v1.0/myorg/datasets/{datasetId}/refreshes/{refreshId}": {
@@ -4819,7 +4819,7 @@
                     "Example of refreshing one partition": {
                         "parameters": {
                             "datasetId": "cfafbeb1-8037-4d0c-896e-a46fb27ff229",
-                            "datasetRefreshRequest" : {
+                            "datasetRefreshRequest": {
                                 "type": "full",
                                 "commitMode": "transactional",
                                 "objects": [
@@ -4828,15 +4828,15 @@
                                         "partition": "Robert"
                                     }
                                 ],
-                                "applyRefreshPolicy": "false"                                                                                    
+                                "applyRefreshPolicy": "false"
                             }
-                        },                      
-						"responses": {
-							"200": {
-								"description": "OK"
-							}
-						}  
-                    }                                  
+                        },
+                        "responses": {
+                            "200": {
+                                "description": "OK"
+                            }
+                        }
+                    }
                 },
                 "deprecated": false
             }
@@ -8436,7 +8436,7 @@
                     "EmbedToken"
                 ],
                 "summary": "Generates an embed token to view the specified dashboard from the specified workspace.",
-                "description": "\n> [!TIP]\n> To create embed tokens, it's recommended to use the latest API, [Generate Token](/rest/api/power-bi/embed-token/generate-token). Generate token supports additional functions, such as creating a token for multiple items.\n\n> [!IMPORTANT]\n> This API call is only relevant to the [embed for your customers](/power-bi/developer/embed-sample-for-customers) scenario. To learn more about using this API, see [Considerations when generating an embed token](/power-bi/developer/embedded/generate-embed-token).\n\n## Permissions\n\n- When using a service principal for authentication, refer to [Embed Power BI content with service principal](/power-bi/developer/embed-service-principal) and [Considerations and limitations](/power-bi/developer/embedded/embed-service-principal#considerations-and-limitations).\n- This API call can be called by a service principal profile. For more information see: [Service principal profiles in Power BI Embedded](/power-bi/developer/embedded/embed-multi-tenancy).\n\n## Required Scope\n\nAll of the following:\n\n- Dashboard.ReadWrite.All or Dashboard.Read.All\n- Report.ReadWrite.All or Report.Read.All\n- Dataset.ReadWrite.All or Dataset.Read.All\n<br><br>",
+                "description": "\n> [!IMPORTANT]\n> This API call is only relevant to the [embed for your customers](/power-bi/developer/embed-sample-for-customers) scenario. To learn more about using this API, see [Considerations when generating an embed token](/power-bi/developer/embedded/generate-embed-token).\n\n## Permissions\n\n- When using a service principal for authentication, refer to [Embed Power BI content with service principal](/power-bi/developer/embed-service-principal) and [Considerations and limitations](/power-bi/developer/embedded/embed-service-principal#considerations-and-limitations).\n- This API call can be called by a service principal profile. For more information see: [Service principal profiles in Power BI Embedded](/power-bi/developer/embedded/embed-multi-tenancy).\n\n## Required Scope\n\nAll of the following:\n\n- Dashboard.ReadWrite.All or Dashboard.Read.All\n- Report.ReadWrite.All or Report.Read.All\n- Dataset.ReadWrite.All or Dataset.Read.All\n<br><br>",
                 "operationId": "Dashboards_GenerateTokenInGroup",
                 "consumes": [
                     "application/json"
@@ -8556,7 +8556,7 @@
                     "EmbedToken"
                 ],
                 "summary": "Generates an embed token to view the specified tile from the specified workspace.",
-                "description": "\n> [!TIP]\n> To create embed tokens, it's recommended to use the latest API, [Generate Token](/rest/api/power-bi/embed-token/generate-token). Generate token supports additional functions, such as creating a token for multiple items.  \n\n> [!IMPORTANT]\n> This API call is only relevant to the [embed for your customers](/power-bi/developer/embed-sample-for-customers) scenario. To learn more about using this API, see [Considerations when generating an embed token](/power-bi/developer/embedded/generate-embed-token).\n\n## Permissions\n\n- When using a service principal for authentication, refer to [Embed Power BI content with service principal](/power-bi/developer/embed-service-principal) and [Considerations and limitations](/power-bi/developer/embedded/embed-service-principal#considerations-and-limitations).\n- This API call can be called by a service principal profile. For more information see: [Service principal profiles in Power BI Embedded](/power-bi/developer/embedded/embed-multi-tenancy).\n\n## Required Scope\n\nAll of the following:\n\n- Dashboard.ReadWrite.All or Dashboard.Read.All\n- Report.ReadWrite.All or Report.Read.All\n- Dataset.ReadWrite.All or Dataset.Read.All\n<br><br>",
+                "description": "\n> [!IMPORTANT]\n> This API call is only relevant to the [embed for your customers](/power-bi/developer/embed-sample-for-customers) scenario. To learn more about using this API, see [Considerations when generating an embed token](/power-bi/developer/embedded/generate-embed-token).\n\n## Permissions\n\n- When using a service principal for authentication, refer to [Embed Power BI content with service principal](/power-bi/developer/embed-service-principal) and [Considerations and limitations](/power-bi/developer/embedded/embed-service-principal#considerations-and-limitations).\n- This API call can be called by a service principal profile. For more information see: [Service principal profiles in Power BI Embedded](/power-bi/developer/embedded/embed-multi-tenancy).\n\n## Required Scope\n\nAll of the following:\n\n- Dashboard.ReadWrite.All or Dashboard.Read.All\n- Report.ReadWrite.All or Report.Read.All\n- Dataset.ReadWrite.All or Dataset.Read.All\n<br><br>",
                 "operationId": "Tiles_GenerateTokenInGroup",
                 "consumes": [
                     "application/json"
