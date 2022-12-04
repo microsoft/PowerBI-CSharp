@@ -34,9 +34,17 @@ namespace Microsoft.PowerBI.Api
             /// Administrator or Power BI Service Administrator) or authenticate using a
             /// service principal.
             ///
+            /// When running under service principal authentication, an app **must not**
+            /// have any admin-consent required permissions for Power BI set on it in the
+            /// Azure portal.
+            ///
             /// ## Required Scope
             ///
             /// Tenant.Read.All or Tenant.ReadWrite.All
+            ///
+            /// Relevant only when authenticating via a standard delegated admin access
+            /// token. Must not be present when authentication via a service principal is
+            /// used.
             ///
             /// ## Limitations
             ///
@@ -96,9 +104,17 @@ namespace Microsoft.PowerBI.Api
             /// Administrator or Power BI Service Administrator) or authenticate using a
             /// service principal.
             ///
+            /// When running under service principal authentication, an app **must not**
+            /// have any admin-consent required permissions for Power BI set on it in the
+            /// Azure portal.
+            ///
             /// ## Required Scope
             ///
             /// Tenant.Read.All or Tenant.ReadWrite.All
+            ///
+            /// Relevant only when authenticating via a standard delegated admin access
+            /// token. Must not be present when authentication via a service principal is
+            /// used.
             ///
             /// ## Limitations
             ///
@@ -158,9 +174,17 @@ namespace Microsoft.PowerBI.Api
             /// Administrator or Power BI Service Administrator) or authenticate using a
             /// service principal.
             ///
+            /// When running under service principal authentication, an app **must not**
+            /// have any admin-consent required permissions for Power BI set on it in the
+            /// Azure portal.
+            ///
             /// ## Required Scope
             ///
             /// Tenant.Read.All or Tenant.ReadWrite.All
+            ///
+            /// Relevant only when authenticating via a standard delegated admin access
+            /// token. Must not be present when authentication via a service principal is
+            /// used.
             ///
             /// ## Limitations
             ///
@@ -192,9 +216,17 @@ namespace Microsoft.PowerBI.Api
             /// Administrator or Power BI Service Administrator) or authenticate using a
             /// service principal.
             ///
+            /// When running under service principal authentication, an app **must not**
+            /// have any admin-consent required permissions for Power BI set on it in the
+            /// Azure portal.
+            ///
             /// ## Required Scope
             ///
             /// Tenant.Read.All or Tenant.ReadWrite.All
+            ///
+            /// Relevant only when authenticating via a standard delegated admin access
+            /// token. Must not be present when authentication via a service principal is
+            /// used.
             ///
             /// ## Limitations
             ///
@@ -236,9 +268,17 @@ namespace Microsoft.PowerBI.Api
             /// Administrator or Power BI Service Administrator) or authenticate using a
             /// service principal.
             ///
+            /// When running under service principal authentication, an app **must not**
+            /// have any admin-consent required permissions for Power BI set on it in the
+            /// Azure portal.
+            ///
             /// ## Required Scope
             ///
             /// Tenant.Read.All or Tenant.ReadWrite.All
+            ///
+            /// Relevant only when authenticating via a standard delegated admin access
+            /// token. Must not be present when authentication via a service principal is
+            /// used.
             ///
             /// ## Limitations
             ///
@@ -274,9 +314,17 @@ namespace Microsoft.PowerBI.Api
             /// Administrator or Power BI Service Administrator) or authenticate using a
             /// service principal.
             ///
+            /// When running under service principal authentication, an app **must not**
+            /// have any admin-consent required permissions for Power BI set on it in the
+            /// Azure portal.
+            ///
             /// ## Required Scope
             ///
             /// Tenant.Read.All or Tenant.ReadWrite.All
+            ///
+            /// Relevant only when authenticating via a standard delegated admin access
+            /// token. Must not be present when authentication via a service principal is
+            /// used.
             ///
             /// ## Limitations
             ///
@@ -321,9 +369,17 @@ namespace Microsoft.PowerBI.Api
             /// Administrator or Power BI Service Administrator) or authenticate using a
             /// service principal.
             ///
+            /// When running under service principal authentication, an app **must not**
+            /// have any admin-consent required permissions for Power BI set on it in the
+            /// Azure portal.
+            ///
             /// ## Required Scope
             ///
             /// Tenant.Read.All or Tenant.ReadWrite.All
+            ///
+            /// Relevant only when authenticating via a standard delegated admin access
+            /// token. Must not be present when authentication via a service principal is
+            /// used.
             ///
             /// ## Limitations
             ///
@@ -365,9 +421,17 @@ namespace Microsoft.PowerBI.Api
             /// Administrator or Power BI Service Administrator) or authenticate using a
             /// service principal.
             ///
+            /// When running under service principal authentication, an app **must not**
+            /// have any admin-consent required permissions for Power BI set on it in the
+            /// Azure portal.
+            ///
             /// ## Required Scope
             ///
             /// Tenant.Read.All or Tenant.ReadWrite.All
+            ///
+            /// Relevant only when authenticating via a standard delegated admin access
+            /// token. Must not be present when authentication via a service principal is
+            /// used.
             ///
             /// ## Limitations
             ///

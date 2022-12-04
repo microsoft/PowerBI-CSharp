@@ -11277,7 +11277,7 @@
                     {
                         "name": "$expand",
                         "in": "query",
-                        "description": "Accepts a comma-separated list of data types, which will be expanded inline in the response. Supports `capacity` and `group`.",
+                        "description": "Accepts a comma-separated list of data types, which will be expanded inline in the response. Supports `capacities` and `groups`.",
                         "required": false,
                         "type": "string"
                     },
@@ -11503,7 +11503,7 @@
                     {
                         "name": "$expand",
                         "in": "query",
-                        "description": "Accepts a comma-separated list of data types, which will be expanded inline in the response. Supports `capacity` and `group`.",
+                        "description": "Accepts a comma-separated list of data types, which will be expanded inline in the response. Supports `capacities` and `groups`.",
                         "required": false,
                         "type": "string"
                     },
@@ -11736,7 +11736,7 @@
                     {
                         "name": "$expand",
                         "in": "query",
-                        "description": "Accepts a comma-separated list of data types, which will be expanded inline in the response. Supports `capacity` and `group`.",
+                        "description": "Accepts a comma-separated list of data types, which will be expanded inline in the response. Supports `capacities` and `groups`.",
                         "required": false,
                         "type": "string"
                     }
@@ -13438,7 +13438,7 @@
                     "Admin"
                 ],
                 "summary": "Initiates a call to receive metadata for the requested list of workspaces.",
-                "description": "\n> [!IMPORTANT]\n> If you set the `datasetSchema` or `datasetExpressions` parameters to `true`, you must fully enable metadata scanning in order for data to be returned. For more information, see [Enable tenant settings for metadata scanning](/power-bi/admin/service-admin-metadata-scanning-setup#enable-tenant-settings-for-metadata-scanning).\n\n## Permissions\n\nThe user must have administrator rights (such as Microsoft 365 Global Administrator or Power BI Service Administrator) or authenticate using a service principal.\n\n## Required Scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n\n## Limitations\n\n- Maximum 500 requests per hour.\n- Maximum 16 simultaneous requests.\n<br><br>",
+                "description": "\n> [!IMPORTANT]\n> If you set the `datasetSchema` or `datasetExpressions` parameters to `true`, you must fully enable metadata scanning in order for data to be returned. For more information, see [Enable tenant settings for metadata scanning](/power-bi/admin/service-admin-metadata-scanning-setup#enable-tenant-settings-for-metadata-scanning).\n\n## Permissions\n\nThe user must have administrator rights (such as Microsoft 365 Global Administrator or Power BI Service Administrator) or authenticate using a service principal.\n\nWhen running under service principal authentication, an app **must not** have any admin-consent required permissions for Power BI set on it in the Azure portal.\n\n## Required Scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n\nRelevant only when authenticating via a standard delegated admin access token. Must not be present when authentication via a service principal is used.\n\n## Limitations\n\n- Maximum 500 requests per hour.\n- Maximum 16 simultaneous requests.\n<br><br>",
                 "operationId": "WorkspaceInfo_PostWorkspaceInfo",
                 "consumes": [
                     "application/json"
@@ -13535,7 +13535,7 @@
                     "Admin"
                 ],
                 "summary": "Gets the scan status for the specified scan.",
-                "description": "\n## Permissions\n\nThe user must have administrator rights (such as Microsoft 365 Global Administrator or Power BI Service Administrator) or authenticate using a service principal.\n\n## Required Scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n\n## Limitations\n\nMaximum 10,000 requests per hour.\n<br><br>",
+                "description": "\n## Permissions\n\nThe user must have administrator rights (such as Microsoft 365 Global Administrator or Power BI Service Administrator) or authenticate using a service principal.\n\nWhen running under service principal authentication, an app **must not** have any admin-consent required permissions for Power BI set on it in the Azure portal. \n\n## Required Scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n\nRelevant only when authenticating via a standard delegated admin access token. Must not be present when authentication via a service principal is used.\n\n## Limitations\n\nMaximum 10,000 requests per hour.\n<br><br>",
                 "operationId": "WorkspaceInfo_GetScanStatus",
                 "consumes": [
                     "application/json"
@@ -13587,7 +13587,7 @@
                     "Admin"
                 ],
                 "summary": "Gets the scan result for the specified scan.",
-                "description": "\nOnly make this API call after a successful [GetScanStatus](/rest/api/power-bi/admin/workspace-info-get-scan-status) API call. The scan result will remain available for 24 hours.\n\n## Permissions\n\nThe user must have administrator rights (such as Microsoft 365 Global Administrator or Power BI Service Administrator) or authenticate using a service principal.\n\n## Required Scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n\n## Limitations\n\nMaximum 500 requests per hour.\n<br><br>",
+                "description": "\nOnly make this API call after a successful [GetScanStatus](/rest/api/power-bi/admin/workspace-info-get-scan-status) API call. The scan result will remain available for 24 hours.\n\n## Permissions\n\nThe user must have administrator rights (such as Microsoft 365 Global Administrator or Power BI Service Administrator) or authenticate using a service principal.\n\nWhen running under service principal authentication, an app **must not** have any admin-consent required permissions for Power BI set on it in the Azure portal.\n\n## Required Scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n\nRelevant only when authenticating via a standard delegated admin access token. Must not be present when authentication via a service principal is used.\n\n## Limitations\n\nMaximum 500 requests per hour.\n<br><br>",
                 "operationId": "WorkspaceInfo_GetScanResult",
                 "consumes": [
                     "application/json"
@@ -13866,7 +13866,7 @@
                     "Admin"
                 ],
                 "summary": "Gets a list of workspace IDs in the organization.",
-                "description": "\nIf the optional `modifiedSince` parameter is set to a date-time, only the IDs of workspaces that changed after that date-time are returned. If the `modifiedSince` parameter isn't used, the IDs of all workspaces in the organization are returned. The date-time specified by the `modifiedSince` parameter must be in the range of 30 minutes (to allow workspace changes to take effect) to 30 days prior to the current time.\n\n## Permissions\n\nThe user must have administrator rights (such as Microsoft 365 Global Administrator or Power BI Service Administrator) or authenticate using a service principal.\n\n## Required Scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n\n## Limitations\n\nMaximum 30 requests per hour.\n<br><br>",
+                "description": "\nIf the optional `modifiedSince` parameter is set to a date-time, only the IDs of workspaces that changed after that date-time are returned. If the `modifiedSince` parameter isn't used, the IDs of all workspaces in the organization are returned. The date-time specified by the `modifiedSince` parameter must be in the range of 30 minutes (to allow workspace changes to take effect) to 30 days prior to the current time.\n\n## Permissions\n\nThe user must have administrator rights (such as Microsoft 365 Global Administrator or Power BI Service Administrator) or authenticate using a service principal.\n\nWhen running under service principal authentication, an app **must not** have any admin-consent required permissions for Power BI set on it in the Azure portal. \n\n## Required Scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n\nRelevant only when authenticating via a standard delegated admin access token. Must not be present when authentication via a service principal is used.\n\n## Limitations\n\nMaximum 30 requests per hour.\n<br><br>",
                 "operationId": "WorkspaceInfo_GetModifiedWorkspaces",
                 "consumes": [
                     "application/json"
@@ -14021,7 +14021,7 @@
                     "Admin"
                 ],
                 "summary": "Returns a list of datasets for the organization.",
-                "description": "\nEach request takes two seconds to process, during which time other requests are queued.\n\n## Permissions\n\n- The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) or authenticate using a service principal.\n- Delegated permissions are supported.\n\n## Required Scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n<br><br>",
+                "description": "\nEach request takes two seconds to process, during which time other requests are queued.\n\n## Permissions\n\n- The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) or authenticate using a service principal.\n- Delegated permissions are supported.\n\nWhen running under service prinicipal authentication, an app **must not** have any admin-consent required premissions for Power BI set on it in the Azure portal. \n\n## Required Scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n\nRelevant only when authenticating via a standard delegated admin access token. Must not be present when authentication via a service principal is used.\n<br><br>",
                 "operationId": "Datasets_GetDatasetsAsAdmin",
                 "consumes": [],
                 "produces": [
@@ -14094,7 +14094,7 @@
                     "Admin"
                 ],
                 "summary": "Returns a list of data sources for the specified dataset.",
-                "description": "\nEach request takes 0.5 seconds to process, during which time other requests are queued.\n\n## Permissions\n\n- The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) or authenticate using a service principal. \n- Delegated permissions are supported.\n\n## Required Scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n<br><br>",
+                "description": "\nEach request takes 0.5 seconds to process, during which time other requests are queued.\n\n## Permissions\n\n- The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) or authenticate using a service principal. \n- Delegated permissions are supported.\n\nWhen running under service prinicipal authentication, an app **must not** have any admin-consent required premissions for Power BI set on it in the Azure portal.\n\n## Required Scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n\nRelevant only when authenticating via a standard delegated admin access token. Must not be present when authentication via a service principal is used.\n<br><br>",
                 "operationId": "Datasets_GetDatasourcesAsAdmin",
                 "consumes": [],
                 "produces": [
@@ -14151,7 +14151,7 @@
                     "Admin"
                 ],
                 "summary": "Returns a list of users that have access to the specified dataset.",
-                "description": "\n## Permissions\n\n- The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) or authenticate using a service principal.\n- Delegated permissions are supported.\n- The permissions for this API call are listed in [Datasets permissions](/power-bi/developer/embedded/datasets-permissions).\n\n## Required Scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n\n## Limitations\n\nMaximum 200 requests per hour.\n<br><br>",
+                "description": "\n## Permissions\n\n- The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) or authenticate using a service principal.\n- Delegated permissions are supported.\n- The permissions for this API call are listed in [Datasets permissions](/power-bi/developer/embedded/datasets-permissions).\n\nWhen running under service prinicipal authentication, an app **must not** have any admin-consent required premissions for Power BI set on it in the Azure portal.\n\n## Required Scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n\nRelevant only when authenticating via a standard delegated admin access token. Must not be present when authentication via a service principal is used.\n\n## Limitations\n\nMaximum 200 requests per hour.\n<br><br>",
                 "operationId": "Datasets_GetDatasetUsersAsAdmin",
                 "consumes": [],
                 "produces": [
@@ -14205,7 +14205,7 @@
                     "Admin"
                 ],
                 "summary": "Returns a list of workspaces for the organization.",
-                "description": "\n## Permissions\n\n- The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) or authenticate using a service principal.\n- Delegated permissions are supported.\n\n## Required Scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n\n## Limitations\n\nMaximum 50 requests per hour, per tenant. This call will also time out after 30 seconds to prevent adverse effect on the Power BI service.\n<br><br>",
+                "description": "\n## Permissions\n\n- The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) or authenticate using a service principal.\n- Delegated permissions are supported.\n\nWhen running under service prinicipal authentication, an app **must not** have any admin-consent required premissions for Power BI set on it in the Azure portal. \n\n## Required Scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n\nRelevant only when authenticating via a standard delegated admin access token. Must not be present when authentication via a service principal is used.\n\n## Limitations\n\nMaximum 50 requests per hour, per tenant. This call will also time out after 30 seconds to prevent adverse effect on the Power BI service.\n<br><br>",
                 "operationId": "Groups_GetGroupsAsAdmin",
                 "consumes": [],
                 "produces": [
@@ -14693,7 +14693,7 @@
                     "Admin"
                 ],
                 "summary": "Returns a list of users that have access to the specified workspace.",
-                "description": "\n## Permissions\n\n- The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) or authenticate using a service principal.\n- Delegated permissions are supported.\n\n## Required Scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n\n## Limitations\n\nMaximum 200 requests per hour.\n<br><br>",
+                "description": "\n## Permissions\n\n- The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) or authenticate using a service principal.\n- Delegated permissions are supported.\n\nWhen running under service prinicipal authentication, an app **must not** have any admin-consent required premissions for Power BI set on it in the Azure portal.\n\n## Required Scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n\nRelevant only when authenticating via a standard delegated admin access token. Must not be present when authentication via a service principal is used.\n\n## Limitations\n\nMaximum 200 requests per hour.\n<br><br>",
                 "operationId": "Groups_GetGroupUsersAsAdmin",
                 "consumes": [],
                 "produces": [
@@ -14920,7 +14920,7 @@
                     "Admin"
                 ],
                 "summary": "Returns a list of upstream dataflows for the specified dataflow.",
-                "description": "\n## Permissions\n\n- The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) or authenticate using a service principal.\n- Delegated permissions are supported.\n\n## Required Scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n\n## Limitations\n\nMaximum 200 requests per hour.\n<br><br>",
+                "description": "\n## Permissions\n\n- The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) or authenticate using a service principal.\n- Delegated permissions are supported.\n\nWhen running under service prinicipal authentication, an app **must not** have any admin-consent required premissions for Power BI set on it in the Azure portal.\n\n## Required Scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n\nRelevant only when authenticating via a standard delegated admin access token. Must not be present when authentication via a service principal is used.\n\n## Limitations\n\nMaximum 200 requests per hour.\n<br><br>",
                 "operationId": "Dataflows_GetUpstreamDataflowsInGroupAsAdmin",
                 "consumes": [],
                 "produces": [
@@ -14985,7 +14985,7 @@
                     "Admin"
                 ],
                 "summary": "Returns a list of dashboards from the specified workspace.",
-                "description": "\n## Permissions\n\n- The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) or authenticate using a service principal.\n- Delegated permissions are supported.\n\n## Required Scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n\n## Limitations\n\nMaximum 200 requests per hour.\n<br><br>",
+                "description": "\n## Permissions\n\n- The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) or authenticate using a service principal.\n- Delegated permissions are supported.\n\nWhen running under service prinicipal authentication, an app **must not** have any admin-consent required premissions for Power BI set on it in the Azure portal.\n\n## Required Scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n\nRelevant only when authenticating via a standard delegated admin access token. Must not be present when authentication via a service principal is used.\n\n## Limitations\n\nMaximum 200 requests per hour.\n<br><br>",
                 "operationId": "Dashboards_GetDashboardsInGroupAsAdmin",
                 "consumes": [],
                 "produces": [
@@ -15062,7 +15062,7 @@
                     "Admin"
                 ],
                 "summary": "Returns a list of reports from the specified workspace.",
-                "description": "\n## Permissions\n\n- The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) or authenticate using a service principal.\n- Delegated permissions are supported.\n\n## Required Scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n\n## Limitations\n\nMaximum 200 requests per hour.\n<br><br>",
+                "description": "\n## Permissions\n\n- The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) or authenticate using a service principal.\n- Delegated permissions are supported.\n\nWhen running under service prinicipal authentication, an app **must not** have any admin-consent required premissions for Power BI set on it in the Azure portal.\n\n## Required Scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n\nRelevant only when authenticating via a standard delegated admin access token. Must not be present when authentication via a service principal is used.\n\n## Limitations\n\nMaximum 200 requests per hour.\n<br><br>",
                 "operationId": "Reports_GetReportsInGroupAsAdmin",
                 "consumes": [],
                 "produces": [
@@ -15140,7 +15140,7 @@
                     "Admin"
                 ],
                 "summary": "Returns a list of datasets from the specified workspace.",
-                "description": "\n## Permissions\n\n- The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) or authenticate using a service principal.\n- Delegated permissions are supported.\n\n## Required Scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n\n## Limitations\n\nMaximum 200 requests per hour.\n<br><br>",
+                "description": "\n## Permissions\n\n- The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) or authenticate using a service principal.\n- Delegated permissions are supported.\n\nWhen running under service prinicipal authentication, an app **must not** have any admin-consent required premissions for Power BI set on it in the Azure portal.\n\n## Required Scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n\nRelevant only when authenticating via a standard delegated admin access token. Must not be present when authentication via a service principal is used.\n\n## Limitations\n\nMaximum 200 requests per hour.\n<br><br>",
                 "operationId": "Datasets_GetDatasetsInGroupAsAdmin",
                 "consumes": [],
                 "produces": [
@@ -15258,7 +15258,7 @@
                     "Admin"
                 ],
                 "summary": "Returns a list of upstream dataflows for datasets from the specified workspace.",
-                "description": "\n## Permissions\n\n- The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) or authenticate using a service principal.\n- Delegated permissions are supported.\n\n## Required Scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n\n## Limitations\n\nMaximum 200 requests per hour.\n<br><br>",
+                "description": "\n## Permissions\n\n- The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) or authenticate using a service principal.\n- Delegated permissions are supported.\n\nWhen running under service prinicipal authentication, an app **must not** have any admin-consent required premissions for Power BI set on it in the Azure portal.\n\n## Required Scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n\nRelevant only when authenticating via a standard delegated admin access token. Must not be present when authentication via a service principal is used.\n\n## Limitations\n\nMaximum 200 requests per hour.\n<br><br>",
                 "operationId": "Datasets_GetDatasetToDataflowsLinksInGroupAsAdmin",
                 "consumes": [],
                 "produces": [
@@ -15311,7 +15311,7 @@
                     "Admin"
                 ],
                 "summary": "Returns a list of dataflows from the specified workspace.",
-                "description": "\n## Permissions\n\n- The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) or authenticate using a service principal.\n- Delegated permissions are supported.\n\n## Required Scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n\n## Limitations\n\nMaximum 200 requests per hour.\n<br><br>",
+                "description": "\n## Permissions\n\n- The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) or authenticate using a service principal.\n- Delegated permissions are supported.\n\nWhen running under service prinicipal authentication, an app **must not** have any admin-consent required premissions for Power BI set on it in the Azure portal.\n\n## Required Scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n\nRelevant only when authenticating via a standard delegated admin access token. Must not be present when authentication via a service principal is used.\n\n## Limitations\n\nMaximum 200 requests per hour.\n<br><br>",
                 "operationId": "Dataflows_GetDataflowsInGroupAsAdmin",
                 "consumes": [],
                 "produces": [
@@ -15452,7 +15452,7 @@
                     "Admin"
                 ],
                 "summary": "Returns a list of reports for the organization.",
-                "description": "\n## Permissions\n\n- The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) or authenticate using a service principal.\n- Delegated permissions are supported.\n\n## Required Scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n\n## Limitations\n\nMaximum 200 requests per hour.\n<br><br>",
+                "description": "\n## Permissions\n\n- The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) or authenticate using a service principal.\n- Delegated permissions are supported.\n\nWhen running under service prinicipal authentication, an app **must not** have any admin-consent required premissions for Power BI set on it in the Azure portal.\n\n## Required Scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n\nRelevant only when authenticating via a standard delegated admin access token. Must not be present when authentication via a service principal is used.\n\n## Limitations\n\nMaximum 200 requests per hour.\n<br><br>",
                 "operationId": "Reports_GetReportsAsAdmin",
                 "consumes": [],
                 "produces": [
@@ -15521,7 +15521,7 @@
                     "Admin"
                 ],
                 "summary": "Returns a list of users that have access to the specified report.",
-                "description": "\n## Permissions\n\n- The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) or authenticate using a service principal.\n- Delegated permissions are supported.\n\n## Required Scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n\n## Limitations\n\nMaximum 200 requests per hour.\n<br><br>",
+                "description": "\n## Permissions\n\n- The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) or authenticate using a service principal.\n- Delegated permissions are supported.\n\nWhen running under service prinicipal authentication, an app **must not** have any admin-consent required premissions for Power BI set on it in the Azure portal.\n\n## Required Scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n\nRelevant only when authenticating via a standard delegated admin access token. Must not be present when authentication via a service principal is used.\n\n## Limitations\n\nMaximum 200 requests per hour.\n<br><br>",
                 "operationId": "Reports_GetReportUsersAsAdmin",
                 "consumes": [],
                 "produces": [
@@ -15645,7 +15645,7 @@
                     "Admin"
                 ],
                 "summary": "Returns a list of dashboards for the organization.",
-                "description": "\n## Permissions\n\n- The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) or authenticate using a service principal.\n- Delegated permissions are supported.\n\n## Required Scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n\n## Limitations\n\nMaximum 200 requests per hour.\n<br><br>",
+                "description": "\n## Permissions\n\n- The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) or authenticate using a service principal.\n- Delegated permissions are supported.\n\nWhen running under service prinicipal authentication, an app **must not** have any admin-consent required premissions for Power BI set on it in the Azure portal.\n\n## Required Scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n\nRelevant only when authenticating via a standard delegated admin access token. Must not be present when authentication via a service principal is used.\n\n## Limitations\n\nMaximum 200 requests per hour.\n<br><br>",
                 "operationId": "Dashboards_GetDashboardsAsAdmin",
                 "consumes": [],
                 "produces": [
@@ -15720,7 +15720,7 @@
                     "Admin"
                 ],
                 "summary": "Returns a list of tiles within the specified dashboard.",
-                "description": "\n## Permissions\n\n- The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) or authenticate using a service principal.\n- Delegated permissions are supported.\n\n## Required Scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n\n## Limitations\n\nMaximum 200 requests per hour.\n<br><br>",
+                "description": "\n## Permissions\n\n- The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) or authenticate using a service principal.\n- Delegated permissions are supported.\n\nWhen running under service prinicipal authentication, an app **must not** have any admin-consent required premissions for Power BI set on it in the Azure portal.\n\n## Required Scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n\nRelevant only when authenticating via a standard delegated admin access token. Must not be present when authentication via a service principal is used.\n\n## Limitations\n\nMaximum 200 requests per hour.\n<br><br>",
                 "operationId": "Dashboards_GetTilesAsAdmin",
                 "consumes": [],
                 "produces": [
@@ -15777,7 +15777,7 @@
                     "Admin"
                 ],
                 "summary": "Returns a list of users that have access to the specified dashboard.",
-                "description": "\n## Permissions\n\n- The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) or authenticate using a service principal.\n- Delegated permissions are supported.\n\n## Required Scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n\n## Limitations\n\nMaximum 200 requests per hour.\n<br><br>",
+                "description": "\n## Permissions\n\n- The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) or authenticate using a service principal.\n- Delegated permissions are supported.\n\nWhen running under service prinicipal authentication, an app **must not** have any admin-consent required premissions for Power BI set on it in the Azure portal. \n\n## Required Scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n\nRelevant only when authenticating via a standard delegated admin access token. Must not be present when authentication via a service principal is used.\n\n## Limitations\n\nMaximum 200 requests per hour.\n<br><br>",
                 "operationId": "Dashboards_GetDashboardUsersAsAdmin",
                 "consumes": [],
                 "produces": [
@@ -16021,7 +16021,7 @@
                     "Admin"
                 ],
                 "summary": "Returns a list of imports for the organization.",
-                "description": "\n## Permissions\n\n- The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) or authenticate using a service principal.\n- Delegated permissions are supported.\n\n## Required Scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n\n## Limitations\n\nMaximum 200 requests per hour.\n<br><br>",
+                "description": "\n## Permissions\n\n- The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) or authenticate using a service principal.\n- Delegated permissions are supported.\n\nWhen running under service prinicipal authentication, an app **must not** have any admin-consent required premissions for Power BI set on it in the Azure portal.\n\n## Required Scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n\nRelevant only when authenticating via a standard delegated admin access token. Must not be present when authentication via a service principal is used.\n\n## Limitations\n\nMaximum 200 requests per hour.\n<br><br>",
                 "operationId": "Imports_GetImportsAsAdmin",
                 "consumes": [],
                 "produces": [
@@ -16171,7 +16171,7 @@
                     "Admin"
                 ],
                 "summary": "Returns the encryption keys for the tenant.",
-                "description": "\n## Permissions\n\n- The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) or authenticate using a service principal.\n- Delegated permissions are supported.\n\n## Required Scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n<br><br>",
+                "description": "\n## Permissions\n\n- The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) or authenticate using a service principal.\n- Delegated permissions are supported.\n\nWhen running under service prinicipal authentication, an app **must not** have any admin-consent required premissions for Power BI set on it in the Azure portal.\n\n## Required Scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n\nRelevant only when authenticating via a standard delegated admin access token. Must not be present when authentication via a service principal is used.\n<br><br>",
                 "operationId": "Admin_GetPowerBIEncryptionKeys",
                 "consumes": [],
                 "produces": [
@@ -16282,7 +16282,7 @@
                     "Admin"
                 ],
                 "summary": "Returns a list of capacities for the organization.",
-                "description": "\n## Permissions\n\n- The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) or authenticate using a service principal.\n- Delegated permissions are supported.\n\n## Required Scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n<br><br>",
+                "description": "\n## Permissions\n\n- The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) or authenticate using a service principal.\n- Delegated permissions are supported.\n\nWhen running under service prinicipal authentication, an app **must not** have any admin-consent required premissions for Power BI set on it in the Azure portal.\n\n## Required Scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n\nRelevant only when authenticating via a standard delegated admin access token. Must not be present when authentication via a service principal is used.\n<br><br>",
                 "operationId": "Admin_GetCapacitiesAsAdmin",
                 "consumes": [],
                 "produces": [
@@ -16426,7 +16426,7 @@
                     "Admin"
                 ],
                 "summary": "Returns a list of users that have access to the specified workspace.",
-                "description": "\n## Permissions\n\n- The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator).\n- Delegated permissions are supported.\n\n## Required Scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n<br><br>",
+                "description": "\n## Permissions\n\n- The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator).\n- Delegated permissions are supported.\n\nWhen running under service prinicipal authentication, an app **must not** have any admin-consent required premissions for Power BI set on it in the Azure portal.\n\n## Required Scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n\nRelevant only when authenticating via a standard delegated admin access token. Must not be present when authentication via a service principal is used.\n<br><br>",
                 "operationId": "Capacities_GetCapacityUsersAsAdmin",
                 "consumes": [
                     "application/json"
@@ -16459,7 +16459,7 @@
                     "Admin"
                 ],
                 "summary": "Returns a list of refreshables for the organization within a capacity.",
-                "description": "\nPower BI retains a seven-day refresh history for each dataset, up to a maximum of sixty refreshes.\n\n## Permissions\n\n- The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) or authenticate using a service principal.\n- Delegated permissions are supported.\n\n## Required Scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n<br><br>",
+                "description": "\nPower BI retains a seven-day refresh history for each dataset, up to a maximum of sixty refreshes.\n\n## Permissions\n\n- The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) or authenticate using a service principal.\n- Delegated permissions are supported.\n\nWhen running under service prinicipal authentication, an app **must not** have any admin-consent required premissions for Power BI set on it in the Azure portal.\n\n## Required Scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n\nRelevant only when authenticating via a standard delegated admin access token. Must not be present when authentication via a service principal is used.\n<br><br>",
                 "operationId": "Admin_GetRefreshables",
                 "consumes": [],
                 "produces": [
@@ -16469,7 +16469,7 @@
                     {
                         "name": "$expand",
                         "in": "query",
-                        "description": "Accepts a comma-separated list of data types, which will be expanded inline in the response. Supports `capacity` and `group`.",
+                        "description": "Accepts a comma-separated list of data types, which will be expanded inline in the response. Supports `capacities` and `groups`.",
                         "required": false,
                         "type": "string"
                     },
@@ -16677,7 +16677,7 @@
                     "Admin"
                 ],
                 "summary": "Returns a list of refreshables for the specified capacity that the user has access to.",
-                "description": "\nPower BI retains a seven-day refresh history for each dataset, up to a maximum of sixty refreshes.\n\n## Permissions\n\n- The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) or authenticate using a service principal.\n- Delegated permissions are supported.\n\n## Required Scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n<br><br>",
+                "description": "\nPower BI retains a seven-day refresh history for each dataset, up to a maximum of sixty refreshes.\n\n## Permissions\n\n- The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) or authenticate using a service principal.\n- Delegated permissions are supported.\n\nWhen running under service prinicipal authentication, an app **must not** have any admin-consent required premissions for Power BI set on it in the Azure portal. \n\n## Required Scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n\nRelevant only when authenticating via a standard delegated admin access token. Must not be present when authentication via a service principal is used.\n<br><br>",
                 "operationId": "Admin_GetRefreshablesForCapacity",
                 "consumes": [],
                 "produces": [
@@ -16695,7 +16695,7 @@
                     {
                         "name": "$expand",
                         "in": "query",
-                        "description": "Accepts a comma-separated list of data types, which will be expanded inline in the response. Supports `capacity` and `group`.",
+                        "description": "Accepts a comma-separated list of data types, which will be expanded inline in the response. Supports `capacities` and `groups`.",
                         "required": false,
                         "type": "string"
                     },
@@ -16903,7 +16903,7 @@
                     "Admin"
                 ],
                 "summary": "Returns the specified refreshable for the specified capacity that the user has access to.",
-                "description": "\nPower BI retains a seven-day refresh history for each dataset, up to a maximum of sixty refreshes.\n\n## Permissions\n\n- The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) or authenticate using a service principal.\n- Delegated permissions are supported.\n\n## Required Scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n<br><br>",
+                "description": "\nPower BI retains a seven-day refresh history for each dataset, up to a maximum of sixty refreshes.\n\n## Permissions\n\n- The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) or authenticate using a service principal.\n- Delegated permissions are supported.\n\nWhen running under service prinicipal authentication, an app **must not** have any admin-consent required premissions for Power BI set on it in the Azure portal.\n\n## Required Scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n\nRelevant only when authenticating via a standard delegated admin access token. Must not be present when authentication via a service principal is used.\n<br><br>",
                 "operationId": "Admin_GetRefreshableForCapacity",
                 "consumes": [],
                 "produces": [
@@ -16928,7 +16928,7 @@
                     {
                         "name": "$expand",
                         "in": "query",
-                        "description": "Accepts a comma-separated list of data types, which will be expanded inline in the response. Supports `capacity` and `group`.",
+                        "description": "Accepts a comma-separated list of data types, which will be expanded inline in the response. Supports `capacities` and `groups`.",
                         "required": false,
                         "type": "string"
                     }
@@ -17061,7 +17061,7 @@
                     "Admin"
                 ],
                 "summary": "Returns a list of dataflows for the organization.",
-                "description": "\n## Permissions\n\n- The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) or authenticate using a service principal.\n- Delegated permissions are supported.\n\n## Required Scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n<br><br>",
+                "description": "\n## Permissions\n\n- The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) or authenticate using a service principal.\n- Delegated permissions are supported.\n\nWhen running under service prinicipal authentication, an app **must not** have any admin-consent required premissions for Power BI set on it in the Azure portal.\n\n## Required Scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n\nRelevant only when authenticating via a standard delegated admin access token. Must not be present when authentication via a service principal is used.\n<br><br>",
                 "operationId": "Dataflows_GetDataflowsAsAdmin",
                 "consumes": [],
                 "produces": [
@@ -17130,7 +17130,7 @@
                     "Admin"
                 ],
                 "summary": "Exports the definition for the specified dataflow to a JSON file.",
-                "description": "\n## Permissions\n\n- The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) or authenticate using a service principal.\n- Delegated permissions are supported.\n\n## Required Scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n<br><br>",
+                "description": "\n## Permissions\n\n- The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) or authenticate using a service principal.\n- Delegated permissions are supported.\n\nWhen running under service prinicipal authentication, an app **must not** have any admin-consent required premissions for Power BI set on it in the Azure portal.\n\n## Required Scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n\nRelevant only when authenticating via a standard delegated admin access token. Must not be present when authentication via a service principal is used.\n<br><br>",
                 "operationId": "Dataflows_ExportDataflowAsAdmin",
                 "consumes": [],
                 "produces": [
@@ -17163,7 +17163,7 @@
                     "Admin"
                 ],
                 "summary": "Returns a list of data sources for the specified dataflow.",
-                "description": "\nDeleted data sources will still appear in the response. This may include both cloud and on-premise data gateway sources. For more information see [Dataflows considerations and limitations](/power-bi/transform-model/dataflows/dataflows-features-limitations).\n\n## Permissions\n\n- The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) or authenticate using a service principal.\n- Delegated permissions are supported.\n\n## Required Scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n<br><br>",
+                "description": "\nDeleted data sources will still appear in the response. This may include both cloud and on-premise data gateway sources. For more information see [Dataflows considerations and limitations](/power-bi/transform-model/dataflows/dataflows-features-limitations).\n\n## Permissions\n\n- The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) or authenticate using a service principal.\n- Delegated permissions are supported.\n\nWhen running under service prinicipal authentication, an app **must not** have any admin-consent required premissions for Power BI set on it in the Azure portal.\n\n## Required Scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n\nRelevant only when authenticating via a standard delegated admin access token. Must not be present when authentication via a service principal is used.\n<br><br>",
                 "operationId": "Dataflows_GetDataflowDatasourcesAsAdmin",
                 "consumes": [],
                 "produces": [
@@ -17222,7 +17222,7 @@
                     "Admin"
                 ],
                 "summary": "Returns a list of users that have access to the specified dataflow.",
-                "description": "\n## Permissions\n\n- The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) or authenticate using a service principal.\n- Delegated permissions are supported.\n\n## Required Scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n\n## Limitations\n\nMaximum 200 requests per hour.\n<br><br>",
+                "description": "\n## Permissions\n\n- The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) or authenticate using a service principal.\n- Delegated permissions are supported.\n\nWhen running under service prinicipal authentication, an app **must not** have any admin-consent required premissions for Power BI set on it in the Azure portal.\n\n## Required Scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n\nRelevant only when authenticating via a standard delegated admin access token. Must not be present when authentication via a service principal is used.\n\n## Limitations\n\nMaximum 200 requests per hour.\n<br><br>",
                 "operationId": "Dataflows_GetDataflowUsersAsAdmin",
                 "consumes": [],
                 "produces": [
@@ -17664,7 +17664,7 @@
                     "Admin"
                 ],
                 "summary": "Returns a list of apps in the organization.",
-                "description": "\nThe query parameter $top is required.\n\n## Permissions\n\nDelegated permissions are supported.\n\n## Required Scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n\n## Limitations\n\nMaximum 200 requests per hour.\n<br><br>",
+                "description": "\nThe query parameter $top is required.\n\n## Permissions\n\n- The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) or authenticate using a service principal.\n- Delegated permissions are supported.\n\nWhen running under service prinicipal authentication, an app **must not** have any admin-consent required premissions for Power BI set on it in the Azure portal.\n\n## Required Scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n\nRelevant only when authenticating via a standard delegated admin access token. Must not be present when authentication via a service principal is used.\n\n## Limitations\n\nMaximum 200 requests per hour.\n<br><br>",
                 "operationId": "Apps_GetAppsAsAdmin",
                 "consumes": [],
                 "produces": [
@@ -17726,7 +17726,7 @@
                     "Admin"
                 ],
                 "summary": "Returns a list of users that have access to the specified app.",
-                "description": "\n## Permissions\n\n- The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) or authenticate using a service principal.\n- Delegated permissions are supported.\n\n## Required Scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n\n## Limitations\n\nMaximum 200 requests per hour.\n<br><br>",
+                "description": "\n## Permissions\n\n- The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) or authenticate using a service principal.\n- Delegated permissions are supported.\n\nWhen running under service prinicipal authentication, an app **must not** have any admin-consent required premissions for Power BI set on it in the Azure portal.\n\n## Required Scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n\nRelevant only when authenticating via a standard delegated admin access token. Must not be present when authentication via a service principal is used.\n\n## Limitations\n\nMaximum 200 requests per hour.\n<br><br>",
                 "operationId": "Apps_GetAppUsersAsAdmin",
                 "consumes": [],
                 "produces": [
@@ -17935,7 +17935,7 @@
                     "Admin"
                 ],
                 "summary": "Returns a list of audit activity events for a tenant.",
-                "description": "\nProvide either a continuation token or both a start and end date time. `StartDateTime` and `EndDateTime` must be in the same UTC day and should be wrapped in single quotes.\n\n## Permissions\n\n- The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) or authenticate using a service principal.\n- Delegated permissions are supported.\n\n## Required Scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n\n## Limitations\n\n- Maximum 200 requests per hour.\n- Activity logging isn't supported for Microsoft Cloud Deutschland.\n<br><br>",
+                "description": "\nProvide either a continuation token or both a start and end date time. `StartDateTime` and `EndDateTime` must be in the same UTC day and should be wrapped in single quotes.\n\n## Permissions\n\n- The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) or authenticate using a service principal.\n- Delegated permissions are supported.\n\nWhen running under service prinicipal authentication, an app **must not** have any admin-consent required premissions for Power BI set on it in the Azure portal.\n\n## Required Scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n\nRelevant only when authenticating via a standard delegated admin access token. Must not be present when authentication via a service principal is used.\n\n## Limitations\n\n- Maximum 200 requests per hour.\n- Activity logging isn't supported for Microsoft Cloud Deutschland.\n<br><br>",
                 "operationId": "Admin_GetActivityEvents",
                 "consumes": [],
                 "produces": [
