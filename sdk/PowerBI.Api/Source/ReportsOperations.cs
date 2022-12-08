@@ -620,12 +620,13 @@ namespace Microsoft.PowerBI.Api
         }
 
         /// <summary>
-        /// Exports the specified report from **My workspace** to a Power BI .pbix
-        /// file.
+        /// Exports the specified report from **My workspace** to a Power BI .pbix or
+        /// .rdl file.
         /// </summary>
         /// <remarks>
         ///
-        /// - As a
+        /// - For .pbix reports -
+        /// As a
         /// [workaround](/power-bi/developer/embedded/embedded-troubleshoot#how-to-fix-timeout-exceptions-when-using-import-and-export-apis)
         /// for timeout issues, set the `preferClientRouting` parameter to `true`.
         /// - Large files are downloaded to a temporary blob. Their URL is returned in
@@ -640,8 +641,9 @@ namespace Microsoft.PowerBI.Api
         ///
         /// ## Limitations
         ///
-        /// After calling [Rebind Report](/rest/api/power-bi/reports/rebind-report),
-        /// export of a report with a [Power BI service live
+        /// For .pbix report, after calling [Rebind
+        /// Report](/rest/api/power-bi/reports/rebind-report), export of a report with
+        /// a [Power BI service live
         /// connection](/power-bi/desktop-report-lifecycle-datasets) isn't supported.
         /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
@@ -2766,11 +2768,12 @@ namespace Microsoft.PowerBI.Api
 
         /// <summary>
         /// Exports the specified report from the specified workspace to a Power BI
-        /// .pbix file.
+        /// .pbix or .rdl file.
         /// </summary>
         /// <remarks>
         ///
-        /// - You can set the `preferClientRouting` parameter to `true` as a
+        /// - For .pbix reports -
+        /// You can set the `preferClientRouting` parameter to `true` as a
         /// [workaround](/power-bi/developer/embedded/embedded-troubleshoot#how-to-fix-timeout-exceptions-when-using-import-and-export-apis)
         /// for timeout issues.
         /// - Large files are downloaded to a temporary blob. Their URL is returned in
@@ -2791,7 +2794,7 @@ namespace Microsoft.PowerBI.Api
         ///
         /// ## Limitations
         ///
-        /// Exporting a report with a [Power BI service live
+        /// For .pbix reports, exporting a report with a [Power BI service live
         /// connection](/power-bi/desktop-report-lifecycle-datasets) isn't supported
         /// after calling [Rebind Report](/rest/api/power-bi/reports/rebind-report).
         /// &lt;br&gt;&lt;br&gt;
