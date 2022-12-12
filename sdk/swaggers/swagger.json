@@ -3471,7 +3471,7 @@
                     "Reports"
                 ],
                 "summary": "Exports the specified report from **My workspace** to the requested [file format](/rest/api/power-bi/reports/export-to-file#fileformat).",
-                "description": "\n## Required Scope\n\nAll of the following:\n\n- Report.ReadWrite.All or Report.Read.All\n- Dataset.ReadWrite.All or Dataset.Read.All\n\n## Limitations\n\nCheck the limitations in [Export Power BI report to file](/power-bi/developer/embedded/export-to#considerations-and-limitations) and [Export paginated report to file](/power-bi/developer/embedded/export-paginated-report#considerations-and-limitations).\n<br><br>",
+                "description": "\nThe API is asynchronous. When the API is called, it triggers an export job. After triggering an export job, use [GetExportToFileStatus API](/rest/api/power-bi/reports/get-export-to-file-status) to track the job status. \nRead more about the entire flow: [Export Power BI reports](/power-bi/developer/embedded/export-to) and [Export Paginated reports](/power-bi/developer/embedded/export-paginated-report)\n\n## Required Scope\n\nAll of the following:\n\n- Report.ReadWrite.All or Report.Read.All\n- Dataset.ReadWrite.All or Dataset.Read.All\n\n## Limitations\n\nCheck the limitations in [Export Power BI report to file](/power-bi/developer/embedded/export-to#considerations-and-limitations) and [Export paginated report to file](/power-bi/developer/embedded/export-paginated-report#considerations-and-limitations).\n<br><br>",
                 "operationId": "Reports_ExportToFile",
                 "consumes": [
                     "application/json"
@@ -3515,7 +3515,7 @@
                     "Reports"
                 ],
                 "summary": "Returns the current status of the [Export to File](/rest/api/power-bi/reports/export-to-file) job for the specified report from **My workspace**.",
-                "description": "\n## Required Scope\n\nReport.ReadWrite.All or Report.Read.All\n<br><br>",
+                "description": "\nWhen the export job status is 'Succeeded' use the [GetFileOfExportToFile API](/rest/api/power-bi/reports/get-file-of-export-to-file) to retrieve the file.\n\n## Required Scope\n\nReport.ReadWrite.All or Report.Read.All\n<br><br>",
                 "operationId": "Reports_GetExportToFileStatus",
                 "consumes": [],
                 "produces": [
@@ -3549,6 +3549,27 @@
                         "description": "Accepted",
                         "schema": {
                             "$ref": "#/definitions/Export"
+                        }
+                    }
+                },
+                "x-ms-examples": {
+                    "Example": {
+                        "parameters": {},
+                        "responses": {
+                            "200": {
+                                "body": {
+                                    "id": "Mi9C5419i....PS4=",
+                                    "createdDateTime": "2021-12-08T10:26:09.3069086Z",
+                                    "lastActionDateTime": "2021-12-08T10:26:38.016851Z",
+                                    "reportId": "cad51cfa-e740-324f-acbb-8ca43c40a2d4",
+                                    "reportName": "Report name",
+                                    "status": "Succeeded",
+                                    "percentComplete": 100,
+                                    "resourceLocation": "...Mi9C5419i....PS4=/file",
+                                    "resourceFileExtension": ".pptx",
+                                    "expirationTime": "2021-12-09T10:26:11.586756Z"
+                                }
+                            }
                         }
                     }
                 },
@@ -7449,7 +7470,7 @@
                     "Reports"
                 ],
                 "summary": "Exports the specified report from the specified workspace to the requested [file format](/rest/api/power-bi/reports/export-to-file-in-group#fileformat).",
-                "description": "\n## Permissions\n\nThis API call can be called by a service principal profile. For more information see: [Service principal profiles in Power BI Embedded](/power-bi/developer/embedded/embed-multi-tenancy).\n\n## Required Scope\n\nAll of the following:\n\n- Report.ReadWrite.All or Report.Read.All\n- Dataset.ReadWrite.All or Dataset.Read.All\n\n## Limitations\n\nCheck the limitations in [Export Power BI report to file](/power-bi/developer/embedded/export-to#considerations-and-limitations) and [Export paginated report to file](/power-bi/developer/embedded/export-paginated-report#considerations-and-limitations).\n<br><br>",
+                "description": "\nThe API is asynchronous. When the API is called, it triggers an export job. After triggering an export job, use [GetExportToFileStatus API](/rest/api/power-bi/reports/get-export-to-file-status-in-group) to track the job status. \nRead more about the entire flow: [Export Power BI reports](/power-bi/developer/embedded/export-to) and [Export Paginated reports](/power-bi/developer/embedded/export-paginated-report)\n\n## Permissions\n\nThis API call can be called by a service principal profile. For more information see: [Service principal profiles in Power BI Embedded](/power-bi/developer/embedded/embed-multi-tenancy).\n\n## Required Scope\n\nAll of the following:\n\n- Report.ReadWrite.All or Report.Read.All\n- Dataset.ReadWrite.All or Dataset.Read.All\n\n## Limitations\n\nCheck the limitations in [Export Power BI report to file](/power-bi/developer/embedded/export-to#considerations-and-limitations) and [Export paginated report to file](/power-bi/developer/embedded/export-paginated-report#considerations-and-limitations).\n<br><br>",
                 "operationId": "Reports_ExportToFileInGroup",
                 "consumes": [
                     "application/json"
@@ -7501,7 +7522,7 @@
                     "Reports"
                 ],
                 "summary": "Returns the current status of the [Export to File In Group](/rest/api/power-bi/reports/export-to-file-in-group) job for the specified report from the specified workspace.",
-                "description": "\n## Permissions\n\nThis API call can be called by a service principal profile. For more information see: [Service principal profiles in Power BI Embedded](/power-bi/developer/embedded/embed-multi-tenancy).\n\n## Required Scope\n\nReport.ReadWrite.All or Report.Read.All\n<br><br>",
+                "description": "\nWhen the export job status is 'Succeeded' use the [GetFileOfExportToFile API](/rest/api/power-bi/reports/get-file-of-export-to-file-in-group) to retrieve the file.\n\n## Permissions\n\nThis API call can be called by a service principal profile. For more information see: [Service principal profiles in Power BI Embedded](/power-bi/developer/embedded/embed-multi-tenancy).\n\n## Required Scope\n\nReport.ReadWrite.All or Report.Read.All\n<br><br>",
                 "operationId": "Reports_GetExportToFileStatusInGroup",
                 "consumes": [],
                 "produces": [
@@ -7543,6 +7564,27 @@
                         "description": "Accepted",
                         "schema": {
                             "$ref": "#/definitions/Export"
+                        }
+                    }
+                },
+                "x-ms-examples": {
+                    "Example": {
+                        "parameters": {},
+                        "responses": {
+                            "200": {
+                                "body": {
+                                    "id": "Mi9C5419i....PS4=",
+                                    "createdDateTime": "2021-12-08T10:26:09.3069086Z",
+                                    "lastActionDateTime": "2021-12-08T10:26:38.016851Z",
+                                    "reportId": "cad51cfa-e740-324f-acbb-8ca43c40a2d4",
+                                    "reportName": "Report name",
+                                    "status": "Succeeded",
+                                    "percentComplete": 100,
+                                    "resourceLocation": "...Mi9C5419i....PS4=/file",
+                                    "resourceFileExtension": ".pptx",
+                                    "expirationTime": "2021-12-09T10:26:11.586756Z"
+                                }
+                            }
                         }
                     }
                 },

@@ -1673,6 +1673,14 @@ namespace Microsoft.PowerBI.Api
         /// </summary>
         /// <remarks>
         ///
+        /// The API is asynchronous. When the API is called, it triggers an export job.
+        /// After triggering an export job, use [GetExportToFileStatus
+        /// API](/rest/api/power-bi/reports/get-export-to-file-status) to track the job
+        /// status.
+        /// Read more about the entire flow: [Export Power BI
+        /// reports](/power-bi/developer/embedded/export-to) and [Export Paginated
+        /// reports](/power-bi/developer/embedded/export-paginated-report)
+        ///
         /// ## Required Scope
         ///
         /// All of the following:
@@ -1846,6 +1854,10 @@ namespace Microsoft.PowerBI.Api
         /// report from **My workspace**.
         /// </summary>
         /// <remarks>
+        ///
+        /// When the export job status is 'Succeeded' use the [GetFileOfExportToFile
+        /// API](/rest/api/power-bi/reports/get-file-of-export-to-file) to retrieve the
+        /// file.
         ///
         /// ## Required Scope
         ///
@@ -3893,6 +3905,14 @@ namespace Microsoft.PowerBI.Api
         /// </summary>
         /// <remarks>
         ///
+        /// The API is asynchronous. When the API is called, it triggers an export job.
+        /// After triggering an export job, use [GetExportToFileStatus
+        /// API](/rest/api/power-bi/reports/get-export-to-file-status-in-group) to
+        /// track the job status.
+        /// Read more about the entire flow: [Export Power BI
+        /// reports](/power-bi/developer/embedded/export-to) and [Export Paginated
+        /// reports](/power-bi/developer/embedded/export-paginated-report)
+        ///
         /// ## Permissions
         ///
         /// This API call can be called by a service principal profile. For more
@@ -4077,6 +4097,10 @@ namespace Microsoft.PowerBI.Api
         /// specified report from the specified workspace.
         /// </summary>
         /// <remarks>
+        ///
+        /// When the export job status is 'Succeeded' use the [GetFileOfExportToFile
+        /// API](/rest/api/power-bi/reports/get-file-of-export-to-file-in-group) to
+        /// retrieve the file.
         ///
         /// ## Permissions
         ///
