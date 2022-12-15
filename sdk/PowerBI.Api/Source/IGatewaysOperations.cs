@@ -125,9 +125,15 @@ namespace Microsoft.PowerBI.Api
         /// Creates a new data source on the specified on-premises gateway.
         /// </summary>
         /// <remarks>
+        ///
         /// &lt;br&gt;On premises data source credentials must be encrypted.
         /// The `encryptedConnection` parameter must be set to `Encrypted` and
         /// the credentials should be encrypted using the gateway public key.
+        ///
+        /// See the
+        /// [CreateGatewayDataSource](https://github.com/microsoft/PowerBI-Developer-Samples/blob/master/PowerShell%20Scripts/CreateGatewayDataSource)
+        /// PowerShell script for an example of using this API.
+        ///
         /// &gt; [!NOTE]
         /// &gt; To encrypt credentials, see [Configure credentials
         /// programmatically](/power-bi/developer/embedded/configure-credentials)

@@ -62,6 +62,10 @@ namespace Microsoft.PowerBI.Api
             /// </summary>
             /// <remarks>
             ///
+            /// See the [Import Large
+            /// Files](https://github.com/microsoft/PowerBI-Developer-Samples/blob/master/PowerShell%20Scripts/Import%20Large%20Files)
+            /// PowerShell script for an example of using this API.
+            ///
             /// &gt; [!NOTE]
             /// &gt; Supported content:
             /// &gt; - Power BI .pbix files
@@ -137,6 +141,10 @@ namespace Microsoft.PowerBI.Api
             /// Creates new content in **My workspace**.
             /// </summary>
             /// <remarks>
+            ///
+            /// See the [Import Large
+            /// Files](https://github.com/microsoft/PowerBI-Developer-Samples/blob/master/PowerShell%20Scripts/Import%20Large%20Files)
+            /// PowerShell script for an example of using this API.
             ///
             /// &gt; [!NOTE]
             /// &gt; Supported content:
@@ -278,6 +286,10 @@ namespace Microsoft.PowerBI.Api
             /// specifying the *shared access signature* URL in the `fileUrl` parameter of
             /// the [request body](/rest/api/power-bi/imports/post-import#request-body).
             ///
+            /// See the [Import Large
+            /// Files](https://github.com/microsoft/PowerBI-Developer-Samples/blob/master/PowerShell%20Scripts/Import%20Large%20Files)
+            /// PowerShell script for an example of using this API.
+            ///
             /// ## Required Scope
             ///
             /// Dataset.ReadWrite.All
@@ -310,6 +322,10 @@ namespace Microsoft.PowerBI.Api
             /// 1. Call [Post Import In Group](/rest/api/power-bi/imports/post-import),
             /// specifying the *shared access signature* URL in the `fileUrl` parameter of
             /// the [request body](/rest/api/power-bi/imports/post-import#request-body).
+            ///
+            /// See the [Import Large
+            /// Files](https://github.com/microsoft/PowerBI-Developer-Samples/blob/master/PowerShell%20Scripts/Import%20Large%20Files)
+            /// PowerShell script for an example of using this API.
             ///
             /// ## Required Scope
             ///
