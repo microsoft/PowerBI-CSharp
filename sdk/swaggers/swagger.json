@@ -21696,9 +21696,6 @@
                 }
             }
         },
-        "Object": {
-            "properties": {}
-        },
         "Datasets": {
             "description": "A dataset OData list wrapper",
             "properties": {
@@ -22146,9 +22143,9 @@
             "properties": {
                 "rows": {
                     "type": "array",
-                    "description": "An array of data rows pushed to a dataset table",
+                    "description": "An array of data rows pushed to a dataset table. Each element is a collection of properties represented using key-value format.",
                     "items": {
-                        "$ref": "#/definitions/Object"
+                        "type": "object"
                     }
                 }
             }
@@ -27065,9 +27062,9 @@
             "properties": {
                 "activityEventEntities": {
                     "type": "array",
-                    "description": "The activity event entities",
+                    "description": "An array of activity event objects. To learn more about an activity event (which is a collection of event properties) refer to [Microsoft 365 Management Activity schema](https://learn.microsoft.com/en-us/office/office-365-management-api/office-365-management-activity-api-schema#power-bi-schema).",
                     "items": {
-                        "$ref": "#/definitions/Object"
+                        "type": "object"
                     }
                 },
                 "continuationUri": {
