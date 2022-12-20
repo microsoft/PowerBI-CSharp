@@ -264,8 +264,12 @@ namespace Microsoft.PowerBI.Api
         /// </summary>
         /// <remarks>
         ///
+        /// On Premises data source credentials must be encrypted, as described
+        /// in the [On-premise encrypted credentials
+        /// example](/rest/api/power-bi/gateways/update-datasource#on-premise-encrypted-credentials-example).
+        ///
         /// &gt; [!NOTE]
-        /// &gt; To encrypt credentials, see [Configure credentials
+        /// &gt; - To encrypt credentials, see [Configure credentials
         /// programmatically](/power-bi/developer/embedded/configure-credentials)
         /// for Power BI and review the EncryptCredentials [.NET
         /// Core](https://github.com/microsoft/PowerBI-Developer-Samples/tree/master/.NET%20Core/EncryptCredentials),
@@ -273,24 +277,37 @@ namespace Microsoft.PowerBI.Api
         /// and
         /// [Python](https://github.com/microsoft/PowerBI-Developer-Samples/tree/master/Python/Encrypt%20credentials)
         /// examples.
-        ///
-        /// - Set the parameter `useEndUserOAuth2Credentials` to `False` when
-        /// changing from single sign-on to other credential types, such as
-        /// `Basic` or `OAuth2`. See the [Basic credentials
+        /// &gt; - Windows credentials before encryption look like the
+        /// credentials in the credentials of [Basic credentials
         /// example](/rest/api/power-bi/gateways/update-datasource#basic-credentials-example).
-        /// - For the OAuth 2.0 credential type, make sure the generated OAuth
-        /// 2.0 token audience was set correctly according to the data source
-        /// type.
-        /// - For **Extension** data sources, don't set `useCallerAADIdentity`
-        /// to `true`. To set OAuth 2.0 credentials for other data sources,
-        /// send the OAuth 2.0 token in the payload as shown in the [OAuth 2.0
+        ///
+        /// When changing from single sign-on to other credential types, such
+        /// as `Basic` or `OAuth2`, set the parameter
+        /// `useEndUserOAuth2Credentials` to `false` as described in the [Basic
         /// credentials
+        /// example](/rest/api/power-bi/gateways/update-datasource#basic-credentials-example).
+        ///
+        /// OAuth 2.0 credentials are valid as long as the provided token is
+        /// valid. When using the OAuth 2.0 credential type, do the following:
+        /// - Set the OAuth 2.0 token audience correctly, according to the data
+        /// source type.
+        /// - Send the OAuth 2.0 token in the payload as shown in the [OAuth
+        /// 2.0 credentials
         /// example](/rest/api/power-bi/gateways/update-datasource#oauth-2.0-credentials-example).
+        /// - If you're using **Extension** data sources, don't set
+        /// `useCallerAADIdentity` to `true`.
         ///
         /// ## Permissions
         ///
         /// - With on-premises gateways, the user must have gateway admin
         /// permissions.
+        /// - With cloud data sources, user must be the data source owner. Use
+        /// [Datasets - Take Over
+        /// API](/rest/api/power-bi/datasets/take-over-in-group) to transfer
+        /// ownership over the specified dataset or [Paginated reports - Take
+        /// Over API](/rest/api/power-bi/reports/take-over-in-group) to
+        /// transfer ownership of the data sources over the specified paginated
+        /// report.
         /// - This API call can be called by a service principal profile. For
         /// more information see: [Service principal profiles in Power BI
         /// Embedded](/power-bi/developer/embedded/embed-multi-tenancy).
