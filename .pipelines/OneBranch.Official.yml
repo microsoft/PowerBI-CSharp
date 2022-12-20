@@ -1,5 +1,5 @@
 #################################################################################
-#   Onebranch Pipelines - PR MSBuild (CDPXMigrated)                             #
+#   Onebranch Pipelines - Official MSBuild (CDPXMigrated)                       #
 # This pipeline was created by EasyStart from a sample located at:              #
 #   https://aka.ms/obpipelines/easystart/samples                                #
 # Documentation:  https://aka.ms/obpipelines                                    #
@@ -25,6 +25,15 @@ variables:
   OUTPUTROOT: $(REPOROOT)\out
   NUGET_XMLDOC_MODE: skip
 
+  ${{ if eq(variables['Build.DefinitionName'], 'PowerBI-CSharp-Official') }}:
+    obpTemplate: v2/OneBranch.Official.CrossPlat.yml@templates # https://aka.ms/obpipelines/templates
+    obpMajor: 4
+    obpMinor: 10
+  ${{ else }}:
+    obpTemplate: v2/OneBranch.NonOfficial.CrossPlat.yml@templates # https://aka.ms/obpipelines/templates
+    obpMajor: 0
+    obpMinor: 0
+
   WindowsContainerImage: 'onebranch.azurecr.io/windows/ltsc2019/vse2019:latest' # Docker image which is used to build the project https://aka.ms/obpipelines/containers
 
 resources:
@@ -35,7 +44,7 @@ resources:
       ref: refs/heads/main
 
 extends:
-  template: v2/OneBranch.NonOfficial.CrossPlat.yml@templates # https://aka.ms/obpipelines/templates
+  template: ${{ variables.obpTemplate }}
   parameters:
     globalSdl: # https://aka.ms/obpipelines/sdl
       tsa:
@@ -52,7 +61,7 @@ extends:
 
         variables: # More settings at https://aka.ms/obpipelines/yaml/jobs
           ob_outputDirectory: '$(OUTPUTROOT)' # this directory is uploaded to pipeline artifacts, reddog and cloudvault. More info at https://aka.ms/obpipelines/artifacts
-          ob_sdl_binskim_break: true # https://aka.ms/obpipelines/sdl
+          ob_sdl_binskim_break: true
           ob_artifactBaseName: 'drop'
           ob_sdl_cg_failOnAlert: false
           ob_sdl_codeSignValidation_excludes: 'regex|.+(?:exe|dll)$;-|*.nd.dll;-|.gdn\**'
@@ -62,8 +71,8 @@ extends:
             displayName: 'sdk version'
             inputs:
               system: 'Buildrevision'
-              major: '0'
-              minor: '0'
+              major: ${{ variables.obpMajor }}
+              minor: ${{ variables.obpMinor }}
               exclude_commit: false
               assembly_version: 'majorminoronly'
               assembly_file_version: 'fullversionnumber'
@@ -97,6 +106,12 @@ extends:
               search_root: '$(Build.SourcesDirectory)\sdk\PowerBI.Api'
 
           - task: CmdLine@2
+            displayName: 'pack sdk\**\PowerBI.Api.csproj for Official feeds'
+            inputs:
+              script: $(Build.SourcesDirectory)\scripts\pack-sdk.cmd
+              workingDirectory: '$(Build.SourcesDirectory)'
+
+          - task: CmdLine@2
             displayName: 'pack sdk\**\PowerBI.Api.csproj for dev feed'
             inputs:
               script: $(Build.SourcesDirectory)\scripts\pack-sdk-dev.cmd
@@ -122,10 +137,18 @@ extends:
           - task: CopyFiles@2
             displayName: 'Copy content package to output'
             inputs:
+              SourceFolder: $(Build.SourcesDirectory)\pack\Clean
+              Contents: |
+                **\*
+              TargetFolder: '$(OUTPUTROOT)\package\Clean'
+
+          - task: CopyFiles@2
+            displayName: 'Copy content package to output'
+            inputs:
               SourceFolder: $(Build.SourcesDirectory)\pack\Dev
               Contents: |
                 **\*
-              TargetFolder: '$(OUTPUTROOT)\package'
+              TargetFolder: '$(OUTPUTROOT)\package\Dev'
 
           - task: CmdLine@2
             displayName: 'Test sdk'
