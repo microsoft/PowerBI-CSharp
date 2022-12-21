@@ -55,12 +55,14 @@ namespace Microsoft.PowerBI.Api.Models
         /// <param name="modifiedById">The ID of the last user that modified
         /// the datamart</param>
         /// <param name="configuredById">The ID of the datamart owner</param>
-        /// <param name="upstreamDataflows">Datamart dependant
-        /// dataflows</param>
+        /// <param name="upstreamDataflows">The list of all the dataflows this
+        /// item depends on</param>
+        /// <param name="upstreamDatamarts">The list of all the datamarts this
+        /// item depends on</param>
         /// <param name="datasourceUsages">The data source usages</param>
         /// <param name="users">The user access details for a Power BI
         /// datamart.</param>
-        public WorkspaceInfoDatamart(System.Guid id, string name = default(string), string description = default(string), DatamartType? type = default(DatamartType?), DatamartStatus? status = default(DatamartStatus?), DatamartState? state = default(DatamartState?), string suspendedBatchId = default(string), EndorsementDetails endorsementDetails = default(EndorsementDetails), SensitivityLabel sensitivityLabel = default(SensitivityLabel), string modifiedBy = default(string), System.DateTime? modifiedDateTime = default(System.DateTime?), string configuredBy = default(string), string modifiedById = default(string), string configuredById = default(string), IList<DependentDataflow> upstreamDataflows = default(IList<DependentDataflow>), IList<DatasourceUsage> datasourceUsages = default(IList<DatasourceUsage>), IList<DatamartUser> users = default(IList<DatamartUser>))
+        public WorkspaceInfoDatamart(System.Guid id, string name = default(string), string description = default(string), DatamartType? type = default(DatamartType?), DatamartStatus? status = default(DatamartStatus?), DatamartState? state = default(DatamartState?), string suspendedBatchId = default(string), EndorsementDetails endorsementDetails = default(EndorsementDetails), SensitivityLabel sensitivityLabel = default(SensitivityLabel), string modifiedBy = default(string), System.DateTime? modifiedDateTime = default(System.DateTime?), string configuredBy = default(string), string modifiedById = default(string), string configuredById = default(string), IList<DependentDataflow> upstreamDataflows = default(IList<DependentDataflow>), IList<DependentDatamart> upstreamDatamarts = default(IList<DependentDatamart>), IList<DatasourceUsage> datasourceUsages = default(IList<DatasourceUsage>), IList<DatamartUser> users = default(IList<DatamartUser>))
         {
             Id = id;
             Name = name;
@@ -77,6 +79,7 @@ namespace Microsoft.PowerBI.Api.Models
             ModifiedById = modifiedById;
             ConfiguredById = configuredById;
             UpstreamDataflows = upstreamDataflows;
+            UpstreamDatamarts = upstreamDatamarts;
             DatasourceUsages = datasourceUsages;
             Users = users;
             CustomInit();
@@ -177,10 +180,16 @@ namespace Microsoft.PowerBI.Api.Models
         public string ConfiguredById { get; set; }
 
         /// <summary>
-        /// Gets or sets datamart dependant dataflows
+        /// Gets or sets the list of all the dataflows this item depends on
         /// </summary>
         [JsonProperty(PropertyName = "upstreamDataflows")]
         public IList<DependentDataflow> UpstreamDataflows { get; set; }
+
+        /// <summary>
+        /// Gets or sets the list of all the datamarts this item depends on
+        /// </summary>
+        [JsonProperty(PropertyName = "upstreamDatamarts")]
+        public IList<DependentDatamart> UpstreamDatamarts { get; set; }
 
         /// <summary>
         /// Gets or sets the data source usages

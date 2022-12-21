@@ -13734,7 +13734,7 @@
                                                     "name": "ExportB",
                                                     "tables": [
                                                         {
-                                                            "name": "EIM",
+                                                            "name": "DW_Revenues",
                                                             "columns": [
                                                                 {
                                                                     "name": "RowNumber-2662979B-1795-4F74-8F37-6A1BA8059B61",
@@ -13745,7 +13745,7 @@
                                                             "measures": [
                                                                 {
                                                                     "name": "MyMeasure",
-                                                                    "expression": "CALCULATE(SELECTEDVALUE('EIM EIMTestToBeDeleted'[Numbers])*10)",
+                                                                    "expression": "CALCULATE(SELECTEDVALUE('DW_Revenues DW_RevenuesTestToBeDeleted'[Numbers])*10)",
                                                                     "description": "My measure",
                                                                     "isHidden": false
                                                                 }
@@ -13754,7 +13754,7 @@
                                                             "description": "My table",
                                                             "source": [
                                                                 {
-                                                                    "expression": "let\n Source = Sql.Database(\"pbianalytics.database.windows.net\", \"PBIConnectDM\"),\n EIM = Source{[Schema=\"EIM\",Item=\"EIMTestToBeDeleted\"]}[Data]\nin\n EIM"
+                                                                    "expression": "let\n    Source = Revenues,\n    Param = RevenuesParam\nin\n    Source"
                                                                 }
                                                             ]
                                                         }
@@ -13766,6 +13766,18 @@
                                                         "endorsement": "Certified",
                                                         "certifiedBy": "john@contoso.com"
                                                     },
+                                                    "expressions": [
+                                                        {
+                                                            "name": "Revenues",
+                                                            "description": "revenues",
+                                                            "expression": "let\n    Source = Sql.Database(\"sqlserver.database.windows.net\", \"DB\"),\n    RevenuesTable = Source{[Schema=\"DB_SCHEMA\",Item=\"DB_SCHEMA_ITEM\"]}[Data]\nin\n    RevenuesTable"
+                                                        },
+                                                        {
+                                                            "name": "RevenuesParam",
+                                                            "description": "revenues param",
+                                                            "expression": "\"revenues param value\" meta [IsParameterQuery=true, Type=\"Text\", IsParameterQueryRequired=true]"
+                                                        }
+                                                    ],
                                                     "upstreamDataflows": [
                                                         {
                                                             "targetDataflowId": "a842dbb1-32ca-46b0-9648-498b2c2d5e38",
@@ -13779,6 +13791,11 @@
                                                     "datasourceUsages": [
                                                         {
                                                             "datasourceInstanceId": "c79ad907-df19-43fe-a0f7-d9f365d67070"
+                                                        }
+                                                    ],
+                                                    "misconfiguredDatasourceUsages": [
+                                                        {
+                                                            "datasourceInstanceId": "80ec28bc-fe81-43ea-be52-a07a95cfbcab"
                                                         }
                                                     ],
                                                     "sensitivityLabel": {
@@ -13811,6 +13828,11 @@
                                                     "datasourceUsages": [
                                                         {
                                                             "datasourceInstanceId": "c79ad907-df19-43fe-a0f7-d9f365d67070"
+                                                        }
+                                                    ],
+                                                    "misconfiguredDatasourceUsages": [
+                                                        {
+                                                            "datasourceInstanceId": "80ec28bc-fe81-43ea-be52-a07a95cfbcab"
                                                         }
                                                     ],
                                                     "sensitivityLabel": {
@@ -13894,6 +13916,17 @@
                                             },
                                             "datasourceId": "c79ad907-df19-43fe-a0f7-d9f365d67070",
                                             "gatewayId": "e820592e-f8cf-4a6f-b1ed-566799d29565"
+                                        }
+                                    ],
+                                    "misconfiguredDatasourceInstances": [
+                                        {
+                                            "datasourceType": "Sql",
+                                            "connectionDetails": {
+                                                "server": "sqlserver.database.windows.net",
+                                                "database": "dbo.table"
+                                            },
+                                            "datasourceId": "80ec28bc-fe81-43ea-be52-a07a95cfbcab",
+                                            "gatewayId": "505a19c1-4190-4e8e-a4f6-dd72722feced"
                                         }
                                     ]
                                 }
@@ -21535,6 +21568,13 @@
                     "items": {
                         "$ref": "#/definitions/Datasource"
                     }
+                },
+                "misconfiguredDatasourceInstances": {
+                    "type": "array",
+                    "description": "The data source misconfigured instances associated with this scan",
+                    "items": {
+                        "$ref": "#/definitions/Datasource"
+                    }
                 }
             }
         },
@@ -21778,7 +21818,7 @@
                 },
                 "upstreamDataflows": {
                     "type": "array",
-                    "description": "The upstream dataflows",
+                    "description": "The list of all the dataflows this item depends on",
                     "items": {
                         "$ref": "#/definitions/DependentDataflow"
                     }
@@ -21851,6 +21891,13 @@
                 "schemaMayNotBeUpToDate": {
                     "type": "boolean",
                     "description": "Whether the dataset schema might not be up to date"
+                },
+				"expressions": {
+                    "type": "array",
+                    "description": "The dataset expressions",
+                    "items": {
+                        "$ref": "#/definitions/Expression"
+                    }
                 }
             }
         },
@@ -21886,6 +21933,13 @@
                     "description": "The upstream datasets",
                     "items": {
                         "$ref": "#/definitions/DependentDataset"
+                    }
+                },
+				"upstreamDatamarts": {
+                    "type": "array",
+                    "description": "The list of all the datamarts this item depends on",
+                    "items": {
+                        "$ref": "#/definitions/DependentDatamart"
                     }
                 }
             }
@@ -22123,6 +22177,25 @@
                     "items": {
                         "$ref": "#/definitions/ASMashupExpression"
                     }
+                }
+            }
+        },
+        "Expression": {
+            "description": "A dataset expression",
+            "required": [
+                "expression"
+            ],
+            "properties": {
+                "expression": {
+                    "$ref": "#/definitions/ASMashupExpression"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The expression name"
+                },
+                "description": {
+                    "type": "string",
+                    "description": "The expression description"
                 }
             }
         },
@@ -22533,6 +22606,19 @@
                 "targetDataflowId": {
                     "type": "string",
                     "description": "The target dataflow ID"
+                },
+                "groupId": {
+                    "type": "string",
+                    "description": "The target group ID"
+                }
+            }
+        },
+        "DependentDatamart": {
+            "description": "A Power BI dependent datamart",
+            "properties": {
+                "targetDatamartId": {
+                    "type": "string",
+                    "description": "The target datamart ID"
                 },
                 "groupId": {
                     "type": "string",
@@ -23331,9 +23417,16 @@
             "properties": {
                 "upstreamDataflows": {
                     "type": "array",
-                    "description": "Datamart dependant dataflows",
+                    "description": "The list of all the dataflows this item depends on",
                     "items": {
                         "$ref": "#/definitions/DependentDataflow"
+                    }
+                },
+                "upstreamDatamarts": {
+                    "type": "array",
+                    "description": "The list of all the datamarts this item depends on",
+                    "items": {
+                        "$ref": "#/definitions/DependentDatamart"
                     }
                 }
             }
@@ -26703,11 +26796,25 @@
                         "$ref": "#/definitions/DatasourceUsage"
                     }
                 },
+                "misconfiguredDatasourceUsages": {
+                    "type": "array",
+                    "description": "The data source misconfigured usages",
+                    "items": {
+                        "$ref": "#/definitions/DatasourceUsage"
+                    }
+                },
                 "upstreamDataflows": {
                     "type": "array",
-                    "description": "The upstream dataflows",
+                    "description": "The list of all the dataflows this item depends on",
                     "items": {
                         "$ref": "#/definitions/DependentDataflow"
+                    }
+                },
+                "upstreamDatamarts": {
+                    "type": "array",
+                    "description": "The list of all the datamarts this item depends on",
+                    "items": {
+                        "$ref": "#/definitions/DependentDatamart"
                     }
                 }
             }

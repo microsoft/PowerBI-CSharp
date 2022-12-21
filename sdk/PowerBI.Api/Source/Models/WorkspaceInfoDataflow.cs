@@ -50,10 +50,15 @@ namespace Microsoft.PowerBI.Api.Models
         /// [PostWorkspaceInfo](/rest/api/power-bi/admin/workspace-info-post-workspace-info)
         /// API call with the `getArtifactUser` parameter.</param>
         /// <param name="datasourceUsages">The data source usages</param>
-        /// <param name="upstreamDataflows">The upstream dataflows</param>
+        /// <param name="misconfiguredDatasourceUsages">The data source
+        /// misconfigured usages</param>
+        /// <param name="upstreamDataflows">The list of all the dataflows this
+        /// item depends on</param>
+        /// <param name="upstreamDatamarts">The list of all the datamarts this
+        /// item depends on</param>
         /// <param name="endorsementDetails">The endorsement details</param>
         /// <param name="sensitivityLabel">The sensitivity label</param>
-        public WorkspaceInfoDataflow(System.Guid objectId, string name = default(string), string description = default(string), string modelUrl = default(string), string configuredBy = default(string), string modifiedBy = default(string), System.DateTime? modifiedDateTime = default(System.DateTime?), IList<DataflowUser> users = default(IList<DataflowUser>), IList<DatasourceUsage> datasourceUsages = default(IList<DatasourceUsage>), IList<DependentDataflow> upstreamDataflows = default(IList<DependentDataflow>), EndorsementDetails endorsementDetails = default(EndorsementDetails), SensitivityLabel sensitivityLabel = default(SensitivityLabel))
+        public WorkspaceInfoDataflow(System.Guid objectId, string name = default(string), string description = default(string), string modelUrl = default(string), string configuredBy = default(string), string modifiedBy = default(string), System.DateTime? modifiedDateTime = default(System.DateTime?), IList<DataflowUser> users = default(IList<DataflowUser>), IList<DatasourceUsage> datasourceUsages = default(IList<DatasourceUsage>), IList<DatasourceUsage> misconfiguredDatasourceUsages = default(IList<DatasourceUsage>), IList<DependentDataflow> upstreamDataflows = default(IList<DependentDataflow>), IList<DependentDatamart> upstreamDatamarts = default(IList<DependentDatamart>), EndorsementDetails endorsementDetails = default(EndorsementDetails), SensitivityLabel sensitivityLabel = default(SensitivityLabel))
         {
             ObjectId = objectId;
             Name = name;
@@ -64,7 +69,9 @@ namespace Microsoft.PowerBI.Api.Models
             ModifiedDateTime = modifiedDateTime;
             Users = users;
             DatasourceUsages = datasourceUsages;
+            MisconfiguredDatasourceUsages = misconfiguredDatasourceUsages;
             UpstreamDataflows = upstreamDataflows;
+            UpstreamDatamarts = upstreamDatamarts;
             EndorsementDetails = endorsementDetails;
             SensitivityLabel = sensitivityLabel;
             CustomInit();
@@ -137,10 +144,22 @@ namespace Microsoft.PowerBI.Api.Models
         public IList<DatasourceUsage> DatasourceUsages { get; set; }
 
         /// <summary>
-        /// Gets or sets the upstream dataflows
+        /// Gets or sets the data source misconfigured usages
+        /// </summary>
+        [JsonProperty(PropertyName = "misconfiguredDatasourceUsages")]
+        public IList<DatasourceUsage> MisconfiguredDatasourceUsages { get; set; }
+
+        /// <summary>
+        /// Gets or sets the list of all the dataflows this item depends on
         /// </summary>
         [JsonProperty(PropertyName = "upstreamDataflows")]
         public IList<DependentDataflow> UpstreamDataflows { get; set; }
+
+        /// <summary>
+        /// Gets or sets the list of all the datamarts this item depends on
+        /// </summary>
+        [JsonProperty(PropertyName = "upstreamDatamarts")]
+        public IList<DependentDatamart> UpstreamDatamarts { get; set; }
 
         /// <summary>
         /// Gets or sets the endorsement details
@@ -179,6 +198,16 @@ namespace Microsoft.PowerBI.Api.Models
                     if (element1 != null)
                     {
                         element1.Validate();
+                    }
+                }
+            }
+            if (MisconfiguredDatasourceUsages != null)
+            {
+                foreach (var element2 in MisconfiguredDatasourceUsages)
+                {
+                    if (element2 != null)
+                    {
+                        element2.Validate();
                     }
                 }
             }

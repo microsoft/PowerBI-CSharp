@@ -38,7 +38,8 @@ namespace Microsoft.PowerBI.Api.Models
         /// <param name="contentProviderType">The content provider type for the
         /// dataset</param>
         /// <param name="description">The dataset description</param>
-        /// <param name="upstreamDataflows">The upstream dataflows</param>
+        /// <param name="upstreamDataflows">The list of all the dataflows this
+        /// item depends on</param>
         /// <param name="createReportEmbedURL">The dataset create report embed
         /// URL</param>
         /// <param name="qnaEmbedURL">The dataset Q&amp;A embed URL</param>
@@ -139,7 +140,7 @@ namespace Microsoft.PowerBI.Api.Models
         public string Description { get; set; }
 
         /// <summary>
-        /// Gets or sets the upstream dataflows
+        /// Gets or sets the list of all the dataflows this item depends on
         /// </summary>
         [JsonProperty(PropertyName = "upstreamDataflows")]
         public IList<DependentDataflow> UpstreamDataflows { get; set; }

@@ -27,11 +27,18 @@ namespace Microsoft.PowerBI.Api.Models
         /// class.
         /// </summary>
         /// <param name="datasourceUsages">The data source usages</param>
-        /// <param name="upstreamDataflows">The upstream dataflows</param>
-        public WorkspaceInfoDataflowProperties(IList<DatasourceUsage> datasourceUsages = default(IList<DatasourceUsage>), IList<DependentDataflow> upstreamDataflows = default(IList<DependentDataflow>))
+        /// <param name="misconfiguredDatasourceUsages">The data source
+        /// misconfigured usages</param>
+        /// <param name="upstreamDataflows">The list of all the dataflows this
+        /// item depends on</param>
+        /// <param name="upstreamDatamarts">The list of all the datamarts this
+        /// item depends on</param>
+        public WorkspaceInfoDataflowProperties(IList<DatasourceUsage> datasourceUsages = default(IList<DatasourceUsage>), IList<DatasourceUsage> misconfiguredDatasourceUsages = default(IList<DatasourceUsage>), IList<DependentDataflow> upstreamDataflows = default(IList<DependentDataflow>), IList<DependentDatamart> upstreamDatamarts = default(IList<DependentDatamart>))
         {
             DatasourceUsages = datasourceUsages;
+            MisconfiguredDatasourceUsages = misconfiguredDatasourceUsages;
             UpstreamDataflows = upstreamDataflows;
+            UpstreamDatamarts = upstreamDatamarts;
             CustomInit();
         }
 
@@ -47,10 +54,22 @@ namespace Microsoft.PowerBI.Api.Models
         public IList<DatasourceUsage> DatasourceUsages { get; set; }
 
         /// <summary>
-        /// Gets or sets the upstream dataflows
+        /// Gets or sets the data source misconfigured usages
+        /// </summary>
+        [JsonProperty(PropertyName = "misconfiguredDatasourceUsages")]
+        public IList<DatasourceUsage> MisconfiguredDatasourceUsages { get; set; }
+
+        /// <summary>
+        /// Gets or sets the list of all the dataflows this item depends on
         /// </summary>
         [JsonProperty(PropertyName = "upstreamDataflows")]
         public IList<DependentDataflow> UpstreamDataflows { get; set; }
+
+        /// <summary>
+        /// Gets or sets the list of all the datamarts this item depends on
+        /// </summary>
+        [JsonProperty(PropertyName = "upstreamDatamarts")]
+        public IList<DependentDatamart> UpstreamDatamarts { get; set; }
 
     }
 }

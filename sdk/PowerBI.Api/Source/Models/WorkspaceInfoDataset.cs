@@ -39,16 +39,22 @@ namespace Microsoft.PowerBI.Api.Models
         /// <param name="contentProviderType">The content provider type for the
         /// dataset</param>
         /// <param name="description">The dataset description</param>
-        /// <param name="upstreamDataflows">The upstream dataflows</param>
+        /// <param name="upstreamDataflows">The list of all the dataflows this
+        /// item depends on</param>
         /// <param name="tables">The dataset tables</param>
         /// <param name="schemaRetrievalError">The dataset schema retrieval
         /// error</param>
         /// <param name="schemaMayNotBeUpToDate">Whether the dataset schema
         /// might not be up to date</param>
+        /// <param name="expressions">The dataset expressions</param>
         /// <param name="endorsementDetails">The endorsement details</param>
         /// <param name="sensitivityLabel">The sensitivity label</param>
         /// <param name="targetStorageMode">The dataset storage mode</param>
         /// <param name="datasourceUsages">The data source usages</param>
+        /// <param name="misconfiguredDatasourceUsages">The data source
+        /// misconfigured usages</param>
+        /// <param name="upstreamDatamarts">The list of all the datamarts this
+        /// item depends on</param>
         /// <param name="upstreamDatasets">The upstream datasets</param>
         /// <param name="users">(Empty value) The dataset user access details.
         /// This property will be removed from the payload response in an
@@ -59,7 +65,7 @@ namespace Microsoft.PowerBI.Api.Models
         /// API, or the
         /// [PostWorkspaceInfo](/rest/api/power-bi/admin/workspace-info-post-workspace-info)
         /// API with the `getArtifactUsers` parameter.</param>
-        public WorkspaceInfoDataset(string id, string name = default(string), string configuredBy = default(string), System.DateTime? createdDate = default(System.DateTime?), string contentProviderType = default(string), string description = default(string), IList<DependentDataflow> upstreamDataflows = default(IList<DependentDataflow>), IList<Table> tables = default(IList<Table>), string schemaRetrievalError = default(string), bool? schemaMayNotBeUpToDate = default(bool?), EndorsementDetails endorsementDetails = default(EndorsementDetails), SensitivityLabel sensitivityLabel = default(SensitivityLabel), string targetStorageMode = default(string), IList<DatasourceUsage> datasourceUsages = default(IList<DatasourceUsage>), IList<DependentDataset> upstreamDatasets = default(IList<DependentDataset>), IList<DatasetUser> users = default(IList<DatasetUser>))
+        public WorkspaceInfoDataset(string id, string name = default(string), string configuredBy = default(string), System.DateTime? createdDate = default(System.DateTime?), string contentProviderType = default(string), string description = default(string), IList<DependentDataflow> upstreamDataflows = default(IList<DependentDataflow>), IList<Table> tables = default(IList<Table>), string schemaRetrievalError = default(string), bool? schemaMayNotBeUpToDate = default(bool?), IList<Expression> expressions = default(IList<Expression>), EndorsementDetails endorsementDetails = default(EndorsementDetails), SensitivityLabel sensitivityLabel = default(SensitivityLabel), string targetStorageMode = default(string), IList<DatasourceUsage> datasourceUsages = default(IList<DatasourceUsage>), IList<DatasourceUsage> misconfiguredDatasourceUsages = default(IList<DatasourceUsage>), IList<DependentDatamart> upstreamDatamarts = default(IList<DependentDatamart>), IList<DependentDataset> upstreamDatasets = default(IList<DependentDataset>), IList<DatasetUser> users = default(IList<DatasetUser>))
         {
             Id = id;
             Name = name;
@@ -71,10 +77,13 @@ namespace Microsoft.PowerBI.Api.Models
             Tables = tables;
             SchemaRetrievalError = schemaRetrievalError;
             SchemaMayNotBeUpToDate = schemaMayNotBeUpToDate;
+            Expressions = expressions;
             EndorsementDetails = endorsementDetails;
             SensitivityLabel = sensitivityLabel;
             TargetStorageMode = targetStorageMode;
             DatasourceUsages = datasourceUsages;
+            MisconfiguredDatasourceUsages = misconfiguredDatasourceUsages;
+            UpstreamDatamarts = upstreamDatamarts;
             UpstreamDatasets = upstreamDatasets;
             Users = users;
             CustomInit();
@@ -122,7 +131,7 @@ namespace Microsoft.PowerBI.Api.Models
         public string Description { get; set; }
 
         /// <summary>
-        /// Gets or sets the upstream dataflows
+        /// Gets or sets the list of all the dataflows this item depends on
         /// </summary>
         [JsonProperty(PropertyName = "upstreamDataflows")]
         public IList<DependentDataflow> UpstreamDataflows { get; set; }
@@ -144,6 +153,12 @@ namespace Microsoft.PowerBI.Api.Models
         /// </summary>
         [JsonProperty(PropertyName = "schemaMayNotBeUpToDate")]
         public bool? SchemaMayNotBeUpToDate { get; set; }
+
+        /// <summary>
+        /// Gets or sets the dataset expressions
+        /// </summary>
+        [JsonProperty(PropertyName = "expressions")]
+        public IList<Expression> Expressions { get; set; }
 
         /// <summary>
         /// Gets or sets the endorsement details
@@ -168,6 +183,18 @@ namespace Microsoft.PowerBI.Api.Models
         /// </summary>
         [JsonProperty(PropertyName = "datasourceUsages")]
         public IList<DatasourceUsage> DatasourceUsages { get; set; }
+
+        /// <summary>
+        /// Gets or sets the data source misconfigured usages
+        /// </summary>
+        [JsonProperty(PropertyName = "misconfiguredDatasourceUsages")]
+        public IList<DatasourceUsage> MisconfiguredDatasourceUsages { get; set; }
+
+        /// <summary>
+        /// Gets or sets the list of all the datamarts this item depends on
+        /// </summary>
+        [JsonProperty(PropertyName = "upstreamDatamarts")]
+        public IList<DependentDatamart> UpstreamDatamarts { get; set; }
 
         /// <summary>
         /// Gets or sets the upstream datasets
@@ -210,13 +237,9 @@ namespace Microsoft.PowerBI.Api.Models
                     }
                 }
             }
-            if (SensitivityLabel != null)
+            if (Expressions != null)
             {
-                SensitivityLabel.Validate();
-            }
-            if (DatasourceUsages != null)
-            {
-                foreach (var element1 in DatasourceUsages)
+                foreach (var element1 in Expressions)
                 {
                     if (element1 != null)
                     {
@@ -224,13 +247,37 @@ namespace Microsoft.PowerBI.Api.Models
                     }
                 }
             }
-            if (Users != null)
+            if (SensitivityLabel != null)
             {
-                foreach (var element2 in Users)
+                SensitivityLabel.Validate();
+            }
+            if (DatasourceUsages != null)
+            {
+                foreach (var element2 in DatasourceUsages)
                 {
                     if (element2 != null)
                     {
                         element2.Validate();
+                    }
+                }
+            }
+            if (MisconfiguredDatasourceUsages != null)
+            {
+                foreach (var element3 in MisconfiguredDatasourceUsages)
+                {
+                    if (element3 != null)
+                    {
+                        element3.Validate();
+                    }
+                }
+            }
+            if (Users != null)
+            {
+                foreach (var element4 in Users)
+                {
+                    if (element4 != null)
+                    {
+                        element4.Validate();
                     }
                 }
             }
