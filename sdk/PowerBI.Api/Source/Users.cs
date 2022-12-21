@@ -207,6 +207,9 @@ namespace Microsoft.PowerBI.Api
         /// <param name='continuationToken'>
         /// Token required to get the next chunk of the result set
         /// </param>
+        /// <param name='artifactTypes'>
+        /// Comma separated list of artifact types.
+        /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
         /// </param>
@@ -228,7 +231,7 @@ namespace Microsoft.PowerBI.Api
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<ArtifactAccessResponse>> GetUserArtifactAccessAsAdminWithHttpMessagesAsync(string userId, string continuationToken = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<ArtifactAccessResponse>> GetUserArtifactAccessAsAdminWithHttpMessagesAsync(string userId, string continuationToken = default(string), string artifactTypes = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (userId == null)
             {
@@ -243,6 +246,7 @@ namespace Microsoft.PowerBI.Api
                 Dictionary<string, object> tracingParameters = new Dictionary<string, object>();
                 tracingParameters.Add("userId", userId);
                 tracingParameters.Add("continuationToken", continuationToken);
+                tracingParameters.Add("artifactTypes", artifactTypes);
                 tracingParameters.Add("cancellationToken", cancellationToken);
                 ServiceClientTracing.Enter(_invocationId, this, "GetUserArtifactAccessAsAdmin", tracingParameters);
             }
@@ -254,6 +258,10 @@ namespace Microsoft.PowerBI.Api
             if (continuationToken != null)
             {
                 _queryParameters.Add(string.Format("continuationToken={0}", System.Uri.EscapeDataString(continuationToken)));
+            }
+            if (artifactTypes != null)
+            {
+                _queryParameters.Add(string.Format("artifactTypes={0}", System.Uri.EscapeDataString(artifactTypes)));
             }
             if (_queryParameters.Count > 0)
             {

@@ -17877,6 +17877,13 @@
                         "description": "Token required to get the next chunk of the result set",
                         "required": false,
                         "type": "string"
+                    },
+                    {
+                        "name": "artifactTypes",
+                        "in": "query",
+                        "description": "Comma separated list of artifact types.",
+                        "required": false,
+                        "type": "string"
                     }
                 ],
                 "responses": {
@@ -17921,6 +17928,28 @@
                                             "artifactId": "41ce06d1-d81b-4ea0-bc6d-2ce3dd2f8e87",
                                             "displayName": "test report",
                                             "artifactType": "Report",
+                                            "accessRight": "ReadWrite"
+                                        }
+                                    ],
+                                    "continuationUri": "https://api.powerbi.com/v1.0/myorg/admin/users/testUser%40microsoft.com/artifactAccess?continuationToken='LDEsMTAwMDAwLDA%3D'",
+                                    "continuationToken": "LDEsMTAwMDAwLDA%3D"
+                                }
+                            }
+                        }
+                    },
+                    "Example with artifactTypes": {
+                        "parameters": {
+                            "userId": "testUser@microsoft.com",
+                            "artifactTypes": "Dataflow,Dashboard"
+                        },
+                        "responses": {
+                            "200": {
+                                "body": {
+                                    "artifactAccessEntities": [
+                                        {
+                                            "artifactId": "09ce06d1-e81b-fea0-1c6d-8fe3dd2f8e87",
+                                            "displayName": "Test Dataflow",
+                                            "artifactType": "Dataflow",
                                             "accessRight": "ReadWrite"
                                         }
                                     ],
@@ -25661,7 +25690,7 @@
                     "description": "The display name of the Power BI item"
                 },
                 "artifactType": {
-                    "type": "string",
+                    "$ref": "#/definitions/ArtifactType",
                     "description": "The type of Power BI item"
                 },
                 "accessRight": {
@@ -25676,6 +25705,68 @@
                     "$ref": "#/definitions/User",
                     "description": "The user who shared the PowerBI item. Only available for widely shared artifacts APIs."
                 }
+            }
+        },
+        "ArtifactType": {
+            "type": "string",
+            "description": "The artifact type",
+            "enum": [
+                "Report",
+                "PaginatedReport",
+                "Dashboard",
+                "Dataset",
+                "Dataflow",
+                "PersonalGroup",
+                "Group",
+                "Workspace",
+                "Capacity",
+                "App"
+            ],
+            "x-ms-enum": {
+                "name": "ArtifactType",
+                "modelAsString": false,
+                "values": [
+                    {
+                        "value": "Report",
+                        "description": "Power BI Report"
+                    },
+                    {
+                        "value": "PaginatedReport",
+                        "description": "Power BI Paginated Report"
+                    },
+                    {
+                        "value": "Dashboard",
+                        "description": "Power BI Dashboard"
+                    },
+                    {
+                        "value": "Dataset",
+                        "description": "Power BI Dataset"
+                    },
+                    {
+                        "value": "Dataflow",
+                        "description": "Power BI Dataflow "
+                    },
+                    {
+                        "value": "PersonalGroup",
+                        "description": "My workspace object"
+                    },
+                    {
+                        "value": "Group",
+                        "description": "V1 shared workspace object"
+                    },
+                    {
+                        "value": "Workspace",
+                        "description": "Shared workspace object"
+                    },
+                    {
+                        "value": "Capacity",
+                        "description": "Capacity object"
+                    },
+                    {
+                        "value": "App",
+                        "description": "Power BI Apps"
+                    }
+                ]
             }
         },
         "PrincipalType": {

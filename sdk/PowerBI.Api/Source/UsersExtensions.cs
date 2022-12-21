@@ -127,9 +127,12 @@ namespace Microsoft.PowerBI.Api
             /// <param name='continuationToken'>
             /// Token required to get the next chunk of the result set
             /// </param>
-            public static ArtifactAccessResponse GetUserArtifactAccessAsAdmin(this IUsers operations, string userId, string continuationToken = default(string))
+            /// <param name='artifactTypes'>
+            /// Comma separated list of artifact types.
+            /// </param>
+            public static ArtifactAccessResponse GetUserArtifactAccessAsAdmin(this IUsers operations, string userId, string continuationToken = default(string), string artifactTypes = default(string))
             {
-                return operations.GetUserArtifactAccessAsAdminAsync(userId, continuationToken).GetAwaiter().GetResult();
+                return operations.GetUserArtifactAccessAsAdminAsync(userId, continuationToken, artifactTypes).GetAwaiter().GetResult();
             }
 
             /// <summary>
@@ -163,12 +166,15 @@ namespace Microsoft.PowerBI.Api
             /// <param name='continuationToken'>
             /// Token required to get the next chunk of the result set
             /// </param>
+            /// <param name='artifactTypes'>
+            /// Comma separated list of artifact types.
+            /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<ArtifactAccessResponse> GetUserArtifactAccessAsAdminAsync(this IUsers operations, string userId, string continuationToken = default(string), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<ArtifactAccessResponse> GetUserArtifactAccessAsAdminAsync(this IUsers operations, string userId, string continuationToken = default(string), string artifactTypes = default(string), CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.GetUserArtifactAccessAsAdminWithHttpMessagesAsync(userId, continuationToken, null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.GetUserArtifactAccessAsAdminWithHttpMessagesAsync(userId, continuationToken, artifactTypes, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }
