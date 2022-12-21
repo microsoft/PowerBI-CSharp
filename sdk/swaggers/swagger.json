@@ -23892,8 +23892,8 @@
                     "description": "The group description"
                 },
                 "type": {
-                    "type": "string",
-                    "description": "The type of group"
+                    "description": "The type of group being returned.",
+                    "$ref": "#/definitions/GroupType"
                 },
                 "state": {
                     "type": "string",
@@ -25706,6 +25706,38 @@
                     {
                         "value": "App",
                         "description": "Service principal type"
+                    }
+                ]
+            }
+        },
+        "GroupType": {
+            "type": "string",
+            "description": "The group type",
+            "enum": [
+                "PersonalGroup",
+                "Personal",
+                "Group",
+                "Workspace"
+            ],
+            "x-ms-enum": {
+                "name": "GroupType",
+                "modelAsString": false,
+                "values": [
+                    {
+                        "value": "PersonalGroup",
+                        "description": "“My workspace”, also known as personal workspace"
+                    },
+                    {
+                        "value": "Personal",
+                        "description": "Special type of workspace meant for SharePoint list and OneDrive integration"
+                    },
+                    {
+                        "value": "Workspace",
+                        "description": "Shared workspace or simple workspace used to share content with other users in the organization"
+                    },
+                    {
+                        "value": "Group",
+                        "description": "V1 version of shared workspace. This type of workspaces will be deprecated as Microsoft migrate all workspaces to latest version of shared workspace"
                     }
                 ]
             }
