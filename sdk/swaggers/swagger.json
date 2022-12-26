@@ -3088,6 +3088,21 @@
                         }
                     }
                 },
+                "x-ms-examples": {
+                    "Example": {
+                        "parameters": {
+                            "reportId": "cfafbeb1-8037-4d0c-896e-a46fb27ff229",
+                            "requestParameters": {
+                                "name": "New Report Name",
+                                "targetModelId": "8e4d5880-81d6-4804-ab97-054665050799",
+                                "targetWorkspaceId": "2f42a406-a075-4a15-bbf2-97ef958c94cb"
+                            }
+                        },
+                        "responses": {
+                            "200": {}
+                        }
+                    }
+                },
                 "deprecated": false
             }
         },
@@ -7026,6 +7041,22 @@
                         "description": "OK",
                         "schema": {
                             "$ref": "#/definitions/Report"
+                        }
+                    }
+                },
+                "x-ms-examples": {
+                    "Example": {
+                        "parameters": {
+                            "groupId": "f089354e-8366-4e18-aea3-4cb4a3a50b48",
+                            "reportId": "cfafbeb1-8037-4d0c-896e-a46fb27ff229",
+                            "requestParameters": {
+                                "name": "New Report Name",
+                                "targetModelId": "8e4d5880-81d6-4804-ab97-054665050799",
+                                "targetWorkspaceId": "2f42a406-a075-4a15-bbf2-97ef958c94cb"
+                            }
+                        },
+                        "responses": {
+                            "200": {}
                         }
                     }
                 },
