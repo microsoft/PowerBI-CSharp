@@ -11171,7 +11171,7 @@
                     "Capacities"
                 ],
                 "summary": "Returns the current state of the specified capacity workloads. If a workload is enabled, the percentage of maximum memory that the workload can consume is also returned.",
-                "description": "\nWorkload APIs aren't relevant for [Embedded Gen2](/power-bi/developer/embedded/power-bi-embedded-generation-2) capacities.\n\n## Required Scope\n\nCapacity.Read.All or Capacity.ReadWrite.All\n<br><br>",
+                "description": "\nWorkload APIs aren't relevant for [Gen2](/power-bi/developer/embedded/power-bi-embedded-generation-2) capacities.\n\n## Required Scope\n\nCapacity.Read.All or Capacity.ReadWrite.All\n<br><br>",
                 "operationId": "Capacities_GetWorkloads",
                 "consumes": [],
                 "produces": [
@@ -11226,7 +11226,7 @@
                     "Capacities"
                 ],
                 "summary": "Returns the current state of a workload. If the workload is enabled, the percentage of maximum memory that the workload can consume is also returned.",
-                "description": "\nWorkload APIs aren't relevant for [Embedded Gen2](/power-bi/developer/embedded/power-bi-embedded-generation-2) capacities.\n\n## Required Scope\n\nCapacity.Read.All or Capacity.ReadWrite.All\n<br><br>",
+                "description": "\nWorkload APIs aren't relevant for [Gen2](/power-bi/developer/embedded/power-bi-embedded-generation-2) capacities.\n\n## Required Scope\n\nCapacity.Read.All or Capacity.ReadWrite.All\n<br><br>",
                 "operationId": "Capacities_GetWorkload",
                 "consumes": [],
                 "produces": [
@@ -11281,7 +11281,7 @@
                     "Capacities"
                 ],
                 "summary": "Changes the state of a specific workload to *Enabled* or *Disabled*. When enabling a workload, specify the percentage of maximum memory that the workload can consume.",
-                "description": "\nWorkload APIs aren't relevant for [Embedded Gen2](/power-bi/developer/embedded/power-bi-embedded-generation-2) capacities.\n\n## Required Scope\n\nCapacity.ReadWrite.All\n<br><br>",
+                "description": "\nWorkload APIs aren't relevant for [Gen2](/power-bi/developer/embedded/power-bi-embedded-generation-2) capacities.\n\n## Required Scope\n\nCapacity.ReadWrite.All\n<br><br>",
                 "operationId": "Capacities_PatchWorkload",
                 "consumes": [
                     "application/json"

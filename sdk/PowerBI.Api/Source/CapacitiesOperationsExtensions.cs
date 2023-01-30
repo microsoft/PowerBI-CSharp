@@ -78,8 +78,8 @@ namespace Microsoft.PowerBI.Api
             /// </summary>
             /// <remarks>
             ///
-            /// Workload APIs aren't relevant for [Embedded
-            /// Gen2](/power-bi/developer/embedded/power-bi-embedded-generation-2)
+            /// Workload APIs aren't relevant for
+            /// [Gen2](/power-bi/developer/embedded/power-bi-embedded-generation-2)
             /// capacities.
             ///
             /// ## Required Scope
@@ -105,8 +105,8 @@ namespace Microsoft.PowerBI.Api
             /// </summary>
             /// <remarks>
             ///
-            /// Workload APIs aren't relevant for [Embedded
-            /// Gen2](/power-bi/developer/embedded/power-bi-embedded-generation-2)
+            /// Workload APIs aren't relevant for
+            /// [Gen2](/power-bi/developer/embedded/power-bi-embedded-generation-2)
             /// capacities.
             ///
             /// ## Required Scope
@@ -138,8 +138,8 @@ namespace Microsoft.PowerBI.Api
             /// </summary>
             /// <remarks>
             ///
-            /// Workload APIs aren't relevant for [Embedded
-            /// Gen2](/power-bi/developer/embedded/power-bi-embedded-generation-2)
+            /// Workload APIs aren't relevant for
+            /// [Gen2](/power-bi/developer/embedded/power-bi-embedded-generation-2)
             /// capacities.
             ///
             /// ## Required Scope
@@ -168,8 +168,8 @@ namespace Microsoft.PowerBI.Api
             /// </summary>
             /// <remarks>
             ///
-            /// Workload APIs aren't relevant for [Embedded
-            /// Gen2](/power-bi/developer/embedded/power-bi-embedded-generation-2)
+            /// Workload APIs aren't relevant for
+            /// [Gen2](/power-bi/developer/embedded/power-bi-embedded-generation-2)
             /// capacities.
             ///
             /// ## Required Scope
@@ -204,8 +204,8 @@ namespace Microsoft.PowerBI.Api
             /// </summary>
             /// <remarks>
             ///
-            /// Workload APIs aren't relevant for [Embedded
-            /// Gen2](/power-bi/developer/embedded/power-bi-embedded-generation-2)
+            /// Workload APIs aren't relevant for
+            /// [Gen2](/power-bi/developer/embedded/power-bi-embedded-generation-2)
             /// capacities.
             ///
             /// ## Required Scope
@@ -237,8 +237,8 @@ namespace Microsoft.PowerBI.Api
             /// </summary>
             /// <remarks>
             ///
-            /// Workload APIs aren't relevant for [Embedded
-            /// Gen2](/power-bi/developer/embedded/power-bi-embedded-generation-2)
+            /// Workload APIs aren't relevant for
+            /// [Gen2](/power-bi/developer/embedded/power-bi-embedded-generation-2)
             /// capacities.
             ///
             /// ## Required Scope
