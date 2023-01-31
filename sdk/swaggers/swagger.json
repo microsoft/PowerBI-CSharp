@@ -1058,7 +1058,7 @@
                 "tags": [
                     "Datasets"
                 ],
-                "summary": "Cancels the specified [enhanced refresh operation](/power-bi/connect-data/asynchronous-refresh) for the specified dataset from **My workspace**.",
+                "summary": "Cancels the specified refresh operation for the specified dataset from **My workspace**.",
                 "description": "\n## Required Scope\n\nDataset.ReadWrite.All\n<br><br>",
                 "operationId": "Datasets_CancelRefresh",
                 "consumes": [],
@@ -5097,7 +5097,7 @@
                 "tags": [
                     "Datasets"
                 ],
-                "summary": "Cancels the specified [enhanced refresh operation](/power-bi/connect-data/asynchronous-refresh) for the specified dataset from the specified workspace.",
+                "summary": "Cancels the specified refresh operation for the specified dataset from the specified workspace.",
                 "description": "\n## Permissions\n\nThis API call can be called by a service principal profile. For more information see: [Service principal profiles in Power BI Embedded](/power-bi/developer/embedded/embed-multi-tenancy).\n\n## Required Scope\n\nDataset.ReadWrite.All\n<br><br>",
                 "operationId": "Datasets_CancelRefreshInGroup",
                 "consumes": [],

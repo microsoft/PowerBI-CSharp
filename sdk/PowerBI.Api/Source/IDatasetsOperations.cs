@@ -522,9 +522,8 @@ namespace Microsoft.PowerBI.Api
         /// </exception>
         Task<HttpOperationResponse<DatasetRefreshDetail>> GetRefreshExecutionDetailsWithHttpMessagesAsync(System.Guid datasetId, System.Guid refreshId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
-        /// Cancels the specified [enhanced refresh
-        /// operation](/power-bi/connect-data/asynchronous-refresh) for the
-        /// specified dataset from **My workspace**.
+        /// Cancels the specified refresh operation for the specified dataset
+        /// from **My workspace**.
         /// </summary>
         /// <remarks>
         ///
@@ -1886,9 +1885,8 @@ namespace Microsoft.PowerBI.Api
         /// </exception>
         Task<HttpOperationResponse<DatasetRefreshDetail>> GetRefreshExecutionDetailsInGroupWithHttpMessagesAsync(System.Guid groupId, System.Guid datasetId, System.Guid refreshId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
-        /// Cancels the specified [enhanced refresh
-        /// operation](/power-bi/connect-data/asynchronous-refresh) for the
-        /// specified dataset from the specified workspace.
+        /// Cancels the specified refresh operation for the specified dataset
+        /// from the specified workspace.
         /// </summary>
         /// <remarks>
         ///

@@ -2149,9 +2149,8 @@ namespace Microsoft.PowerBI.Api
         }
 
         /// <summary>
-        /// Cancels the specified [enhanced refresh
-        /// operation](/power-bi/connect-data/asynchronous-refresh) for the specified
-        /// dataset from **My workspace**.
+        /// Cancels the specified refresh operation for the specified dataset from **My
+        /// workspace**.
         /// </summary>
         /// <remarks>
         ///
@@ -7302,9 +7301,8 @@ namespace Microsoft.PowerBI.Api
         }
 
         /// <summary>
-        /// Cancels the specified [enhanced refresh
-        /// operation](/power-bi/connect-data/asynchronous-refresh) for the specified
-        /// dataset from the specified workspace.
+        /// Cancels the specified refresh operation for the specified dataset from the
+        /// specified workspace.
         /// </summary>
         /// <remarks>
         ///
