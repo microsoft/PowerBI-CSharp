@@ -1017,6 +1017,8 @@ namespace Microsoft.PowerBI.Api
         /// ## Limitations
         ///
         /// Virtual network (VNet) gateways aren't supported.
+        /// SAS Token credentials are supported only with AzureBlobStorage and
+        /// AzureDataLakeStorage.
         /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='gatewayId'>
