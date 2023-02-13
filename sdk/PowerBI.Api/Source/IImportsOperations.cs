@@ -262,8 +262,11 @@ namespace Microsoft.PowerBI.Api
         /// with `filePath` set to the .xlsx file path in the request body.
         /// - To import large Power BI .pbix files that are between 1 GB and 10
         /// GB in size, see [Create Temporary Upload Location In
-        /// Group](/rest/api/power-bi/imports/create-temporary-upload-location-in-group).
-        /// This is only supported for Premium capacity workspaces.
+        /// Group](/rest/api/power-bi/imports/create-temporary-upload-location-in-group)
+        /// and the [Import Large
+        /// Files](https://github.com/microsoft/PowerBI-Developer-Samples/blob/master/PowerShell%20Scripts/Import%20Large%20Files)
+        /// PowerShell script. This is only supported for Premium capacity
+        /// workspaces.
         /// - To create a dataflow from a model.json file, set
         /// `datasetDisplayName` to *model.json*, as described in [URI
         /// parameters](/rest/api/power-bi/imports/post-import-in-group#uri-parameters).
