@@ -7,78 +7,115 @@
 namespace Microsoft.PowerBI.Api.Models
 {
     using Newtonsoft.Json;
-    using Newtonsoft.Json.Converters;
-    using System.Runtime;
-    using System.Runtime.Serialization;
 
     /// <summary>
     /// Defines values for GroupType.
     /// </summary>
-    [JsonConverter(typeof(StringEnumConverter))]
-    public enum GroupType
+    /// <summary>
+    /// Determine base value for a given allowed value if exists, else return
+    /// the value itself
+    /// </summary>
+    [JsonConverter(typeof(GroupTypeConverter))]
+    public struct GroupType : System.IEquatable<GroupType>
     {
+        private GroupType(string underlyingValue)
+        {
+            UnderlyingValue=underlyingValue;
+        }
+
         /// <summary>
         /// “My workspace”, also known as personal workspace
         /// </summary>
-        [EnumMember(Value = "PersonalGroup")]
-        PersonalGroup,
+        public static readonly GroupType PersonalGroup = "PersonalGroup";
+
         /// <summary>
         /// Special type of workspace meant for SharePoint list and OneDrive
         /// integration
         /// </summary>
-        [EnumMember(Value = "Personal")]
-        Personal,
+        public static readonly GroupType Personal = "Personal";
+
         /// <summary>
         /// Shared workspace or simple workspace used to share content with
         /// other users in the organization
         /// </summary>
-        [EnumMember(Value = "Workspace")]
-        Workspace,
+        public static readonly GroupType Workspace = "Workspace";
+
         /// <summary>
         /// V1 version of shared workspace. This type of workspaces will be
         /// deprecated as Microsoft migrate all workspaces to latest version of
         /// shared workspace
         /// </summary>
-        [EnumMember(Value = "Group")]
-        Group
-    }
-    internal static class GroupTypeEnumExtension
-    {
-        internal static string ToSerializedValue(this GroupType? value)
+        public static readonly GroupType Group = "Group";
+
+
+        /// <summary>
+        /// Underlying value of enum GroupType
+        /// </summary>
+        private readonly string UnderlyingValue;
+
+        /// <summary>
+        /// Returns string representation for GroupType
+        /// </summary>
+        public override string ToString()
         {
-            return value == null ? null : ((GroupType)value).ToSerializedValue();
+            return UnderlyingValue.ToString();
         }
 
-        internal static string ToSerializedValue(this GroupType value)
+        /// <summary>
+        /// Compares enums of type GroupType
+        /// </summary>
+        public bool Equals(GroupType e)
         {
-            switch( value )
-            {
-                case GroupType.PersonalGroup:
-                    return "PersonalGroup";
-                case GroupType.Personal:
-                    return "Personal";
-                case GroupType.Workspace:
-                    return "Workspace";
-                case GroupType.Group:
-                    return "Group";
-            }
-            return null;
+            return UnderlyingValue.Equals(e.UnderlyingValue);
         }
 
-        internal static GroupType? ParseGroupType(this string value)
+        /// <summary>
+        /// Implicit operator to convert string to GroupType
+        /// </summary>
+        public static implicit operator GroupType(string value)
         {
-            switch( value )
-            {
-                case "PersonalGroup":
-                    return GroupType.PersonalGroup;
-                case "Personal":
-                    return GroupType.Personal;
-                case "Workspace":
-                    return GroupType.Workspace;
-                case "Group":
-                    return GroupType.Group;
-            }
-            return null;
+            return new GroupType(value);
         }
+
+        /// <summary>
+        /// Implicit operator to convert GroupType to string
+        /// </summary>
+        public static implicit operator string(GroupType e)
+        {
+            return e.UnderlyingValue;
+        }
+
+        /// <summary>
+        /// Overriding == operator for enum GroupType
+        /// </summary>
+        public static bool operator == (GroupType e1, GroupType e2)
+        {
+            return e2.Equals(e1);
+        }
+
+        /// <summary>
+        /// Overriding != operator for enum GroupType
+        /// </summary>
+        public static bool operator != (GroupType e1, GroupType e2)
+        {
+            return !e2.Equals(e1);
+        }
+
+        /// <summary>
+        /// Overrides Equals operator for GroupType
+        /// </summary>
+        public override bool Equals(object obj)
+        {
+            return obj is GroupType && Equals((GroupType)obj);
+        }
+
+        /// <summary>
+        /// Returns for hashCode GroupType
+        /// </summary>
+        public override int GetHashCode()
+        {
+            return UnderlyingValue.GetHashCode();
+        }
+
     }
 }

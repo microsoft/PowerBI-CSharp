@@ -7,128 +7,141 @@
 namespace Microsoft.PowerBI.Api.Models
 {
     using Newtonsoft.Json;
-    using Newtonsoft.Json.Converters;
-    using System.Runtime;
-    using System.Runtime.Serialization;
 
     /// <summary>
     /// Defines values for ArtifactType.
     /// </summary>
-    [JsonConverter(typeof(StringEnumConverter))]
-    public enum ArtifactType
+    /// <summary>
+    /// Determine base value for a given allowed value if exists, else return
+    /// the value itself
+    /// </summary>
+    [JsonConverter(typeof(ArtifactTypeConverter))]
+    public struct ArtifactType : System.IEquatable<ArtifactType>
     {
+        private ArtifactType(string underlyingValue)
+        {
+            UnderlyingValue=underlyingValue;
+        }
+
         /// <summary>
         /// Power BI Report
         /// </summary>
-        [EnumMember(Value = "Report")]
-        Report,
+        public static readonly ArtifactType Report = "Report";
+
         /// <summary>
         /// Power BI Paginated Report
         /// </summary>
-        [EnumMember(Value = "PaginatedReport")]
-        PaginatedReport,
+        public static readonly ArtifactType PaginatedReport = "PaginatedReport";
+
         /// <summary>
         /// Power BI Dashboard
         /// </summary>
-        [EnumMember(Value = "Dashboard")]
-        Dashboard,
+        public static readonly ArtifactType Dashboard = "Dashboard";
+
         /// <summary>
         /// Power BI Dataset
         /// </summary>
-        [EnumMember(Value = "Dataset")]
-        Dataset,
+        public static readonly ArtifactType Dataset = "Dataset";
+
         /// <summary>
         /// Power BI Dataflow
         /// </summary>
-        [EnumMember(Value = "Dataflow")]
-        Dataflow,
+        public static readonly ArtifactType Dataflow = "Dataflow";
+
         /// <summary>
         /// My workspace object
         /// </summary>
-        [EnumMember(Value = "PersonalGroup")]
-        PersonalGroup,
+        public static readonly ArtifactType PersonalGroup = "PersonalGroup";
+
         /// <summary>
         /// V1 shared workspace object
         /// </summary>
-        [EnumMember(Value = "Group")]
-        Group,
+        public static readonly ArtifactType Group = "Group";
+
         /// <summary>
         /// Shared workspace object
         /// </summary>
-        [EnumMember(Value = "Workspace")]
-        Workspace,
+        public static readonly ArtifactType Workspace = "Workspace";
+
         /// <summary>
         /// Capacity object
         /// </summary>
-        [EnumMember(Value = "Capacity")]
-        Capacity,
+        public static readonly ArtifactType Capacity = "Capacity";
+
         /// <summary>
         /// Power BI Apps
         /// </summary>
-        [EnumMember(Value = "App")]
-        App
-    }
-    internal static class ArtifactTypeEnumExtension
-    {
-        internal static string ToSerializedValue(this ArtifactType? value)
+        public static readonly ArtifactType App = "App";
+
+
+        /// <summary>
+        /// Underlying value of enum ArtifactType
+        /// </summary>
+        private readonly string UnderlyingValue;
+
+        /// <summary>
+        /// Returns string representation for ArtifactType
+        /// </summary>
+        public override string ToString()
         {
-            return value == null ? null : ((ArtifactType)value).ToSerializedValue();
+            return UnderlyingValue.ToString();
         }
 
-        internal static string ToSerializedValue(this ArtifactType value)
+        /// <summary>
+        /// Compares enums of type ArtifactType
+        /// </summary>
+        public bool Equals(ArtifactType e)
         {
-            switch( value )
-            {
-                case ArtifactType.Report:
-                    return "Report";
-                case ArtifactType.PaginatedReport:
-                    return "PaginatedReport";
-                case ArtifactType.Dashboard:
-                    return "Dashboard";
-                case ArtifactType.Dataset:
-                    return "Dataset";
-                case ArtifactType.Dataflow:
-                    return "Dataflow";
-                case ArtifactType.PersonalGroup:
-                    return "PersonalGroup";
-                case ArtifactType.Group:
-                    return "Group";
-                case ArtifactType.Workspace:
-                    return "Workspace";
-                case ArtifactType.Capacity:
-                    return "Capacity";
-                case ArtifactType.App:
-                    return "App";
-            }
-            return null;
+            return UnderlyingValue.Equals(e.UnderlyingValue);
         }
 
-        internal static ArtifactType? ParseArtifactType(this string value)
+        /// <summary>
+        /// Implicit operator to convert string to ArtifactType
+        /// </summary>
+        public static implicit operator ArtifactType(string value)
         {
-            switch( value )
-            {
-                case "Report":
-                    return ArtifactType.Report;
-                case "PaginatedReport":
-                    return ArtifactType.PaginatedReport;
-                case "Dashboard":
-                    return ArtifactType.Dashboard;
-                case "Dataset":
-                    return ArtifactType.Dataset;
-                case "Dataflow":
-                    return ArtifactType.Dataflow;
-                case "PersonalGroup":
-                    return ArtifactType.PersonalGroup;
-                case "Group":
-                    return ArtifactType.Group;
-                case "Workspace":
-                    return ArtifactType.Workspace;
-                case "Capacity":
-                    return ArtifactType.Capacity;
-                case "App":
-                    return ArtifactType.App;
-            }
-            return null;
+            return new ArtifactType(value);
         }
+
+        /// <summary>
+        /// Implicit operator to convert ArtifactType to string
+        /// </summary>
+        public static implicit operator string(ArtifactType e)
+        {
+            return e.UnderlyingValue;
+        }
+
+        /// <summary>
+        /// Overriding == operator for enum ArtifactType
+        /// </summary>
+        public static bool operator == (ArtifactType e1, ArtifactType e2)
+        {
+            return e2.Equals(e1);
+        }
+
+        /// <summary>
+        /// Overriding != operator for enum ArtifactType
+        /// </summary>
+        public static bool operator != (ArtifactType e1, ArtifactType e2)
+        {
+            return !e2.Equals(e1);
+        }
+
+        /// <summary>
+        /// Overrides Equals operator for ArtifactType
+        /// </summary>
+        public override bool Equals(object obj)
+        {
+            return obj is ArtifactType && Equals((ArtifactType)obj);
+        }
+
+        /// <summary>
+        /// Returns for hashCode ArtifactType
+        /// </summary>
+        public override int GetHashCode()
+        {
+            return UnderlyingValue.GetHashCode();
+        }
+
     }
 }

@@ -25775,6 +25775,7 @@
             ],
             "x-ms-enum": {
                 "name": "ArtifactType",
+                "modelAsExtensible": true,
                 "modelAsString": false,
                 "values": [
                     {
@@ -25863,6 +25864,7 @@
             ],
             "x-ms-enum": {
                 "name": "GroupType",
+                "modelAsExtensible": true,
                 "modelAsString": false,
                 "values": [
                     {
