@@ -27,8 +27,11 @@ namespace Microsoft.PowerBI.Api.Models
         /// <summary>
         /// Initializes a new instance of the ActivityEventResponse class.
         /// </summary>
-        /// <param name="activityEventEntities">The activity event
-        /// entities</param>
+        /// <param name="activityEventEntities">An array of activity event
+        /// objects. To learn more about an activity event (which is a
+        /// collection of event properties) refer to [Microsoft 365 Management
+        /// Activity
+        /// schema](https://learn.microsoft.com/en-us/office/office-365-management-api/office-365-management-activity-api-schema#power-bi-schema).</param>
         /// <param name="continuationUri">The URI for the next chunk in the
         /// result set</param>
         /// <param name="continuationToken">Token to get the next chunk of the
@@ -47,7 +50,10 @@ namespace Microsoft.PowerBI.Api.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets the activity event entities
+        /// Gets or sets an array of activity event objects. To learn more
+        /// about an activity event (which is a collection of event properties)
+        /// refer to [Microsoft 365 Management Activity
+        /// schema](https://learn.microsoft.com/en-us/office/office-365-management-api/office-365-management-activity-api-schema#power-bi-schema).
         /// </summary>
         [JsonProperty(PropertyName = "activityEventEntities")]
         public IList<object> ActivityEventEntities { get; set; }

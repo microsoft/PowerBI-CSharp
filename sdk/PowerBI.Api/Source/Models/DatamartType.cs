@@ -7,44 +7,121 @@
 namespace Microsoft.PowerBI.Api.Models
 {
     using Newtonsoft.Json;
-    using System.Linq;
 
     /// <summary>
-    /// The datamart type
+    /// Defines values for DatamartType.
     /// </summary>
-    public partial class DatamartType
+    /// <summary>
+    /// Determine base value for a given allowed value if exists, else return
+    /// the value itself
+    /// </summary>
+    [JsonConverter(typeof(DatamartTypeConverter))]
+    public struct DatamartType : System.IEquatable<DatamartType>
     {
-        /// <summary>
-        /// Initializes a new instance of the DatamartType class.
-        /// </summary>
-        public DatamartType()
+        private DatamartType(string underlyingValue)
         {
-            CustomInit();
+            UnderlyingValue=underlyingValue;
         }
 
         /// <summary>
-        /// Initializes a new instance of the DatamartType class.
+        /// The datamart type was unset
         /// </summary>
-        /// <param name="type">The datamart type. Possible values include:
-        /// 'Unset', 'Ignore', 'Sql', 'Lakehouse', 'Dataverse',
-        /// 'Datawarehouse'</param>
-        public DatamartType(Type? type = default(Type?))
+        public static readonly DatamartType Unset = "Unset";
+
+        /// <summary>
+        /// The datamart has no type
+        /// </summary>
+        public static readonly DatamartType Ignore = "Ignore";
+
+        /// <summary>
+        /// The datamart is of Sql type
+        /// </summary>
+        public static readonly DatamartType Sql = "Sql";
+
+        /// <summary>
+        /// The datamart is of Lakehouse type
+        /// </summary>
+        public static readonly DatamartType Lakehouse = "Lakehouse";
+
+        /// <summary>
+        /// The datamart is of Dataverse type
+        /// </summary>
+        public static readonly DatamartType Dataverse = "Dataverse";
+
+        /// <summary>
+        /// The datamart is of Datawarehouse type
+        /// </summary>
+        public static readonly DatamartType Datawarehouse = "Datawarehouse";
+
+
+        /// <summary>
+        /// Underlying value of enum DatamartType
+        /// </summary>
+        private readonly string UnderlyingValue;
+
+        /// <summary>
+        /// Returns string representation for DatamartType
+        /// </summary>
+        public override string ToString()
         {
-            Type = type;
-            CustomInit();
+            return UnderlyingValue.ToString();
         }
 
         /// <summary>
-        /// An initialization method that performs custom operations like setting defaults
+        /// Compares enums of type DatamartType
         /// </summary>
-        partial void CustomInit();
+        public bool Equals(DatamartType e)
+        {
+            return UnderlyingValue.Equals(e.UnderlyingValue);
+        }
 
         /// <summary>
-        /// Gets or sets the datamart type. Possible values include: 'Unset',
-        /// 'Ignore', 'Sql', 'Lakehouse', 'Dataverse', 'Datawarehouse'
+        /// Implicit operator to convert string to DatamartType
         /// </summary>
-        [JsonProperty(PropertyName = "type")]
-        public Type? Type { get; set; }
+        public static implicit operator DatamartType(string value)
+        {
+            return new DatamartType(value);
+        }
+
+        /// <summary>
+        /// Implicit operator to convert DatamartType to string
+        /// </summary>
+        public static implicit operator string(DatamartType e)
+        {
+            return e.UnderlyingValue;
+        }
+
+        /// <summary>
+        /// Overriding == operator for enum DatamartType
+        /// </summary>
+        public static bool operator == (DatamartType e1, DatamartType e2)
+        {
+            return e2.Equals(e1);
+        }
+
+        /// <summary>
+        /// Overriding != operator for enum DatamartType
+        /// </summary>
+        public static bool operator != (DatamartType e1, DatamartType e2)
+        {
+            return !e2.Equals(e1);
+        }
+
+        /// <summary>
+        /// Overrides Equals operator for DatamartType
+        /// </summary>
+        public override bool Equals(object obj)
+        {
+            return obj is DatamartType && Equals((DatamartType)obj);
+        }
+
+        /// <summary>
+        /// Returns for hashCode DatamartType
+        /// </summary>
+        public override int GetHashCode()
+        {
+            return UnderlyingValue.GetHashCode();
+        }
 
     }
 }

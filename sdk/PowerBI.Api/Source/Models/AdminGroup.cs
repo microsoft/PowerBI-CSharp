@@ -36,7 +36,9 @@ namespace Microsoft.PowerBI.Api.Models
         /// <param name="dataflowStorageId">The Power BI dataflow storage
         /// account ID</param>
         /// <param name="description">The group description</param>
-        /// <param name="type">The type of group</param>
+        /// <param name="type">The type of group being returned. Possible
+        /// values include: 'PersonalGroup', 'Personal', 'Workspace',
+        /// 'Group'</param>
         /// <param name="state">The group state</param>
         /// <param name="users">(Empty value) The users that belong to the
         /// group and their access rights. This property will be removed from
@@ -60,7 +62,7 @@ namespace Microsoft.PowerBI.Api.Models
         /// workspace is assigned to.</param>
         /// <param name="hasWorkspaceLevelSettings">Whether the workspace has
         /// custom settings</param>
-        public AdminGroup(System.Guid id, string name = default(string), bool? isReadOnly = default(bool?), bool? isOnDedicatedCapacity = default(bool?), System.Guid? capacityId = default(System.Guid?), System.Guid? dataflowStorageId = default(System.Guid?), string description = default(string), string type = default(string), string state = default(string), IList<GroupUser> users = default(IList<GroupUser>), IList<AdminReport> reports = default(IList<AdminReport>), IList<AdminDashboard> dashboards = default(IList<AdminDashboard>), IList<AdminDataset> datasets = default(IList<AdminDataset>), IList<AdminDataflow> dataflows = default(IList<AdminDataflow>), IList<Workbook> workbooks = default(IList<Workbook>), System.Guid? pipelineId = default(System.Guid?), bool? hasWorkspaceLevelSettings = default(bool?))
+        public AdminGroup(System.Guid id, string name = default(string), bool? isReadOnly = default(bool?), bool? isOnDedicatedCapacity = default(bool?), System.Guid? capacityId = default(System.Guid?), System.Guid? dataflowStorageId = default(System.Guid?), string description = default(string), GroupType? type = default(GroupType?), string state = default(string), IList<GroupUser> users = default(IList<GroupUser>), IList<AdminReport> reports = default(IList<AdminReport>), IList<AdminDashboard> dashboards = default(IList<AdminDashboard>), IList<AdminDataset> datasets = default(IList<AdminDataset>), IList<AdminDataflow> dataflows = default(IList<AdminDataflow>), IList<Workbook> workbooks = default(IList<Workbook>), System.Guid? pipelineId = default(System.Guid?), bool? hasWorkspaceLevelSettings = default(bool?))
         {
             Id = id;
             Name = name;
@@ -130,10 +132,11 @@ namespace Microsoft.PowerBI.Api.Models
         public string Description { get; set; }
 
         /// <summary>
-        /// Gets or sets the type of group
+        /// Gets or sets the type of group being returned. Possible values
+        /// include: 'PersonalGroup', 'Personal', 'Workspace', 'Group'
         /// </summary>
         [JsonProperty(PropertyName = "type")]
-        public string Type { get; set; }
+        public GroupType? Type { get; set; }
 
         /// <summary>
         /// Gets or sets the group state

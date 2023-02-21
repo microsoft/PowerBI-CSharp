@@ -39,7 +39,8 @@ namespace Microsoft.PowerBI.Api.Models
         /// <param name="contentProviderType">The content provider type for the
         /// dataset</param>
         /// <param name="description">The dataset description</param>
-        /// <param name="upstreamDataflows">The upstream dataflows</param>
+        /// <param name="upstreamDataflows">The list of all the dataflows this
+        /// item depends on</param>
         /// <param name="createReportEmbedURL">The dataset create report embed
         /// URL</param>
         /// <param name="qnaEmbedURL">The dataset Q&amp;A embed URL</param>
@@ -74,7 +75,9 @@ namespace Microsoft.PowerBI.Api.Models
         /// shared with external users to be consumed in their own
         /// tenant</param>
         /// <param name="targetStorageMode">The dataset storage mode</param>
-        public AdminDataset(string id, string name = default(string), string configuredBy = default(string), System.DateTime? createdDate = default(System.DateTime?), string contentProviderType = default(string), string description = default(string), IList<DependentDataflow> upstreamDataflows = default(IList<DependentDataflow>), string createReportEmbedURL = default(string), string qnaEmbedURL = default(string), string webUrl = default(string), bool? isEffectiveIdentityRequired = default(bool?), bool? isEffectiveIdentityRolesRequired = default(bool?), bool? isOnPremGatewayRequired = default(bool?), Encryption encryption = default(Encryption), IList<DatasetUser> users = default(IList<DatasetUser>), bool? addRowsAPIEnabled = default(bool?), bool? isRefreshable = default(bool?), bool? isInPlaceSharingEnabled = default(bool?), string targetStorageMode = default(string))
+        /// <param name="workspaceId">The dataset workspace ID. This property
+        /// will be returned only in GetDatasetsAsAdmin.</param>
+        public AdminDataset(string id, string name = default(string), string configuredBy = default(string), System.DateTime? createdDate = default(System.DateTime?), string contentProviderType = default(string), string description = default(string), IList<DependentDataflow> upstreamDataflows = default(IList<DependentDataflow>), string createReportEmbedURL = default(string), string qnaEmbedURL = default(string), string webUrl = default(string), bool? isEffectiveIdentityRequired = default(bool?), bool? isEffectiveIdentityRolesRequired = default(bool?), bool? isOnPremGatewayRequired = default(bool?), Encryption encryption = default(Encryption), IList<DatasetUser> users = default(IList<DatasetUser>), bool? addRowsAPIEnabled = default(bool?), bool? isRefreshable = default(bool?), bool? isInPlaceSharingEnabled = default(bool?), string targetStorageMode = default(string), System.Guid? workspaceId = default(System.Guid?))
         {
             Id = id;
             Name = name;
@@ -95,6 +98,7 @@ namespace Microsoft.PowerBI.Api.Models
             IsRefreshable = isRefreshable;
             IsInPlaceSharingEnabled = isInPlaceSharingEnabled;
             TargetStorageMode = targetStorageMode;
+            WorkspaceId = workspaceId;
             CustomInit();
         }
 
@@ -140,7 +144,7 @@ namespace Microsoft.PowerBI.Api.Models
         public string Description { get; set; }
 
         /// <summary>
-        /// Gets or sets the upstream dataflows
+        /// Gets or sets the list of all the dataflows this item depends on
         /// </summary>
         [JsonProperty(PropertyName = "upstreamDataflows")]
         public IList<DependentDataflow> UpstreamDataflows { get; set; }
@@ -232,6 +236,13 @@ namespace Microsoft.PowerBI.Api.Models
         /// </summary>
         [JsonProperty(PropertyName = "targetStorageMode")]
         public string TargetStorageMode { get; set; }
+
+        /// <summary>
+        /// Gets or sets the dataset workspace ID. This property will be
+        /// returned only in GetDatasetsAsAdmin.
+        /// </summary>
+        [JsonProperty(PropertyName = "workspaceId")]
+        public System.Guid? WorkspaceId { get; set; }
 
         /// <summary>
         /// Validate the object.

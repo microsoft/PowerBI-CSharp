@@ -193,8 +193,8 @@ namespace Microsoft.PowerBI.Api
         /// </summary>
         /// <remarks>
         ///
-        /// Workload APIs aren't relevant for [Embedded
-        /// Gen2](/power-bi/developer/embedded/power-bi-embedded-generation-2)
+        /// Workload APIs aren't relevant for
+        /// [Gen2](/power-bi/developer/embedded/power-bi-embedded-generation-2)
         /// capacities.
         ///
         /// ## Required Scope
@@ -337,8 +337,8 @@ namespace Microsoft.PowerBI.Api
         /// </summary>
         /// <remarks>
         ///
-        /// Workload APIs aren't relevant for [Embedded
-        /// Gen2](/power-bi/developer/embedded/power-bi-embedded-generation-2)
+        /// Workload APIs aren't relevant for
+        /// [Gen2](/power-bi/developer/embedded/power-bi-embedded-generation-2)
         /// capacities.
         ///
         /// ## Required Scope
@@ -496,8 +496,8 @@ namespace Microsoft.PowerBI.Api
         /// </summary>
         /// <remarks>
         ///
-        /// Workload APIs aren't relevant for [Embedded
-        /// Gen2](/power-bi/developer/embedded/power-bi-embedded-generation-2)
+        /// Workload APIs aren't relevant for
+        /// [Gen2](/power-bi/developer/embedded/power-bi-embedded-generation-2)
         /// capacities.
         ///
         /// ## Required Scope
@@ -1460,9 +1460,17 @@ namespace Microsoft.PowerBI.Api
         /// Administrator or Power BI Service Administrator).
         /// - Delegated permissions are supported.
         ///
+        /// When running under service prinicipal authentication, an app **must not**
+        /// have any admin-consent required premissions for Power BI set on it in the
+        /// Azure portal.
+        ///
         /// ## Required Scope
         ///
         /// Tenant.Read.All or Tenant.ReadWrite.All
+        ///
+        /// Relevant only when authenticating via a standard delegated admin access
+        /// token. Must not be present when authentication via a service principal is
+        /// used.
         /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='capacityId'>

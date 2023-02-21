@@ -24,7 +24,7 @@ namespace Microsoft.PowerBI.Api.Models
         /// Initializes a new instance of the DataflowWorkspaceIdProperty
         /// class.
         /// </summary>
-        /// <param name="workspaceId">The dataflow workspace ID</param>
+        /// <param name="workspaceId">The dataflow workspace ID.</param>
         public DataflowWorkspaceIdProperty(System.Guid? workspaceId = default(System.Guid?))
         {
             WorkspaceId = workspaceId;
@@ -37,7 +37,7 @@ namespace Microsoft.PowerBI.Api.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets the dataflow workspace ID
+        /// Gets or sets the dataflow workspace ID.
         /// </summary>
         [JsonProperty(PropertyName = "workspaceId")]
         public System.Guid? WorkspaceId { get; set; }

@@ -663,9 +663,17 @@ namespace Microsoft.PowerBI.Api
             /// service principal.
             /// - Delegated permissions are supported.
             ///
+            /// When running under service prinicipal authentication, an app **must not**
+            /// have any admin-consent required premissions for Power BI set on it in the
+            /// Azure portal.
+            ///
             /// ## Required Scope
             ///
             /// Tenant.Read.All or Tenant.ReadWrite.All
+            ///
+            /// Relevant only when authenticating via a standard delegated admin access
+            /// token. Must not be present when authentication via a service principal is
+            /// used.
             ///
             /// ## Limitations
             ///
@@ -698,9 +706,17 @@ namespace Microsoft.PowerBI.Api
             /// service principal.
             /// - Delegated permissions are supported.
             ///
+            /// When running under service prinicipal authentication, an app **must not**
+            /// have any admin-consent required premissions for Power BI set on it in the
+            /// Azure portal.
+            ///
             /// ## Required Scope
             ///
             /// Tenant.Read.All or Tenant.ReadWrite.All
+            ///
+            /// Relevant only when authenticating via a standard delegated admin access
+            /// token. Must not be present when authentication via a service principal is
+            /// used.
             ///
             /// ## Limitations
             ///
@@ -739,9 +755,17 @@ namespace Microsoft.PowerBI.Api
             /// service principal.
             /// - Delegated permissions are supported.
             ///
+            /// When running under service prinicipal authentication, an app **must not**
+            /// have any admin-consent required premissions for Power BI set on it in the
+            /// Azure portal.
+            ///
             /// ## Required Scope
             ///
             /// Tenant.Read.All or Tenant.ReadWrite.All
+            ///
+            /// Relevant only when authenticating via a standard delegated admin access
+            /// token. Must not be present when authentication via a service principal is
+            /// used.
             ///
             /// ## Limitations
             ///
@@ -780,9 +804,17 @@ namespace Microsoft.PowerBI.Api
             /// service principal.
             /// - Delegated permissions are supported.
             ///
+            /// When running under service prinicipal authentication, an app **must not**
+            /// have any admin-consent required premissions for Power BI set on it in the
+            /// Azure portal.
+            ///
             /// ## Required Scope
             ///
             /// Tenant.Read.All or Tenant.ReadWrite.All
+            ///
+            /// Relevant only when authenticating via a standard delegated admin access
+            /// token. Must not be present when authentication via a service principal is
+            /// used.
             ///
             /// ## Limitations
             ///
@@ -827,9 +859,17 @@ namespace Microsoft.PowerBI.Api
             /// service principal.
             /// - Delegated permissions are supported.
             ///
+            /// When running under service prinicipal authentication, an app **must not**
+            /// have any admin-consent required premissions for Power BI set on it in the
+            /// Azure portal.
+            ///
             /// ## Required Scope
             ///
             /// Tenant.Read.All or Tenant.ReadWrite.All
+            ///
+            /// Relevant only when authenticating via a standard delegated admin access
+            /// token. Must not be present when authentication via a service principal is
+            /// used.
             /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
@@ -844,7 +884,7 @@ namespace Microsoft.PowerBI.Api
             /// <param name='skip'>
             /// Skips the first n results
             /// </param>
-            public static Dataflows GetDataflowsAsAdmin(this IDataflowsOperations operations, string filter = default(string), int? top = default(int?), int? skip = default(int?))
+            public static AdminDataflows GetDataflowsAsAdmin(this IDataflowsOperations operations, string filter = default(string), int? top = default(int?), int? skip = default(int?))
             {
                 return operations.GetDataflowsAsAdminAsync(filter, top, skip).GetAwaiter().GetResult();
             }
@@ -861,9 +901,17 @@ namespace Microsoft.PowerBI.Api
             /// service principal.
             /// - Delegated permissions are supported.
             ///
+            /// When running under service prinicipal authentication, an app **must not**
+            /// have any admin-consent required premissions for Power BI set on it in the
+            /// Azure portal.
+            ///
             /// ## Required Scope
             ///
             /// Tenant.Read.All or Tenant.ReadWrite.All
+            ///
+            /// Relevant only when authenticating via a standard delegated admin access
+            /// token. Must not be present when authentication via a service principal is
+            /// used.
             /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
@@ -881,7 +929,7 @@ namespace Microsoft.PowerBI.Api
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<Dataflows> GetDataflowsAsAdminAsync(this IDataflowsOperations operations, string filter = default(string), int? top = default(int?), int? skip = default(int?), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<AdminDataflows> GetDataflowsAsAdminAsync(this IDataflowsOperations operations, string filter = default(string), int? top = default(int?), int? skip = default(int?), CancellationToken cancellationToken = default(CancellationToken))
             {
                 using (var _result = await operations.GetDataflowsAsAdminWithHttpMessagesAsync(filter, top, skip, null, cancellationToken).ConfigureAwait(false))
                 {
@@ -901,9 +949,17 @@ namespace Microsoft.PowerBI.Api
             /// service principal.
             /// - Delegated permissions are supported.
             ///
+            /// When running under service prinicipal authentication, an app **must not**
+            /// have any admin-consent required premissions for Power BI set on it in the
+            /// Azure portal.
+            ///
             /// ## Required Scope
             ///
             /// Tenant.Read.All or Tenant.ReadWrite.All
+            ///
+            /// Relevant only when authenticating via a standard delegated admin access
+            /// token. Must not be present when authentication via a service principal is
+            /// used.
             /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
@@ -929,9 +985,17 @@ namespace Microsoft.PowerBI.Api
             /// service principal.
             /// - Delegated permissions are supported.
             ///
+            /// When running under service prinicipal authentication, an app **must not**
+            /// have any admin-consent required premissions for Power BI set on it in the
+            /// Azure portal.
+            ///
             /// ## Required Scope
             ///
             /// Tenant.Read.All or Tenant.ReadWrite.All
+            ///
+            /// Relevant only when authenticating via a standard delegated admin access
+            /// token. Must not be present when authentication via a service principal is
+            /// used.
             /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
@@ -967,9 +1031,17 @@ namespace Microsoft.PowerBI.Api
             /// service principal.
             /// - Delegated permissions are supported.
             ///
+            /// When running under service prinicipal authentication, an app **must not**
+            /// have any admin-consent required premissions for Power BI set on it in the
+            /// Azure portal.
+            ///
             /// ## Required Scope
             ///
             /// Tenant.Read.All or Tenant.ReadWrite.All
+            ///
+            /// Relevant only when authenticating via a standard delegated admin access
+            /// token. Must not be present when authentication via a service principal is
+            /// used.
             /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
@@ -1000,9 +1072,17 @@ namespace Microsoft.PowerBI.Api
             /// service principal.
             /// - Delegated permissions are supported.
             ///
+            /// When running under service prinicipal authentication, an app **must not**
+            /// have any admin-consent required premissions for Power BI set on it in the
+            /// Azure portal.
+            ///
             /// ## Required Scope
             ///
             /// Tenant.Read.All or Tenant.ReadWrite.All
+            ///
+            /// Relevant only when authenticating via a standard delegated admin access
+            /// token. Must not be present when authentication via a service principal is
+            /// used.
             /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
@@ -1034,9 +1114,17 @@ namespace Microsoft.PowerBI.Api
             /// service principal.
             /// - Delegated permissions are supported.
             ///
+            /// When running under service prinicipal authentication, an app **must not**
+            /// have any admin-consent required premissions for Power BI set on it in the
+            /// Azure portal.
+            ///
             /// ## Required Scope
             ///
             /// Tenant.Read.All or Tenant.ReadWrite.All
+            ///
+            /// Relevant only when authenticating via a standard delegated admin access
+            /// token. Must not be present when authentication via a service principal is
+            /// used.
             ///
             /// ## Limitations
             ///
@@ -1066,9 +1154,17 @@ namespace Microsoft.PowerBI.Api
             /// service principal.
             /// - Delegated permissions are supported.
             ///
+            /// When running under service prinicipal authentication, an app **must not**
+            /// have any admin-consent required premissions for Power BI set on it in the
+            /// Azure portal.
+            ///
             /// ## Required Scope
             ///
             /// Tenant.Read.All or Tenant.ReadWrite.All
+            ///
+            /// Relevant only when authenticating via a standard delegated admin access
+            /// token. Must not be present when authentication via a service principal is
+            /// used.
             ///
             /// ## Limitations
             ///

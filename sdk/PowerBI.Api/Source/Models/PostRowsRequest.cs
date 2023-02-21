@@ -24,8 +24,9 @@ namespace Microsoft.PowerBI.Api.Models
         /// <summary>
         /// Initializes a new instance of the PostRowsRequest class.
         /// </summary>
-        /// <param name="rows">An array of data rows pushed to a dataset
-        /// table</param>
+        /// <param name="rows">An array of data rows pushed to a dataset table.
+        /// Each element is a collection of properties represented using
+        /// key-value format.</param>
         public PostRowsRequest(IList<object> rows = default(IList<object>))
         {
             Rows = rows;
@@ -38,7 +39,9 @@ namespace Microsoft.PowerBI.Api.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets an array of data rows pushed to a dataset table
+        /// Gets or sets an array of data rows pushed to a dataset table. Each
+        /// element is a collection of properties represented using key-value
+        /// format.
         /// </summary>
         [JsonProperty(PropertyName = "rows")]
         public IList<object> Rows { get; set; }

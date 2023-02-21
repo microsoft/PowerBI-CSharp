@@ -35,8 +35,9 @@ namespace Microsoft.PowerBI.Api.Models
         /// <param name="displayName">Display name of the principal</param>
         /// <param name="graphId">Identifier of the principal in Microsoft
         /// Graph. Only available for admin APIs.</param>
-        public CapacityUser(string identifier, PrincipalType principalType, CapacityUserAccessRight capacityUserAccessRight, string emailAddress = default(string), string displayName = default(string), string graphId = default(string), ServicePrincipalProfile profile = default(ServicePrincipalProfile))
-            : base(identifier, principalType, emailAddress, displayName, graphId, profile)
+        /// <param name="userType">Type of the user.</param>
+        public CapacityUser(string identifier, PrincipalType principalType, CapacityUserAccessRight capacityUserAccessRight, string emailAddress = default(string), string displayName = default(string), string graphId = default(string), string userType = default(string), ServicePrincipalProfile profile = default(ServicePrincipalProfile))
+            : base(identifier, principalType, emailAddress, displayName, graphId, userType, profile)
         {
             CapacityUserAccessRight = capacityUserAccessRight;
             CustomInit();

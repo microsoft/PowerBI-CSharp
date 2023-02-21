@@ -33,6 +33,8 @@ namespace Microsoft.PowerBI.Api.Models
 
         public static readonly CredentialType Key = "Key";
 
+        public static readonly CredentialType SAS = "SAS";
+
 
         /// <summary>
         /// Underlying value of enum CredentialType

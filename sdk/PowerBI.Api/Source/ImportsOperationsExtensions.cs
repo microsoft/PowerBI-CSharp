@@ -62,6 +62,10 @@ namespace Microsoft.PowerBI.Api
             /// </summary>
             /// <remarks>
             ///
+            /// See the [Import Large
+            /// Files](https://github.com/microsoft/PowerBI-Developer-Samples/blob/master/PowerShell%20Scripts/Import%20Large%20Files)
+            /// PowerShell script for an example of using this API.
+            ///
             /// &gt; [!NOTE]
             /// &gt; Supported content:
             /// &gt; - Power BI .pbix files
@@ -137,6 +141,10 @@ namespace Microsoft.PowerBI.Api
             /// Creates new content in **My workspace**.
             /// </summary>
             /// <remarks>
+            ///
+            /// See the [Import Large
+            /// Files](https://github.com/microsoft/PowerBI-Developer-Samples/blob/master/PowerShell%20Scripts/Import%20Large%20Files)
+            /// PowerShell script for an example of using this API.
             ///
             /// &gt; [!NOTE]
             /// &gt; Supported content:
@@ -278,6 +286,10 @@ namespace Microsoft.PowerBI.Api
             /// specifying the *shared access signature* URL in the `fileUrl` parameter of
             /// the [request body](/rest/api/power-bi/imports/post-import#request-body).
             ///
+            /// See the [Import Large
+            /// Files](https://github.com/microsoft/PowerBI-Developer-Samples/blob/master/PowerShell%20Scripts/Import%20Large%20Files)
+            /// PowerShell script for an example of using this API.
+            ///
             /// ## Required Scope
             ///
             /// Dataset.ReadWrite.All
@@ -310,6 +322,10 @@ namespace Microsoft.PowerBI.Api
             /// 1. Call [Post Import In Group](/rest/api/power-bi/imports/post-import),
             /// specifying the *shared access signature* URL in the `fileUrl` parameter of
             /// the [request body](/rest/api/power-bi/imports/post-import#request-body).
+            ///
+            /// See the [Import Large
+            /// Files](https://github.com/microsoft/PowerBI-Developer-Samples/blob/master/PowerShell%20Scripts/Import%20Large%20Files)
+            /// PowerShell script for an example of using this API.
             ///
             /// ## Required Scope
             ///
@@ -429,8 +445,10 @@ namespace Microsoft.PowerBI.Api
             /// with `filePath` set to the .xlsx file path in the request body.
             /// - To import large Power BI .pbix files that are between 1 GB and 10 GB in
             /// size, see [Create Temporary Upload Location In
-            /// Group](/rest/api/power-bi/imports/create-temporary-upload-location-in-group).
-            /// This is only supported for Premium capacity workspaces.
+            /// Group](/rest/api/power-bi/imports/create-temporary-upload-location-in-group)
+            /// and the [Import Large
+            /// Files](https://github.com/microsoft/PowerBI-Developer-Samples/blob/master/PowerShell%20Scripts/Import%20Large%20Files)
+            /// PowerShell script. This is only supported for Premium capacity workspaces.
             /// - To create a dataflow from a model.json file, set `datasetDisplayName` to
             /// *model.json*, as described in [URI
             /// parameters](/rest/api/power-bi/imports/post-import-in-group#uri-parameters).
@@ -518,8 +536,10 @@ namespace Microsoft.PowerBI.Api
             /// with `filePath` set to the .xlsx file path in the request body.
             /// - To import large Power BI .pbix files that are between 1 GB and 10 GB in
             /// size, see [Create Temporary Upload Location In
-            /// Group](/rest/api/power-bi/imports/create-temporary-upload-location-in-group).
-            /// This is only supported for Premium capacity workspaces.
+            /// Group](/rest/api/power-bi/imports/create-temporary-upload-location-in-group)
+            /// and the [Import Large
+            /// Files](https://github.com/microsoft/PowerBI-Developer-Samples/blob/master/PowerShell%20Scripts/Import%20Large%20Files)
+            /// PowerShell script. This is only supported for Premium capacity workspaces.
             /// - To create a dataflow from a model.json file, set `datasetDisplayName` to
             /// *model.json*, as described in [URI
             /// parameters](/rest/api/power-bi/imports/post-import-in-group#uri-parameters).
@@ -757,9 +777,17 @@ namespace Microsoft.PowerBI.Api
             /// service principal.
             /// - Delegated permissions are supported.
             ///
+            /// When running under service prinicipal authentication, an app **must not**
+            /// have any admin-consent required premissions for Power BI set on it in the
+            /// Azure portal.
+            ///
             /// ## Required Scope
             ///
             /// Tenant.Read.All or Tenant.ReadWrite.All
+            ///
+            /// Relevant only when authenticating via a standard delegated admin access
+            /// token. Must not be present when authentication via a service principal is
+            /// used.
             ///
             /// ## Limitations
             ///
@@ -798,9 +826,17 @@ namespace Microsoft.PowerBI.Api
             /// service principal.
             /// - Delegated permissions are supported.
             ///
+            /// When running under service prinicipal authentication, an app **must not**
+            /// have any admin-consent required premissions for Power BI set on it in the
+            /// Azure portal.
+            ///
             /// ## Required Scope
             ///
             /// Tenant.Read.All or Tenant.ReadWrite.All
+            ///
+            /// Relevant only when authenticating via a standard delegated admin access
+            /// token. Must not be present when authentication via a service principal is
+            /// used.
             ///
             /// ## Limitations
             ///

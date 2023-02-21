@@ -31,8 +31,17 @@ namespace Microsoft.PowerBI.Api.Models
         /// <param name="id">The datamart ID</param>
         /// <param name="name">The datamart name</param>
         /// <param name="description">The datamart description</param>
+        /// <param name="type">The datamart type. Possible values include:
+        /// 'Unset', 'Ignore', 'Sql', 'Lakehouse', 'Dataverse',
+        /// 'Datawarehouse'</param>
+        /// <param name="status">The datamart status. Possible values include:
+        /// 'Invalid', 'Available', 'SuspendedInCriticalPhase', 'InProgress',
+        /// 'Error', 'OutOfRegion', 'NoCapacity'</param>
+        /// <param name="state">The datamart current state. Possible values
+        /// include: 'Invalid', 'Initialized', 'Active', 'Migrating',
+        /// 'Evicted', 'Deleted'</param>
         /// <param name="suspendedBatchId">datamart suspended batch id</param>
-        public DatamartBaseProperties(System.Guid id, string name = default(string), string description = default(string), DatamartType type = default(DatamartType), DatamartStatus1 status = default(DatamartStatus1), DatamartState state = default(DatamartState), string suspendedBatchId = default(string))
+        public DatamartBaseProperties(System.Guid id, string name = default(string), string description = default(string), DatamartType? type = default(DatamartType?), DatamartStatus? status = default(DatamartStatus?), DatamartState? state = default(DatamartState?), string suspendedBatchId = default(string))
         {
             Id = id;
             Name = name;
@@ -68,19 +77,27 @@ namespace Microsoft.PowerBI.Api.Models
         public string Description { get; set; }
 
         /// <summary>
+        /// Gets or sets the datamart type. Possible values include: 'Unset',
+        /// 'Ignore', 'Sql', 'Lakehouse', 'Dataverse', 'Datawarehouse'
         /// </summary>
         [JsonProperty(PropertyName = "type")]
-        public DatamartType Type { get; set; }
+        public DatamartType? Type { get; set; }
 
         /// <summary>
+        /// Gets or sets the datamart status. Possible values include:
+        /// 'Invalid', 'Available', 'SuspendedInCriticalPhase', 'InProgress',
+        /// 'Error', 'OutOfRegion', 'NoCapacity'
         /// </summary>
         [JsonProperty(PropertyName = "status")]
-        public DatamartStatus1 Status { get; set; }
+        public DatamartStatus? Status { get; set; }
 
         /// <summary>
+        /// Gets or sets the datamart current state. Possible values include:
+        /// 'Invalid', 'Initialized', 'Active', 'Migrating', 'Evicted',
+        /// 'Deleted'
         /// </summary>
         [JsonProperty(PropertyName = "state")]
-        public DatamartState State { get; set; }
+        public DatamartState? State { get; set; }
 
         /// <summary>
         /// Gets or sets datamart suspended batch id

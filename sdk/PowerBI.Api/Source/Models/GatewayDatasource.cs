@@ -33,7 +33,7 @@ namespace Microsoft.PowerBI.Api.Models
         /// <param name="credentialType">The type of data source
         /// [credential](/power-bi/developer/embedded/configure-credentials).
         /// Possible values include: 'Basic', 'Windows', 'Anonymous', 'OAuth2',
-        /// 'Key'</param>
+        /// 'Key', 'SAS'</param>
         /// <param name="datasourceName">The name of the data source</param>
         /// <param name="datasourceType">The type of [data
         /// source](/power-bi/connect-data/power-bi-data-sources).
@@ -136,7 +136,7 @@ namespace Microsoft.PowerBI.Api.Models
         /// Gets or sets the type of data source
         /// [credential](/power-bi/developer/embedded/configure-credentials).
         /// Possible values include: 'Basic', 'Windows', 'Anonymous', 'OAuth2',
-        /// 'Key'
+        /// 'Key', 'SAS'
         /// </summary>
         [JsonProperty(PropertyName = "credentialType")]
         public CredentialType CredentialType { get; set; }

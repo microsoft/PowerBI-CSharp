@@ -39,8 +39,9 @@ namespace Microsoft.PowerBI.Api.Models
         /// workspace settings</param>
         /// <param name="options">Options that control the behavior of the
         /// entire deployment</param>
-        public DeployAllRequest(int sourceStageOrder, bool? isBackwardDeployment = default(bool?), PipelineNewWorkspaceRequest newWorkspace = default(PipelineNewWorkspaceRequest), PipelineUpdateAppSettings updateAppSettings = default(PipelineUpdateAppSettings), DeploymentOptions options = default(DeploymentOptions))
-            : base(sourceStageOrder, isBackwardDeployment, newWorkspace, updateAppSettings, options)
+        /// <param name="note">A note describing the deployment.</param>
+        public DeployAllRequest(int sourceStageOrder, bool? isBackwardDeployment = default(bool?), PipelineNewWorkspaceRequest newWorkspace = default(PipelineNewWorkspaceRequest), PipelineUpdateAppSettings updateAppSettings = default(PipelineUpdateAppSettings), DeploymentOptions options = default(DeploymentOptions), string note = default(string))
+            : base(sourceStageOrder, isBackwardDeployment, newWorkspace, updateAppSettings, options, note)
         {
             CustomInit();
         }

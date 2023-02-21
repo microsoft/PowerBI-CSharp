@@ -31,10 +31,13 @@ namespace Microsoft.PowerBI.Api.Models
         /// scan</param>
         /// <param name="datasourceInstances">The data source instances
         /// associated with this scan</param>
-        public WorkspaceInfoResponse(IList<WorkspaceInfo> workspaces = default(IList<WorkspaceInfo>), IList<Datasource> datasourceInstances = default(IList<Datasource>))
+        /// <param name="misconfiguredDatasourceInstances">The data source
+        /// misconfigured instances associated with this scan</param>
+        public WorkspaceInfoResponse(IList<WorkspaceInfo> workspaces = default(IList<WorkspaceInfo>), IList<Datasource> datasourceInstances = default(IList<Datasource>), IList<Datasource> misconfiguredDatasourceInstances = default(IList<Datasource>))
         {
             Workspaces = workspaces;
             DatasourceInstances = datasourceInstances;
+            MisconfiguredDatasourceInstances = misconfiguredDatasourceInstances;
             CustomInit();
         }
 
@@ -54,6 +57,13 @@ namespace Microsoft.PowerBI.Api.Models
         /// </summary>
         [JsonProperty(PropertyName = "datasourceInstances")]
         public IList<Datasource> DatasourceInstances { get; set; }
+
+        /// <summary>
+        /// Gets or sets the data source misconfigured instances associated
+        /// with this scan
+        /// </summary>
+        [JsonProperty(PropertyName = "misconfiguredDatasourceInstances")]
+        public IList<Datasource> MisconfiguredDatasourceInstances { get; set; }
 
     }
 }

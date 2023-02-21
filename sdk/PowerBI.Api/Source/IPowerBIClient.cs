@@ -157,14 +157,14 @@ namespace Microsoft.PowerBI.Api
         IInformationProtection InformationProtection { get; }
 
         /// <summary>
-        /// Gets the ITemplateApps.
-        /// </summary>
-        ITemplateApps TemplateApps { get; }
-
-        /// <summary>
         /// Gets the IProfiles.
         /// </summary>
         IProfiles Profiles { get; }
+
+        /// <summary>
+        /// Gets the ITemplateApps.
+        /// </summary>
+        ITemplateApps TemplateApps { get; }
 
         /// <summary>
         /// Gets the IScorecardsOperations.

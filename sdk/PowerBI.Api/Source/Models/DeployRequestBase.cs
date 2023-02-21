@@ -39,13 +39,15 @@ namespace Microsoft.PowerBI.Api.Models
         /// workspace settings</param>
         /// <param name="options">Options that control the behavior of the
         /// entire deployment</param>
-        public DeployRequestBase(int sourceStageOrder, bool? isBackwardDeployment = default(bool?), PipelineNewWorkspaceRequest newWorkspace = default(PipelineNewWorkspaceRequest), PipelineUpdateAppSettings updateAppSettings = default(PipelineUpdateAppSettings), DeploymentOptions options = default(DeploymentOptions))
+        /// <param name="note">A note describing the deployment.</param>
+        public DeployRequestBase(int sourceStageOrder, bool? isBackwardDeployment = default(bool?), PipelineNewWorkspaceRequest newWorkspace = default(PipelineNewWorkspaceRequest), PipelineUpdateAppSettings updateAppSettings = default(PipelineUpdateAppSettings), DeploymentOptions options = default(DeploymentOptions), string note = default(string))
         {
             SourceStageOrder = sourceStageOrder;
             IsBackwardDeployment = isBackwardDeployment;
             NewWorkspace = newWorkspace;
             UpdateAppSettings = updateAppSettings;
             Options = options;
+            Note = note;
             CustomInit();
         }
 
@@ -91,6 +93,12 @@ namespace Microsoft.PowerBI.Api.Models
         /// </summary>
         [JsonProperty(PropertyName = "options")]
         public DeploymentOptions Options { get; set; }
+
+        /// <summary>
+        /// Gets or sets a note describing the deployment.
+        /// </summary>
+        [JsonProperty(PropertyName = "note")]
+        public string Note { get; set; }
 
         /// <summary>
         /// Validate the object.

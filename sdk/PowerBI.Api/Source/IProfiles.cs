@@ -19,6 +19,74 @@ namespace Microsoft.PowerBI.Api
     public partial interface IProfiles
     {
         /// <summary>
+        /// Returns a list of service principal profiles for the organization.
+        /// </summary>
+        /// <remarks>
+        ///
+        /// ## Permissions
+        ///
+        /// The user must have administrator rights or authenticate using a
+        /// service principal.
+        ///
+        /// ## Required Scope
+        ///
+        /// Tenant.Read.All or Tenant.ReadWrite.All
+        /// &lt;br&gt;&lt;br&gt;
+        /// </remarks>
+        /// <param name='filter'>
+        /// Filters the results based on a boolean condition, using 'id',
+        /// 'displayName', or 'servicePrincipalId'. Supports only 'eq'
+        /// operator.
+        /// </param>
+        /// <param name='top'>
+        /// Returns only the first n results. This parameter must be in the
+        /// range of 1-5000.
+        /// </param>
+        /// <param name='skip'>
+        /// Skips the first n results. Use with top to fetch results beyond the
+        /// first 5000.
+        /// </param>
+        /// <param name='customHeaders'>
+        /// The headers that will be added to request.
+        /// </param>
+        /// <param name='cancellationToken'>
+        /// The cancellation token.
+        /// </param>
+        /// <exception cref="Microsoft.Rest.HttpOperationException">
+        /// Thrown when the operation returned an invalid status code
+        /// </exception>
+        /// <exception cref="Microsoft.Rest.SerializationException">
+        /// Thrown when unable to deserialize the response
+        /// </exception>
+        Task<HttpOperationResponse<AdminServicePrincipalProfiles>> GetProfilesAsAdminWithHttpMessagesAsync(string filter = default(string), int? top = default(int?), int? skip = default(int?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Deletes the specified service principal profile.
+        /// </summary>
+        /// <remarks>
+        ///
+        /// ## Permissions
+        ///
+        /// The user must have administrator rights.
+        ///
+        /// ## Required Scope
+        ///
+        /// Tenant.ReadWrite.All
+        /// &lt;br&gt;&lt;br&gt;
+        /// </remarks>
+        /// <param name='profileId'>
+        /// The service principal profile ID
+        /// </param>
+        /// <param name='customHeaders'>
+        /// The headers that will be added to request.
+        /// </param>
+        /// <param name='cancellationToken'>
+        /// The cancellation token.
+        /// </param>
+        /// <exception cref="Microsoft.Rest.HttpOperationException">
+        /// Thrown when the operation returned an invalid status code
+        /// </exception>
+        Task<HttpOperationResponse> DeleteProfileAsAdminWithHttpMessagesAsync(System.Guid profileId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
         /// Returns a list of service principal profiles.
         /// </summary>
         /// <remarks>
