@@ -31,7 +31,8 @@ namespace Microsoft.PowerBI.Api.Models
         /// Datasource](/rest/api/power-bi/gateways/update-datasource#examples)
         /// examples.</param>
         /// <param name="credentialType">The credential type. Possible values
-        /// include: 'Basic', 'Windows', 'Anonymous', 'OAuth2', 'Key'</param>
+        /// include: 'Basic', 'Windows', 'Anonymous', 'OAuth2', 'Key',
+        /// 'SAS'</param>
         /// <param name="encryptedConnection">Whether to encrypt the data
         /// source connection. The API call will fail if you select encryption
         /// and Power BI is unable to establish an encrypted connection with
@@ -84,7 +85,7 @@ namespace Microsoft.PowerBI.Api.Models
 
         /// <summary>
         /// Gets or sets the credential type. Possible values include: 'Basic',
-        /// 'Windows', 'Anonymous', 'OAuth2', 'Key'
+        /// 'Windows', 'Anonymous', 'OAuth2', 'Key', 'SAS'
         /// </summary>
         [JsonProperty(PropertyName = "credentialType")]
         public CredentialType CredentialType { get; set; }

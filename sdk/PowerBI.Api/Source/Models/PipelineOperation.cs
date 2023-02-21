@@ -42,9 +42,16 @@ namespace Microsoft.PowerBI.Api.Models
         /// <param name="targetStageOrder">The numeric identifier of a target
         /// pipeline deployment stage. Development (0), Test (1), Production
         /// (2).</param>
+        /// <param name="performedBy">User or service principal that performed
+        /// the pipeline operation.</param>
+        /// <param name="note">A note representing a description of the
+        /// operation.</param>
         /// <param name="executionPlan">The deployment execution plan. Only
         /// applicable to a single pipeline operation.</param>
-        public PipelineOperation(System.Guid id, PipelineOperationStatus status, System.DateTime lastUpdatedTime, PipelineOperationType? type = default(PipelineOperationType?), System.DateTime? executionStartTime = default(System.DateTime?), System.DateTime? executionEndTime = default(System.DateTime?), int? sourceStageOrder = default(int?), int? targetStageOrder = default(int?), DeploymentExecutionPlan executionPlan = default(DeploymentExecutionPlan))
+        /// <param name="preDeploymentDiffInformation">The amount of deployed
+        /// items in the source stage, that are new, identical or different to
+        /// items in the target stage, before deployment.</param>
+        public PipelineOperation(System.Guid id, PipelineOperationStatus status, System.DateTime lastUpdatedTime, PipelineOperationType? type = default(PipelineOperationType?), System.DateTime? executionStartTime = default(System.DateTime?), System.DateTime? executionEndTime = default(System.DateTime?), int? sourceStageOrder = default(int?), int? targetStageOrder = default(int?), PipelineOperationUser performedBy = default(PipelineOperationUser), PipelineOperationNote note = default(PipelineOperationNote), DeploymentExecutionPlan executionPlan = default(DeploymentExecutionPlan), PreDeploymentDiffInformation preDeploymentDiffInformation = default(PreDeploymentDiffInformation))
         {
             Id = id;
             Type = type;
@@ -54,7 +61,10 @@ namespace Microsoft.PowerBI.Api.Models
             ExecutionEndTime = executionEndTime;
             SourceStageOrder = sourceStageOrder;
             TargetStageOrder = targetStageOrder;
+            PerformedBy = performedBy;
+            Note = note;
             ExecutionPlan = executionPlan;
+            PreDeploymentDiffInformation = preDeploymentDiffInformation;
             CustomInit();
         }
 
@@ -115,11 +125,32 @@ namespace Microsoft.PowerBI.Api.Models
         public int? TargetStageOrder { get; set; }
 
         /// <summary>
+        /// Gets or sets user or service principal that performed the pipeline
+        /// operation.
+        /// </summary>
+        [JsonProperty(PropertyName = "performedBy")]
+        public PipelineOperationUser PerformedBy { get; set; }
+
+        /// <summary>
+        /// Gets or sets a note representing a description of the operation.
+        /// </summary>
+        [JsonProperty(PropertyName = "note")]
+        public PipelineOperationNote Note { get; set; }
+
+        /// <summary>
         /// Gets or sets the deployment execution plan. Only applicable to a
         /// single pipeline operation.
         /// </summary>
         [JsonProperty(PropertyName = "executionPlan")]
         public DeploymentExecutionPlan ExecutionPlan { get; set; }
+
+        /// <summary>
+        /// Gets or sets the amount of deployed items in the source stage, that
+        /// are new, identical or different to items in the target stage,
+        /// before deployment.
+        /// </summary>
+        [JsonProperty(PropertyName = "preDeploymentDiffInformation")]
+        public PreDeploymentDiffInformation PreDeploymentDiffInformation { get; set; }
 
         /// <summary>
         /// Validate the object.
@@ -129,6 +160,18 @@ namespace Microsoft.PowerBI.Api.Models
         /// </exception>
         public virtual void Validate()
         {
+            if (PerformedBy != null)
+            {
+                PerformedBy.Validate();
+            }
+            if (Note != null)
+            {
+                Note.Validate();
+            }
+            if (PreDeploymentDiffInformation != null)
+            {
+                PreDeploymentDiffInformation.Validate();
+            }
         }
     }
 }

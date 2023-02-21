@@ -328,9 +328,11 @@ namespace Microsoft.PowerBI.Api
             /// - Service Principals aren't supported for datasets with RLS per [RLS
             /// limitations](/power-bi/admin/service-admin-rls#considerations-and-limitations)
             /// or with SSO enabled. To use Service Principals, make sure the admin tenant
-            /// setting [_Allow service principals to user Power BI
+            /// setting [_Allow service principals to use Power BI
             /// APIs_](/power-bi/admin/service-admin-portal-developer#allow-service-principals-to-use-power-bi-apis)
             /// under _Developer settings_ is enabled.
+            /// - Only DAX queries are supported at this time. MDX and DMV queries are not
+            /// supported.
             /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
@@ -400,9 +402,11 @@ namespace Microsoft.PowerBI.Api
             /// - Service Principals aren't supported for datasets with RLS per [RLS
             /// limitations](/power-bi/admin/service-admin-rls#considerations-and-limitations)
             /// or with SSO enabled. To use Service Principals, make sure the admin tenant
-            /// setting [_Allow service principals to user Power BI
+            /// setting [_Allow service principals to use Power BI
             /// APIs_](/power-bi/admin/service-admin-portal-developer#allow-service-principals-to-use-power-bi-apis)
             /// under _Developer settings_ is enabled.
+            /// - Only DAX queries are supported at this time. MDX and DMV queries are not
+            /// supported.
             /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
@@ -904,9 +908,8 @@ namespace Microsoft.PowerBI.Api
             }
 
             /// <summary>
-            /// Cancels the specified [enhanced refresh
-            /// operation](/power-bi/connect-data/asynchronous-refresh) for the specified
-            /// dataset from **My workspace**.
+            /// Cancels the specified refresh operation for the specified dataset from **My
+            /// workspace**.
             /// </summary>
             /// <remarks>
             ///
@@ -930,9 +933,8 @@ namespace Microsoft.PowerBI.Api
             }
 
             /// <summary>
-            /// Cancels the specified [enhanced refresh
-            /// operation](/power-bi/connect-data/asynchronous-refresh) for the specified
-            /// dataset from **My workspace**.
+            /// Cancels the specified refresh operation for the specified dataset from **My
+            /// workspace**.
             /// </summary>
             /// <remarks>
             ///
@@ -1503,6 +1505,9 @@ namespace Microsoft.PowerBI.Api
             /// first data source will be updated. To overcome this limitation, define the
             /// data source as a parameter and use the [Update
             /// Parameters](/rest/api/power-bi/datasets/update-parameters) API call.
+            /// - Datasets with incremental refresh policy are not fully supported, calling
+            /// this API may not work as expected and result of partial datasources update,
+            /// to overcome this you can try run a dataset refresh before calling this API.
             ///
             /// ## Required Scope
             ///
@@ -1566,6 +1571,9 @@ namespace Microsoft.PowerBI.Api
             /// first data source will be updated. To overcome this limitation, define the
             /// data source as a parameter and use the [Update
             /// Parameters](/rest/api/power-bi/datasets/update-parameters) API call.
+            /// - Datasets with incremental refresh policy are not fully supported, calling
+            /// this API may not work as expected and result of partial datasources update,
+            /// to overcome this you can try run a dataset refresh before calling this API.
             ///
             /// ## Required Scope
             ///
@@ -3331,9 +3339,8 @@ namespace Microsoft.PowerBI.Api
             }
 
             /// <summary>
-            /// Cancels the specified [enhanced refresh
-            /// operation](/power-bi/connect-data/asynchronous-refresh) for the specified
-            /// dataset from the specified workspace.
+            /// Cancels the specified refresh operation for the specified dataset from the
+            /// specified workspace.
             /// </summary>
             /// <remarks>
             ///
@@ -3366,9 +3373,8 @@ namespace Microsoft.PowerBI.Api
             }
 
             /// <summary>
-            /// Cancels the specified [enhanced refresh
-            /// operation](/power-bi/connect-data/asynchronous-refresh) for the specified
-            /// dataset from the specified workspace.
+            /// Cancels the specified refresh operation for the specified dataset from the
+            /// specified workspace.
             /// </summary>
             /// <remarks>
             ///
@@ -4058,6 +4064,9 @@ namespace Microsoft.PowerBI.Api
             /// first data source will be updated. To overcome this limitation, define the
             /// data source as a parameter and use the [Update Parameters In
             /// Group](/rest/api/power-bi/datasets/update-parameters-in-group) API call.
+            /// - Datasets with incremental refresh policy are not fully supported, calling
+            /// this API may not work as expected and result of partial datasources update,
+            /// to overcome this you can try run a dataset refresh before calling this API.
             /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
@@ -4127,6 +4136,9 @@ namespace Microsoft.PowerBI.Api
             /// first data source will be updated. To overcome this limitation, define the
             /// data source as a parameter and use the [Update Parameters In
             /// Group](/rest/api/power-bi/datasets/update-parameters-in-group) API call.
+            /// - Datasets with incremental refresh policy are not fully supported, calling
+            /// this API may not work as expected and result of partial datasources update,
+            /// to overcome this you can try run a dataset refresh before calling this API.
             /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
@@ -4591,9 +4603,11 @@ namespace Microsoft.PowerBI.Api
             /// - Service Principals aren't supported for datasets with RLS per [RLS
             /// limitations](/power-bi/admin/service-admin-rls#considerations-and-limitations)
             /// or with SSO enabled. To use Service Principals, make sure the admin tenant
-            /// setting [_Allow service principals to user Power BI
+            /// setting [_Allow service principals to use Power BI
             /// APIs_](/power-bi/admin/service-admin-portal-developer#allow-service-principals-to-use-power-bi-apis)
             /// under _Developer settings_ is enabled.
+            /// - Only DAX queries are supported at this time. MDX and DMV queries are not
+            /// supported.
             /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
@@ -4666,9 +4680,11 @@ namespace Microsoft.PowerBI.Api
             /// - Service Principals aren't supported for datasets with RLS per [RLS
             /// limitations](/power-bi/admin/service-admin-rls#considerations-and-limitations)
             /// or with SSO enabled. To use Service Principals, make sure the admin tenant
-            /// setting [_Allow service principals to user Power BI
+            /// setting [_Allow service principals to use Power BI
             /// APIs_](/power-bi/admin/service-admin-portal-developer#allow-service-principals-to-use-power-bi-apis)
             /// under _Developer settings_ is enabled.
+            /// - Only DAX queries are supported at this time. MDX and DMV queries are not
+            /// supported.
             /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
@@ -4699,6 +4715,12 @@ namespace Microsoft.PowerBI.Api
             /// workspace.
             /// </summary>
             /// <remarks>
+            ///
+            /// &gt; [!TIP]
+            /// &gt; To create embed tokens, it's recommended to use the latest API,
+            /// [Generate Token](/rest/api/power-bi/embed-token/generate-token). Generate
+            /// token supports additional functions, such as creating a token for multiple
+            /// items.
             ///
             /// &gt; [!NOTE]
             /// &gt; An embed token can be used to [embed
@@ -4748,6 +4770,12 @@ namespace Microsoft.PowerBI.Api
             /// workspace.
             /// </summary>
             /// <remarks>
+            ///
+            /// &gt; [!TIP]
+            /// &gt; To create embed tokens, it's recommended to use the latest API,
+            /// [Generate Token](/rest/api/power-bi/embed-token/generate-token). Generate
+            /// token supports additional functions, such as creating a token for multiple
+            /// items.
             ///
             /// &gt; [!NOTE]
             /// &gt; An embed token can be used to [embed
@@ -4813,9 +4841,17 @@ namespace Microsoft.PowerBI.Api
             /// service principal.
             /// - Delegated permissions are supported.
             ///
+            /// When running under service prinicipal authentication, an app **must not**
+            /// have any admin-consent required premissions for Power BI set on it in the
+            /// Azure portal.
+            ///
             /// ## Required Scope
             ///
             /// Tenant.Read.All or Tenant.ReadWrite.All
+            ///
+            /// Relevant only when authenticating via a standard delegated admin access
+            /// token. Must not be present when authentication via a service principal is
+            /// used.
             /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
@@ -4850,9 +4886,17 @@ namespace Microsoft.PowerBI.Api
             /// service principal.
             /// - Delegated permissions are supported.
             ///
+            /// When running under service prinicipal authentication, an app **must not**
+            /// have any admin-consent required premissions for Power BI set on it in the
+            /// Azure portal.
+            ///
             /// ## Required Scope
             ///
             /// Tenant.Read.All or Tenant.ReadWrite.All
+            ///
+            /// Relevant only when authenticating via a standard delegated admin access
+            /// token. Must not be present when authentication via a service principal is
+            /// used.
             /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
@@ -4893,9 +4937,17 @@ namespace Microsoft.PowerBI.Api
             /// service principal.
             /// - Delegated permissions are supported.
             ///
+            /// When running under service prinicipal authentication, an app **must not**
+            /// have any admin-consent required premissions for Power BI set on it in the
+            /// Azure portal.
+            ///
             /// ## Required Scope
             ///
             /// Tenant.Read.All or Tenant.ReadWrite.All
+            ///
+            /// Relevant only when authenticating via a standard delegated admin access
+            /// token. Must not be present when authentication via a service principal is
+            /// used.
             /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
@@ -4923,9 +4975,17 @@ namespace Microsoft.PowerBI.Api
             /// service principal.
             /// - Delegated permissions are supported.
             ///
+            /// When running under service prinicipal authentication, an app **must not**
+            /// have any admin-consent required premissions for Power BI set on it in the
+            /// Azure portal.
+            ///
             /// ## Required Scope
             ///
             /// Tenant.Read.All or Tenant.ReadWrite.All
+            ///
+            /// Relevant only when authenticating via a standard delegated admin access
+            /// token. Must not be present when authentication via a service principal is
+            /// used.
             /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
@@ -4958,9 +5018,17 @@ namespace Microsoft.PowerBI.Api
             /// - The permissions for this API call are listed in [Datasets
             /// permissions](/power-bi/developer/embedded/datasets-permissions).
             ///
+            /// When running under service prinicipal authentication, an app **must not**
+            /// have any admin-consent required premissions for Power BI set on it in the
+            /// Azure portal.
+            ///
             /// ## Required Scope
             ///
             /// Tenant.Read.All or Tenant.ReadWrite.All
+            ///
+            /// Relevant only when authenticating via a standard delegated admin access
+            /// token. Must not be present when authentication via a service principal is
+            /// used.
             ///
             /// ## Limitations
             ///
@@ -4992,9 +5060,17 @@ namespace Microsoft.PowerBI.Api
             /// - The permissions for this API call are listed in [Datasets
             /// permissions](/power-bi/developer/embedded/datasets-permissions).
             ///
+            /// When running under service prinicipal authentication, an app **must not**
+            /// have any admin-consent required premissions for Power BI set on it in the
+            /// Azure portal.
+            ///
             /// ## Required Scope
             ///
             /// Tenant.Read.All or Tenant.ReadWrite.All
+            ///
+            /// Relevant only when authenticating via a standard delegated admin access
+            /// token. Must not be present when authentication via a service principal is
+            /// used.
             ///
             /// ## Limitations
             ///
@@ -5030,9 +5106,17 @@ namespace Microsoft.PowerBI.Api
             /// service principal.
             /// - Delegated permissions are supported.
             ///
+            /// When running under service prinicipal authentication, an app **must not**
+            /// have any admin-consent required premissions for Power BI set on it in the
+            /// Azure portal.
+            ///
             /// ## Required Scope
             ///
             /// Tenant.Read.All or Tenant.ReadWrite.All
+            ///
+            /// Relevant only when authenticating via a standard delegated admin access
+            /// token. Must not be present when authentication via a service principal is
+            /// used.
             ///
             /// ## Limitations
             ///
@@ -5074,9 +5158,17 @@ namespace Microsoft.PowerBI.Api
             /// service principal.
             /// - Delegated permissions are supported.
             ///
+            /// When running under service prinicipal authentication, an app **must not**
+            /// have any admin-consent required premissions for Power BI set on it in the
+            /// Azure portal.
+            ///
             /// ## Required Scope
             ///
             /// Tenant.Read.All or Tenant.ReadWrite.All
+            ///
+            /// Relevant only when authenticating via a standard delegated admin access
+            /// token. Must not be present when authentication via a service principal is
+            /// used.
             ///
             /// ## Limitations
             ///
@@ -5125,9 +5217,17 @@ namespace Microsoft.PowerBI.Api
             /// service principal.
             /// - Delegated permissions are supported.
             ///
+            /// When running under service prinicipal authentication, an app **must not**
+            /// have any admin-consent required premissions for Power BI set on it in the
+            /// Azure portal.
+            ///
             /// ## Required Scope
             ///
             /// Tenant.Read.All or Tenant.ReadWrite.All
+            ///
+            /// Relevant only when authenticating via a standard delegated admin access
+            /// token. Must not be present when authentication via a service principal is
+            /// used.
             ///
             /// ## Limitations
             ///
@@ -5158,9 +5258,17 @@ namespace Microsoft.PowerBI.Api
             /// service principal.
             /// - Delegated permissions are supported.
             ///
+            /// When running under service prinicipal authentication, an app **must not**
+            /// have any admin-consent required premissions for Power BI set on it in the
+            /// Azure portal.
+            ///
             /// ## Required Scope
             ///
             /// Tenant.Read.All or Tenant.ReadWrite.All
+            ///
+            /// Relevant only when authenticating via a standard delegated admin access
+            /// token. Must not be present when authentication via a service principal is
+            /// used.
             ///
             /// ## Limitations
             ///

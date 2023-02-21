@@ -37,6 +37,8 @@ namespace Microsoft.PowerBI.Api.Models
         /// belongs to an app</param>
         /// <param name="webUrl">The web URL of the dashboard</param>
         /// <param name="embedUrl">The embed URL of the dashboard</param>
+        /// <param name="workspaceId">The dashboard workspace ID. This property
+        /// will be returned only in GetDashboardsAsAdmin.</param>
         /// <param name="tiles">The tiles that belong to the dashboard</param>
         /// <param name="users">(Empty value) The dashboard user access
         /// details. This property will be removed from the payload response in
@@ -53,7 +55,7 @@ namespace Microsoft.PowerBI.Api.Models
         /// report by using the [Get Report Subscriptions as
         /// Admin](/rest/api/power-bi/admin/reports-get-report-subscriptions-as-admin)
         /// API call.</param>
-        public AdminDashboard(System.Guid id, string displayName = default(string), bool? isReadOnly = default(bool?), string appId = default(string), string webUrl = default(string), string embedUrl = default(string), IList<AdminTile> tiles = default(IList<AdminTile>), IList<DashboardUser> users = default(IList<DashboardUser>), IList<Subscription> subscriptions = default(IList<Subscription>))
+        public AdminDashboard(System.Guid id, string displayName = default(string), bool? isReadOnly = default(bool?), string appId = default(string), string webUrl = default(string), string embedUrl = default(string), System.Guid? workspaceId = default(System.Guid?), IList<AdminTile> tiles = default(IList<AdminTile>), IList<DashboardUser> users = default(IList<DashboardUser>), IList<Subscription> subscriptions = default(IList<Subscription>))
         {
             Id = id;
             DisplayName = displayName;
@@ -61,6 +63,7 @@ namespace Microsoft.PowerBI.Api.Models
             AppId = appId;
             WebUrl = webUrl;
             EmbedUrl = embedUrl;
+            WorkspaceId = workspaceId;
             Tiles = tiles;
             Users = users;
             Subscriptions = subscriptions;
@@ -108,6 +111,13 @@ namespace Microsoft.PowerBI.Api.Models
         /// </summary>
         [JsonProperty(PropertyName = "embedUrl")]
         public string EmbedUrl { get; set; }
+
+        /// <summary>
+        /// Gets or sets the dashboard workspace ID. This property will be
+        /// returned only in GetDashboardsAsAdmin.
+        /// </summary>
+        [JsonProperty(PropertyName = "workspaceId")]
+        public System.Guid? WorkspaceId { get; set; }
 
         /// <summary>
         /// Gets or sets the tiles that belong to the dashboard

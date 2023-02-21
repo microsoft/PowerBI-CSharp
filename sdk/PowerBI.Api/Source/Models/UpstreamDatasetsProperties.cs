@@ -25,9 +25,12 @@ namespace Microsoft.PowerBI.Api.Models
         /// Initializes a new instance of the UpstreamDatasetsProperties class.
         /// </summary>
         /// <param name="upstreamDatasets">The upstream datasets</param>
-        public UpstreamDatasetsProperties(IList<DependentDataset> upstreamDatasets = default(IList<DependentDataset>))
+        /// <param name="upstreamDatamarts">The list of all the datamarts this
+        /// item depends on</param>
+        public UpstreamDatasetsProperties(IList<DependentDataset> upstreamDatasets = default(IList<DependentDataset>), IList<DependentDatamart> upstreamDatamarts = default(IList<DependentDatamart>))
         {
             UpstreamDatasets = upstreamDatasets;
+            UpstreamDatamarts = upstreamDatamarts;
             CustomInit();
         }
 
@@ -41,6 +44,12 @@ namespace Microsoft.PowerBI.Api.Models
         /// </summary>
         [JsonProperty(PropertyName = "upstreamDatasets")]
         public IList<DependentDataset> UpstreamDatasets { get; set; }
+
+        /// <summary>
+        /// Gets or sets the list of all the datamarts this item depends on
+        /// </summary>
+        [JsonProperty(PropertyName = "upstreamDatamarts")]
+        public IList<DependentDatamart> UpstreamDatamarts { get; set; }
 
     }
 }

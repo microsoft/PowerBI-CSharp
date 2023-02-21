@@ -33,15 +33,19 @@ namespace Microsoft.PowerBI.Api.Models
         /// <param name="status">The status of the pipeline operation. Possible
         /// values include: 'NotStarted', 'Executing', 'Succeeded',
         /// 'Failed'</param>
+        /// <param name="preDeploymentDiffState">Is an item new, different or
+        /// identical to items in the target stage before deployment. Possible
+        /// values include: 'New', 'Different', 'NoDifference'</param>
         /// <param name="sourceAndTarget">The source and target items of the
         /// step</param>
         /// <param name="error">The error details. Only applicable if the
         /// pipeline operation failed.</param>
-        public DeploymentExecutionStep(int index, DeploymentStepType type, PipelineOperationStatus status, DeploymentSourceAndTarget sourceAndTarget = default(DeploymentSourceAndTarget), DeploymentError error = default(DeploymentError))
+        public DeploymentExecutionStep(int index, DeploymentStepType type, PipelineOperationStatus status, DeploymentExecutionStepPreDeploymentDiffState? preDeploymentDiffState = default(DeploymentExecutionStepPreDeploymentDiffState?), DeploymentSourceAndTarget sourceAndTarget = default(DeploymentSourceAndTarget), DeploymentError error = default(DeploymentError))
         {
             Index = index;
             Type = type;
             Status = status;
+            PreDeploymentDiffState = preDeploymentDiffState;
             SourceAndTarget = sourceAndTarget;
             Error = error;
             CustomInit();
@@ -72,6 +76,14 @@ namespace Microsoft.PowerBI.Api.Models
         /// </summary>
         [JsonProperty(PropertyName = "status")]
         public PipelineOperationStatus Status { get; set; }
+
+        /// <summary>
+        /// Gets or sets is an item new, different or identical to items in the
+        /// target stage before deployment. Possible values include: 'New',
+        /// 'Different', 'NoDifference'
+        /// </summary>
+        [JsonProperty(PropertyName = "preDeploymentDiffState")]
+        public DeploymentExecutionStepPreDeploymentDiffState? PreDeploymentDiffState { get; set; }
 
         /// <summary>
         /// Gets or sets the source and target items of the step

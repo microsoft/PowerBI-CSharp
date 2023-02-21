@@ -41,14 +41,15 @@ namespace Microsoft.PowerBI.Api.Models
         /// workspace settings</param>
         /// <param name="options">Options that control the behavior of the
         /// entire deployment</param>
+        /// <param name="note">A note describing the deployment.</param>
         /// <param name="datasets">A list of datasets to be deployed</param>
         /// <param name="reports">A list of reports to be deployed</param>
         /// <param name="dashboards">A list of dashboards to be
         /// deployed</param>
         /// <param name="dataflows">A list of dataflows to be deployed</param>
         /// <param name="datamarts">A list of datamarts to be deployed</param>
-        public SelectiveDeployRequest(int sourceStageOrder, bool? isBackwardDeployment = default(bool?), PipelineNewWorkspaceRequest newWorkspace = default(PipelineNewWorkspaceRequest), PipelineUpdateAppSettings updateAppSettings = default(PipelineUpdateAppSettings), DeploymentOptions options = default(DeploymentOptions), IList<DeployArtifactRequest> datasets = default(IList<DeployArtifactRequest>), IList<DeployArtifactRequest> reports = default(IList<DeployArtifactRequest>), IList<DeployArtifactRequest> dashboards = default(IList<DeployArtifactRequest>), IList<DeployArtifactRequest> dataflows = default(IList<DeployArtifactRequest>), IList<DeployArtifactRequest> datamarts = default(IList<DeployArtifactRequest>))
-            : base(sourceStageOrder, isBackwardDeployment, newWorkspace, updateAppSettings, options)
+        public SelectiveDeployRequest(int sourceStageOrder, bool? isBackwardDeployment = default(bool?), PipelineNewWorkspaceRequest newWorkspace = default(PipelineNewWorkspaceRequest), PipelineUpdateAppSettings updateAppSettings = default(PipelineUpdateAppSettings), DeploymentOptions options = default(DeploymentOptions), string note = default(string), IList<DeployArtifactRequest> datasets = default(IList<DeployArtifactRequest>), IList<DeployArtifactRequest> reports = default(IList<DeployArtifactRequest>), IList<DeployArtifactRequest> dashboards = default(IList<DeployArtifactRequest>), IList<DeployArtifactRequest> dataflows = default(IList<DeployArtifactRequest>), IList<DeployArtifactRequest> datamarts = default(IList<DeployArtifactRequest>))
+            : base(sourceStageOrder, isBackwardDeployment, newWorkspace, updateAppSettings, options, note)
         {
             Datasets = datasets;
             Reports = reports;

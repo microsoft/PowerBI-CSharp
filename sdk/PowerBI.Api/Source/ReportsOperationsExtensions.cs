@@ -252,12 +252,13 @@ namespace Microsoft.PowerBI.Api
             }
 
             /// <summary>
-            /// Exports the specified report from **My workspace** to a Power BI .pbix
-            /// file.
+            /// Exports the specified report from **My workspace** to a Power BI .pbix or
+            /// .rdl file.
             /// </summary>
             /// <remarks>
             ///
-            /// - As a
+            /// - For .pbix reports -
+            /// As a
             /// [workaround](/power-bi/developer/embedded/embedded-troubleshoot#how-to-fix-timeout-exceptions-when-using-import-and-export-apis)
             /// for timeout issues, set the `preferClientRouting` parameter to `true`.
             /// - Large files are downloaded to a temporary blob. Their URL is returned in
@@ -272,8 +273,9 @@ namespace Microsoft.PowerBI.Api
             ///
             /// ## Limitations
             ///
-            /// After calling [Rebind Report](/rest/api/power-bi/reports/rebind-report),
-            /// export of a report with a [Power BI service live
+            /// For .pbix report, after calling [Rebind
+            /// Report](/rest/api/power-bi/reports/rebind-report), export of a report with
+            /// a [Power BI service live
             /// connection](/power-bi/desktop-report-lifecycle-datasets) isn't supported.
             /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
@@ -289,12 +291,13 @@ namespace Microsoft.PowerBI.Api
             }
 
             /// <summary>
-            /// Exports the specified report from **My workspace** to a Power BI .pbix
-            /// file.
+            /// Exports the specified report from **My workspace** to a Power BI .pbix or
+            /// .rdl file.
             /// </summary>
             /// <remarks>
             ///
-            /// - As a
+            /// - For .pbix reports -
+            /// As a
             /// [workaround](/power-bi/developer/embedded/embedded-troubleshoot#how-to-fix-timeout-exceptions-when-using-import-and-export-apis)
             /// for timeout issues, set the `preferClientRouting` parameter to `true`.
             /// - Large files are downloaded to a temporary blob. Their URL is returned in
@@ -309,8 +312,9 @@ namespace Microsoft.PowerBI.Api
             ///
             /// ## Limitations
             ///
-            /// After calling [Rebind Report](/rest/api/power-bi/reports/rebind-report),
-            /// export of a report with a [Power BI service live
+            /// For .pbix report, after calling [Rebind
+            /// Report](/rest/api/power-bi/reports/rebind-report), export of a report with
+            /// a [Power BI service live
             /// connection](/power-bi/desktop-report-lifecycle-datasets) isn't supported.
             /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
@@ -706,6 +710,14 @@ namespace Microsoft.PowerBI.Api
             /// </summary>
             /// <remarks>
             ///
+            /// The API is asynchronous. When the API is called, it triggers an export job.
+            /// After triggering an export job, use [GetExportToFileStatus
+            /// API](/rest/api/power-bi/reports/get-export-to-file-status) to track the job
+            /// status.
+            /// Read more about the entire flow: [Export Power BI
+            /// reports](/power-bi/developer/embedded/export-to) and [Export Paginated
+            /// reports](/power-bi/developer/embedded/export-paginated-report)
+            ///
             /// ## Required Scope
             ///
             /// All of the following:
@@ -740,6 +752,14 @@ namespace Microsoft.PowerBI.Api
             /// format](/rest/api/power-bi/reports/export-to-file#fileformat).
             /// </summary>
             /// <remarks>
+            ///
+            /// The API is asynchronous. When the API is called, it triggers an export job.
+            /// After triggering an export job, use [GetExportToFileStatus
+            /// API](/rest/api/power-bi/reports/get-export-to-file-status) to track the job
+            /// status.
+            /// Read more about the entire flow: [Export Power BI
+            /// reports](/power-bi/developer/embedded/export-to) and [Export Paginated
+            /// reports](/power-bi/developer/embedded/export-paginated-report)
             ///
             /// ## Required Scope
             ///
@@ -783,6 +803,10 @@ namespace Microsoft.PowerBI.Api
             /// </summary>
             /// <remarks>
             ///
+            /// When the export job status is 'Succeeded' use the [GetFileOfExportToFile
+            /// API](/rest/api/power-bi/reports/get-file-of-export-to-file) to retrieve the
+            /// file.
+            ///
             /// ## Required Scope
             ///
             /// Report.ReadWrite.All or Report.Read.All
@@ -808,6 +832,10 @@ namespace Microsoft.PowerBI.Api
             /// report from **My workspace**.
             /// </summary>
             /// <remarks>
+            ///
+            /// When the export job status is 'Succeeded' use the [GetFileOfExportToFile
+            /// API](/rest/api/power-bi/reports/get-file-of-export-to-file) to retrieve the
+            /// file.
             ///
             /// ## Required Scope
             ///
@@ -1188,11 +1216,12 @@ namespace Microsoft.PowerBI.Api
 
             /// <summary>
             /// Exports the specified report from the specified workspace to a Power BI
-            /// .pbix file.
+            /// .pbix or .rdl file.
             /// </summary>
             /// <remarks>
             ///
-            /// - You can set the `preferClientRouting` parameter to `true` as a
+            /// - For .pbix reports -
+            /// You can set the `preferClientRouting` parameter to `true` as a
             /// [workaround](/power-bi/developer/embedded/embedded-troubleshoot#how-to-fix-timeout-exceptions-when-using-import-and-export-apis)
             /// for timeout issues.
             /// - Large files are downloaded to a temporary blob. Their URL is returned in
@@ -1213,7 +1242,7 @@ namespace Microsoft.PowerBI.Api
             ///
             /// ## Limitations
             ///
-            /// Exporting a report with a [Power BI service live
+            /// For .pbix reports, exporting a report with a [Power BI service live
             /// connection](/power-bi/desktop-report-lifecycle-datasets) isn't supported
             /// after calling [Rebind Report](/rest/api/power-bi/reports/rebind-report).
             /// &lt;br&gt;&lt;br&gt;
@@ -1234,11 +1263,12 @@ namespace Microsoft.PowerBI.Api
 
             /// <summary>
             /// Exports the specified report from the specified workspace to a Power BI
-            /// .pbix file.
+            /// .pbix or .rdl file.
             /// </summary>
             /// <remarks>
             ///
-            /// - You can set the `preferClientRouting` parameter to `true` as a
+            /// - For .pbix reports -
+            /// You can set the `preferClientRouting` parameter to `true` as a
             /// [workaround](/power-bi/developer/embedded/embedded-troubleshoot#how-to-fix-timeout-exceptions-when-using-import-and-export-apis)
             /// for timeout issues.
             /// - Large files are downloaded to a temporary blob. Their URL is returned in
@@ -1259,7 +1289,7 @@ namespace Microsoft.PowerBI.Api
             ///
             /// ## Limitations
             ///
-            /// Exporting a report with a [Power BI service live
+            /// For .pbix reports, exporting a report with a [Power BI service live
             /// connection](/power-bi/desktop-report-lifecycle-datasets) isn't supported
             /// after calling [Rebind Report](/rest/api/power-bi/reports/rebind-report).
             /// &lt;br&gt;&lt;br&gt;
@@ -1760,6 +1790,14 @@ namespace Microsoft.PowerBI.Api
             /// </summary>
             /// <remarks>
             ///
+            /// The API is asynchronous. When the API is called, it triggers an export job.
+            /// After triggering an export job, use [GetExportToFileStatus
+            /// API](/rest/api/power-bi/reports/get-export-to-file-status-in-group) to
+            /// track the job status.
+            /// Read more about the entire flow: [Export Power BI
+            /// reports](/power-bi/developer/embedded/export-to) and [Export Paginated
+            /// reports](/power-bi/developer/embedded/export-paginated-report)
+            ///
             /// ## Permissions
             ///
             /// This API call can be called by a service principal profile. For more
@@ -1804,6 +1842,14 @@ namespace Microsoft.PowerBI.Api
             /// format](/rest/api/power-bi/reports/export-to-file-in-group#fileformat).
             /// </summary>
             /// <remarks>
+            ///
+            /// The API is asynchronous. When the API is called, it triggers an export job.
+            /// After triggering an export job, use [GetExportToFileStatus
+            /// API](/rest/api/power-bi/reports/get-export-to-file-status-in-group) to
+            /// track the job status.
+            /// Read more about the entire flow: [Export Power BI
+            /// reports](/power-bi/developer/embedded/export-to) and [Export Paginated
+            /// reports](/power-bi/developer/embedded/export-paginated-report)
             ///
             /// ## Permissions
             ///
@@ -1856,6 +1902,10 @@ namespace Microsoft.PowerBI.Api
             /// </summary>
             /// <remarks>
             ///
+            /// When the export job status is 'Succeeded' use the [GetFileOfExportToFile
+            /// API](/rest/api/power-bi/reports/get-file-of-export-to-file-in-group) to
+            /// retrieve the file.
+            ///
             /// ## Permissions
             ///
             /// This API call can be called by a service principal profile. For more
@@ -1890,6 +1940,10 @@ namespace Microsoft.PowerBI.Api
             /// specified report from the specified workspace.
             /// </summary>
             /// <remarks>
+            ///
+            /// When the export job status is 'Succeeded' use the [GetFileOfExportToFile
+            /// API](/rest/api/power-bi/reports/get-file-of-export-to-file-in-group) to
+            /// retrieve the file.
             ///
             /// ## Permissions
             ///
@@ -2006,6 +2060,12 @@ namespace Microsoft.PowerBI.Api
             /// </summary>
             /// <remarks>
             ///
+            /// &gt; [!TIP]
+            /// &gt; To create embed tokens, it's recommended to use the latest API,
+            /// [Generate Token](/rest/api/power-bi/embed-token/generate-token). Generate
+            /// token supports additional functions, such as creating a token for multiple
+            /// items.
+            ///
             /// &gt; [!IMPORTANT]
             /// &gt; This API call is only relevant to the [embed for your
             /// customers](/power-bi/developer/embed-sample-for-customers) scenario. To
@@ -2058,6 +2118,12 @@ namespace Microsoft.PowerBI.Api
             /// workspace based on the specified dataset.
             /// </summary>
             /// <remarks>
+            ///
+            /// &gt; [!TIP]
+            /// &gt; To create embed tokens, it's recommended to use the latest API,
+            /// [Generate Token](/rest/api/power-bi/embed-token/generate-token). Generate
+            /// token supports additional functions, such as creating a token for multiple
+            /// items.
             ///
             /// &gt; [!IMPORTANT]
             /// &gt; This API call is only relevant to the [embed for your
@@ -2118,6 +2184,12 @@ namespace Microsoft.PowerBI.Api
             /// </summary>
             /// <remarks>
             ///
+            /// &gt; [!TIP]
+            /// &gt; To create embed tokens, it's recommended to use the latest API,
+            /// [Generate Token](/rest/api/power-bi/embed-token/generate-token). Generate
+            /// token supports additional functions, such as creating a token for multiple
+            /// items.
+            ///
             /// &gt; [!IMPORTANT]
             /// &gt; This API call is only relevant to the [embed for your
             /// customers](/power-bi/developer/embed-sample-for-customers) scenario. To
@@ -2174,6 +2246,12 @@ namespace Microsoft.PowerBI.Api
             /// specified workspace.
             /// </summary>
             /// <remarks>
+            ///
+            /// &gt; [!TIP]
+            /// &gt; To create embed tokens, it's recommended to use the latest API,
+            /// [Generate Token](/rest/api/power-bi/embed-token/generate-token). Generate
+            /// token supports additional functions, such as creating a token for multiple
+            /// items.
             ///
             /// &gt; [!IMPORTANT]
             /// &gt; This API call is only relevant to the [embed for your
@@ -2244,9 +2322,17 @@ namespace Microsoft.PowerBI.Api
             /// service principal.
             /// - Delegated permissions are supported.
             ///
+            /// When running under service prinicipal authentication, an app **must not**
+            /// have any admin-consent required premissions for Power BI set on it in the
+            /// Azure portal.
+            ///
             /// ## Required Scope
             ///
             /// Tenant.Read.All or Tenant.ReadWrite.All
+            ///
+            /// Relevant only when authenticating via a standard delegated admin access
+            /// token. Must not be present when authentication via a service principal is
+            /// used.
             ///
             /// ## Limitations
             ///
@@ -2285,9 +2371,17 @@ namespace Microsoft.PowerBI.Api
             /// service principal.
             /// - Delegated permissions are supported.
             ///
+            /// When running under service prinicipal authentication, an app **must not**
+            /// have any admin-consent required premissions for Power BI set on it in the
+            /// Azure portal.
+            ///
             /// ## Required Scope
             ///
             /// Tenant.Read.All or Tenant.ReadWrite.All
+            ///
+            /// Relevant only when authenticating via a standard delegated admin access
+            /// token. Must not be present when authentication via a service principal is
+            /// used.
             ///
             /// ## Limitations
             ///
@@ -2332,9 +2426,17 @@ namespace Microsoft.PowerBI.Api
             /// service principal.
             /// - Delegated permissions are supported.
             ///
+            /// When running under service prinicipal authentication, an app **must not**
+            /// have any admin-consent required premissions for Power BI set on it in the
+            /// Azure portal.
+            ///
             /// ## Required Scope
             ///
             /// Tenant.Read.All or Tenant.ReadWrite.All
+            ///
+            /// Relevant only when authenticating via a standard delegated admin access
+            /// token. Must not be present when authentication via a service principal is
+            /// used.
             ///
             /// ## Limitations
             ///
@@ -2370,9 +2472,17 @@ namespace Microsoft.PowerBI.Api
             /// service principal.
             /// - Delegated permissions are supported.
             ///
+            /// When running under service prinicipal authentication, an app **must not**
+            /// have any admin-consent required premissions for Power BI set on it in the
+            /// Azure portal.
+            ///
             /// ## Required Scope
             ///
             /// Tenant.Read.All or Tenant.ReadWrite.All
+            ///
+            /// Relevant only when authenticating via a standard delegated admin access
+            /// token. Must not be present when authentication via a service principal is
+            /// used.
             ///
             /// ## Limitations
             ///
@@ -2414,9 +2524,17 @@ namespace Microsoft.PowerBI.Api
             /// service principal.
             /// - Delegated permissions are supported.
             ///
+            /// When running under service prinicipal authentication, an app **must not**
+            /// have any admin-consent required premissions for Power BI set on it in the
+            /// Azure portal.
+            ///
             /// ## Required Scope
             ///
             /// Tenant.Read.All or Tenant.ReadWrite.All
+            ///
+            /// Relevant only when authenticating via a standard delegated admin access
+            /// token. Must not be present when authentication via a service principal is
+            /// used.
             ///
             /// ## Limitations
             ///
@@ -2446,9 +2564,17 @@ namespace Microsoft.PowerBI.Api
             /// service principal.
             /// - Delegated permissions are supported.
             ///
+            /// When running under service prinicipal authentication, an app **must not**
+            /// have any admin-consent required premissions for Power BI set on it in the
+            /// Azure portal.
+            ///
             /// ## Required Scope
             ///
             /// Tenant.Read.All or Tenant.ReadWrite.All
+            ///
+            /// Relevant only when authenticating via a standard delegated admin access
+            /// token. Must not be present when authentication via a service principal is
+            /// used.
             ///
             /// ## Limitations
             ///

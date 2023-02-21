@@ -29,7 +29,10 @@ namespace Microsoft.PowerBI.Api.Models
         /// <param name="artifactId">The Power BI item ID</param>
         /// <param name="displayName">The display name of the Power BI
         /// item</param>
-        /// <param name="artifactType">The type of Power BI item</param>
+        /// <param name="artifactType">The type of Power BI item. Possible
+        /// values include: 'Report', 'PaginatedReport', 'Dashboard',
+        /// 'Dataset', 'Dataflow', 'PersonalGroup', 'Group', 'Workspace',
+        /// 'Capacity', 'App'</param>
         /// <param name="accessRight">The access right that the user has for
         /// the Power BI item</param>
         /// <param name="shareType">The type of how the access is given to the
@@ -37,7 +40,7 @@ namespace Microsoft.PowerBI.Api.Models
         /// APIs.</param>
         /// <param name="sharer">The user who shared the PowerBI item. Only
         /// available for widely shared artifacts APIs.</param>
-        public ArtifactAccessEntry(string artifactId, string displayName, string artifactType, string accessRight, string shareType = default(string), User sharer = default(User))
+        public ArtifactAccessEntry(string artifactId, string displayName, ArtifactType artifactType, string accessRight, string shareType = default(string), User sharer = default(User))
         {
             ArtifactId = artifactId;
             DisplayName = displayName;
@@ -66,10 +69,12 @@ namespace Microsoft.PowerBI.Api.Models
         public string DisplayName { get; set; }
 
         /// <summary>
-        /// Gets or sets the type of Power BI item
+        /// Gets or sets the type of Power BI item. Possible values include:
+        /// 'Report', 'PaginatedReport', 'Dashboard', 'Dataset', 'Dataflow',
+        /// 'PersonalGroup', 'Group', 'Workspace', 'Capacity', 'App'
         /// </summary>
         [JsonProperty(PropertyName = "artifactType")]
-        public string ArtifactType { get; set; }
+        public ArtifactType ArtifactType { get; set; }
 
         /// <summary>
         /// Gets or sets the access right that the user has for the Power BI
@@ -107,10 +112,6 @@ namespace Microsoft.PowerBI.Api.Models
             if (DisplayName == null)
             {
                 throw new ValidationException(ValidationRules.CannotBeNull, "DisplayName");
-            }
-            if (ArtifactType == null)
-            {
-                throw new ValidationException(ValidationRules.CannotBeNull, "ArtifactType");
             }
             if (AccessRight == null)
             {

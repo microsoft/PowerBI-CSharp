@@ -11,21 +11,22 @@ namespace Microsoft.PowerBI.Api.Models
     using System.Reflection;
 
     /// <summary>
-    /// Defines values for State.
+    /// Defines values for DatamartState.
     /// </summary>
-    public sealed class StateConverter : JsonConverter
+    public sealed class DatamartStateConverter : JsonConverter
     {
 
         /// <summary>
-        /// Returns if objectType can be converted to State by the converter.
+        /// Returns if objectType can be converted to DatamartState by the
+        /// converter.
         /// </summary>
         public override bool CanConvert(System.Type objectType)
         {
-            return typeof(State).GetTypeInfo().IsAssignableFrom(objectType.GetTypeInfo());
+            return typeof(DatamartState).GetTypeInfo().IsAssignableFrom(objectType.GetTypeInfo());
         }
 
         /// <summary>
-        /// Overrides ReadJson and converts token to State.
+        /// Overrides ReadJson and converts token to DatamartState.
         /// </summary>
         public override object ReadJson(JsonReader reader, System.Type objectType, object existingValue, JsonSerializer serializer)
         {
@@ -33,11 +34,11 @@ namespace Microsoft.PowerBI.Api.Models
             {
                 return null;
             }
-            return (State)serializer.Deserialize<string>(reader);
+            return (DatamartState)serializer.Deserialize<string>(reader);
         }
 
         /// <summary>
-        /// Overriding WriteJson for State for serialization.
+        /// Overriding WriteJson for DatamartState for serialization.
         /// </summary>
         public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)
         {

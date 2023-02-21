@@ -11,21 +11,22 @@ namespace Microsoft.PowerBI.Api.Models
     using System.Reflection;
 
     /// <summary>
-    /// Defines values for Type.
+    /// Defines values for GroupType.
     /// </summary>
-    public sealed class TypeConverter : JsonConverter
+    public sealed class GroupTypeConverter : JsonConverter
     {
 
         /// <summary>
-        /// Returns if objectType can be converted to Type by the converter.
+        /// Returns if objectType can be converted to GroupType by the
+        /// converter.
         /// </summary>
         public override bool CanConvert(System.Type objectType)
         {
-            return typeof(Type).GetTypeInfo().IsAssignableFrom(objectType.GetTypeInfo());
+            return typeof(GroupType).GetTypeInfo().IsAssignableFrom(objectType.GetTypeInfo());
         }
 
         /// <summary>
-        /// Overrides ReadJson and converts token to Type.
+        /// Overrides ReadJson and converts token to GroupType.
         /// </summary>
         public override object ReadJson(JsonReader reader, System.Type objectType, object existingValue, JsonSerializer serializer)
         {
@@ -33,11 +34,11 @@ namespace Microsoft.PowerBI.Api.Models
             {
                 return null;
             }
-            return (Type)serializer.Deserialize<string>(reader);
+            return (GroupType)serializer.Deserialize<string>(reader);
         }
 
         /// <summary>
-        /// Overriding WriteJson for Type for serialization.
+        /// Overriding WriteJson for GroupType for serialization.
         /// </summary>
         public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)
         {

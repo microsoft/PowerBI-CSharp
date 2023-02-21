@@ -16,6 +16,135 @@ namespace Microsoft.PowerBI.Api
     public static partial class ProfilesExtensions
     {
             /// <summary>
+            /// Returns a list of service principal profiles for the organization.
+            /// </summary>
+            /// <remarks>
+            ///
+            /// ## Permissions
+            ///
+            /// The user must have administrator rights or authenticate using a service
+            /// principal.
+            ///
+            /// ## Required Scope
+            ///
+            /// Tenant.Read.All or Tenant.ReadWrite.All
+            /// &lt;br&gt;&lt;br&gt;
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='filter'>
+            /// Filters the results based on a boolean condition, using 'id',
+            /// 'displayName', or 'servicePrincipalId'. Supports only 'eq' operator.
+            /// </param>
+            /// <param name='top'>
+            /// Returns only the first n results. This parameter must be in the range of
+            /// 1-5000.
+            /// </param>
+            /// <param name='skip'>
+            /// Skips the first n results. Use with top to fetch results beyond the first
+            /// 5000.
+            /// </param>
+            public static AdminServicePrincipalProfiles GetProfilesAsAdmin(this IProfiles operations, string filter = default(string), int? top = default(int?), int? skip = default(int?))
+            {
+                return operations.GetProfilesAsAdminAsync(filter, top, skip).GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Returns a list of service principal profiles for the organization.
+            /// </summary>
+            /// <remarks>
+            ///
+            /// ## Permissions
+            ///
+            /// The user must have administrator rights or authenticate using a service
+            /// principal.
+            ///
+            /// ## Required Scope
+            ///
+            /// Tenant.Read.All or Tenant.ReadWrite.All
+            /// &lt;br&gt;&lt;br&gt;
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='filter'>
+            /// Filters the results based on a boolean condition, using 'id',
+            /// 'displayName', or 'servicePrincipalId'. Supports only 'eq' operator.
+            /// </param>
+            /// <param name='top'>
+            /// Returns only the first n results. This parameter must be in the range of
+            /// 1-5000.
+            /// </param>
+            /// <param name='skip'>
+            /// Skips the first n results. Use with top to fetch results beyond the first
+            /// 5000.
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<AdminServicePrincipalProfiles> GetProfilesAsAdminAsync(this IProfiles operations, string filter = default(string), int? top = default(int?), int? skip = default(int?), CancellationToken cancellationToken = default(CancellationToken))
+            {
+                using (var _result = await operations.GetProfilesAsAdminWithHttpMessagesAsync(filter, top, skip, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
+            /// <summary>
+            /// Deletes the specified service principal profile.
+            /// </summary>
+            /// <remarks>
+            ///
+            /// ## Permissions
+            ///
+            /// The user must have administrator rights.
+            ///
+            /// ## Required Scope
+            ///
+            /// Tenant.ReadWrite.All
+            /// &lt;br&gt;&lt;br&gt;
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='profileId'>
+            /// The service principal profile ID
+            /// </param>
+            public static void DeleteProfileAsAdmin(this IProfiles operations, System.Guid profileId)
+            {
+                operations.DeleteProfileAsAdminAsync(profileId).GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Deletes the specified service principal profile.
+            /// </summary>
+            /// <remarks>
+            ///
+            /// ## Permissions
+            ///
+            /// The user must have administrator rights.
+            ///
+            /// ## Required Scope
+            ///
+            /// Tenant.ReadWrite.All
+            /// &lt;br&gt;&lt;br&gt;
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='profileId'>
+            /// The service principal profile ID
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task DeleteProfileAsAdminAsync(this IProfiles operations, System.Guid profileId, CancellationToken cancellationToken = default(CancellationToken))
+            {
+                (await operations.DeleteProfileAsAdminWithHttpMessagesAsync(profileId, null, cancellationToken).ConfigureAwait(false)).Dispose();
+            }
+
+            /// <summary>
             /// Returns a list of service principal profiles.
             /// </summary>
             /// <remarks>
