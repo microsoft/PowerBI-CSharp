@@ -24968,7 +24968,7 @@
                             },
                             {
                                 "value": "ReadOverrideEffectiveIdentity",
-                                "description": "The user can override the effective identity for Power BI Embedded"
+                                "description": "The user can override the effective identity for Power BI Embedded. Applicable only for on-premises Analysis Services data sources."
                             }
                         ]
                     }
