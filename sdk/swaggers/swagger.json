@@ -13827,6 +13827,32 @@
                                                             "expression": "\"revenues param value\" meta [IsParameterQuery=true, Type=\"Text\", IsParameterQueryRequired=true]"
                                                         }
                                                     ],
+                                                    "roles": [
+                                                        {
+                                                            "name": "Teams",
+                                                            "modelPermission": "Read",
+                                                            "members": [
+                                                                {
+                                                                    "memberName": "john@contoso.com",
+                                                                    "memberId": "ee96296b-fb71-4f65-a8af-c0ec5a7daced",
+                                                                    "memberType": "User",
+                                                                    "identityProvider": "AzureAD"
+                                                                },
+                                                                {
+                                                                    "memberName": "group@contoso.com",
+                                                                    "memberId": "0a1cdbc3-f82c-4001-8b96-be04ae9d25a3",
+                                                                    "memberType": "Group",
+                                                                    "identityProvider": "AzureAD"
+                                                                }
+                                                            ],
+                                                            "tablePermissions": [
+                                                                {
+                                                                    "name": "DW_Revenues DW_RevenuesTest",
+                                                                    "filterExpression": "[InTeams] = \"True\""
+                                                                }
+                                                            ]
+                                                        }
+                                                    ],
                                                     "upstreamDataflows": [
                                                         {
                                                             "targetDataflowId": "a842dbb1-32ca-46b0-9648-498b2c2d5e38",
@@ -21984,11 +22010,18 @@
                     "type": "boolean",
                     "description": "Whether the dataset schema might not be up to date"
                 },
-				"expressions": {
+                "expressions": {
                     "type": "array",
                     "description": "The dataset expressions",
                     "items": {
                         "$ref": "#/definitions/Expression"
+                    }
+                },
+                "roles": {
+                    "type": "array",
+                    "description": "The dataset roles",
+                    "items": {
+                        "$ref": "#/definitions/Role"
                     }
                 }
             }
@@ -22288,6 +22321,72 @@
                 "description": {
                     "type": "string",
                     "description": "The expression description"
+                }
+            }
+        },
+        "Role": {
+            "description": "A role in a dataset’s RLS configuration",
+            "required": [
+                "name"
+            ],
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "description": "The name of the role"
+                },
+                "modelPermission": {
+                    "type": "string",
+                    "description": "The permissions that the role has on the dataset. For example, Read"
+                },
+                "members": {
+                    "type": "array",
+                    "description": "An array listing the members of the role",
+                    "$ref": "#/definitions/RoleMember"
+                },
+                "tablePermissions": {
+                    "type": "array",
+                    "description": "An array that lists all the filters defined for the role",
+                    "$ref": "#/definitions/RoleTablePermission"
+                }
+            }
+        },
+        "RoleMember": {
+            "description": "A role member",
+            "required": [
+                "memberName"
+            ],
+            "properties": {
+                "memberName": {
+                    "type": "string",
+                    "description": "The name of the role member"
+                },
+                "memberId": {
+                    "type": "string",
+                    "description": "The role member GUID as assigned by the identity provider"
+                },
+                "memberType": {
+                    "type": "string",
+                    "description": "The role member type (user or group)"
+                },
+                "identityProvider": {
+                    "type": "string",
+                    "description": "The role member identity provider"
+                }
+            }
+        },
+        "RoleTablePermission": {
+            "description": "A role filter",
+            "required": [
+                "name"
+            ],
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "description": "The name of the table specified in the filter"
+                },
+                "filterExpression": {
+                    "type": "string",
+                    "description": "The expression that filters the table specified in the filter"
                 }
             }
         },
