@@ -14138,6 +14138,20 @@
                         "description": "OK"
                     }
                 },
+                "x-ms-examples": {
+                    "Example": {
+                        "parameters": {
+                            "UnassignWorkspacesCapacityRequest": {
+                                "WorkspacesToUnassign": [
+                                    "0ebb517c-c6f5-4aa8-9f1d-42bd547e6297"
+                                ]
+                            }
+                        },
+                        "responses": {
+                            "200": {}
+                        }
+                    }
+                },
                 "deprecated": false
             }
         },
@@ -15578,7 +15592,7 @@
                     "Admin"
                 ],
                 "summary": "Returns a list of reports for the organization.",
-                "description": "\n## Permissions\n\n- The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) or authenticate using a service principal.\n- Delegated permissions are supported.\n\nWhen running under service prinicipal authentication, an app **must not** have any admin-consent required premissions for Power BI set on it in the Azure portal.\n\n## Required Scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n\nRelevant only when authenticating via a standard delegated admin access token. Must not be present when authentication via a service principal is used.\n\n## Limitations\n\nMaximum 200 requests per hour.\n<br><br>",
+                "description": "\n## Permissions\n\n- The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) or authenticate using a service principal.\n- Delegated permissions are supported.\n\nWhen running under service prinicipal authentication, an app **must not** have any admin-consent required premissions for Power BI set on it in the Azure portal.\n\n## Required Scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n\nRelevant only when authenticating via a standard delegated admin access token. Must not be present when authentication via a service principal is used.\n\n## Limitations\n\nMaximum 1 request per 10 minutes.\n<br><br>",
                 "operationId": "Reports_GetReportsAsAdmin",
                 "consumes": [],
                 "produces": [
@@ -16024,7 +16038,7 @@
                 "tags": [
                     "Admin"
                 ],
-                "summary": "Returns a list of Power BI items (such as reports or dashboards) that are shared with the whole organization through links.",
+                "summary": "Returns a list of Power BI reports that are shared with the whole organization through links.",
                 "description": "\n## Permissions\n\n- The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) or authenticate using a service principal.\n- Delegated permissions are supported.\n\n## Required Scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n\n## Limitations\n\nMaximum 200 requests per hour.\n<br><br>",
                 "operationId": "WidelySharedArtifacts_LinksSharedToWholeOrganization",
                 "consumes": [],
@@ -23303,7 +23317,7 @@
                 "workspaceId": {
                     "type": "string",
                     "format": "uuid",
-                    "description": "The report workspace ID. This property will be returned only in GetReportsAsAdmin."
+                    "description": "The workspace ID (GUID) of the report. This property will be returned only in GetReportsAsAdmin."
                 }
             }
         },
@@ -23765,7 +23779,7 @@
                 "workspaceId": {
                     "type": "string",
                     "format": "uuid",
-                    "description": "The dashboard workspace ID. This property will be returned only in GetDashboardsAsAdmin."
+                    "description": "The workspace ID (GUID) of the dashboard. This property will be returned only in GetDashboardsAsAdmin."
                 }
             }
         },

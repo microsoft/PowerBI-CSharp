@@ -2440,7 +2440,7 @@ namespace Microsoft.PowerBI.Api
             ///
             /// ## Limitations
             ///
-            /// Maximum 200 requests per hour.
+            /// Maximum 1 request per 10 minutes.
             /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
@@ -2486,7 +2486,7 @@ namespace Microsoft.PowerBI.Api
             ///
             /// ## Limitations
             ///
-            /// Maximum 200 requests per hour.
+            /// Maximum 1 request per 10 minutes.
             /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
