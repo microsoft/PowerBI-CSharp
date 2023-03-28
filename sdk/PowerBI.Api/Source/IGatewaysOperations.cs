@@ -441,6 +441,7 @@ namespace Microsoft.PowerBI.Api
         /// ## Limitations
         ///
         /// Virtual network (VNet) gateways aren't supported.
+        /// Adding groups through the API is not supported.
         /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='gatewayId'>

@@ -10518,7 +10518,7 @@
                     "Gateways"
                 ],
                 "summary": "Grants or updates the permissions required to use the specified data source for the specified user.",
-                "description": "\n## Permissions\n\nThe user must have gateway admin permissions.\n\n## Required Scope\n\nDataset.ReadWrite.All\n\n## Limitations\n\nVirtual network (VNet) gateways aren't supported.\n<br><br>",
+                "description": "\n## Permissions\n\nThe user must have gateway admin permissions.\n\n## Required Scope\n\nDataset.ReadWrite.All\n\n## Limitations\n\nVirtual network (VNet) gateways aren't supported.\nAdding groups through the API is not supported.\n<br><br>",
                 "operationId": "Gateways_AddDatasourceUser",
                 "consumes": [
                     "application/json"
