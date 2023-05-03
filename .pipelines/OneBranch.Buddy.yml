@@ -74,6 +74,12 @@ extends:
               versionSpec: '*'
               checkLatest: true
 
+          - task: UseDotNet@2
+            inputs:
+              packageType: 'sdk'
+              version: '3.1.403' #add the version which is required.
+              installationPath: 'C:\Program Files\dotnet\' #this is to ensure that we are installing the dotnet at the same location as container by default install the dotnet sdks.
+
           - task: CmdLine@2
             displayName: 'Nuget restore'
             inputs:
