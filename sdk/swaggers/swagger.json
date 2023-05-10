@@ -24737,19 +24737,6 @@
                 "notifyOption"
             ]
         },
-        "DatasetRefreshObjects": {
-            "description": "Power BI dataset refresh target",
-            "properties": {
-                "table": {
-                    "type": "string",
-                    "description": "Table to refresh"
-                },
-                "partition": {
-                    "type": "string",
-                    "description": "Partition to refresh"
-                }
-            }
-        },
         "DatasetRefreshDetail": {
             "description": "A Power BI refresh detail entry",
             "properties": {
@@ -24764,16 +24751,8 @@
                     "description": "The end date and time of the refresh (may be empty if a refresh is in progress)"
                 },
                 "type": {
-                    "type": "string",
                     "description": "The type of processing to perform",
-                    "enum": [
-                        "Full",
-                        "ClearValues",
-                        "Calculate",
-                        "DataOnly",
-                        "Automatic",
-                        "Defragment"
-                    ]
+                    "$ref": "#/definitions/DatasetRefreshDetailType"
                 },
                 "commitMode": {
                     "type": "string",
@@ -24781,15 +24760,217 @@
                     "enum": [
                         "Transactional",
                         "PartialBatch"
-                    ]
+                    ],
+                    "x-ms-enum": {
+                        "name": "DatasetRefreshDetailCommitMode",
+                        "modelAsString": true,
+                        "values": [
+                            {
+                                "value": "Transactional",
+                                "description": "Commit the whole refresh operation as a transaction"
+                            },
+                            {
+                                "value": "PartialBatch",
+                                "description": "Commit the refresh operation in batches"
+                            }
+                        ]
+                    }
                 },
                 "status": {
                     "type": "string",
-                    "description": "- `Unknown` if the completion state is unknown or a refresh is in progress.\n- `Completed` for a successfully completed refresh.\n- `Failed` for an unsuccessful refresh.\n- `Disabled` if the refresh is disabled by a selective refresh."
+                    "description": "Dataset operation general status",
+                    "enum": [
+                        "Unknown",
+                        "Completed",
+                        "Failed",
+                        "Disabled"
+                    ],
+                    "x-ms-enum": {
+                        "name": "DatasetRefreshDetailStatus",
+                        "modelAsString": true,
+                        "values": [
+                            {
+                                "value": "Unknown",
+                                "description": "The completion state is unknown or a refresh is in progress"
+                            },
+                            {
+                                "value": "Completed",
+                                "description": "The refresh operation is successfully completed"
+                            },
+                            {
+                                "value": "Failed",
+                                "description": "The refresh operation is unsuccessful"
+                            },
+                            {
+                                "value": "Disabled",
+                                "description": "The refresh operation is disabled by a selective refresh"
+                            }
+                        ]
+                    }
                 },
                 "extendedStatus": {
                     "type": "string",
-                    "description": "- `Unknown` if the completion state is unknown.\n- `NotStarted` if the refresh operation isn't started.\n- `InProgress` if the refresh operation is in progress.\n- `Completed` for a successfully completed refresh.\n- `TimedOut` if the refresh operation is timed out.\n- `Failed` for an unsuccessful refresh.\n- `Disabled` if the refresh is disabled by a selective refresh.\n- `Cancelled` if the refresh operation has been cancelled by customer."
+                    "description": "Dataset operation detailed status",
+                    "enum": [
+                        "Unknown",
+                        "NotStarted",
+                        "InProgress",
+                        "Completed",
+                        "TimedOut",
+                        "Failed",
+                        "Disabled",
+                        "Cancelled"
+                    ],
+                    "x-ms-enum": {
+                        "name": "DatasetRefreshDetailExtendedStatus",
+                        "modelAsString": true,
+                        "values": [
+                            {
+                                "value": "Unknown",
+                                "description": "The completion state is unknown"
+                            },
+                            {
+                                "value": "NotStarted",
+                                "description": "The refresh operation isn't started"
+                            },
+                            {
+                                "value": "InProgress",
+                                "description": "The refresh operation is in progress"
+                            },
+                            {
+                                "value": "Completed",
+                                "description": "The refresh operation is successfully completed"
+                            },
+                            {
+                                "value": "TimedOut",
+                                "description": "The refresh operation is timed out"
+                            },
+                            {
+                                "value": "Failed",
+                                "description": "The refresh operation is unsuccessful"
+                            },
+                            {
+                                "value": "Disabled",
+                                "description": "The refresh operation is disabled by a selective refresh"
+                            },
+                            {
+                                "value": "Cancelled",
+                                "description": "The refresh operation has been cancelled by customer"
+                            }
+                        ]
+                    }
+                },
+                "currentRefreshType": {
+                    "description": "The type of processing for the current iteration. This is useful when `commitMode` is set to `PartialBatch`",
+                    "$ref": "#/definitions/DatasetRefreshDetailType"
+                },
+                "numberOfAttempts": {
+                    "type": "integer",
+                    "description": "The number of attempts for the refresh request"
+                },
+                "objects": {
+                    "type": "array",
+                    "description": "An array of objects included in the refresh request",
+                    "items": {
+                        "$ref": "#/definitions/DatasetRefreshObjects"
+                    }
+                },
+                "messages": {
+                    "type": "array",
+                    "description": "An array of engine error or warning messages for the refresh request",
+                    "items": {
+                        "$ref": "#/definitions/EngineMessage"
+                    }
+                }
+            }
+        },
+        "DatasetRefreshDetailType": {
+            "type": "string",
+            "description": "The type of processing to perform",
+            "enum": [
+                "Full",
+                "ClearValues",
+                "Calculate",
+                "DataOnly",
+                "Automatic",
+                "Defragment"
+            ],
+            "x-ms-enum": {
+                "name": "DatasetRefreshDetailType",
+                "modelAsString": true,
+                "values": [
+                    {
+                        "value": "Full",
+                        "description": "For all partitions in the specified partition, table, or database, refresh data and recalculate all dependents. For a calculation partition, recalculate the partition and all its dependents."
+                    },
+                    {
+                        "value": "ClearValues",
+                        "description": "Clear values in this object and all its dependents"
+                    },
+                    {
+                        "value": "Calculate",
+                        "description": "Recalculate this object and all its dependents, but only if needed. This value doesn't force recalculation, except for volatile formulas."
+                    },
+                    {
+                        "value": "DataOnly",
+                        "description": "Refresh data in this object and clear all dependents"
+                    },
+                    {
+                        "value": "Automatic",
+                        "description": "If the object needs to be refreshed and recalculated, refresh and recalculate the object and all its dependents. Applies if the partition is in a state other than Ready."
+                    },
+                    {
+                        "value": "Defragment",
+                        "description": "Defragment the data in the specified table. As data is added to or removed from a table, the dictionaries of each column can become polluted with values that no longer exist in the actual column values. The defragment option will clean up the values in the dictionaries that are no longer used."
+                    }
+                ]
+            }
+        },
+        "EngineMessage": {
+            "description": "The error or warning message from engine for enhanced refresh",
+            "properties": {
+                "code": {
+                    "type": "string",
+                    "description": "The error code in hex format"
+                },
+                "message": {
+                    "type": "string",
+                    "description": "The text of error or warning message"
+                },
+                "type": {
+                    "type": "string",
+                    "description": "The type of the error",
+                    "enum": [
+                        "Error",
+                        "Warning"
+                    ],
+                    "x-ms-enum": {
+                        "name": "RefreshEngineErrorType",
+                        "modelAsString": true,
+                        "values": [
+                            {
+                                "value": "Error",
+                                "description": "Error message"
+                            },
+                            {
+                                "value": "Warning",
+                                "description": "Warning message"
+                            }
+                        ]
+                    }
+                }
+            }
+        },
+        "DatasetRefreshObjects": {
+            "description": "Power BI dataset refresh target",
+            "properties": {
+                "table": {
+                    "type": "string",
+                    "description": "Table to refresh"
+                },
+                "partition": {
+                    "type": "string",
+                    "description": "Partition to refresh"
                 }
             }
         },

@@ -7,6 +7,8 @@
 namespace Microsoft.PowerBI.Api.Models
 {
     using Newtonsoft.Json;
+    using System.Collections;
+    using System.Collections.Generic;
     using System.Linq;
 
     /// <summary>
@@ -35,23 +37,23 @@ namespace Microsoft.PowerBI.Api.Models
         /// <param name="commitMode">Determines if objects will be committed in
         /// batches or only when complete. Possible values include:
         /// 'Transactional', 'PartialBatch'</param>
-        /// <param name="status">- `Unknown` if the completion state is unknown
-        /// or a refresh is in progress.
-        /// - `Completed` for a successfully completed refresh.
-        /// - `Failed` for an unsuccessful refresh.
-        /// - `Disabled` if the refresh is disabled by a selective
-        /// refresh.</param>
-        /// <param name="extendedStatus">- `Unknown` if the completion state is
-        /// unknown.
-        /// - `NotStarted` if the refresh operation isn't started.
-        /// - `InProgress` if the refresh operation is in progress.
-        /// - `Completed` for a successfully completed refresh.
-        /// - `TimedOut` if the refresh operation is timed out.
-        /// - `Failed` for an unsuccessful refresh.
-        /// - `Disabled` if the refresh is disabled by a selective refresh.
-        /// - `Cancelled` if the refresh operation has been cancelled by
-        /// customer.</param>
-        public DatasetRefreshDetail(System.DateTime? startTime = default(System.DateTime?), System.DateTime? endTime = default(System.DateTime?), string type = default(string), string commitMode = default(string), string status = default(string), string extendedStatus = default(string))
+        /// <param name="status">Dataset operation general status. Possible
+        /// values include: 'Unknown', 'Completed', 'Failed',
+        /// 'Disabled'</param>
+        /// <param name="extendedStatus">Dataset operation detailed status.
+        /// Possible values include: 'Unknown', 'NotStarted', 'InProgress',
+        /// 'Completed', 'TimedOut', 'Failed', 'Disabled', 'Cancelled'</param>
+        /// <param name="currentRefreshType">The type of processing for the
+        /// current iteration. This is useful when `commitMode` is set to
+        /// `PartialBatch`. Possible values include: 'Full', 'ClearValues',
+        /// 'Calculate', 'DataOnly', 'Automatic', 'Defragment'</param>
+        /// <param name="numberOfAttempts">The number of attempts for the
+        /// refresh request</param>
+        /// <param name="objects">An array of objects included in the refresh
+        /// request</param>
+        /// <param name="messages">An array of engine error or warning messages
+        /// for the refresh request</param>
+        public DatasetRefreshDetail(System.DateTime? startTime = default(System.DateTime?), System.DateTime? endTime = default(System.DateTime?), string type = default(string), string commitMode = default(string), string status = default(string), string extendedStatus = default(string), string currentRefreshType = default(string), int? numberOfAttempts = default(int?), IList<DatasetRefreshObjects> objects = default(IList<DatasetRefreshObjects>), IList<EngineMessage> messages = default(IList<EngineMessage>))
         {
             StartTime = startTime;
             EndTime = endTime;
@@ -59,6 +61,10 @@ namespace Microsoft.PowerBI.Api.Models
             CommitMode = commitMode;
             Status = status;
             ExtendedStatus = extendedStatus;
+            CurrentRefreshType = currentRefreshType;
+            NumberOfAttempts = numberOfAttempts;
+            Objects = objects;
+            Messages = messages;
             CustomInit();
         }
 
@@ -97,28 +103,47 @@ namespace Microsoft.PowerBI.Api.Models
         public string CommitMode { get; set; }
 
         /// <summary>
-        /// Gets or sets - `Unknown` if the completion state is unknown or a
-        /// refresh is in progress.
-        /// - `Completed` for a successfully completed refresh.
-        /// - `Failed` for an unsuccessful refresh.
-        /// - `Disabled` if the refresh is disabled by a selective refresh.
+        /// Gets or sets dataset operation general status. Possible values
+        /// include: 'Unknown', 'Completed', 'Failed', 'Disabled'
         /// </summary>
         [JsonProperty(PropertyName = "status")]
         public string Status { get; set; }
 
         /// <summary>
-        /// Gets or sets - `Unknown` if the completion state is unknown.
-        /// - `NotStarted` if the refresh operation isn't started.
-        /// - `InProgress` if the refresh operation is in progress.
-        /// - `Completed` for a successfully completed refresh.
-        /// - `TimedOut` if the refresh operation is timed out.
-        /// - `Failed` for an unsuccessful refresh.
-        /// - `Disabled` if the refresh is disabled by a selective refresh.
-        /// - `Cancelled` if the refresh operation has been cancelled by
-        /// customer.
+        /// Gets or sets dataset operation detailed status. Possible values
+        /// include: 'Unknown', 'NotStarted', 'InProgress', 'Completed',
+        /// 'TimedOut', 'Failed', 'Disabled', 'Cancelled'
         /// </summary>
         [JsonProperty(PropertyName = "extendedStatus")]
         public string ExtendedStatus { get; set; }
+
+        /// <summary>
+        /// Gets or sets the type of processing for the current iteration. This
+        /// is useful when `commitMode` is set to `PartialBatch`. Possible
+        /// values include: 'Full', 'ClearValues', 'Calculate', 'DataOnly',
+        /// 'Automatic', 'Defragment'
+        /// </summary>
+        [JsonProperty(PropertyName = "currentRefreshType")]
+        public string CurrentRefreshType { get; set; }
+
+        /// <summary>
+        /// Gets or sets the number of attempts for the refresh request
+        /// </summary>
+        [JsonProperty(PropertyName = "numberOfAttempts")]
+        public int? NumberOfAttempts { get; set; }
+
+        /// <summary>
+        /// Gets or sets an array of objects included in the refresh request
+        /// </summary>
+        [JsonProperty(PropertyName = "objects")]
+        public IList<DatasetRefreshObjects> Objects { get; set; }
+
+        /// <summary>
+        /// Gets or sets an array of engine error or warning messages for the
+        /// refresh request
+        /// </summary>
+        [JsonProperty(PropertyName = "messages")]
+        public IList<EngineMessage> Messages { get; set; }
 
     }
 }
