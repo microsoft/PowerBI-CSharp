@@ -38,7 +38,7 @@ namespace Microsoft.PowerBI.Api.Models
         /// <param name="shareType">The type of how the access is given to the
         /// Power BI item. Only available for widely shared artifacts
         /// APIs.</param>
-        /// <param name="sharer">The user who shared the PowerBI item. Only
+        /// <param name="sharer">The user who shared the Power BI item. Only
         /// available for widely shared artifacts APIs.</param>
         public ArtifactAccessEntry(string artifactId, string displayName, ArtifactType artifactType, string accessRight, string shareType = default(string), User sharer = default(User))
         {
@@ -91,7 +91,7 @@ namespace Microsoft.PowerBI.Api.Models
         public string ShareType { get; set; }
 
         /// <summary>
-        /// Gets or sets the user who shared the PowerBI item. Only available
+        /// Gets or sets the user who shared the Power BI item. Only available
         /// for widely shared artifacts APIs.
         /// </summary>
         [JsonProperty(PropertyName = "sharer")]

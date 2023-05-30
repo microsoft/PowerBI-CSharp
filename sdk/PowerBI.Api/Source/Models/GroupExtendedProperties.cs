@@ -28,12 +28,16 @@ namespace Microsoft.PowerBI.Api.Models
         /// <param name="capacityId">The capacity ID</param>
         /// <param name="dataflowStorageId">The Power BI dataflow storage
         /// account ID</param>
-        public GroupExtendedProperties(bool? isReadOnly = default(bool?), bool? isOnDedicatedCapacity = default(bool?), System.Guid? capacityId = default(System.Guid?), System.Guid? dataflowStorageId = default(System.Guid?))
+        /// <param name="logAnalyticsWorkspace">The Log Analytics workspace
+        /// assigned to the group.  This is returned only when retrieving a
+        /// single group.</param>
+        public GroupExtendedProperties(bool? isReadOnly = default(bool?), bool? isOnDedicatedCapacity = default(bool?), System.Guid? capacityId = default(System.Guid?), System.Guid? dataflowStorageId = default(System.Guid?), AzureResource logAnalyticsWorkspace = default(AzureResource))
         {
             IsReadOnly = isReadOnly;
             IsOnDedicatedCapacity = isOnDedicatedCapacity;
             CapacityId = capacityId;
             DataflowStorageId = dataflowStorageId;
+            LogAnalyticsWorkspace = logAnalyticsWorkspace;
             CustomInit();
         }
 
@@ -66,5 +70,25 @@ namespace Microsoft.PowerBI.Api.Models
         [JsonProperty(PropertyName = "dataflowStorageId")]
         public System.Guid? DataflowStorageId { get; set; }
 
+        /// <summary>
+        /// Gets or sets the Log Analytics workspace assigned to the group.
+        /// This is returned only when retrieving a single group.
+        /// </summary>
+        [JsonProperty(PropertyName = "logAnalyticsWorkspace")]
+        public AzureResource LogAnalyticsWorkspace { get; set; }
+
+        /// <summary>
+        /// Validate the object.
+        /// </summary>
+        /// <exception cref="Rest.ValidationException">
+        /// Thrown if validation fails
+        /// </exception>
+        public virtual void Validate()
+        {
+            if (LogAnalyticsWorkspace != null)
+            {
+                LogAnalyticsWorkspace.Validate();
+            }
+        }
     }
 }

@@ -12424,7 +12424,7 @@
                                         {
                                             "order": 0,
                                             "workspaceId": "4de5bcc4-2c88-4efe-b827-4ee7b289b496",
-                                            "workspaceName": "Workpsace-Development"
+                                            "workspaceName": "Workspace-Development"
                                         },
                                         {
                                             "order": 1,
@@ -12785,7 +12785,7 @@
                                         {
                                             "order": 0,
                                             "workspaceId": "4de5bcc4-2c88-4efe-b827-4ee7b289b496",
-                                            "workspaceName": "Workpsace-Development"
+                                            "workspaceName": "Workspace-Development"
                                         },
                                         {
                                             "order": 1,
@@ -14808,7 +14808,7 @@
                     "Admin"
                 ],
                 "summary": "Updates the properties of the specified workspace.",
-                "description": "\nOnly the name and description can be updated. The name must be unique inside an organization.\n\n## Permissions\n\nThe user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator).\n\n## Required Scope\n\nTenant.ReadWrite.All\n\n## Limitations\n\nMaximum 200 requests per hour.\n<br><br>",
+                "description": "\nOnly the name, description and Log Analytics workspace can be updated. The name must be unique inside an organization. To unassign a Log Analytics workspace, explicitly set the value to null.\n\n## Permissions\n\nThe user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator).\n\n## Required Scope\n\nTenant.ReadWrite.All\n\n## Limitations\n\nMaximum 200 requests per hour.\n<br><br>",
                 "operationId": "Groups_UpdateGroupAsAdmin",
                 "consumes": [],
                 "produces": [],
@@ -14837,12 +14837,38 @@
                     }
                 },
                 "x-ms-examples": {
-                    "Example": {
+                    "Example of updating group description": {
                         "parameters": {
                             "groupId": "e2284830-c8dc-416b-b19a-8cdcd2729332",
                             "groupProperties": {
                                 "name": "Updated Sales Results",
                                 "description": "Refreshed sales numbers"
+                            }
+                        },
+                        "responses": {
+                            "200": {}
+                        }
+                    },
+                    "Example of assigning Log Analytics workspace": {
+                        "parameters": {
+                            "groupId": "e2284830-c8dc-416b-b19a-8cdcd2729332",
+                            "groupProperties": {
+                                "logAnalyticsWorkspace": {
+                                    "subscriptionId": "d778934f-bda2-41d9-b5c7-6cf41372c1a0",
+                                    "resourceGroup": "myResourceGroup",
+                                    "resourceName": "myLogAnalyticsWorksapce"
+                                }
+                            }
+                        },
+                        "responses": {
+                            "200": {}
+                        }
+                    },
+                    "Example of unassigning Log Analytics workspace": {
+                        "parameters": {
+                            "groupId": "e2284830-c8dc-416b-b19a-8cdcd2729332",
+                            "groupProperties": {
+                                "logAnalyticsWorkspace": null
                             }
                         },
                         "responses": {
@@ -17442,7 +17468,7 @@
                     "EmbedToken"
                 ],
                 "summary": "Generates an embed token for multiple reports, datasets, and target workspaces.",
-                "description": "\n- Reports and datasets don't have to be related.\n- You can bind a report to a dataset during embedding.\n- You can only create a report in workspaces specified by the `targetWorkspaces` parameter.\n\n> [!IMPORTANT]\n> This API call is only relevant to the [embed for your customers](/power-bi/developer/embed-sample-for-customers) scenario. To learn more about using this API, see [Considerations when generating an embed token](/power-bi/developer/embedded/generate-embed-token).\n\n## Permissions\n\n- When using a service principal for authentication, refer to [Embed Power BI content with service principal](/power-bi/developer/embed-service-principal) and [Considerations and limitations](/power-bi/developer/embedded/embed-service-principal#considerations-and-limitations).\n- For PowerBI reports with a paginated visual, include the paginated report ID in the API call. For more information, see [example](/rest/api/power-bi/embed-token/generate-token#examples).\n- This API call can be called by a service principal profile. For more information see: [Service principal profiles in Power BI Embedded](/power-bi/developer/embedded/embed-multi-tenancy).\n\n## Required Scope\n\nAll of the following, unless a requirement doesn't apply:\n\n- Content.Create, required if a target workspace is specified in [GenerateTokenRequestV2](/rest/api/power-bi/embed-token/generate-token#generatetokenrequestv2).\n- Report.ReadWrite.All or Report.Read.All, required if a report is specified in [GenerateTokenRequestV2](/rest/api/power-bi/embed-token/generate-token#generatetokenrequestv2).\n- Report.ReadWrite.All, required if the `allowEdit` flag is specified for at least one report in [GenerateTokenRequestV2](/rest/api/power-bi/embed-token/generate-token#generatetokenrequestv2).\n- Dataset.ReadWrite.All or Dataset.Read.All\n\n## Limitations\n\n- You can only create a report in workspaces specified by the `targetWorkspaces` parameter.\n- All reports and datasets must reside in a **V2** workspace.\n- All target workspaces must be **V2** workspaces.\n- Maximum 50 reports.\n- Maximum 50 datasets.\n- Maximum 50 target workspaces.\n- For Azure Analysis Services or Analysis Services on-premises live connection reports, generating an embed token with row-level security (RLS) might not work for several minutes after a [rebind](/rest/api/power-bi/reports/rebind-report).\n<br><br>",
+                "description": "\n- Reports and datasets don't have to be related.\n- You can bind a report to a dataset during embedding.\n- You can only create a report in workspaces specified by the `targetWorkspaces` parameter.\n\n> [!IMPORTANT]\n> This API call is only relevant to the [embed for your customers](/power-bi/developer/embed-sample-for-customers) scenario. To learn more about using this API, see [Considerations when generating an embed token](/power-bi/developer/embedded/generate-embed-token).\n\n## Permissions\n\n- When using a service principal for authentication, refer to [Embed Power BI content with service principal](/power-bi/developer/embed-service-principal) and [Considerations and limitations](/power-bi/developer/embedded/embed-service-principal#considerations-and-limitations).\n- For Power BI reports with a paginated visual, include the paginated report ID in the API call. For more information, see [example](/rest/api/power-bi/embed-token/generate-token#examples).\n- This API call can be called by a service principal profile. For more information see: [Service principal profiles in Power BI Embedded](/power-bi/developer/embedded/embed-multi-tenancy).\n\n## Required Scope\n\nAll of the following, unless a requirement doesn't apply:\n\n- Content.Create, required if a target workspace is specified in [GenerateTokenRequestV2](/rest/api/power-bi/embed-token/generate-token#generatetokenrequestv2).\n- Report.ReadWrite.All or Report.Read.All, required if a report is specified in [GenerateTokenRequestV2](/rest/api/power-bi/embed-token/generate-token#generatetokenrequestv2).\n- Report.ReadWrite.All, required if the `allowEdit` flag is specified for at least one report in [GenerateTokenRequestV2](/rest/api/power-bi/embed-token/generate-token#generatetokenrequestv2).\n- Dataset.ReadWrite.All or Dataset.Read.All\n\n## Limitations\n\n- You can only create a report in workspaces specified by the `targetWorkspaces` parameter.\n- All reports and datasets must reside in a **V2** workspace.\n- All target workspaces must be **V2** workspaces.\n- Maximum 50 reports.\n- Maximum 50 datasets.\n- Maximum 50 target workspaces.\n- For Azure Analysis Services or Analysis Services on-premises live connection reports, generating an embed token with row-level security (RLS) might not work for several minutes after a [rebind](/rest/api/power-bi/reports/rebind-report).\n<br><br>",
                 "operationId": "EmbedToken_GenerateToken",
                 "consumes": [
                     "application/json"
@@ -22240,7 +22266,7 @@
                             },
                             {
                                 "value": "Push",
-                                "description": "A dataset that allows programmatic access for pushing data into PowerBI"
+                                "description": "A dataset that allows programmatic access for pushing data into Power BI"
                             },
                             {
                                 "value": "Streaming",
@@ -24074,6 +24100,10 @@
                     "type": "string",
                     "format": "uuid",
                     "description": "The Power BI dataflow storage account ID"
+                },
+                "logAnalyticsWorkspace": {
+                    "description": "The Log Analytics workspace assigned to the group.  This is returned only when retrieving a single group.",
+                    "$ref": "#/definitions/AzureResource"
                 }
             }
         },
@@ -24299,7 +24329,7 @@
                 },
                 "value": {
                     "type": "array",
-                    "description": "powerBI email subscription",
+                    "description": "Power BI email subscription",
                     "items": {
                         "$ref": "#/definitions/Subscription"
                     }
@@ -26048,7 +26078,7 @@
                 },
                 "sharer": {
                     "$ref": "#/definitions/User",
-                    "description": "The user who shared the PowerBI item. Only available for widely shared artifacts APIs."
+                    "description": "The user who shared the Power BI item. Only available for widely shared artifacts APIs."
                 }
             }
         },
@@ -27118,6 +27148,35 @@
                 }
             }
         },
+        "AzureResource": {
+            "required": [
+                "subscriptionId",
+                "resourceGroup",
+                "resourceName"
+            ],
+            "description": "A response detailing a user-owned Azure resource such as a Log Analytics workspace.",
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "format": "uuid",
+                    "description": "An identifier for the resource within Power BI.",
+                    "readOnly": true
+                },
+                "subscriptionId": {
+                    "type": "string",
+                    "format": "uuid",
+                    "description": "The Azure subscription where the resource resides."
+                },
+                "resourceGroup": {
+                    "type": "string",
+                    "description": "The resource group within the subscription where the resource resides."
+                },
+                "resourceName": {
+                    "type": "string",
+                    "description": "The name of the resource."
+                }
+            }
+        },
         "TemporaryUploadLocation": {
             "required": [
                 "Url",
@@ -27468,7 +27527,7 @@
                             },
                             {
                                 "value": "Succeeded",
-                                "description": "The export to file job finished succesfully"
+                                "description": "The export to file job finished successfully"
                             },
                             {
                                 "value": "Failed",

@@ -33,7 +33,10 @@ namespace Microsoft.PowerBI.Api.Models
         /// <param name="capacityId">The capacity ID</param>
         /// <param name="dataflowStorageId">The Power BI dataflow storage
         /// account ID</param>
-        public Group(System.Guid id, string name = default(string), bool? isReadOnly = default(bool?), bool? isOnDedicatedCapacity = default(bool?), System.Guid? capacityId = default(System.Guid?), System.Guid? dataflowStorageId = default(System.Guid?))
+        /// <param name="logAnalyticsWorkspace">The Log Analytics workspace
+        /// assigned to the group.  This is returned only when retrieving a
+        /// single group.</param>
+        public Group(System.Guid id, string name = default(string), bool? isReadOnly = default(bool?), bool? isOnDedicatedCapacity = default(bool?), System.Guid? capacityId = default(System.Guid?), System.Guid? dataflowStorageId = default(System.Guid?), AzureResource logAnalyticsWorkspace = default(AzureResource))
         {
             Id = id;
             Name = name;
@@ -41,6 +44,7 @@ namespace Microsoft.PowerBI.Api.Models
             IsOnDedicatedCapacity = isOnDedicatedCapacity;
             CapacityId = capacityId;
             DataflowStorageId = dataflowStorageId;
+            LogAnalyticsWorkspace = logAnalyticsWorkspace;
             CustomInit();
         }
 
@@ -86,6 +90,13 @@ namespace Microsoft.PowerBI.Api.Models
         public System.Guid? DataflowStorageId { get; set; }
 
         /// <summary>
+        /// Gets or sets the Log Analytics workspace assigned to the group.
+        /// This is returned only when retrieving a single group.
+        /// </summary>
+        [JsonProperty(PropertyName = "logAnalyticsWorkspace")]
+        public AzureResource LogAnalyticsWorkspace { get; set; }
+
+        /// <summary>
         /// Validate the object.
         /// </summary>
         /// <exception cref="Rest.ValidationException">
@@ -93,7 +104,10 @@ namespace Microsoft.PowerBI.Api.Models
         /// </exception>
         public virtual void Validate()
         {
-            //Nothing to validate
+            if (LogAnalyticsWorkspace != null)
+            {
+                LogAnalyticsWorkspace.Validate();
+            }
         }
     }
 }

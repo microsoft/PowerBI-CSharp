@@ -36,7 +36,7 @@ namespace Microsoft.PowerBI.Api.Models
 
         /// <summary>
         /// A dataset that allows programmatic access for pushing data into
-        /// PowerBI
+        /// Power BI
         /// </summary>
         public static readonly DatasetMode Push = "Push";
 
