@@ -1019,8 +1019,11 @@ namespace Microsoft.PowerBI.Api
         ///
         /// ## Limitations
         ///
-        /// Virtual network (VNet) gateways aren't supported.
-        /// SAS Token credentials are supported only with AzureBlobStorage and
+        /// - When setting OAuth credentials, a refresh token isn't incorporated as it
+        /// is when setting credentials through the UI in Power BI service. Therefore,
+        /// credentials can only be used for one hour.
+        /// - Virtual network (VNet) gateways aren't supported.
+        /// - SAS Token credentials are supported only with AzureBlobStorage and
         /// AzureDataLakeStorage.
         /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
