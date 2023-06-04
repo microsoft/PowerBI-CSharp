@@ -3825,7 +3825,7 @@
                     "Dashboards"
                 ],
                 "summary": "Returns a list of tiles within the specified dashboard from **My workspace**.",
-                "description": "\nSupported tiles include datasets and live tiles that contain an entire report page.\n\n## Required Scope\n\nDashboard.ReadWrite.All or Dashboard.Read.All\n<br><br>",
+                "description": "\nSupported tiles include datasets and live tiles that contain an entire report page.\n\n## Required Scope\n\nDashboard.ReadWrite.All or Dashboard.Read.All\n\n## Limitations\n\nTitles that are edited in the report before the visual is added to the dashboard, are not returned. To return these titles, edit them in the dashboard.\n<br><br>",
                 "operationId": "Dashboards_GetTiles",
                 "consumes": [
                     "application/json"
@@ -3884,7 +3884,7 @@
                     "Dashboards"
                 ],
                 "summary": "Returns the specified tile within the specified dashboard from **My workspace**.",
-                "description": "\nSupported tiles include datasets and live tiles that contain an entire report page.\n\n## Required Scope\n\nDashboard.ReadWrite.All or Dashboard.Read.All\n<br><br>",
+                "description": "\nSupported tiles include datasets and live tiles that contain an entire report page.\n\n## Required Scope\n\nDashboard.ReadWrite.All or Dashboard.Read.All\n\n## Limitations\n\nTitles that are edited in the report before the visual is added to the dashboard, are not returned. To return these titles, edit them in the dashboard.\n<br><br>",
                 "operationId": "Dashboards_GetTile",
                 "consumes": [
                     "application/json"
@@ -7902,7 +7902,7 @@
                     "Dashboards"
                 ],
                 "summary": "Returns a list of tiles within the specified dashboard from the specified workspace.",
-                "description": "\nSupported tiles include datasets and live tiles that contain an entire report page.\n\n## Permissions\n\nThis API call can be called by a service principal profile. For more information see: [Service principal profiles in Power BI Embedded](/power-bi/developer/embedded/embed-multi-tenancy).\n\n## Required Scope\n\nDashboard.ReadWrite.All or Dashboard.Read.All\n<br><br>",
+                "description": "\nSupported tiles include datasets and live tiles that contain an entire report page.\n\n## Permissions\n\nThis API call can be called by a service principal profile. For more information see: [Service principal profiles in Power BI Embedded](/power-bi/developer/embedded/embed-multi-tenancy).\n\n## Required Scope\n\nDashboard.ReadWrite.All or Dashboard.Read.All\n\n## Limitations\n\nTitles that are edited in the report before the visual is added to the dashboard, are not returned. To return these titles, edit them in the dashboard.\n<br><br>",
                 "operationId": "Dashboards_GetTilesInGroup",
                 "consumes": [
                     "application/json"
@@ -7970,7 +7970,7 @@
                     "Dashboards"
                 ],
                 "summary": "Returns the specified tile within the specified dashboard from the specified workspace.",
-                "description": "\nSupported tiles include datasets and live tiles that contain an entire report page.\n\n## Permissions\n\nThis API call can be called by a service principal profile. For more information see: [Service principal profiles in Power BI Embedded](/power-bi/developer/embedded/embed-multi-tenancy).\n\n## Required Scope\n\nDashboard.ReadWrite.All or Dashboard.Read.All\n<br><br>",
+                "description": "\nSupported tiles include datasets and live tiles that contain an entire report page.\n\n## Permissions\n\nThis API call can be called by a service principal profile. For more information see: [Service principal profiles in Power BI Embedded](/power-bi/developer/embedded/embed-multi-tenancy).\n\n## Required Scope\n\nDashboard.ReadWrite.All or Dashboard.Read.All\n\n## Limitations\n\nTitles that are edited in the report before the visual is added to the dashboard, are not returned. To return these titles, edit them in the dashboard.\n<br><br>",
                 "operationId": "Dashboards_GetTileInGroup",
                 "consumes": [
                     "application/json"
