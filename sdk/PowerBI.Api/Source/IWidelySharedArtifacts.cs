@@ -19,8 +19,8 @@ namespace Microsoft.PowerBI.Api
     public partial interface IWidelySharedArtifacts
     {
         /// <summary>
-        /// Returns a list of Power BI items (such as reports or dashboards)
-        /// that are shared with the whole organization through links.
+        /// Returns a list of Power BI reports that are shared with the whole
+        /// organization through links.
         /// </summary>
         /// <remarks>
         ///

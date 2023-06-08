@@ -579,8 +579,10 @@ namespace Microsoft.PowerBI.Api
         /// </summary>
         /// <remarks>
         ///
-        /// Only the name and description can be updated. The name must be
-        /// unique inside an organization.
+        /// Only the name, description and Log Analytics workspace can be
+        /// updated. The name must be unique inside an organization. To
+        /// unassign a Log Analytics workspace, explicitly set the value to
+        /// null.
         ///
         /// ## Permissions
         ///

@@ -33,7 +33,7 @@ namespace Microsoft.PowerBI.Api.Models
         [EnumMember(Value = "Running")]
         Running,
         /// <summary>
-        /// The export to file job finished succesfully
+        /// The export to file job finished successfully
         /// </summary>
         [EnumMember(Value = "Succeeded")]
         Succeeded,

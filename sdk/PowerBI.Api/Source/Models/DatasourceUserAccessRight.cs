@@ -35,7 +35,8 @@ namespace Microsoft.PowerBI.Api.Models
         public static readonly DatasourceUserAccessRight Read = "Read";
 
         /// <summary>
-        /// The user can override the effective identity for Power BI Embedded
+        /// The user can override the effective identity for Power BI Embedded.
+        /// Applicable only for on-premises Analysis Services data sources.
         /// </summary>
         public static readonly DatasourceUserAccessRight ReadOverrideEffectiveIdentity = "ReadOverrideEffectiveIdentity";
 
