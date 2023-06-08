@@ -47,6 +47,7 @@ namespace Microsoft.PowerBI.Api.Models
         /// <param name="schemaMayNotBeUpToDate">Whether the dataset schema
         /// might not be up to date</param>
         /// <param name="expressions">The dataset expressions</param>
+        /// <param name="roles">The dataset roles</param>
         /// <param name="endorsementDetails">The endorsement details</param>
         /// <param name="sensitivityLabel">The sensitivity label</param>
         /// <param name="targetStorageMode">The dataset storage mode</param>
@@ -65,7 +66,7 @@ namespace Microsoft.PowerBI.Api.Models
         /// API, or the
         /// [PostWorkspaceInfo](/rest/api/power-bi/admin/workspace-info-post-workspace-info)
         /// API with the `getArtifactUsers` parameter.</param>
-        public WorkspaceInfoDataset(string id, string name = default(string), string configuredBy = default(string), System.DateTime? createdDate = default(System.DateTime?), string contentProviderType = default(string), string description = default(string), IList<DependentDataflow> upstreamDataflows = default(IList<DependentDataflow>), IList<Table> tables = default(IList<Table>), string schemaRetrievalError = default(string), bool? schemaMayNotBeUpToDate = default(bool?), IList<Expression> expressions = default(IList<Expression>), EndorsementDetails endorsementDetails = default(EndorsementDetails), SensitivityLabel sensitivityLabel = default(SensitivityLabel), string targetStorageMode = default(string), IList<DatasourceUsage> datasourceUsages = default(IList<DatasourceUsage>), IList<DatasourceUsage> misconfiguredDatasourceUsages = default(IList<DatasourceUsage>), IList<DependentDatamart> upstreamDatamarts = default(IList<DependentDatamart>), IList<DependentDataset> upstreamDatasets = default(IList<DependentDataset>), IList<DatasetUser> users = default(IList<DatasetUser>))
+        public WorkspaceInfoDataset(string id, string name = default(string), string configuredBy = default(string), System.DateTime? createdDate = default(System.DateTime?), string contentProviderType = default(string), string description = default(string), IList<DependentDataflow> upstreamDataflows = default(IList<DependentDataflow>), IList<Table> tables = default(IList<Table>), string schemaRetrievalError = default(string), bool? schemaMayNotBeUpToDate = default(bool?), IList<Expression> expressions = default(IList<Expression>), IList<Role> roles = default(IList<Role>), EndorsementDetails endorsementDetails = default(EndorsementDetails), SensitivityLabel sensitivityLabel = default(SensitivityLabel), string targetStorageMode = default(string), IList<DatasourceUsage> datasourceUsages = default(IList<DatasourceUsage>), IList<DatasourceUsage> misconfiguredDatasourceUsages = default(IList<DatasourceUsage>), IList<DependentDatamart> upstreamDatamarts = default(IList<DependentDatamart>), IList<DependentDataset> upstreamDatasets = default(IList<DependentDataset>), IList<DatasetUser> users = default(IList<DatasetUser>))
         {
             Id = id;
             Name = name;
@@ -78,6 +79,7 @@ namespace Microsoft.PowerBI.Api.Models
             SchemaRetrievalError = schemaRetrievalError;
             SchemaMayNotBeUpToDate = schemaMayNotBeUpToDate;
             Expressions = expressions;
+            Roles = roles;
             EndorsementDetails = endorsementDetails;
             SensitivityLabel = sensitivityLabel;
             TargetStorageMode = targetStorageMode;
@@ -159,6 +161,12 @@ namespace Microsoft.PowerBI.Api.Models
         /// </summary>
         [JsonProperty(PropertyName = "expressions")]
         public IList<Expression> Expressions { get; set; }
+
+        /// <summary>
+        /// Gets or sets the dataset roles
+        /// </summary>
+        [JsonProperty(PropertyName = "roles")]
+        public IList<Role> Roles { get; set; }
 
         /// <summary>
         /// Gets or sets the endorsement details
@@ -247,13 +255,9 @@ namespace Microsoft.PowerBI.Api.Models
                     }
                 }
             }
-            if (SensitivityLabel != null)
+            if (Roles != null)
             {
-                SensitivityLabel.Validate();
-            }
-            if (DatasourceUsages != null)
-            {
-                foreach (var element2 in DatasourceUsages)
+                foreach (var element2 in Roles)
                 {
                     if (element2 != null)
                     {
@@ -261,9 +265,13 @@ namespace Microsoft.PowerBI.Api.Models
                     }
                 }
             }
-            if (MisconfiguredDatasourceUsages != null)
+            if (SensitivityLabel != null)
             {
-                foreach (var element3 in MisconfiguredDatasourceUsages)
+                SensitivityLabel.Validate();
+            }
+            if (DatasourceUsages != null)
+            {
+                foreach (var element3 in DatasourceUsages)
                 {
                     if (element3 != null)
                     {
@@ -271,13 +279,23 @@ namespace Microsoft.PowerBI.Api.Models
                     }
                 }
             }
-            if (Users != null)
+            if (MisconfiguredDatasourceUsages != null)
             {
-                foreach (var element4 in Users)
+                foreach (var element4 in MisconfiguredDatasourceUsages)
                 {
                     if (element4 != null)
                     {
                         element4.Validate();
+                    }
+                }
+            }
+            if (Users != null)
+            {
+                foreach (var element5 in Users)
+                {
+                    if (element5 != null)
+                    {
+                        element5.Validate();
                     }
                 }
             }

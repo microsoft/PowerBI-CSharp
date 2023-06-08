@@ -24,8 +24,9 @@ namespace Microsoft.PowerBI.Api.Models
         /// Initializes a new instance of the DashboardWorkspaceIdProperty
         /// class.
         /// </summary>
-        /// <param name="workspaceId">The dashboard workspace ID. This property
-        /// will be returned only in GetDashboardsAsAdmin.</param>
+        /// <param name="workspaceId">The workspace ID (GUID) of the dashboard.
+        /// This property will be returned only in
+        /// GetDashboardsAsAdmin.</param>
         public DashboardWorkspaceIdProperty(System.Guid? workspaceId = default(System.Guid?))
         {
             WorkspaceId = workspaceId;
@@ -38,8 +39,8 @@ namespace Microsoft.PowerBI.Api.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets the dashboard workspace ID. This property will be
-        /// returned only in GetDashboardsAsAdmin.
+        /// Gets or sets the workspace ID (GUID) of the dashboard. This
+        /// property will be returned only in GetDashboardsAsAdmin.
         /// </summary>
         [JsonProperty(PropertyName = "workspaceId")]
         public System.Guid? WorkspaceId { get; set; }

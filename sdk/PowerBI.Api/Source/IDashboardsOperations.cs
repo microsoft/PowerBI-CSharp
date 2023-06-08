@@ -136,6 +136,12 @@ namespace Microsoft.PowerBI.Api
         /// ## Required Scope
         ///
         /// Dashboard.ReadWrite.All or Dashboard.Read.All
+        ///
+        /// ## Limitations
+        ///
+        /// Titles that are edited in the report before the visual is added to
+        /// the dashboard, are not returned. To return these titles, edit them
+        /// in the dashboard.
         /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='dashboardId'>
@@ -166,6 +172,12 @@ namespace Microsoft.PowerBI.Api
         /// ## Required Scope
         ///
         /// Dashboard.ReadWrite.All or Dashboard.Read.All
+        ///
+        /// ## Limitations
+        ///
+        /// Titles that are edited in the report before the visual is added to
+        /// the dashboard, are not returned. To return these titles, edit them
+        /// in the dashboard.
         /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='dashboardId'>
@@ -388,6 +400,12 @@ namespace Microsoft.PowerBI.Api
         /// ## Required Scope
         ///
         /// Dashboard.ReadWrite.All or Dashboard.Read.All
+        ///
+        /// ## Limitations
+        ///
+        /// Titles that are edited in the report before the visual is added to
+        /// the dashboard, are not returned. To return these titles, edit them
+        /// in the dashboard.
         /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='groupId'>
@@ -427,6 +445,12 @@ namespace Microsoft.PowerBI.Api
         /// ## Required Scope
         ///
         /// Dashboard.ReadWrite.All or Dashboard.Read.All
+        ///
+        /// ## Limitations
+        ///
+        /// Titles that are edited in the report before the visual is added to
+        /// the dashboard, are not returned. To return these titles, edit them
+        /// in the dashboard.
         /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='groupId'>

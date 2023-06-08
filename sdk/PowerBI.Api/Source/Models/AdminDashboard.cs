@@ -37,8 +37,9 @@ namespace Microsoft.PowerBI.Api.Models
         /// belongs to an app</param>
         /// <param name="webUrl">The web URL of the dashboard</param>
         /// <param name="embedUrl">The embed URL of the dashboard</param>
-        /// <param name="workspaceId">The dashboard workspace ID. This property
-        /// will be returned only in GetDashboardsAsAdmin.</param>
+        /// <param name="workspaceId">The workspace ID (GUID) of the dashboard.
+        /// This property will be returned only in
+        /// GetDashboardsAsAdmin.</param>
         /// <param name="tiles">The tiles that belong to the dashboard</param>
         /// <param name="users">(Empty value) The dashboard user access
         /// details. This property will be removed from the payload response in
@@ -113,8 +114,8 @@ namespace Microsoft.PowerBI.Api.Models
         public string EmbedUrl { get; set; }
 
         /// <summary>
-        /// Gets or sets the dashboard workspace ID. This property will be
-        /// returned only in GetDashboardsAsAdmin.
+        /// Gets or sets the workspace ID (GUID) of the dashboard. This
+        /// property will be returned only in GetDashboardsAsAdmin.
         /// </summary>
         [JsonProperty(PropertyName = "workspaceId")]
         public System.Guid? WorkspaceId { get; set; }

@@ -27,7 +27,7 @@ namespace Microsoft.PowerBI.Api.Models
         /// <summary>
         /// Initializes a new instance of the Subscriptions class.
         /// </summary>
-        /// <param name="value">powerBI email subscription</param>
+        /// <param name="value">Power BI email subscription</param>
         public Subscriptions(string odatacontext = default(string), IList<Subscription> value = default(IList<Subscription>))
         {
             Odatacontext = odatacontext;
@@ -46,7 +46,7 @@ namespace Microsoft.PowerBI.Api.Models
         public string Odatacontext { get; set; }
 
         /// <summary>
-        /// Gets or sets powerBI email subscription
+        /// Gets or sets power BI email subscription
         /// </summary>
         [JsonProperty(PropertyName = "value")]
         public IList<Subscription> Value { get; set; }

@@ -22,8 +22,8 @@ namespace Microsoft.PowerBI.Api.Models
         /// <summary>
         /// Initializes a new instance of the ReportWorkspaceIdProperty class.
         /// </summary>
-        /// <param name="workspaceId">The report workspace ID. This property
-        /// will be returned only in GetReportsAsAdmin.</param>
+        /// <param name="workspaceId">The workspace ID (GUID) of the report.
+        /// This property will be returned only in GetReportsAsAdmin.</param>
         public ReportWorkspaceIdProperty(System.Guid? workspaceId = default(System.Guid?))
         {
             WorkspaceId = workspaceId;
@@ -36,8 +36,8 @@ namespace Microsoft.PowerBI.Api.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets the report workspace ID. This property will be
-        /// returned only in GetReportsAsAdmin.
+        /// Gets or sets the workspace ID (GUID) of the report. This property
+        /// will be returned only in GetReportsAsAdmin.
         /// </summary>
         [JsonProperty(PropertyName = "workspaceId")]
         public System.Guid? WorkspaceId { get; set; }

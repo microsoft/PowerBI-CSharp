@@ -33,12 +33,14 @@ namespace Microsoft.PowerBI.Api.Models
         /// <param name="schemaMayNotBeUpToDate">Whether the dataset schema
         /// might not be up to date</param>
         /// <param name="expressions">The dataset expressions</param>
-        public DatasetSchemaProperties(IList<Table> tables = default(IList<Table>), string schemaRetrievalError = default(string), bool? schemaMayNotBeUpToDate = default(bool?), IList<Expression> expressions = default(IList<Expression>))
+        /// <param name="roles">The dataset roles</param>
+        public DatasetSchemaProperties(IList<Table> tables = default(IList<Table>), string schemaRetrievalError = default(string), bool? schemaMayNotBeUpToDate = default(bool?), IList<Expression> expressions = default(IList<Expression>), IList<Role> roles = default(IList<Role>))
         {
             Tables = tables;
             SchemaRetrievalError = schemaRetrievalError;
             SchemaMayNotBeUpToDate = schemaMayNotBeUpToDate;
             Expressions = expressions;
+            Roles = roles;
             CustomInit();
         }
 
@@ -70,6 +72,12 @@ namespace Microsoft.PowerBI.Api.Models
         /// </summary>
         [JsonProperty(PropertyName = "expressions")]
         public IList<Expression> Expressions { get; set; }
+
+        /// <summary>
+        /// Gets or sets the dataset roles
+        /// </summary>
+        [JsonProperty(PropertyName = "roles")]
+        public IList<Role> Roles { get; set; }
 
     }
 }

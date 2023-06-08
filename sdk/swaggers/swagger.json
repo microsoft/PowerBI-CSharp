@@ -3112,7 +3112,7 @@
                     "Reports"
                 ],
                 "summary": "Exports the specified report from **My workspace** to a Power BI .pbix or .rdl file.",
-                "description": "\n- For .pbix reports - \n As a [workaround](/power-bi/developer/embedded/embedded-troubleshoot#how-to-fix-timeout-exceptions-when-using-import-and-export-apis) for timeout issues, set the `preferClientRouting` parameter to `true`.\n- Large files are downloaded to a temporary blob. Their URL is returned in the response, and stored in the locally downloaded Power BI .pbix file.\n- For more information on requirements and limitations, see [Download a report from the Power BI service to Power BI Desktop](/power-bi/create-reports/service-export-to-pbix).\n\n## Required Scope\n\nReport.ReadWrite.All or both Report.Read.All and Dataset.Read.All\n\n## Limitations\n\nFor .pbix report, after calling [Rebind Report](/rest/api/power-bi/reports/rebind-report), export of a report with a [Power BI service live connection](/power-bi/desktop-report-lifecycle-datasets) isn't supported.\n<br><br>",
+                "description": "\n- For .pbix reports - \n As a [workaround](/power-bi/developer/embedded/troubleshoot-rest-api#fix-timeout-exceptions-when-using-import-and-export-apis) for timeout issues, set the `preferClientRouting` parameter to `true`.\n- Large files are downloaded to a temporary blob. Their URL is returned in the response, and stored in the locally downloaded Power BI .pbix file.\n- For more information on requirements and limitations, see [Download a report from the Power BI service to Power BI Desktop](/power-bi/create-reports/service-export-to-pbix).\n\n## Required Scope\n\nReport.ReadWrite.All or both Report.Read.All and Dataset.Read.All\n\n## Limitations\n\nFor .pbix report, after calling [Rebind Report](/rest/api/power-bi/reports/rebind-report), export of a report with a [Power BI service live connection](/power-bi/desktop-report-lifecycle-datasets) isn't supported.\n<br><br>",
                 "operationId": "Reports_ExportReport",
                 "consumes": [],
                 "produces": [
@@ -3825,7 +3825,7 @@
                     "Dashboards"
                 ],
                 "summary": "Returns a list of tiles within the specified dashboard from **My workspace**.",
-                "description": "\nSupported tiles include datasets and live tiles that contain an entire report page.\n\n## Required Scope\n\nDashboard.ReadWrite.All or Dashboard.Read.All\n<br><br>",
+                "description": "\nSupported tiles include datasets and live tiles that contain an entire report page.\n\n## Required Scope\n\nDashboard.ReadWrite.All or Dashboard.Read.All\n\n## Limitations\n\nTitles that are edited in the report before the visual is added to the dashboard, are not returned. To return these titles, edit them in the dashboard.\n<br><br>",
                 "operationId": "Dashboards_GetTiles",
                 "consumes": [
                     "application/json"
@@ -3884,7 +3884,7 @@
                     "Dashboards"
                 ],
                 "summary": "Returns the specified tile within the specified dashboard from **My workspace**.",
-                "description": "\nSupported tiles include datasets and live tiles that contain an entire report page.\n\n## Required Scope\n\nDashboard.ReadWrite.All or Dashboard.Read.All\n<br><br>",
+                "description": "\nSupported tiles include datasets and live tiles that contain an entire report page.\n\n## Required Scope\n\nDashboard.ReadWrite.All or Dashboard.Read.All\n\n## Limitations\n\nTitles that are edited in the report before the visual is added to the dashboard, are not returned. To return these titles, edit them in the dashboard.\n<br><br>",
                 "operationId": "Dashboards_GetTile",
                 "consumes": [
                     "application/json"
@@ -7069,7 +7069,7 @@
                     "Reports"
                 ],
                 "summary": "Exports the specified report from the specified workspace to a Power BI .pbix or .rdl file.",
-                "description": "\n- For .pbix reports - \n You can set the `preferClientRouting` parameter to `true` as a [workaround](/power-bi/developer/embedded/embedded-troubleshoot#how-to-fix-timeout-exceptions-when-using-import-and-export-apis) for timeout issues.\n- Large files are downloaded to a temporary blob. Their URL is returned in the response and stored in the locally downloaded Power BI .pbix file.\n- For more information on requirements and limitations, see [Download a report from the Power BI service to Power BI Desktop](/power-bi/create-reports/service-export-to-pbix).\n\n## Permissions\n\nThis API call can be called by a service principal profile. For more information see: [Service principal profiles in Power BI Embedded](/power-bi/developer/embedded/embed-multi-tenancy).\n\n## Required Scope\n\nReport.ReadWrite.All or both Report.Read.All and Dataset.Read.All\n\n## Limitations\n\nFor .pbix reports, exporting a report with a [Power BI service live connection](/power-bi/desktop-report-lifecycle-datasets) isn't supported after calling [Rebind Report](/rest/api/power-bi/reports/rebind-report).\n<br><br>",
+                "description": "\n- For .pbix reports - \n You can set the `preferClientRouting` parameter to `true` as a [workaround](/power-bi/developer/embedded/troubleshoot-rest-api#fix-timeout-exceptions-when-using-import-and-export-apis) for timeout issues.\n- Large files are downloaded to a temporary blob. Their URL is returned in the response and stored in the locally downloaded Power BI .pbix file.\n- For more information on requirements and limitations, see [Download a report from the Power BI service to Power BI Desktop](/power-bi/create-reports/service-export-to-pbix).\n\n## Permissions\n\nThis API call can be called by a service principal profile. For more information see: [Service principal profiles in Power BI Embedded](/power-bi/developer/embedded/embed-multi-tenancy).\n\n## Required Scope\n\nReport.ReadWrite.All or both Report.Read.All and Dataset.Read.All\n\n## Limitations\n\nFor .pbix reports, exporting a report with a [Power BI service live connection](/power-bi/desktop-report-lifecycle-datasets) isn't supported after calling [Rebind Report](/rest/api/power-bi/reports/rebind-report).\n<br><br>",
                 "operationId": "Reports_ExportReportInGroup",
                 "consumes": [],
                 "produces": [
@@ -7902,7 +7902,7 @@
                     "Dashboards"
                 ],
                 "summary": "Returns a list of tiles within the specified dashboard from the specified workspace.",
-                "description": "\nSupported tiles include datasets and live tiles that contain an entire report page.\n\n## Permissions\n\nThis API call can be called by a service principal profile. For more information see: [Service principal profiles in Power BI Embedded](/power-bi/developer/embedded/embed-multi-tenancy).\n\n## Required Scope\n\nDashboard.ReadWrite.All or Dashboard.Read.All\n<br><br>",
+                "description": "\nSupported tiles include datasets and live tiles that contain an entire report page.\n\n## Permissions\n\nThis API call can be called by a service principal profile. For more information see: [Service principal profiles in Power BI Embedded](/power-bi/developer/embedded/embed-multi-tenancy).\n\n## Required Scope\n\nDashboard.ReadWrite.All or Dashboard.Read.All\n\n## Limitations\n\nTitles that are edited in the report before the visual is added to the dashboard, are not returned. To return these titles, edit them in the dashboard.\n<br><br>",
                 "operationId": "Dashboards_GetTilesInGroup",
                 "consumes": [
                     "application/json"
@@ -7970,7 +7970,7 @@
                     "Dashboards"
                 ],
                 "summary": "Returns the specified tile within the specified dashboard from the specified workspace.",
-                "description": "\nSupported tiles include datasets and live tiles that contain an entire report page.\n\n## Permissions\n\nThis API call can be called by a service principal profile. For more information see: [Service principal profiles in Power BI Embedded](/power-bi/developer/embedded/embed-multi-tenancy).\n\n## Required Scope\n\nDashboard.ReadWrite.All or Dashboard.Read.All\n<br><br>",
+                "description": "\nSupported tiles include datasets and live tiles that contain an entire report page.\n\n## Permissions\n\nThis API call can be called by a service principal profile. For more information see: [Service principal profiles in Power BI Embedded](/power-bi/developer/embedded/embed-multi-tenancy).\n\n## Required Scope\n\nDashboard.ReadWrite.All or Dashboard.Read.All\n\n## Limitations\n\nTitles that are edited in the report before the visual is added to the dashboard, are not returned. To return these titles, edit them in the dashboard.\n<br><br>",
                 "operationId": "Dashboards_GetTileInGroup",
                 "consumes": [
                     "application/json"
@@ -10043,7 +10043,7 @@
                     "Gateways"
                 ],
                 "summary": "Creates a new data source on the specified on-premises gateway.",
-                "description": "\n<br>On premises data source credentials must be encrypted. The `encryptedConnection` parameter must be set to `Encrypted` and the credentials should be encrypted using the gateway public key.\n\nSee the [CreateGatewayDataSource](https://github.com/microsoft/PowerBI-Developer-Samples/blob/master/PowerShell%20Scripts/CreateGatewayDataSource) PowerShell script for an example of using this API.\n\n> [!NOTE]\n> To encrypt credentials, see [Configure credentials programmatically](/power-bi/developer/embedded/configure-credentials) for Power BI and review the EncryptCredentials [.NET Core](https://github.com/microsoft/PowerBI-Developer-Samples/tree/master/.NET%20Core/EncryptCredentials), [Java](https://github.com/microsoft/PowerBI-Developer-Samples/tree/master/Java/EncryptCredentials) and [Python](https://github.com/microsoft/PowerBI-Developer-Samples/tree/master/Python/Encrypt%20credentials) examples.\n\n## Permissions\n\nSupports only on-premises gateways and the user must have gateway admin permissions\n\n## Required Scope\n\nDataset.ReadWrite.All\n\n## Limitations\n\n- Virtual network (VNet) and Cloud gateways aren't supported.\n- OAuth2 as a credential type isn't supported.\n<br><br>",
+                "description": "\n<br>On premises data source credentials must be encrypted. The `encryptedConnection` parameter must be set to `Encrypted` and the credentials should be encrypted using the gateway public key.\n\nSee the [Create Gateway DataSource](https://github.com/microsoft/PowerBI-Developer-Samples/blob/master/PowerShell%20Scripts/CreateDatasource.ps1) PowerShell script for an example of using this API, this script uses the PowerShell script mentioned in the note below for encrypting the credentials.\n\n> [!NOTE]\n> To encrypt credentials, see [Configure credentials programmatically](/power-bi/developer/embedded/configure-credentials) for Power BI and review the EncryptCredentials [.NET Core](https://github.com/microsoft/PowerBI-Developer-Samples/tree/master/.NET%20Core/EncryptCredentials), [Java](https://github.com/microsoft/PowerBI-Developer-Samples/tree/master/Java/EncryptCredentials), [Python](https://github.com/microsoft/PowerBI-Developer-Samples/tree/master/Python/Encrypt%20credentials) and [PowerShell](https://github.com/microsoft/PowerBI-Developer-Samples/blob/master/PowerShell%20Scripts/EncryptGatewayCredentials.ps1) examples.\n\n## Permissions\n\nSupports only on-premises gateways and the user must have gateway admin permissions\n\n## Required Scope\n\nDataset.ReadWrite.All\n\n## Limitations\n\n- Virtual network (VNet) and Cloud gateways aren't supported.\n- OAuth2 as a credential type isn't supported.\n<br><br>",
                 "operationId": "Gateways_CreateDatasource",
                 "consumes": [
                     "application/json"
@@ -10235,7 +10235,7 @@
                     "Gateways"
                 ],
                 "summary": "Updates the credentials of the specified data source from the specified gateway.",
-                "description": "\nOn Premises data source credentials must be encrypted, as described in the [On-premise encrypted credentials example](/rest/api/power-bi/gateways/update-datasource#on-premise-encrypted-credentials-example). \n\n> [!NOTE]\n> - To encrypt credentials, see [Configure credentials programmatically](/power-bi/developer/embedded/configure-credentials) for Power BI and review the EncryptCredentials [.NET Core](https://github.com/microsoft/PowerBI-Developer-Samples/tree/master/.NET%20Core/EncryptCredentials), [Java](https://github.com/microsoft/PowerBI-Developer-Samples/tree/master/Java/EncryptCredentials) and [Python](https://github.com/microsoft/PowerBI-Developer-Samples/tree/master/Python/Encrypt%20credentials) examples.\n> - Windows credentials before encryption look like the credentials in the credentials of [Basic credentials example](/rest/api/power-bi/gateways/update-datasource#basic-credentials-example).\n\nWhen changing from single sign-on to other credential types, such as `Basic` or `OAuth2`, set the parameter `useEndUserOAuth2Credentials` to `false` as described in the [Basic credentials example](/rest/api/power-bi/gateways/update-datasource#basic-credentials-example).\n\nOAuth 2.0 credentials are valid as long as the provided token is valid. When using the OAuth 2.0 credential type, do the following: \n- Set the OAuth 2.0 token audience correctly, according to the data source type. \n- Send the OAuth 2.0 token in the payload as shown in the [OAuth 2.0 credentials example](/rest/api/power-bi/gateways/update-datasource#oauth-2.0-credentials-example).\n- If you're using **Extension** data sources, don't set `useCallerAADIdentity` to `true`.\n\n## Permissions\n\n- With on-premises gateways, the user must have gateway admin permissions.\n- With cloud data sources, user must be the data source owner. Use [Datasets - Take Over API](/rest/api/power-bi/datasets/take-over-in-group) to transfer ownership over the specified dataset or [Paginated reports - Take Over API](/rest/api/power-bi/reports/take-over-in-group) to transfer ownership of the data sources over the specified paginated report.\n- This API call can be called by a service principal profile. For more information see: [Service principal profiles in Power BI Embedded](/power-bi/developer/embedded/embed-multi-tenancy).\n\n## Required Scope\n\nDataset.ReadWrite.All\n\n## Limitations\n\nVirtual network (VNet) gateways aren't supported.\nSAS Token credentials are supported only with AzureBlobStorage and AzureDataLakeStorage.\n<br><br>",
+                "description": "\nOn Premises data source credentials must be encrypted, as described in the [On-premise encrypted credentials example](/rest/api/power-bi/gateways/update-datasource#on-premise-encrypted-credentials-example). \n\n> [!NOTE]\n> - To encrypt credentials, see [Configure credentials programmatically](/power-bi/developer/embedded/configure-credentials) for Power BI and review the EncryptCredentials [.NET Core](https://github.com/microsoft/PowerBI-Developer-Samples/tree/master/.NET%20Core/EncryptCredentials), [Java](https://github.com/microsoft/PowerBI-Developer-Samples/tree/master/Java/EncryptCredentials) and [Python](https://github.com/microsoft/PowerBI-Developer-Samples/tree/master/Python/Encrypt%20credentials) examples.\n> - Windows credentials before encryption look like the credentials in the credentials of [Basic credentials example](/rest/api/power-bi/gateways/update-datasource#basic-credentials-example).\n\nWhen changing from single sign-on to other credential types, such as `Basic` or `OAuth2`, set the parameter `useEndUserOAuth2Credentials` to `false` as described in the [Basic credentials example](/rest/api/power-bi/gateways/update-datasource#basic-credentials-example).\n\nOAuth 2.0 credentials are valid as long as the provided token is valid. When using the OAuth 2.0 credential type, do the following: \n- Set the OAuth 2.0 token audience correctly, according to the data source type. \n- Send the OAuth 2.0 token in the payload as shown in the [OAuth 2.0 credentials example](/rest/api/power-bi/gateways/update-datasource#oauth-2.0-credentials-example).\n- If you're using **Extension** data sources, don't set `useCallerAADIdentity` to `true`.\n\n## Permissions\n\n- With on-premises gateways, the user must have gateway admin permissions.\n- With cloud data sources, user must be the data source owner. Use [Datasets - Take Over API](/rest/api/power-bi/datasets/take-over-in-group) to transfer ownership over the specified dataset or [Paginated reports - Take Over API](/rest/api/power-bi/reports/take-over-in-group) to transfer ownership of the data sources over the specified paginated report.\n- This API call can be called by a service principal profile. For more information see: [Service principal profiles in Power BI Embedded](/power-bi/developer/embedded/embed-multi-tenancy).\n\n## Required Scope\n\nDataset.ReadWrite.All\n\n## Limitations\n\n- When setting OAuth credentials, a refresh token isn't incorporated as it is when setting credentials through the UI in Power BI service. Therefore, credentials can only be used for one hour.\n- Virtual network (VNet) gateways aren't supported.\n- SAS Token credentials are supported only with AzureBlobStorage and AzureDataLakeStorage.\n<br><br>",
                 "operationId": "Gateways_UpdateDatasource",
                 "consumes": [],
                 "produces": [],
@@ -10518,7 +10518,7 @@
                     "Gateways"
                 ],
                 "summary": "Grants or updates the permissions required to use the specified data source for the specified user.",
-                "description": "\n## Permissions\n\nThe user must have gateway admin permissions.\n\n## Required Scope\n\nDataset.ReadWrite.All\n\n## Limitations\n\nVirtual network (VNet) gateways aren't supported.\n<br><br>",
+                "description": "\n## Permissions\n\nThe user must have gateway admin permissions.\n\n## Required Scope\n\nDataset.ReadWrite.All\n\n## Limitations\n\nVirtual network (VNet) gateways aren't supported.\nAdding groups through the API is not supported.\n<br><br>",
                 "operationId": "Gateways_AddDatasourceUser",
                 "consumes": [
                     "application/json"
@@ -12424,7 +12424,7 @@
                                         {
                                             "order": 0,
                                             "workspaceId": "4de5bcc4-2c88-4efe-b827-4ee7b289b496",
-                                            "workspaceName": "Workpsace-Development"
+                                            "workspaceName": "Workspace-Development"
                                         },
                                         {
                                             "order": 1,
@@ -12785,7 +12785,7 @@
                                         {
                                             "order": 0,
                                             "workspaceId": "4de5bcc4-2c88-4efe-b827-4ee7b289b496",
-                                            "workspaceName": "Workpsace-Development"
+                                            "workspaceName": "Workspace-Development"
                                         },
                                         {
                                             "order": 1,
@@ -13827,6 +13827,32 @@
                                                             "expression": "\"revenues param value\" meta [IsParameterQuery=true, Type=\"Text\", IsParameterQueryRequired=true]"
                                                         }
                                                     ],
+                                                    "roles": [
+                                                        {
+                                                            "name": "Teams",
+                                                            "modelPermission": "Read",
+                                                            "members": [
+                                                                {
+                                                                    "memberName": "john@contoso.com",
+                                                                    "memberId": "ee96296b-fb71-4f65-a8af-c0ec5a7daced",
+                                                                    "memberType": "User",
+                                                                    "identityProvider": "AzureAD"
+                                                                },
+                                                                {
+                                                                    "memberName": "group@contoso.com",
+                                                                    "memberId": "0a1cdbc3-f82c-4001-8b96-be04ae9d25a3",
+                                                                    "memberType": "Group",
+                                                                    "identityProvider": "AzureAD"
+                                                                }
+                                                            ],
+                                                            "tablePermissions": [
+                                                                {
+                                                                    "name": "DW_Revenues DW_RevenuesTest",
+                                                                    "filterExpression": "[InTeams] = \"True\""
+                                                                }
+                                                            ]
+                                                        }
+                                                    ],
                                                     "upstreamDataflows": [
                                                         {
                                                             "targetDataflowId": "a842dbb1-32ca-46b0-9648-498b2c2d5e38",
@@ -14136,6 +14162,20 @@
                 "responses": {
                     "200": {
                         "description": "OK"
+                    }
+                },
+                "x-ms-examples": {
+                    "Example": {
+                        "parameters": {
+                            "UnassignWorkspacesCapacityRequest": {
+                                "WorkspacesToUnassign": [
+                                    "0ebb517c-c6f5-4aa8-9f1d-42bd547e6297"
+                                ]
+                            }
+                        },
+                        "responses": {
+                            "200": {}
+                        }
                     }
                 },
                 "deprecated": false
@@ -14768,7 +14808,7 @@
                     "Admin"
                 ],
                 "summary": "Updates the properties of the specified workspace.",
-                "description": "\nOnly the name and description can be updated. The name must be unique inside an organization.\n\n## Permissions\n\nThe user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator).\n\n## Required Scope\n\nTenant.ReadWrite.All\n\n## Limitations\n\nMaximum 200 requests per hour.\n<br><br>",
+                "description": "\nOnly the name, description and Log Analytics workspace can be updated. The name must be unique inside an organization. To unassign a Log Analytics workspace, explicitly set the value to null.\n\n## Permissions\n\nThe user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator).\n\n## Required Scope\n\nTenant.ReadWrite.All\n\n## Limitations\n\nMaximum 200 requests per hour.\n<br><br>",
                 "operationId": "Groups_UpdateGroupAsAdmin",
                 "consumes": [],
                 "produces": [],
@@ -14797,12 +14837,38 @@
                     }
                 },
                 "x-ms-examples": {
-                    "Example": {
+                    "Example of updating group description": {
                         "parameters": {
                             "groupId": "e2284830-c8dc-416b-b19a-8cdcd2729332",
                             "groupProperties": {
                                 "name": "Updated Sales Results",
                                 "description": "Refreshed sales numbers"
+                            }
+                        },
+                        "responses": {
+                            "200": {}
+                        }
+                    },
+                    "Example of assigning Log Analytics workspace": {
+                        "parameters": {
+                            "groupId": "e2284830-c8dc-416b-b19a-8cdcd2729332",
+                            "groupProperties": {
+                                "logAnalyticsWorkspace": {
+                                    "subscriptionId": "d778934f-bda2-41d9-b5c7-6cf41372c1a0",
+                                    "resourceGroup": "myResourceGroup",
+                                    "resourceName": "myLogAnalyticsWorksapce"
+                                }
+                            }
+                        },
+                        "responses": {
+                            "200": {}
+                        }
+                    },
+                    "Example of unassigning Log Analytics workspace": {
+                        "parameters": {
+                            "groupId": "e2284830-c8dc-416b-b19a-8cdcd2729332",
+                            "groupProperties": {
+                                "logAnalyticsWorkspace": null
                             }
                         },
                         "responses": {
@@ -15578,7 +15644,7 @@
                     "Admin"
                 ],
                 "summary": "Returns a list of reports for the organization.",
-                "description": "\n## Permissions\n\n- The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) or authenticate using a service principal.\n- Delegated permissions are supported.\n\nWhen running under service prinicipal authentication, an app **must not** have any admin-consent required premissions for Power BI set on it in the Azure portal.\n\n## Required Scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n\nRelevant only when authenticating via a standard delegated admin access token. Must not be present when authentication via a service principal is used.\n\n## Limitations\n\nMaximum 200 requests per hour.\n<br><br>",
+                "description": "\n## Permissions\n\n- The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) or authenticate using a service principal.\n- Delegated permissions are supported.\n\nWhen running under service prinicipal authentication, an app **must not** have any admin-consent required premissions for Power BI set on it in the Azure portal.\n\n## Required Scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n\nRelevant only when authenticating via a standard delegated admin access token. Must not be present when authentication via a service principal is used.\n\n## Limitations\n\nMaximum 1 request per 10 minutes.\n<br><br>",
                 "operationId": "Reports_GetReportsAsAdmin",
                 "consumes": [],
                 "produces": [
@@ -16024,7 +16090,7 @@
                 "tags": [
                     "Admin"
                 ],
-                "summary": "Returns a list of Power BI items (such as reports or dashboards) that are shared with the whole organization through links.",
+                "summary": "Returns a list of Power BI reports that are shared with the whole organization through links.",
                 "description": "\n## Permissions\n\n- The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) or authenticate using a service principal.\n- Delegated permissions are supported.\n\n## Required Scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n\n## Limitations\n\nMaximum 200 requests per hour.\n<br><br>",
                 "operationId": "WidelySharedArtifacts_LinksSharedToWholeOrganization",
                 "consumes": [],
@@ -17402,7 +17468,7 @@
                     "EmbedToken"
                 ],
                 "summary": "Generates an embed token for multiple reports, datasets, and target workspaces.",
-                "description": "\n- Reports and datasets don't have to be related.\n- You can bind a report to a dataset during embedding.\n- You can only create a report in workspaces specified by the `targetWorkspaces` parameter.\n\n> [!IMPORTANT]\n> This API call is only relevant to the [embed for your customers](/power-bi/developer/embed-sample-for-customers) scenario. To learn more about using this API, see [Considerations when generating an embed token](/power-bi/developer/embedded/generate-embed-token).\n\n## Permissions\n\n- When using a service principal for authentication, refer to [Embed Power BI content with service principal](/power-bi/developer/embed-service-principal) and [Considerations and limitations](/power-bi/developer/embedded/embed-service-principal#considerations-and-limitations).\n- For PowerBI reports with a paginated visual, include the paginated report ID in the API call. For more information, see [example](/rest/api/power-bi/embed-token/generate-token#examples).\n- This API call can be called by a service principal profile. For more information see: [Service principal profiles in Power BI Embedded](/power-bi/developer/embedded/embed-multi-tenancy).\n\n## Required Scope\n\nAll of the following, unless a requirement doesn't apply:\n\n- Content.Create, required if a target workspace is specified in [GenerateTokenRequestV2](/rest/api/power-bi/embed-token/generate-token#generatetokenrequestv2).\n- Report.ReadWrite.All or Report.Read.All, required if a report is specified in [GenerateTokenRequestV2](/rest/api/power-bi/embed-token/generate-token#generatetokenrequestv2).\n- Report.ReadWrite.All, required if the `allowEdit` flag is specified for at least one report in [GenerateTokenRequestV2](/rest/api/power-bi/embed-token/generate-token#generatetokenrequestv2).\n- Dataset.ReadWrite.All or Dataset.Read.All\n\n## Limitations\n\n- You can only create a report in workspaces specified by the `targetWorkspaces` parameter.\n- All reports and datasets must reside in a **V2** workspace.\n- All target workspaces must be **V2** workspaces.\n- Maximum 50 reports.\n- Maximum 50 datasets.\n- Maximum 50 target workspaces.\n- For Azure Analysis Services or Analysis Services on-premises live connection reports, generating an embed token with row-level security (RLS) might not work for several minutes after a [rebind](/rest/api/power-bi/reports/rebind-report).\n<br><br>",
+                "description": "\n- Reports and datasets don't have to be related.\n- You can bind a report to a dataset during embedding.\n- You can only create a report in workspaces specified by the `targetWorkspaces` parameter.\n\n> [!IMPORTANT]\n> This API call is only relevant to the [embed for your customers](/power-bi/developer/embed-sample-for-customers) scenario. To learn more about using this API, see [Considerations when generating an embed token](/power-bi/developer/embedded/generate-embed-token).\n\n## Permissions\n\n- When using a service principal for authentication, refer to [Embed Power BI content with service principal](/power-bi/developer/embed-service-principal) and [Considerations and limitations](/power-bi/developer/embedded/embed-service-principal#considerations-and-limitations).\n- For Power BI reports with a paginated visual, include the paginated report ID in the API call. For more information, see [example](/rest/api/power-bi/embed-token/generate-token#examples).\n- This API call can be called by a service principal profile. For more information see: [Service principal profiles in Power BI Embedded](/power-bi/developer/embedded/embed-multi-tenancy).\n\n## Required Scope\n\nAll of the following, unless a requirement doesn't apply:\n\n- Content.Create, required if a target workspace is specified in [GenerateTokenRequestV2](/rest/api/power-bi/embed-token/generate-token#generatetokenrequestv2).\n- Report.ReadWrite.All or Report.Read.All, required if a report is specified in [GenerateTokenRequestV2](/rest/api/power-bi/embed-token/generate-token#generatetokenrequestv2).\n- Report.ReadWrite.All, required if the `allowEdit` flag is specified for at least one report in [GenerateTokenRequestV2](/rest/api/power-bi/embed-token/generate-token#generatetokenrequestv2).\n- Dataset.ReadWrite.All or Dataset.Read.All\n\n## Limitations\n\n- You can only create a report in workspaces specified by the `targetWorkspaces` parameter.\n- All reports and datasets must reside in a **V2** workspace.\n- All target workspaces must be **V2** workspaces.\n- Maximum 50 reports.\n- Maximum 50 datasets.\n- Maximum 50 target workspaces.\n- For Azure Analysis Services or Analysis Services on-premises live connection reports, generating an embed token with row-level security (RLS) might not work for several minutes after a [rebind](/rest/api/power-bi/reports/rebind-report).\n<br><br>",
                 "operationId": "EmbedToken_GenerateToken",
                 "consumes": [
                     "application/json"
@@ -21970,11 +22036,18 @@
                     "type": "boolean",
                     "description": "Whether the dataset schema might not be up to date"
                 },
-				"expressions": {
+                "expressions": {
                     "type": "array",
                     "description": "The dataset expressions",
                     "items": {
                         "$ref": "#/definitions/Expression"
+                    }
+                },
+                "roles": {
+                    "type": "array",
+                    "description": "The dataset roles",
+                    "items": {
+                        "$ref": "#/definitions/Role"
                     }
                 }
             }
@@ -22193,7 +22266,7 @@
                             },
                             {
                                 "value": "Push",
-                                "description": "A dataset that allows programmatic access for pushing data into PowerBI"
+                                "description": "A dataset that allows programmatic access for pushing data into Power BI"
                             },
                             {
                                 "value": "Streaming",
@@ -22274,6 +22347,72 @@
                 "description": {
                     "type": "string",
                     "description": "The expression description"
+                }
+            }
+        },
+        "Role": {
+            "description": "A role in a dataset’s RLS configuration",
+            "required": [
+                "name"
+            ],
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "description": "The name of the role"
+                },
+                "modelPermission": {
+                    "type": "string",
+                    "description": "The permissions that the role has on the dataset. For example, Read"
+                },
+                "members": {
+                    "type": "array",
+                    "description": "An array listing the members of the role",
+                    "$ref": "#/definitions/RoleMember"
+                },
+                "tablePermissions": {
+                    "type": "array",
+                    "description": "An array that lists all the filters defined for the role",
+                    "$ref": "#/definitions/RoleTablePermission"
+                }
+            }
+        },
+        "RoleMember": {
+            "description": "A role member",
+            "required": [
+                "memberName"
+            ],
+            "properties": {
+                "memberName": {
+                    "type": "string",
+                    "description": "The name of the role member"
+                },
+                "memberId": {
+                    "type": "string",
+                    "description": "The role member GUID as assigned by the identity provider"
+                },
+                "memberType": {
+                    "type": "string",
+                    "description": "The role member type (user or group)"
+                },
+                "identityProvider": {
+                    "type": "string",
+                    "description": "The role member identity provider"
+                }
+            }
+        },
+        "RoleTablePermission": {
+            "description": "A role filter",
+            "required": [
+                "name"
+            ],
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "description": "The name of the table specified in the filter"
+                },
+                "filterExpression": {
+                    "type": "string",
+                    "description": "The expression that filters the table specified in the filter"
                 }
             }
         },
@@ -23303,7 +23442,7 @@
                 "workspaceId": {
                     "type": "string",
                     "format": "uuid",
-                    "description": "The report workspace ID. This property will be returned only in GetReportsAsAdmin."
+                    "description": "The workspace ID (GUID) of the report. This property will be returned only in GetReportsAsAdmin."
                 }
             }
         },
@@ -23765,7 +23904,7 @@
                 "workspaceId": {
                     "type": "string",
                     "format": "uuid",
-                    "description": "The dashboard workspace ID. This property will be returned only in GetDashboardsAsAdmin."
+                    "description": "The workspace ID (GUID) of the dashboard. This property will be returned only in GetDashboardsAsAdmin."
                 }
             }
         },
@@ -23961,6 +24100,10 @@
                     "type": "string",
                     "format": "uuid",
                     "description": "The Power BI dataflow storage account ID"
+                },
+                "logAnalyticsWorkspace": {
+                    "description": "The Log Analytics workspace assigned to the group.  This is returned only when retrieving a single group.",
+                    "$ref": "#/definitions/AzureResource"
                 }
             }
         },
@@ -24186,7 +24329,7 @@
                 },
                 "value": {
                     "type": "array",
-                    "description": "powerBI email subscription",
+                    "description": "Power BI email subscription",
                     "items": {
                         "$ref": "#/definitions/Subscription"
                     }
@@ -24624,19 +24767,6 @@
                 "notifyOption"
             ]
         },
-        "DatasetRefreshObjects": {
-            "description": "Power BI dataset refresh target",
-            "properties": {
-                "table": {
-                    "type": "string",
-                    "description": "Table to refresh"
-                },
-                "partition": {
-                    "type": "string",
-                    "description": "Partition to refresh"
-                }
-            }
-        },
         "DatasetRefreshDetail": {
             "description": "A Power BI refresh detail entry",
             "properties": {
@@ -24651,16 +24781,8 @@
                     "description": "The end date and time of the refresh (may be empty if a refresh is in progress)"
                 },
                 "type": {
-                    "type": "string",
                     "description": "The type of processing to perform",
-                    "enum": [
-                        "Full",
-                        "ClearValues",
-                        "Calculate",
-                        "DataOnly",
-                        "Automatic",
-                        "Defragment"
-                    ]
+                    "$ref": "#/definitions/DatasetRefreshDetailType"
                 },
                 "commitMode": {
                     "type": "string",
@@ -24668,15 +24790,217 @@
                     "enum": [
                         "Transactional",
                         "PartialBatch"
-                    ]
+                    ],
+                    "x-ms-enum": {
+                        "name": "DatasetRefreshDetailCommitMode",
+                        "modelAsString": true,
+                        "values": [
+                            {
+                                "value": "Transactional",
+                                "description": "Commit the whole refresh operation as a transaction"
+                            },
+                            {
+                                "value": "PartialBatch",
+                                "description": "Commit the refresh operation in batches"
+                            }
+                        ]
+                    }
                 },
                 "status": {
                     "type": "string",
-                    "description": "- `Unknown` if the completion state is unknown or a refresh is in progress.\n- `Completed` for a successfully completed refresh.\n- `Failed` for an unsuccessful refresh.\n- `Disabled` if the refresh is disabled by a selective refresh."
+                    "description": "Dataset operation general status",
+                    "enum": [
+                        "Unknown",
+                        "Completed",
+                        "Failed",
+                        "Disabled"
+                    ],
+                    "x-ms-enum": {
+                        "name": "DatasetRefreshDetailStatus",
+                        "modelAsString": true,
+                        "values": [
+                            {
+                                "value": "Unknown",
+                                "description": "The completion state is unknown or a refresh is in progress"
+                            },
+                            {
+                                "value": "Completed",
+                                "description": "The refresh operation is successfully completed"
+                            },
+                            {
+                                "value": "Failed",
+                                "description": "The refresh operation is unsuccessful"
+                            },
+                            {
+                                "value": "Disabled",
+                                "description": "The refresh operation is disabled by a selective refresh"
+                            }
+                        ]
+                    }
                 },
                 "extendedStatus": {
                     "type": "string",
-                    "description": "- `Unknown` if the completion state is unknown.\n- `NotStarted` if the refresh operation isn't started.\n- `InProgress` if the refresh operation is in progress.\n- `Completed` for a successfully completed refresh.\n- `TimedOut` if the refresh operation is timed out.\n- `Failed` for an unsuccessful refresh.\n- `Disabled` if the refresh is disabled by a selective refresh.\n- `Cancelled` if the refresh operation has been cancelled by customer."
+                    "description": "Dataset operation detailed status",
+                    "enum": [
+                        "Unknown",
+                        "NotStarted",
+                        "InProgress",
+                        "Completed",
+                        "TimedOut",
+                        "Failed",
+                        "Disabled",
+                        "Cancelled"
+                    ],
+                    "x-ms-enum": {
+                        "name": "DatasetRefreshDetailExtendedStatus",
+                        "modelAsString": true,
+                        "values": [
+                            {
+                                "value": "Unknown",
+                                "description": "The completion state is unknown"
+                            },
+                            {
+                                "value": "NotStarted",
+                                "description": "The refresh operation isn't started"
+                            },
+                            {
+                                "value": "InProgress",
+                                "description": "The refresh operation is in progress"
+                            },
+                            {
+                                "value": "Completed",
+                                "description": "The refresh operation is successfully completed"
+                            },
+                            {
+                                "value": "TimedOut",
+                                "description": "The refresh operation is timed out"
+                            },
+                            {
+                                "value": "Failed",
+                                "description": "The refresh operation is unsuccessful"
+                            },
+                            {
+                                "value": "Disabled",
+                                "description": "The refresh operation is disabled by a selective refresh"
+                            },
+                            {
+                                "value": "Cancelled",
+                                "description": "The refresh operation has been cancelled by customer"
+                            }
+                        ]
+                    }
+                },
+                "currentRefreshType": {
+                    "description": "The type of processing for the current iteration. This is useful when `commitMode` is set to `PartialBatch`",
+                    "$ref": "#/definitions/DatasetRefreshDetailType"
+                },
+                "numberOfAttempts": {
+                    "type": "integer",
+                    "description": "The number of attempts for the refresh request"
+                },
+                "objects": {
+                    "type": "array",
+                    "description": "An array of objects included in the refresh request",
+                    "items": {
+                        "$ref": "#/definitions/DatasetRefreshObjects"
+                    }
+                },
+                "messages": {
+                    "type": "array",
+                    "description": "An array of engine error or warning messages for the refresh request",
+                    "items": {
+                        "$ref": "#/definitions/EngineMessage"
+                    }
+                }
+            }
+        },
+        "DatasetRefreshDetailType": {
+            "type": "string",
+            "description": "The type of processing to perform",
+            "enum": [
+                "Full",
+                "ClearValues",
+                "Calculate",
+                "DataOnly",
+                "Automatic",
+                "Defragment"
+            ],
+            "x-ms-enum": {
+                "name": "DatasetRefreshDetailType",
+                "modelAsString": true,
+                "values": [
+                    {
+                        "value": "Full",
+                        "description": "For all partitions in the specified partition, table, or database, refresh data and recalculate all dependents. For a calculation partition, recalculate the partition and all its dependents."
+                    },
+                    {
+                        "value": "ClearValues",
+                        "description": "Clear values in this object and all its dependents"
+                    },
+                    {
+                        "value": "Calculate",
+                        "description": "Recalculate this object and all its dependents, but only if needed. This value doesn't force recalculation, except for volatile formulas."
+                    },
+                    {
+                        "value": "DataOnly",
+                        "description": "Refresh data in this object and clear all dependents"
+                    },
+                    {
+                        "value": "Automatic",
+                        "description": "If the object needs to be refreshed and recalculated, refresh and recalculate the object and all its dependents. Applies if the partition is in a state other than Ready."
+                    },
+                    {
+                        "value": "Defragment",
+                        "description": "Defragment the data in the specified table. As data is added to or removed from a table, the dictionaries of each column can become polluted with values that no longer exist in the actual column values. The defragment option will clean up the values in the dictionaries that are no longer used."
+                    }
+                ]
+            }
+        },
+        "EngineMessage": {
+            "description": "The error or warning message from engine for enhanced refresh",
+            "properties": {
+                "code": {
+                    "type": "string",
+                    "description": "The error code in hex format"
+                },
+                "message": {
+                    "type": "string",
+                    "description": "The text of error or warning message"
+                },
+                "type": {
+                    "type": "string",
+                    "description": "The type of the error",
+                    "enum": [
+                        "Error",
+                        "Warning"
+                    ],
+                    "x-ms-enum": {
+                        "name": "RefreshEngineErrorType",
+                        "modelAsString": true,
+                        "values": [
+                            {
+                                "value": "Error",
+                                "description": "Error message"
+                            },
+                            {
+                                "value": "Warning",
+                                "description": "Warning message"
+                            }
+                        ]
+                    }
+                }
+            }
+        },
+        "DatasetRefreshObjects": {
+            "description": "Power BI dataset refresh target",
+            "properties": {
+                "table": {
+                    "type": "string",
+                    "description": "Table to refresh"
+                },
+                "partition": {
+                    "type": "string",
+                    "description": "Partition to refresh"
                 }
             }
         },
@@ -24968,7 +25292,7 @@
                             },
                             {
                                 "value": "ReadOverrideEffectiveIdentity",
-                                "description": "The user can override the effective identity for Power BI Embedded"
+                                "description": "The user can override the effective identity for Power BI Embedded. Applicable only for on-premises Analysis Services data sources."
                             }
                         ]
                     }
@@ -25754,7 +26078,7 @@
                 },
                 "sharer": {
                     "$ref": "#/definitions/User",
-                    "description": "The user who shared the PowerBI item. Only available for widely shared artifacts APIs."
+                    "description": "The user who shared the Power BI item. Only available for widely shared artifacts APIs."
                 }
             }
         },
@@ -26824,6 +27148,35 @@
                 }
             }
         },
+        "AzureResource": {
+            "required": [
+                "subscriptionId",
+                "resourceGroup",
+                "resourceName"
+            ],
+            "description": "A response detailing a user-owned Azure resource such as a Log Analytics workspace.",
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "format": "uuid",
+                    "description": "An identifier for the resource within Power BI.",
+                    "readOnly": true
+                },
+                "subscriptionId": {
+                    "type": "string",
+                    "format": "uuid",
+                    "description": "The Azure subscription where the resource resides."
+                },
+                "resourceGroup": {
+                    "type": "string",
+                    "description": "The resource group within the subscription where the resource resides."
+                },
+                "resourceName": {
+                    "type": "string",
+                    "description": "The name of the resource."
+                }
+            }
+        },
         "TemporaryUploadLocation": {
             "required": [
                 "Url",
@@ -27174,7 +27527,7 @@
                             },
                             {
                                 "value": "Succeeded",
-                                "description": "The export to file job finished succesfully"
+                                "description": "The export to file job finished successfully"
                             },
                             {
                                 "value": "Failed",

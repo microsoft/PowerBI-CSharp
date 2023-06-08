@@ -63,8 +63,8 @@ namespace Microsoft.PowerBI.Api.Models
         /// report by using the [Get Report Subscriptions as
         /// Admin](/rest/api/power-bi/admin/reports-get-report-subscriptions-as-admin)
         /// API call.</param>
-        /// <param name="workspaceId">The report workspace ID. This property
-        /// will be returned only in GetReportsAsAdmin.</param>
+        /// <param name="workspaceId">The workspace ID (GUID) of the report.
+        /// This property will be returned only in GetReportsAsAdmin.</param>
         public AdminReport(System.Guid id, string name = default(string), string datasetId = default(string), string appId = default(string), string description = default(string), string reportType = default(string), string webUrl = default(string), string embedUrl = default(string), string createdBy = default(string), string modifiedBy = default(string), System.DateTime? createdDateTime = default(System.DateTime?), System.DateTime? modifiedDateTime = default(System.DateTime?), IList<ReportUser> users = default(IList<ReportUser>), IList<Subscription> subscriptions = default(IList<Subscription>), System.Guid? workspaceId = default(System.Guid?))
         {
             Id = id;
@@ -191,8 +191,8 @@ namespace Microsoft.PowerBI.Api.Models
         public IList<Subscription> Subscriptions { get; set; }
 
         /// <summary>
-        /// Gets or sets the report workspace ID. This property will be
-        /// returned only in GetReportsAsAdmin.
+        /// Gets or sets the workspace ID (GUID) of the report. This property
+        /// will be returned only in GetReportsAsAdmin.
         /// </summary>
         [JsonProperty(PropertyName = "workspaceId")]
         public System.Guid? WorkspaceId { get; set; }
