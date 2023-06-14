@@ -18230,7 +18230,10 @@
                                             "Activity": "ViewDashboard",
                                             "Workload": "PowerBI",
                                             "UserId": "john@contoso.com",
-                                            "ClientIP": "131.107.160.240"
+                                            "ClientIP": "131.107.160.240",
+                                            "CapacityId": "zy5bad4z-x1a2-491a-9f0c-f012171ee02e",
+                                            "CapacityName": "Shared On Premium - Reserved",
+                                            "WorkspaceId": "bf10ae91-c4f6-494e-b538-e2454229a765"                                            
                                         }
                                     ],
                                     "continuationUri": "https://api.powerbi.com/v1.0/myorg/admin/activityevents?continuationToken='%2BRID%3A244SAKlHY7YGAAAAAAAAAA%3D%3D%23RT%3A1%23TRC%3A5%23FPC%3AAQYAAAAAAAAAFwAAAAAAAAA%3D'",
@@ -18269,7 +18272,10 @@
                                             "Activity": "ViewReport",
                                             "Workload": "PowerBI",
                                             "UserId": "john@contoso.com",
-                                            "ClientIP": "131.107.160.240"
+                                            "ClientIP": "131.107.160.240",
+                                            "CapacityId": "zy5bad4z-x1a2-491a-9f0c-f012171ee02e",
+                                            "CapacityName": "Shared On Premium - Reserved",
+                                            "WorkspaceId": "bf10ae91-c4f6-494e-b538-e2454229a765"                                            
                                         }
                                     ],
                                     "continuationUri": "https://api.powerbi.com/v1.0/myorg/admin/activityevents?continuationToken='%2BRID%3A244SAKlHY7YQAAAAAAAAAA%3D%3D%23RT%3A1%23TRC%3A5%23FPC%3AARAAAAAAAAAAFwAAAAAAAAA%3D'&$filter=Activity eq 'ViewReport'",
@@ -18308,7 +18314,10 @@
                                             "Activity": "ViewReport",
                                             "Workload": "PowerBI",
                                             "UserId": "john@contoso.com",
-                                            "ClientIP": "131.107.160.240"
+                                            "ClientIP": "131.107.160.240",
+                                            "CapacityId": "zy5bad4z-x1a2-491a-9f0c-f012171ee02e",
+                                            "CapacityName": "Shared On Premium - Reserved",
+                                            "WorkspaceId": "bf10ae91-c4f6-494e-b538-e2454229a765"                                            
                                         }
                                     ],
                                     "continuationUri": "https://api.powerbi.com/v1.0/myorg/admin/activityevents?continuationToken='%2BRID%3A244SAKlHY7YQAAAAAAAAAA%3D%3D%23RT%3A1%23TRC%3A5%23FPC%3AARAAAAAAAAAAFwAAAAAAAAA%3D'&$filter=Activity eq 'ViewReport'",
@@ -18328,26 +18337,49 @@
                                 "body": {
                                     "activityEventEntities": [
                                         {
-                                            "Id": "41ce06d1-d81b-4ea0-bc6d-2ce3dd2f8e87",
-                                            "CreationTime": "2019-08-13T07:55:15",
-                                            "Operation": "ViewReport",
-                                            "OrganizationId": "e43e3248-3d83-44aa-a94d-c836bd7f9b79",
-                                            "UserKey": "123456",
-                                            "Activity": "ViewReport",
+                                            "Id": "8fb974dc-739e-41e4-a219-b5801e28095e",
+                                            "RecordType": 20,
+                                            "CreationTime": "2023-05-23T08:06:47",
+                                            "Operation": "GetSnapshots",
+                                            "OrganizationId": "98c45f19-7cac-4002-8702-97d943a5ccb4",
+                                            "UserType": 0,
+                                            "UserKey": "10033FFF8929F27A",
                                             "Workload": "PowerBI",
-                                            "UserId": "john@contoso.com",
-                                            "ClientIP": "127.0.0.1"
+                                            "UserId": "abc@contoso.onmicrosoft.com",
+                                            "ClientIP": "185.175.34.186",
+                                            "UserAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Safari/537.36 Edg/113.0.1774.50",
+                                            "Activity": "GetSnapshots",
+                                            "IsSuccess": true,
+                                            "RequestId": "ee4b5af1-9aa3-34fe-a163-7b188e865ef1",
+                                            "ActivityId": "cc1db5c9-ca04-484e-a6f2-f21de20bc000",
+                                            "ModelsSnapshots": []
                                         },
                                         {
-                                            "Id": "c632aa64-70fc-4e80-88f3-9fc2cdcacce8",
-                                            "CreationTime": "2019-08-13T07:55:10",
+                                            "Id": "1db4c464-3e5d-4a89-b412-c2ce6fbae88e",
+                                            "CreationTime": "2023-05-23T08:43:34",
                                             "Operation": "ViewReport",
-                                            "OrganizationId": "e43e3248-3d83-44aa-a94d-c836bd7f9b79",
-                                            "UserKey": "42343KJK53K45J",
+                                            "ClientIP": "122.172.83.253",
                                             "Activity": "ViewReport",
-                                            "Workload": "PowerBI",
-                                            "UserId": "john@contoso.com",
-                                            "ClientIP": "131.107.160.240"
+                                            "ItemName": "Capacity Metrics Analysis",
+                                            "WorkSpaceName": "Premium Capacity Utilization And Metrics 5/19/2023 11:57:07 AM",
+                                            "DatasetName": "Capacity Metrics Analysis",
+                                            "ReportName": "Capacity Metrics Analysis",
+                                            "CapacityId": "zy5bad4z-x1a2-491a-9f0c-f012171ee02e",
+                                            "CapacityName": "Shared On Premium - Reserved",
+                                            "WorkspaceId": "bf10ae91-c4f6-494e-b538-e2454229a765",
+                                            "AppName": "Premium Capacity Utilization And Metrics",
+                                            "ObjectId": "fb8a915c-b720-4a77-9e55-3a12fc42efcd",
+                                            "DatasetId": "5760cb34-a245-4eb7-a4e3-4ecae264a577",
+                                            "ReportId": "ae596344-7fe6-43cb-baa7-c7ddc63271c8",
+                                            "ArtifactId": "ae596344-7fe6-43cb-baa7-c7ddc63271c8",
+                                            "ArtifactName": "Capacity Metrics Analysis",
+                                            "ReportType": "PowerBIReport",
+                                            "RequestId": "9b8a4e32-b0c8-febf-c3c3-f25d45f682a4",
+                                            "ActivityId": "67c2dd35-242a-7053-4e92-8a7d78db9704",
+                                            "AppReportId": "3f87e0bd-a95d-40a4-bab5-5e206d643f8f",
+                                            "DistributionMethod": "Apps",
+                                            "ConsumptionMethod": "Power BI Web",
+                                            "ArtifactKind": "Report"
                                         }
                                     ],
                                     "continuationUri": "https://api.powerbi.com/v1.0/myorg/admin/activityevents?continuationToken='%2BRID%3A244SAKlHY7YQAAAAAAAAAA%3D%3D%23RT%3A1%23TRC%3A5%23FPC%3AARAAAAAAAAAAFwAAAAAAAAA%3D'&$filter=Activity eq 'ViewReport'",
@@ -18384,7 +18416,10 @@
                                             "Activity": "ViewReport",
                                             "Workload": "PowerBI",
                                             "UserId": "john@contoso.com",
-                                            "ClientIP": "131.107.160.240"
+                                            "ClientIP": "131.107.160.240",
+                                            "CapacityId": "zy5bad4z-x1a2-491a-9f0c-f012171ee02e",
+                                            "CapacityName": "Shared On Premium - Reserved",
+                                            "WorkspaceId": "bf10ae91-c4f6-494e-b538-e2454229a765"
                                         }
                                     ],
                                     "continuationUri": "https://api.powerbi.com/v1.0/myorg/admin/activityevents?continuationToken='%2BRID%$4Z244SAKlHY7YQAAAAAAAAAA%3D%3D%23RT%3A1%23TRC%3A5%23FPC%3AARAAAAAAAAAAFwAAAAAAAAA%3D'",
