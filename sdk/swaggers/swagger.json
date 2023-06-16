@@ -14856,7 +14856,7 @@
                                 "logAnalyticsWorkspace": {
                                     "subscriptionId": "d778934f-bda2-41d9-b5c7-6cf41372c1a0",
                                     "resourceGroup": "myResourceGroup",
-                                    "resourceName": "myLogAnalyticsWorksapce"
+                                    "resourceName": "myLogAnalyticsWorkspace"
                                 }
                             }
                         },
