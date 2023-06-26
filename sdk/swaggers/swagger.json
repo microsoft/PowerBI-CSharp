@@ -283,6 +283,20 @@
                         "responses": {
                             "200": {}
                         }
+                    },
+                    "Example of updating scale-out settings of a dataset": {
+                        "parameters": {
+                            "datasetId": "cfafbeb1-8037-4d0c-896e-a46fb27ff229",
+                            "updateDatasetRequest": {
+                                "queryScaleOutSettings": {
+                                    "autoSyncReadOnlyReplicas": false,
+                                    "maxReadOnlyReplicas": -1
+                                }
+                            }
+                        },
+                        "responses": {
+                            "200": {}
+                        }
                     }
                 },
                 "deprecated": false
@@ -2136,6 +2150,116 @@
                     }
                 },
                 "deprecated": false
+            }
+        },
+        "/v1.0/myorg/datasets/{datasetId}/queryScaleOut/syncStatus": {
+            "get": {
+                "tags": [
+                    "Datasets"
+                ],
+                "summary": "Returns the query scale-out sync status for the specified dataset from **My workspace**.",
+                "description": "\n## Required Scope\n\nDataset.ReadWrite.All or Dataset.Read.All\n<br><br>",
+                "operationId": "Datasets_GetQueryScaleOutSyncStatus",
+                "consumes": [],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "datasetId",
+                        "in": "path",
+                        "description": "The dataset ID",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/DatasetQueryScaleOutSyncStatus"
+                        }
+                    }
+                },
+                "deprecated": false,
+                "x-ms-examples": {
+                    "Get query scale-out sync status example": {
+                        "parameters": {
+                            "datasetId": "cfafbeb1-8037-4d0c-896e-a46fb27ff229"
+                        },
+                        "responses": {
+                            "200": {
+                                "body": {
+                                    "commitVersion": 133186221251720662,
+                                    "commitTimestamp": "2023-01-19T17:15:25.1720662Z",
+                                    "targetSyncVersion": 133184583205771509,
+                                    "targetSyncTimestamp": "2023-01-17T19:45:20.5771509Z",
+                                    "triggerReason": "explicit",
+                                    "syncStartTime": "2023-01-17T20:37:49.9625479Z",
+                                    "syncEndTime": "2023-01-17T20:37:50.6029293Z",
+                                    "minActiveReadVersion": 133184583205771509,
+                                    "minActiveReadTimestamp": "2023-01-17T19:45:20.5771509Z",
+                                    "scaleOutStatus": "Enabled"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/v1.0/myorg/datasets/{datasetId}/queryScaleOut/sync": {
+            "post": {
+                "tags": [
+                    "Datasets"
+                ],
+                "summary": "Triggers a query scale-out sync of read-only replicas for the specified dataset from **My workspace**.",
+                "description": "\n## Required Scope\n\nDataset.ReadWrite.All\n<br><br>",
+                "operationId": "Datasets_TriggerQueryScaleOutSync",
+                "consumes": [],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "datasetId",
+                        "in": "path",
+                        "description": "The dataset ID",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/DatasetQueryScaleOutSyncStatus"
+                        }
+                    }
+                },
+                "deprecated": false,
+                "x-ms-examples": {
+                    "Trigger query scale-out sync example": {
+                        "parameters": {
+                            "datasetId": "cfafbeb1-8037-4d0c-896e-a46fb27ff229"
+                        },
+                        "responses": {
+                            "200": {
+                                "body": {
+                                    "commitVersion": 133186221251720662,
+                                    "commitTimestamp": "2023-01-19T17:15:25.1720662Z",
+                                    "targetSyncVersion": 133184583205771509,
+                                    "targetSyncTimestamp": "2023-01-17T19:45:20.5771509Z",
+                                    "triggerReason": "explicit",
+                                    "syncStartTime": "2023-01-17T20:37:49.9625479Z",
+                                    "syncEndTime": "2023-01-17T20:37:50.6029293Z",
+                                    "minActiveReadVersion": 133184583205771509,
+                                    "minActiveReadTimestamp": "2023-01-17T19:45:20.5771509Z",
+                                    "scaleOutStatus": "Enabled"
+                                }
+                            }
+                        }
+                    }
+                }
             }
         },
         "/v1.0/myorg/groups/{groupId}/datasets/{datasetId}/users": {
@@ -4339,6 +4463,21 @@
                         "responses": {
                             "200": {}
                         }
+                    },
+                    "Example of updating scale-out settings of a dataset": {
+                        "parameters": {
+                            "groupId": "f089354e-8366-4e18-aea3-4cb4a3a50b48",
+                            "datasetId": "cfafbeb1-8037-4d0c-896e-a46fb27ff229",
+                            "updateDatasetRequest": {
+                                "queryScaleOutSettings": {
+                                    "autoSyncReadOnlyReplicas": false,
+                                    "maxReadOnlyReplicas": -1
+                                }
+                            }
+                        },
+                        "responses": {
+                            "200": {}
+                        }
                     }
                 },
                 "deprecated": false
@@ -6444,6 +6583,134 @@
                                             ]
                                         }
                                     ]
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/v1.0/myorg/groups/{groupId}/datasets/{datasetId}/queryScaleOut/syncStatus": {
+            "get": {
+                "tags": [
+                    "Datasets"
+                ],
+                "summary": "Returns the query scale-out sync status for the specified dataset from the specified workspace.",
+                "description": "\n## Permissions\n\nThis API call can be called by a service principal profile. For more information see: [Service principal profiles in Power BI Embedded](/power-bi/developer/embedded/embed-multi-tenancy).\n\n## Required Scope\n\nDataset.ReadWrite.All or Dataset.Read.All\n<br><br>",
+                "operationId": "Datasets_GetQueryScaleOutSyncStatusInGroup",
+                "consumes": [],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "groupId",
+                        "in": "path",
+                        "required": true,
+                        "description": "The workspace ID",
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    {
+                        "name": "datasetId",
+                        "in": "path",
+                        "description": "The dataset ID",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/DatasetQueryScaleOutSyncStatus"
+                        }
+                    }
+                },
+                "deprecated": false,
+                "x-ms-examples": {
+                    "Get query scale-out sync status example": {
+                        "parameters": {
+                            "groupId": "f089354e-8366-4e18-aea3-4cb4a3a50b48",
+                            "datasetId": "cfafbeb1-8037-4d0c-896e-a46fb27ff229"
+                        },
+                        "responses": {
+                            "200": {
+                                "body": {
+                                    "commitVersion": 133186221251720662,
+                                    "commitTimestamp": "2023-01-19T17:15:25.1720662Z",
+                                    "targetSyncVersion": 133184583205771509,
+                                    "targetSyncTimestamp": "2023-01-17T19:45:20.5771509Z",
+                                    "triggerReason": "explicit",
+                                    "syncStartTime": "2023-01-17T20:37:49.9625479Z",
+                                    "syncEndTime": "2023-01-17T20:37:50.6029293Z",
+                                    "minActiveReadVersion": 133184583205771509,
+                                    "minActiveReadTimestamp": "2023-01-17T19:45:20.5771509Z",
+                                    "scaleOutStatus": "Enabled"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/v1.0/myorg/groups/{groupId}/datasets/{datasetId}/queryScaleOut/sync": {
+            "post": {
+                "tags": [
+                    "Datasets"
+                ],
+                "summary": "Triggers a query scale-out sync of read-only replicas for the specified dataset from the specified workspace.",
+                "description": "\n## Permissions\n\nThis API call can be called by a service principal profile. For more information see: [Service principal profiles in Power BI Embedded](/power-bi/developer/embedded/embed-multi-tenancy).\n\n## Required Scope\n\nDataset.ReadWrite.All\n<br><br>",
+                "operationId": "Datasets_TriggerQueryScaleOutSyncInGroup",
+                "consumes": [],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "groupId",
+                        "in": "path",
+                        "required": true,
+                        "description": "The workspace ID",
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    {
+                        "name": "datasetId",
+                        "in": "path",
+                        "description": "The dataset ID",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/DatasetQueryScaleOutSyncStatus"
+                        }
+                    }
+                },
+                "deprecated": false,
+                "x-ms-examples": {
+                    "Trigger query scale-out sync example": {
+                        "parameters": {
+                            "groupId": "f089354e-8366-4e18-aea3-4cb4a3a50b48",
+                            "datasetId": "cfafbeb1-8037-4d0c-896e-a46fb27ff229"
+                        },
+                        "responses": {
+                            "200": {
+                                "body": {
+                                    "commitVersion": 133186221251720662,
+                                    "commitTimestamp": "2023-01-19T17:15:25.1720662Z",
+                                    "targetSyncVersion": 133184583205771509,
+                                    "targetSyncTimestamp": "2023-01-17T19:45:20.5771509Z",
+                                    "triggerReason": "explicit",
+                                    "syncStartTime": "2023-01-17T20:37:49.9625479Z",
+                                    "syncEndTime": "2023-01-17T20:37:50.6029293Z",
+                                    "minActiveReadVersion": 133184583205771509,
+                                    "minActiveReadTimestamp": "2023-01-17T19:45:20.5771509Z",
+                                    "scaleOutStatus": "Enabled"
                                 }
                             }
                         }
@@ -22087,6 +22354,21 @@
                 }
             }
         },
+        "DatasetQueryScaleOutSettings": {
+            "description": "Query scale-out settings of a dataset",
+            "properties": {
+                "autoSyncReadOnlyReplicas": {
+                    "type": "boolean",
+                    "description": "Whether the dataset automatically syncs read-only replicas"
+                },
+                "maxReadOnlyReplicas": {
+                    "type": "integer",
+                    "minimum": -1,
+                    "maximum": 64,
+                    "description": "Maximum number of read-only replicas for the dataset (0-64, -1 for automatic number of replicas)"
+                }
+            }
+        },
         "DatasetStorageMode": {
             "properties": {
                 "targetStorageMode": {
@@ -22106,11 +22388,16 @@
         },
         "UpdateDatasetRequest": {
             "description": "Update dataset request",
-            "allOf": [
-                {
-                    "$ref": "#/definitions/DatasetStorageMode"
+            "properties": {
+                "targetStorageMode": {
+                    "type": "string",
+                    "description": "The dataset storage mode"
+                },
+                "queryScaleOutSettings": {
+                    "type": "object",
+                    "$ref": "#/definitions/DatasetQueryScaleOutSettings"
                 }
-            ]
+            }
         },
         "UpstreamDatasetsProperties": {
             "properties": {
@@ -22121,7 +22408,7 @@
                         "$ref": "#/definitions/DependentDataset"
                     }
                 },
-				"upstreamDatamarts": {
+                "upstreamDatamarts": {
                     "type": "array",
                     "description": "The list of all the datamarts this item depends on",
                     "items": {
@@ -22150,6 +22437,15 @@
                 },
                 {
                     "$ref": "#/definitions/DatasetStorageMode"
+                },
+                {
+                    "properties": {
+                        "queryScaleOutSettings": {
+                            "type": "object",
+                            "$ref": "#/definitions/DatasetQueryScaleOutSettings",
+                            "readOnly": true
+                        }
+                    }
                 }
             ]
         },
@@ -22176,6 +22472,15 @@
                 },
                 {
                     "$ref": "#/definitions/DatasetWorkspaceIdProperty"
+                },
+                {
+                    "properties": {
+                        "queryScaleOutSettings": {
+                            "type": "object",
+                            "$ref": "#/definitions/DatasetQueryScaleOutSettings",
+                            "readOnly": true
+                        }
+                    }
                 }
             ]
         },
@@ -29321,6 +29626,111 @@
                 }
             },
             "description": "The details of an error, if present."
+        },
+        "DatasetQueryScaleOutSyncStatus": {
+            "description": "Dataset query scale-out sync status",
+            "type": "object",
+            "properties": {
+                "commitVersion": {
+                    "type": "integer",
+                    "format": "int64",
+                    "description": "Latest commit version"
+                },
+                "commitTimestamp": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "Timestamp indicating the latest commit version"
+                },
+                "targetSyncVersion": {
+                    "type": "integer",
+                    "format": "int64",
+                    "description": "Target sync version"
+                },
+                "targetSyncTimestamp": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "Timestamp indicating the target sync version"
+                },
+                "triggerReason": {
+                    "type": "string",
+                    "description": "Query scale-out sync trigger reason",
+                    "enum": [
+                        "explicit",
+                        "automatic",
+                        "system"
+                    ],
+                    "x-ms-enum": {
+                        "name": "QueryScaleOutSyncTriggerReason",
+                        "modelAsString": true,
+                        "values": [
+                            {
+                                "value": "explicit",
+                                "description": "Sync was explicitly triggered"
+                            },
+                            {
+                                "value": "automatic",
+                                "description": "Sync was automatically triggered"
+                            },
+                            {
+                                "value": "system",
+                                "description": "Sync was triggered following a system event"
+                            }
+                        ]
+                    }
+                },
+                "syncStartTime": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "Timestamp indicating when last sync started"
+                },
+                "syncEndTime": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "Timestamp indicating when last sync ended"
+                },
+                "minActiveReadVersion": {
+                    "type": "integer",
+                    "format": "int64",
+                    "description": "Minimum active read version"
+                },
+                "minActiveReadTimestamp": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "Timestamp indicating the minimum active read version"
+                },
+                "scaleOutStatus": {
+                    "type": "string",
+                    "description": "Query scale-out status",
+                    "enum": [
+                        "Enabled",
+                        "TenantSettingDisabled",
+                        "StorageModeNotSupported",
+                        "ReadOnlyReplicasDisabled"
+                    ],
+                    "x-ms-enum": {
+                        "name": "QueryScaleOutStatus",
+                        "modelAsString": true,
+                        "values": [
+                            {
+                                "value": "Enabled",
+                                "description": "Query scale-out is enabled"
+                            },
+                            {
+                                "value": "TenantSettingDisabled",
+                                "description": "Query scale-out tenant setting is disabled"
+                            },
+                            {
+                                "value": "StorageModeNotSupported",
+                                "description": "Query scale-out is not supported for dataset's storage mode"
+                            },
+                            {
+                                "value": "ReadOnlyReplicasDisabled",
+                                "description": "Query scale-out max read-only replicas is set to 0"
+                            }
+                        ]
+                    }
+                }
+            }
         },
         "Scorecards": {
             "description": "The OData response wrapper for a Power BI scorecard collection",

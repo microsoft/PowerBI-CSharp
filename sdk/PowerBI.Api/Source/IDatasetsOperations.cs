@@ -1064,6 +1064,66 @@ namespace Microsoft.PowerBI.Api
         /// </exception>
         Task<HttpOperationResponse<Gateways>> DiscoverGatewaysWithHttpMessagesAsync(string datasetId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
+        /// Returns the query scale-out sync status for the specified dataset
+        /// from **My workspace**.
+        /// </summary>
+        /// <remarks>
+        ///
+        /// ## Required Scope
+        ///
+        /// Dataset.ReadWrite.All or Dataset.Read.All
+        /// &lt;br&gt;&lt;br&gt;
+        /// </remarks>
+        /// <param name='datasetId'>
+        /// The dataset ID
+        /// </param>
+        /// <param name='customHeaders'>
+        /// The headers that will be added to request.
+        /// </param>
+        /// <param name='cancellationToken'>
+        /// The cancellation token.
+        /// </param>
+        /// <exception cref="Microsoft.Rest.HttpOperationException">
+        /// Thrown when the operation returned an invalid status code
+        /// </exception>
+        /// <exception cref="Microsoft.Rest.SerializationException">
+        /// Thrown when unable to deserialize the response
+        /// </exception>
+        /// <exception cref="Microsoft.Rest.ValidationException">
+        /// Thrown when a required parameter is null
+        /// </exception>
+        Task<HttpOperationResponse<DatasetQueryScaleOutSyncStatus>> GetQueryScaleOutSyncStatusWithHttpMessagesAsync(string datasetId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Triggers a query scale-out sync of read-only replicas for the
+        /// specified dataset from **My workspace**.
+        /// </summary>
+        /// <remarks>
+        ///
+        /// ## Required Scope
+        ///
+        /// Dataset.ReadWrite.All
+        /// &lt;br&gt;&lt;br&gt;
+        /// </remarks>
+        /// <param name='datasetId'>
+        /// The dataset ID
+        /// </param>
+        /// <param name='customHeaders'>
+        /// The headers that will be added to request.
+        /// </param>
+        /// <param name='cancellationToken'>
+        /// The cancellation token.
+        /// </param>
+        /// <exception cref="Microsoft.Rest.HttpOperationException">
+        /// Thrown when the operation returned an invalid status code
+        /// </exception>
+        /// <exception cref="Microsoft.Rest.SerializationException">
+        /// Thrown when unable to deserialize the response
+        /// </exception>
+        /// <exception cref="Microsoft.Rest.ValidationException">
+        /// Thrown when a required parameter is null
+        /// </exception>
+        Task<HttpOperationResponse<DatasetQueryScaleOutSyncStatus>> TriggerQueryScaleOutSyncWithHttpMessagesAsync(string datasetId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
         /// Grants the specified user's permissions to the specified dataset.
         /// </summary>
         /// <remarks>
@@ -2646,6 +2706,84 @@ namespace Microsoft.PowerBI.Api
         /// Thrown when a required parameter is null
         /// </exception>
         Task<HttpOperationResponse<DatasetExecuteQueriesResponse>> ExecuteQueriesInGroupWithHttpMessagesAsync(System.Guid groupId, string datasetId, DatasetExecuteQueriesRequest requestMessage, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Returns the query scale-out sync status for the specified dataset
+        /// from the specified workspace.
+        /// </summary>
+        /// <remarks>
+        ///
+        /// ## Permissions
+        ///
+        /// This API call can be called by a service principal profile. For
+        /// more information see: [Service principal profiles in Power BI
+        /// Embedded](/power-bi/developer/embedded/embed-multi-tenancy).
+        ///
+        /// ## Required Scope
+        ///
+        /// Dataset.ReadWrite.All or Dataset.Read.All
+        /// &lt;br&gt;&lt;br&gt;
+        /// </remarks>
+        /// <param name='groupId'>
+        /// The workspace ID
+        /// </param>
+        /// <param name='datasetId'>
+        /// The dataset ID
+        /// </param>
+        /// <param name='customHeaders'>
+        /// The headers that will be added to request.
+        /// </param>
+        /// <param name='cancellationToken'>
+        /// The cancellation token.
+        /// </param>
+        /// <exception cref="Microsoft.Rest.HttpOperationException">
+        /// Thrown when the operation returned an invalid status code
+        /// </exception>
+        /// <exception cref="Microsoft.Rest.SerializationException">
+        /// Thrown when unable to deserialize the response
+        /// </exception>
+        /// <exception cref="Microsoft.Rest.ValidationException">
+        /// Thrown when a required parameter is null
+        /// </exception>
+        Task<HttpOperationResponse<DatasetQueryScaleOutSyncStatus>> GetQueryScaleOutSyncStatusInGroupWithHttpMessagesAsync(System.Guid groupId, string datasetId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Triggers a query scale-out sync of read-only replicas for the
+        /// specified dataset from the specified workspace.
+        /// </summary>
+        /// <remarks>
+        ///
+        /// ## Permissions
+        ///
+        /// This API call can be called by a service principal profile. For
+        /// more information see: [Service principal profiles in Power BI
+        /// Embedded](/power-bi/developer/embedded/embed-multi-tenancy).
+        ///
+        /// ## Required Scope
+        ///
+        /// Dataset.ReadWrite.All
+        /// &lt;br&gt;&lt;br&gt;
+        /// </remarks>
+        /// <param name='groupId'>
+        /// The workspace ID
+        /// </param>
+        /// <param name='datasetId'>
+        /// The dataset ID
+        /// </param>
+        /// <param name='customHeaders'>
+        /// The headers that will be added to request.
+        /// </param>
+        /// <param name='cancellationToken'>
+        /// The cancellation token.
+        /// </param>
+        /// <exception cref="Microsoft.Rest.HttpOperationException">
+        /// Thrown when the operation returned an invalid status code
+        /// </exception>
+        /// <exception cref="Microsoft.Rest.SerializationException">
+        /// Thrown when unable to deserialize the response
+        /// </exception>
+        /// <exception cref="Microsoft.Rest.ValidationException">
+        /// Thrown when a required parameter is null
+        /// </exception>
+        Task<HttpOperationResponse<DatasetQueryScaleOutSyncStatus>> TriggerQueryScaleOutSyncInGroupWithHttpMessagesAsync(System.Guid groupId, string datasetId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Generates an embed token based on the specified dataset from the
         /// specified workspace.
