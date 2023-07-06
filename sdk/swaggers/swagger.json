@@ -694,7 +694,7 @@
                     },
                     {
                         "name": "$top",
-                        "description": "The requested number of entries in the refresh history. If not provided, the default is the last available 500 entries.",
+                        "description": "The requested number of entries in the refresh history. If not provided, the default is the last available 60 entries.",
                         "in": "query",
                         "required": false,
                         "type": "integer",
@@ -4836,7 +4836,7 @@
                     },
                     {
                         "name": "$top",
-                        "description": "The requested number of entries in the refresh history. If not provided, the default is the last available 500 entries.",
+                        "description": "The requested number of entries in the refresh history. If not provided, the default is the last available 60 entries.",
                         "in": "query",
                         "required": false,
                         "type": "integer",
