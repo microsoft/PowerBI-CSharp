@@ -2059,5 +2059,141 @@ namespace Microsoft.PowerBI.Api
                 return _result.Body;
             }
         }
+
+        /// <summary>
+        /// Returns the query scale-out sync status for the specified dataset from the
+        /// specified workspace.
+        /// </summary>
+        /// <remarks>
+        ///
+        /// ## Permissions
+        ///
+        /// This API call can be called by a service principal profile. For more
+        /// information see: [Service principal profiles in Power BI
+        /// Embedded](/power-bi/developer/embedded/embed-multi-tenancy).
+        ///
+        /// ## Required Scope
+        ///
+        /// Dataset.ReadWrite.All or Dataset.Read.All
+        /// &lt;br&gt;&lt;br&gt;
+        /// </remarks>
+        /// <param name='operations'>
+        /// The operations group for this extension method.
+        /// </param>
+        /// <param name='groupId'>
+        /// The workspace ID
+        /// </param>
+        /// <param name='datasetId'>
+        /// The dataset ID
+        /// </param>
+        public static DatasetQueryScaleOutSyncStatus GetQueryScaleOutSyncStatus(this IDatasetsOperations operations, System.Guid groupId, string datasetId)
+        {
+            return operations.GetQueryScaleOutSyncStatusAsync(groupId, datasetId).GetAwaiter().GetResult();
+        }
+
+        /// <summary>
+        /// Returns the query scale-out sync status for the specified dataset from the
+        /// specified workspace.
+        /// </summary>
+        /// <remarks>
+        ///
+        /// ## Permissions
+        ///
+        /// This API call can be called by a service principal profile. For more
+        /// information see: [Service principal profiles in Power BI
+        /// Embedded](/power-bi/developer/embedded/embed-multi-tenancy).
+        ///
+        /// ## Required Scope
+        ///
+        /// Dataset.ReadWrite.All or Dataset.Read.All
+        /// &lt;br&gt;&lt;br&gt;
+        /// </remarks>
+        /// <param name='operations'>
+        /// The operations group for this extension method.
+        /// </param>
+        /// <param name='groupId'>
+        /// The workspace ID
+        /// </param>
+        /// <param name='datasetId'>
+        /// The dataset ID
+        /// </param>
+        /// <param name='cancellationToken'>
+        /// The cancellation token.
+        /// </param>
+        public static async Task<DatasetQueryScaleOutSyncStatus> GetQueryScaleOutSyncStatusAsync(this IDatasetsOperations operations, System.Guid groupId, string datasetId, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            using (var _result = await operations.GetQueryScaleOutSyncStatusInGroupWithHttpMessagesAsync(groupId, datasetId, null, cancellationToken).ConfigureAwait(false))
+            {
+                return _result.Body;
+            }
+        }
+
+        /// <summary>
+        /// Triggers a query scale-out sync of read-only replicas for the specified
+        /// dataset from the specified workspace.
+        /// </summary>
+        /// <remarks>
+        ///
+        /// ## Permissions
+        ///
+        /// This API call can be called by a service principal profile. For more
+        /// information see: [Service principal profiles in Power BI
+        /// Embedded](/power-bi/developer/embedded/embed-multi-tenancy).
+        ///
+        /// ## Required Scope
+        ///
+        /// Dataset.ReadWrite.All
+        /// &lt;br&gt;&lt;br&gt;
+        /// </remarks>
+        /// <param name='operations'>
+        /// The operations group for this extension method.
+        /// </param>
+        /// <param name='groupId'>
+        /// The workspace ID
+        /// </param>
+        /// <param name='datasetId'>
+        /// The dataset ID
+        /// </param>
+        public static DatasetQueryScaleOutSyncStatus TriggerQueryScaleOutSync(this IDatasetsOperations operations, System.Guid groupId, string datasetId)
+        {
+            return operations.TriggerQueryScaleOutSyncAsync(groupId, datasetId).GetAwaiter().GetResult();
+        }
+
+        /// <summary>
+        /// Triggers a query scale-out sync of read-only replicas for the specified
+        /// dataset from the specified workspace.
+        /// </summary>
+        /// <remarks>
+        ///
+        /// ## Permissions
+        ///
+        /// This API call can be called by a service principal profile. For more
+        /// information see: [Service principal profiles in Power BI
+        /// Embedded](/power-bi/developer/embedded/embed-multi-tenancy).
+        ///
+        /// ## Required Scope
+        ///
+        /// Dataset.ReadWrite.All
+        /// &lt;br&gt;&lt;br&gt;
+        /// </remarks>
+        /// <param name='operations'>
+        /// The operations group for this extension method.
+        /// </param>
+        /// <param name='groupId'>
+        /// The workspace ID
+        /// </param>
+        /// <param name='datasetId'>
+        /// The dataset ID
+        /// </param>
+        /// <param name='cancellationToken'>
+        /// The cancellation token.
+        /// </param>
+        public static async Task<DatasetQueryScaleOutSyncStatus> TriggerQueryScaleOutSyncAsync(this IDatasetsOperations operations, System.Guid groupId, string datasetId, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            using (var _result = await operations.TriggerQueryScaleOutSyncInGroupWithHttpMessagesAsync(groupId, datasetId, null, cancellationToken).ConfigureAwait(false))
+            {
+                return _result.Body;
+            }
+        }
     }
 }

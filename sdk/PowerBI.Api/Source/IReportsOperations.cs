@@ -157,8 +157,8 @@ namespace Microsoft.PowerBI.Api
         /// - For .pbix reports -
         /// As a
         /// [workaround](/power-bi/developer/embedded/troubleshoot-rest-api#fix-timeout-exceptions-when-using-import-and-export-apis)
-        /// for timeout issues, set the `preferClientRouting` parameter to
-        /// `true`.
+        /// for timeout issues, set the `preferClientRouting` URL query
+        /// parameter to `true`.
         /// - Large files are downloaded to a temporary blob. Their URL is
         /// returned in the response, and stored in the locally downloaded
         /// Power BI .pbix file.
@@ -696,7 +696,8 @@ namespace Microsoft.PowerBI.Api
         /// <remarks>
         ///
         /// - For .pbix reports -
-        /// You can set the `preferClientRouting` parameter to `true` as a
+        /// You can set the `preferClientRouting` URL query parameter to `true`
+        /// as a
         /// [workaround](/power-bi/developer/embedded/troubleshoot-rest-api#fix-timeout-exceptions-when-using-import-and-export-apis)
         /// for timeout issues.
         /// - Large files are downloaded to a temporary blob. Their URL is

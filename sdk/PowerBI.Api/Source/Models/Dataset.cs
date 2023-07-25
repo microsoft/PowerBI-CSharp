@@ -74,7 +74,7 @@ namespace Microsoft.PowerBI.Api.Models
         /// shared with external users to be consumed in their own
         /// tenant</param>
         /// <param name="targetStorageMode">The dataset storage mode</param>
-        public Dataset(string id, string name = default(string), string configuredBy = default(string), System.DateTime? createdDate = default(System.DateTime?), string contentProviderType = default(string), string description = default(string), IList<DependentDataflow> upstreamDataflows = default(IList<DependentDataflow>), string createReportEmbedURL = default(string), string qnaEmbedURL = default(string), string webUrl = default(string), bool? isEffectiveIdentityRequired = default(bool?), bool? isEffectiveIdentityRolesRequired = default(bool?), bool? isOnPremGatewayRequired = default(bool?), Encryption encryption = default(Encryption), IList<DatasetUser> users = default(IList<DatasetUser>), bool? addRowsAPIEnabled = default(bool?), bool? isRefreshable = default(bool?), bool? isInPlaceSharingEnabled = default(bool?), string targetStorageMode = default(string))
+        public Dataset(string id, string name = default(string), string configuredBy = default(string), System.DateTime? createdDate = default(System.DateTime?), string contentProviderType = default(string), string description = default(string), IList<DependentDataflow> upstreamDataflows = default(IList<DependentDataflow>), string createReportEmbedURL = default(string), string qnaEmbedURL = default(string), string webUrl = default(string), bool? isEffectiveIdentityRequired = default(bool?), bool? isEffectiveIdentityRolesRequired = default(bool?), bool? isOnPremGatewayRequired = default(bool?), Encryption encryption = default(Encryption), IList<DatasetUser> users = default(IList<DatasetUser>), bool? addRowsAPIEnabled = default(bool?), bool? isRefreshable = default(bool?), bool? isInPlaceSharingEnabled = default(bool?), string targetStorageMode = default(string), DatasetQueryScaleOutSettings queryScaleOutSettings = default(DatasetQueryScaleOutSettings))
         {
             Id = id;
             Name = name;
@@ -95,6 +95,7 @@ namespace Microsoft.PowerBI.Api.Models
             IsRefreshable = isRefreshable;
             IsInPlaceSharingEnabled = isInPlaceSharingEnabled;
             TargetStorageMode = targetStorageMode;
+            QueryScaleOutSettings = queryScaleOutSettings;
             CustomInit();
         }
 
@@ -234,6 +235,11 @@ namespace Microsoft.PowerBI.Api.Models
         public string TargetStorageMode { get; set; }
 
         /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "queryScaleOutSettings")]
+        public DatasetQueryScaleOutSettings QueryScaleOutSettings { get; private set; }
+
+        /// <summary>
         /// Validate the object.
         /// </summary>
         /// <exception cref="ValidationException">
@@ -254,6 +260,10 @@ namespace Microsoft.PowerBI.Api.Models
                         element.Validate();
                     }
                 }
+            }
+            if (QueryScaleOutSettings != null)
+            {
+                QueryScaleOutSettings.Validate();
             }
         }
     }
