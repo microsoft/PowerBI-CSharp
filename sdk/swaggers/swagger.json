@@ -283,6 +283,20 @@
                         "responses": {
                             "200": {}
                         }
+                    },
+                    "Example of updating scale-out settings of a dataset": {
+                        "parameters": {
+                            "datasetId": "cfafbeb1-8037-4d0c-896e-a46fb27ff229",
+                            "updateDatasetRequest": {
+                                "queryScaleOutSettings": {
+                                    "autoSyncReadOnlyReplicas": false,
+                                    "maxReadOnlyReplicas": -1
+                                }
+                            }
+                        },
+                        "responses": {
+                            "200": {}
+                        }
                     }
                 },
                 "deprecated": false
@@ -680,7 +694,7 @@
                     },
                     {
                         "name": "$top",
-                        "description": "The requested number of entries in the refresh history. If not provided, the default is the last available 500 entries.",
+                        "description": "The requested number of entries in the refresh history. If not provided, the default is the last available 60 entries.",
                         "in": "query",
                         "required": false,
                         "type": "integer",
@@ -2138,6 +2152,116 @@
                 "deprecated": false
             }
         },
+        "/v1.0/myorg/datasets/{datasetId}/queryScaleOut/syncStatus": {
+            "get": {
+                "tags": [
+                    "Datasets"
+                ],
+                "summary": "Returns the query scale-out sync status for the specified dataset from **My workspace**.",
+                "description": "\n## Required Scope\n\nDataset.ReadWrite.All or Dataset.Read.All\n<br><br>",
+                "operationId": "Datasets_GetQueryScaleOutSyncStatus",
+                "consumes": [],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "datasetId",
+                        "in": "path",
+                        "description": "The dataset ID",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/DatasetQueryScaleOutSyncStatus"
+                        }
+                    }
+                },
+                "deprecated": false,
+                "x-ms-examples": {
+                    "Get query scale-out sync status example": {
+                        "parameters": {
+                            "datasetId": "cfafbeb1-8037-4d0c-896e-a46fb27ff229"
+                        },
+                        "responses": {
+                            "200": {
+                                "body": {
+                                    "commitVersion": 133186221251720662,
+                                    "commitTimestamp": "2023-01-19T17:15:25.1720662Z",
+                                    "targetSyncVersion": 133184583205771509,
+                                    "targetSyncTimestamp": "2023-01-17T19:45:20.5771509Z",
+                                    "triggerReason": "explicit",
+                                    "syncStartTime": "2023-01-17T20:37:49.9625479Z",
+                                    "syncEndTime": "2023-01-17T20:37:50.6029293Z",
+                                    "minActiveReadVersion": 133184583205771509,
+                                    "minActiveReadTimestamp": "2023-01-17T19:45:20.5771509Z",
+                                    "scaleOutStatus": "Enabled"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/v1.0/myorg/datasets/{datasetId}/queryScaleOut/sync": {
+            "post": {
+                "tags": [
+                    "Datasets"
+                ],
+                "summary": "Triggers a query scale-out sync of read-only replicas for the specified dataset from **My workspace**.",
+                "description": "\n## Required Scope\n\nDataset.ReadWrite.All\n<br><br>",
+                "operationId": "Datasets_TriggerQueryScaleOutSync",
+                "consumes": [],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "datasetId",
+                        "in": "path",
+                        "description": "The dataset ID",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/DatasetQueryScaleOutSyncStatus"
+                        }
+                    }
+                },
+                "deprecated": false,
+                "x-ms-examples": {
+                    "Trigger query scale-out sync example": {
+                        "parameters": {
+                            "datasetId": "cfafbeb1-8037-4d0c-896e-a46fb27ff229"
+                        },
+                        "responses": {
+                            "200": {
+                                "body": {
+                                    "commitVersion": 133186221251720662,
+                                    "commitTimestamp": "2023-01-19T17:15:25.1720662Z",
+                                    "targetSyncVersion": 133184583205771509,
+                                    "targetSyncTimestamp": "2023-01-17T19:45:20.5771509Z",
+                                    "triggerReason": "explicit",
+                                    "syncStartTime": "2023-01-17T20:37:49.9625479Z",
+                                    "syncEndTime": "2023-01-17T20:37:50.6029293Z",
+                                    "minActiveReadVersion": 133184583205771509,
+                                    "minActiveReadTimestamp": "2023-01-17T19:45:20.5771509Z",
+                                    "scaleOutStatus": "Enabled"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
         "/v1.0/myorg/groups/{groupId}/datasets/{datasetId}/users": {
             "post": {
                 "tags": [
@@ -3112,7 +3236,7 @@
                     "Reports"
                 ],
                 "summary": "Exports the specified report from **My workspace** to a Power BI .pbix or .rdl file.",
-                "description": "\n- For .pbix reports - \n As a [workaround](/power-bi/developer/embedded/troubleshoot-rest-api#fix-timeout-exceptions-when-using-import-and-export-apis) for timeout issues, set the `preferClientRouting` parameter to `true`.\n- Large files are downloaded to a temporary blob. Their URL is returned in the response, and stored in the locally downloaded Power BI .pbix file.\n- For more information on requirements and limitations, see [Download a report from the Power BI service to Power BI Desktop](/power-bi/create-reports/service-export-to-pbix).\n\n## Required Scope\n\nReport.ReadWrite.All or both Report.Read.All and Dataset.Read.All\n\n## Limitations\n\nFor .pbix report, after calling [Rebind Report](/rest/api/power-bi/reports/rebind-report), export of a report with a [Power BI service live connection](/power-bi/desktop-report-lifecycle-datasets) isn't supported.\n<br><br>",
+                "description": "\n- For .pbix reports - \n As a [workaround](/power-bi/developer/embedded/troubleshoot-rest-api#fix-timeout-exceptions-when-using-import-and-export-apis) for timeout issues, set the `preferClientRouting` URL query parameter to `true`.\n- Large files are downloaded to a temporary blob. Their URL is returned in the response, and stored in the locally downloaded Power BI .pbix file.\n- For more information on requirements and limitations, see [Download a report from the Power BI service to Power BI Desktop](/power-bi/create-reports/service-export-to-pbix).\n\n## Required Scope\n\nReport.ReadWrite.All or both Report.Read.All and Dataset.Read.All\n\n## Limitations\n\nFor .pbix report, after calling [Rebind Report](/rest/api/power-bi/reports/rebind-report), export of a report with a [Power BI service live connection](/power-bi/desktop-report-lifecycle-datasets) isn't supported.\n<br><br>",
                 "operationId": "Reports_ExportReport",
                 "consumes": [],
                 "produces": [
@@ -4339,6 +4463,21 @@
                         "responses": {
                             "200": {}
                         }
+                    },
+                    "Example of updating scale-out settings of a dataset": {
+                        "parameters": {
+                            "groupId": "f089354e-8366-4e18-aea3-4cb4a3a50b48",
+                            "datasetId": "cfafbeb1-8037-4d0c-896e-a46fb27ff229",
+                            "updateDatasetRequest": {
+                                "queryScaleOutSettings": {
+                                    "autoSyncReadOnlyReplicas": false,
+                                    "maxReadOnlyReplicas": -1
+                                }
+                            }
+                        },
+                        "responses": {
+                            "200": {}
+                        }
                     }
                 },
                 "deprecated": false
@@ -4697,7 +4836,7 @@
                     },
                     {
                         "name": "$top",
-                        "description": "The requested number of entries in the refresh history. If not provided, the default is the last available 500 entries.",
+                        "description": "The requested number of entries in the refresh history. If not provided, the default is the last available 60 entries.",
                         "in": "query",
                         "required": false,
                         "type": "integer",
@@ -6451,6 +6590,134 @@
                 }
             }
         },
+        "/v1.0/myorg/groups/{groupId}/datasets/{datasetId}/queryScaleOut/syncStatus": {
+            "get": {
+                "tags": [
+                    "Datasets"
+                ],
+                "summary": "Returns the query scale-out sync status for the specified dataset from the specified workspace.",
+                "description": "\n## Permissions\n\nThis API call can be called by a service principal profile. For more information see: [Service principal profiles in Power BI Embedded](/power-bi/developer/embedded/embed-multi-tenancy).\n\n## Required Scope\n\nDataset.ReadWrite.All or Dataset.Read.All\n<br><br>",
+                "operationId": "Datasets_GetQueryScaleOutSyncStatusInGroup",
+                "consumes": [],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "groupId",
+                        "in": "path",
+                        "required": true,
+                        "description": "The workspace ID",
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    {
+                        "name": "datasetId",
+                        "in": "path",
+                        "description": "The dataset ID",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/DatasetQueryScaleOutSyncStatus"
+                        }
+                    }
+                },
+                "deprecated": false,
+                "x-ms-examples": {
+                    "Get query scale-out sync status example": {
+                        "parameters": {
+                            "groupId": "f089354e-8366-4e18-aea3-4cb4a3a50b48",
+                            "datasetId": "cfafbeb1-8037-4d0c-896e-a46fb27ff229"
+                        },
+                        "responses": {
+                            "200": {
+                                "body": {
+                                    "commitVersion": 133186221251720662,
+                                    "commitTimestamp": "2023-01-19T17:15:25.1720662Z",
+                                    "targetSyncVersion": 133184583205771509,
+                                    "targetSyncTimestamp": "2023-01-17T19:45:20.5771509Z",
+                                    "triggerReason": "explicit",
+                                    "syncStartTime": "2023-01-17T20:37:49.9625479Z",
+                                    "syncEndTime": "2023-01-17T20:37:50.6029293Z",
+                                    "minActiveReadVersion": 133184583205771509,
+                                    "minActiveReadTimestamp": "2023-01-17T19:45:20.5771509Z",
+                                    "scaleOutStatus": "Enabled"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/v1.0/myorg/groups/{groupId}/datasets/{datasetId}/queryScaleOut/sync": {
+            "post": {
+                "tags": [
+                    "Datasets"
+                ],
+                "summary": "Triggers a query scale-out sync of read-only replicas for the specified dataset from the specified workspace.",
+                "description": "\n## Permissions\n\nThis API call can be called by a service principal profile. For more information see: [Service principal profiles in Power BI Embedded](/power-bi/developer/embedded/embed-multi-tenancy).\n\n## Required Scope\n\nDataset.ReadWrite.All\n<br><br>",
+                "operationId": "Datasets_TriggerQueryScaleOutSyncInGroup",
+                "consumes": [],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "groupId",
+                        "in": "path",
+                        "required": true,
+                        "description": "The workspace ID",
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    {
+                        "name": "datasetId",
+                        "in": "path",
+                        "description": "The dataset ID",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/DatasetQueryScaleOutSyncStatus"
+                        }
+                    }
+                },
+                "deprecated": false,
+                "x-ms-examples": {
+                    "Trigger query scale-out sync example": {
+                        "parameters": {
+                            "groupId": "f089354e-8366-4e18-aea3-4cb4a3a50b48",
+                            "datasetId": "cfafbeb1-8037-4d0c-896e-a46fb27ff229"
+                        },
+                        "responses": {
+                            "200": {
+                                "body": {
+                                    "commitVersion": 133186221251720662,
+                                    "commitTimestamp": "2023-01-19T17:15:25.1720662Z",
+                                    "targetSyncVersion": 133184583205771509,
+                                    "targetSyncTimestamp": "2023-01-17T19:45:20.5771509Z",
+                                    "triggerReason": "explicit",
+                                    "syncStartTime": "2023-01-17T20:37:49.9625479Z",
+                                    "syncEndTime": "2023-01-17T20:37:50.6029293Z",
+                                    "minActiveReadVersion": 133184583205771509,
+                                    "minActiveReadTimestamp": "2023-01-17T19:45:20.5771509Z",
+                                    "scaleOutStatus": "Enabled"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
         "/v1.0/myorg/groups/{groupId}/imports": {
             "get": {
                 "tags": [
@@ -7069,7 +7336,7 @@
                     "Reports"
                 ],
                 "summary": "Exports the specified report from the specified workspace to a Power BI .pbix or .rdl file.",
-                "description": "\n- For .pbix reports - \n You can set the `preferClientRouting` parameter to `true` as a [workaround](/power-bi/developer/embedded/troubleshoot-rest-api#fix-timeout-exceptions-when-using-import-and-export-apis) for timeout issues.\n- Large files are downloaded to a temporary blob. Their URL is returned in the response and stored in the locally downloaded Power BI .pbix file.\n- For more information on requirements and limitations, see [Download a report from the Power BI service to Power BI Desktop](/power-bi/create-reports/service-export-to-pbix).\n\n## Permissions\n\nThis API call can be called by a service principal profile. For more information see: [Service principal profiles in Power BI Embedded](/power-bi/developer/embedded/embed-multi-tenancy).\n\n## Required Scope\n\nReport.ReadWrite.All or both Report.Read.All and Dataset.Read.All\n\n## Limitations\n\nFor .pbix reports, exporting a report with a [Power BI service live connection](/power-bi/desktop-report-lifecycle-datasets) isn't supported after calling [Rebind Report](/rest/api/power-bi/reports/rebind-report).\n<br><br>",
+                "description": "\n- For .pbix reports - \n You can set the `preferClientRouting` URL query parameter to `true` as a [workaround](/power-bi/developer/embedded/troubleshoot-rest-api#fix-timeout-exceptions-when-using-import-and-export-apis) for timeout issues.\n- Large files are downloaded to a temporary blob. Their URL is returned in the response and stored in the locally downloaded Power BI .pbix file.\n- For more information on requirements and limitations, see [Download a report from the Power BI service to Power BI Desktop](/power-bi/create-reports/service-export-to-pbix).\n\n## Permissions\n\nThis API call can be called by a service principal profile. For more information see: [Service principal profiles in Power BI Embedded](/power-bi/developer/embedded/embed-multi-tenancy).\n\n## Required Scope\n\nReport.ReadWrite.All or both Report.Read.All and Dataset.Read.All\n\n## Limitations\n\nFor .pbix reports, exporting a report with a [Power BI service live connection](/power-bi/desktop-report-lifecycle-datasets) isn't supported after calling [Rebind Report](/rest/api/power-bi/reports/rebind-report).\n<br><br>",
                 "operationId": "Reports_ExportReportInGroup",
                 "consumes": [],
                 "produces": [
@@ -14856,7 +15123,7 @@
                                 "logAnalyticsWorkspace": {
                                     "subscriptionId": "d778934f-bda2-41d9-b5c7-6cf41372c1a0",
                                     "resourceGroup": "myResourceGroup",
-                                    "resourceName": "myLogAnalyticsWorksapce"
+                                    "resourceName": "myLogAnalyticsWorkspace"
                                 }
                             }
                         },
@@ -18230,7 +18497,10 @@
                                             "Activity": "ViewDashboard",
                                             "Workload": "PowerBI",
                                             "UserId": "john@contoso.com",
-                                            "ClientIP": "131.107.160.240"
+                                            "ClientIP": "131.107.160.240",
+                                            "CapacityId": "zy5bad4z-x1a2-491a-9f0c-f012171ee02e",
+                                            "CapacityName": "Shared On Premium - Reserved",
+                                            "WorkspaceId": "bf10ae91-c4f6-494e-b538-e2454229a765"                                            
                                         }
                                     ],
                                     "continuationUri": "https://api.powerbi.com/v1.0/myorg/admin/activityevents?continuationToken='%2BRID%3A244SAKlHY7YGAAAAAAAAAA%3D%3D%23RT%3A1%23TRC%3A5%23FPC%3AAQYAAAAAAAAAFwAAAAAAAAA%3D'",
@@ -18269,7 +18539,10 @@
                                             "Activity": "ViewReport",
                                             "Workload": "PowerBI",
                                             "UserId": "john@contoso.com",
-                                            "ClientIP": "131.107.160.240"
+                                            "ClientIP": "131.107.160.240",
+                                            "CapacityId": "zy5bad4z-x1a2-491a-9f0c-f012171ee02e",
+                                            "CapacityName": "Shared On Premium - Reserved",
+                                            "WorkspaceId": "bf10ae91-c4f6-494e-b538-e2454229a765"                                            
                                         }
                                     ],
                                     "continuationUri": "https://api.powerbi.com/v1.0/myorg/admin/activityevents?continuationToken='%2BRID%3A244SAKlHY7YQAAAAAAAAAA%3D%3D%23RT%3A1%23TRC%3A5%23FPC%3AARAAAAAAAAAAFwAAAAAAAAA%3D'&$filter=Activity eq 'ViewReport'",
@@ -18308,7 +18581,10 @@
                                             "Activity": "ViewReport",
                                             "Workload": "PowerBI",
                                             "UserId": "john@contoso.com",
-                                            "ClientIP": "131.107.160.240"
+                                            "ClientIP": "131.107.160.240",
+                                            "CapacityId": "zy5bad4z-x1a2-491a-9f0c-f012171ee02e",
+                                            "CapacityName": "Shared On Premium - Reserved",
+                                            "WorkspaceId": "bf10ae91-c4f6-494e-b538-e2454229a765"                                            
                                         }
                                     ],
                                     "continuationUri": "https://api.powerbi.com/v1.0/myorg/admin/activityevents?continuationToken='%2BRID%3A244SAKlHY7YQAAAAAAAAAA%3D%3D%23RT%3A1%23TRC%3A5%23FPC%3AARAAAAAAAAAAFwAAAAAAAAA%3D'&$filter=Activity eq 'ViewReport'",
@@ -18328,26 +18604,49 @@
                                 "body": {
                                     "activityEventEntities": [
                                         {
-                                            "Id": "41ce06d1-d81b-4ea0-bc6d-2ce3dd2f8e87",
-                                            "CreationTime": "2019-08-13T07:55:15",
-                                            "Operation": "ViewReport",
-                                            "OrganizationId": "e43e3248-3d83-44aa-a94d-c836bd7f9b79",
-                                            "UserKey": "123456",
-                                            "Activity": "ViewReport",
+                                            "Id": "8fb974dc-739e-41e4-a219-b5801e28095e",
+                                            "RecordType": 20,
+                                            "CreationTime": "2023-05-23T08:06:47",
+                                            "Operation": "GetSnapshots",
+                                            "OrganizationId": "98c45f19-7cac-4002-8702-97d943a5ccb4",
+                                            "UserType": 0,
+                                            "UserKey": "10033FFF8929F27A",
                                             "Workload": "PowerBI",
-                                            "UserId": "john@contoso.com",
-                                            "ClientIP": "127.0.0.1"
+                                            "UserId": "abc@contoso.onmicrosoft.com",
+                                            "ClientIP": "185.175.34.186",
+                                            "UserAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Safari/537.36 Edg/113.0.1774.50",
+                                            "Activity": "GetSnapshots",
+                                            "IsSuccess": true,
+                                            "RequestId": "ee4b5af1-9aa3-34fe-a163-7b188e865ef1",
+                                            "ActivityId": "cc1db5c9-ca04-484e-a6f2-f21de20bc000",
+                                            "ModelsSnapshots": []
                                         },
                                         {
-                                            "Id": "c632aa64-70fc-4e80-88f3-9fc2cdcacce8",
-                                            "CreationTime": "2019-08-13T07:55:10",
+                                            "Id": "1db4c464-3e5d-4a89-b412-c2ce6fbae88e",
+                                            "CreationTime": "2023-05-23T08:43:34",
                                             "Operation": "ViewReport",
-                                            "OrganizationId": "e43e3248-3d83-44aa-a94d-c836bd7f9b79",
-                                            "UserKey": "42343KJK53K45J",
+                                            "ClientIP": "122.172.83.253",
                                             "Activity": "ViewReport",
-                                            "Workload": "PowerBI",
-                                            "UserId": "john@contoso.com",
-                                            "ClientIP": "131.107.160.240"
+                                            "ItemName": "Capacity Metrics Analysis",
+                                            "WorkSpaceName": "Premium Capacity Utilization And Metrics 5/19/2023 11:57:07 AM",
+                                            "DatasetName": "Capacity Metrics Analysis",
+                                            "ReportName": "Capacity Metrics Analysis",
+                                            "CapacityId": "zy5bad4z-x1a2-491a-9f0c-f012171ee02e",
+                                            "CapacityName": "Shared On Premium - Reserved",
+                                            "WorkspaceId": "bf10ae91-c4f6-494e-b538-e2454229a765",
+                                            "AppName": "Premium Capacity Utilization And Metrics",
+                                            "ObjectId": "fb8a915c-b720-4a77-9e55-3a12fc42efcd",
+                                            "DatasetId": "5760cb34-a245-4eb7-a4e3-4ecae264a577",
+                                            "ReportId": "ae596344-7fe6-43cb-baa7-c7ddc63271c8",
+                                            "ArtifactId": "ae596344-7fe6-43cb-baa7-c7ddc63271c8",
+                                            "ArtifactName": "Capacity Metrics Analysis",
+                                            "ReportType": "PowerBIReport",
+                                            "RequestId": "9b8a4e32-b0c8-febf-c3c3-f25d45f682a4",
+                                            "ActivityId": "67c2dd35-242a-7053-4e92-8a7d78db9704",
+                                            "AppReportId": "3f87e0bd-a95d-40a4-bab5-5e206d643f8f",
+                                            "DistributionMethod": "Apps",
+                                            "ConsumptionMethod": "Power BI Web",
+                                            "ArtifactKind": "Report"
                                         }
                                     ],
                                     "continuationUri": "https://api.powerbi.com/v1.0/myorg/admin/activityevents?continuationToken='%2BRID%3A244SAKlHY7YQAAAAAAAAAA%3D%3D%23RT%3A1%23TRC%3A5%23FPC%3AARAAAAAAAAAAFwAAAAAAAAA%3D'&$filter=Activity eq 'ViewReport'",
@@ -18384,7 +18683,10 @@
                                             "Activity": "ViewReport",
                                             "Workload": "PowerBI",
                                             "UserId": "john@contoso.com",
-                                            "ClientIP": "131.107.160.240"
+                                            "ClientIP": "131.107.160.240",
+                                            "CapacityId": "zy5bad4z-x1a2-491a-9f0c-f012171ee02e",
+                                            "CapacityName": "Shared On Premium - Reserved",
+                                            "WorkspaceId": "bf10ae91-c4f6-494e-b538-e2454229a765"
                                         }
                                     ],
                                     "continuationUri": "https://api.powerbi.com/v1.0/myorg/admin/activityevents?continuationToken='%2BRID%$4Z244SAKlHY7YQAAAAAAAAAA%3D%3D%23RT%3A1%23TRC%3A5%23FPC%3AARAAAAAAAAAAFwAAAAAAAAA%3D'",
@@ -22052,6 +22354,21 @@
                 }
             }
         },
+        "DatasetQueryScaleOutSettings": {
+            "description": "Query scale-out settings of a dataset",
+            "properties": {
+                "autoSyncReadOnlyReplicas": {
+                    "type": "boolean",
+                    "description": "Whether the dataset automatically syncs read-only replicas"
+                },
+                "maxReadOnlyReplicas": {
+                    "type": "integer",
+                    "minimum": -1,
+                    "maximum": 64,
+                    "description": "Maximum number of read-only replicas for the dataset (0-64, -1 for automatic number of replicas)"
+                }
+            }
+        },
         "DatasetStorageMode": {
             "properties": {
                 "targetStorageMode": {
@@ -22071,11 +22388,16 @@
         },
         "UpdateDatasetRequest": {
             "description": "Update dataset request",
-            "allOf": [
-                {
-                    "$ref": "#/definitions/DatasetStorageMode"
+            "properties": {
+                "targetStorageMode": {
+                    "type": "string",
+                    "description": "The dataset storage mode"
+                },
+                "queryScaleOutSettings": {
+                    "type": "object",
+                    "$ref": "#/definitions/DatasetQueryScaleOutSettings"
                 }
-            ]
+            }
         },
         "UpstreamDatasetsProperties": {
             "properties": {
@@ -22086,7 +22408,7 @@
                         "$ref": "#/definitions/DependentDataset"
                     }
                 },
-				"upstreamDatamarts": {
+                "upstreamDatamarts": {
                     "type": "array",
                     "description": "The list of all the datamarts this item depends on",
                     "items": {
@@ -22115,6 +22437,15 @@
                 },
                 {
                     "$ref": "#/definitions/DatasetStorageMode"
+                },
+                {
+                    "properties": {
+                        "queryScaleOutSettings": {
+                            "type": "object",
+                            "$ref": "#/definitions/DatasetQueryScaleOutSettings",
+                            "readOnly": true
+                        }
+                    }
                 }
             ]
         },
@@ -22141,6 +22472,15 @@
                 },
                 {
                     "$ref": "#/definitions/DatasetWorkspaceIdProperty"
+                },
+                {
+                    "properties": {
+                        "queryScaleOutSettings": {
+                            "type": "object",
+                            "$ref": "#/definitions/DatasetQueryScaleOutSettings",
+                            "readOnly": true
+                        }
+                    }
                 }
             ]
         },
@@ -29286,6 +29626,111 @@
                 }
             },
             "description": "The details of an error, if present."
+        },
+        "DatasetQueryScaleOutSyncStatus": {
+            "description": "Dataset query scale-out sync status",
+            "type": "object",
+            "properties": {
+                "commitVersion": {
+                    "type": "integer",
+                    "format": "int64",
+                    "description": "Latest commit version"
+                },
+                "commitTimestamp": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "Timestamp indicating the latest commit version"
+                },
+                "targetSyncVersion": {
+                    "type": "integer",
+                    "format": "int64",
+                    "description": "Target sync version"
+                },
+                "targetSyncTimestamp": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "Timestamp indicating the target sync version"
+                },
+                "triggerReason": {
+                    "type": "string",
+                    "description": "Query scale-out sync trigger reason",
+                    "enum": [
+                        "explicit",
+                        "automatic",
+                        "system"
+                    ],
+                    "x-ms-enum": {
+                        "name": "QueryScaleOutSyncTriggerReason",
+                        "modelAsString": true,
+                        "values": [
+                            {
+                                "value": "explicit",
+                                "description": "Sync was explicitly triggered"
+                            },
+                            {
+                                "value": "automatic",
+                                "description": "Sync was automatically triggered"
+                            },
+                            {
+                                "value": "system",
+                                "description": "Sync was triggered following a system event"
+                            }
+                        ]
+                    }
+                },
+                "syncStartTime": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "Timestamp indicating when last sync started"
+                },
+                "syncEndTime": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "Timestamp indicating when last sync ended"
+                },
+                "minActiveReadVersion": {
+                    "type": "integer",
+                    "format": "int64",
+                    "description": "Minimum active read version"
+                },
+                "minActiveReadTimestamp": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "Timestamp indicating the minimum active read version"
+                },
+                "scaleOutStatus": {
+                    "type": "string",
+                    "description": "Query scale-out status",
+                    "enum": [
+                        "Enabled",
+                        "TenantSettingDisabled",
+                        "StorageModeNotSupported",
+                        "ReadOnlyReplicasDisabled"
+                    ],
+                    "x-ms-enum": {
+                        "name": "QueryScaleOutStatus",
+                        "modelAsString": true,
+                        "values": [
+                            {
+                                "value": "Enabled",
+                                "description": "Query scale-out is enabled"
+                            },
+                            {
+                                "value": "TenantSettingDisabled",
+                                "description": "Query scale-out tenant setting is disabled"
+                            },
+                            {
+                                "value": "StorageModeNotSupported",
+                                "description": "Query scale-out is not supported for dataset's storage mode"
+                            },
+                            {
+                                "value": "ReadOnlyReplicasDisabled",
+                                "description": "Query scale-out max read-only replicas is set to 0"
+                            }
+                        ]
+                    }
+                }
+            }
         },
         "Scorecards": {
             "description": "The OData response wrapper for a Power BI scorecard collection",

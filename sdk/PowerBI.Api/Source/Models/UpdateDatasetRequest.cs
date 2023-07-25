@@ -6,12 +6,13 @@
 
 namespace Microsoft.PowerBI.Api.Models
 {
+    using Newtonsoft.Json;
     using System.Linq;
 
     /// <summary>
     /// Update dataset request
     /// </summary>
-    public partial class UpdateDatasetRequest : DatasetStorageMode
+    public partial class UpdateDatasetRequest
     {
         /// <summary>
         /// Initializes a new instance of the UpdateDatasetRequest class.
@@ -25,9 +26,10 @@ namespace Microsoft.PowerBI.Api.Models
         /// Initializes a new instance of the UpdateDatasetRequest class.
         /// </summary>
         /// <param name="targetStorageMode">The dataset storage mode</param>
-        public UpdateDatasetRequest(string targetStorageMode = default(string))
-            : base(targetStorageMode)
+        public UpdateDatasetRequest(string targetStorageMode = default(string), DatasetQueryScaleOutSettings queryScaleOutSettings = default(DatasetQueryScaleOutSettings))
         {
+            TargetStorageMode = targetStorageMode;
+            QueryScaleOutSettings = queryScaleOutSettings;
             CustomInit();
         }
 
@@ -36,5 +38,29 @@ namespace Microsoft.PowerBI.Api.Models
         /// </summary>
         partial void CustomInit();
 
+        /// <summary>
+        /// Gets or sets the dataset storage mode
+        /// </summary>
+        [JsonProperty(PropertyName = "targetStorageMode")]
+        public string TargetStorageMode { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "queryScaleOutSettings")]
+        public DatasetQueryScaleOutSettings QueryScaleOutSettings { get; set; }
+
+        /// <summary>
+        /// Validate the object.
+        /// </summary>
+        /// <exception cref="Rest.ValidationException">
+        /// Thrown if validation fails
+        /// </exception>
+        public virtual void Validate()
+        {
+            if (QueryScaleOutSettings != null)
+            {
+                QueryScaleOutSettings.Validate();
+            }
+        }
     }
 }
