@@ -10925,7 +10925,7 @@
                     "Groups"
                 ],
                 "summary": "Returns a list of workspaces the user has access to.",
-                "description": "\nWhen user permissions to a workspace have been recently updated, the new permissions might not be immediately available through API calls. To refresh user permissions, use the [Refresh User Permissions](/rest/api/power-bi/users/refresh-user-permissions) API call.\n\n## Permissions\n\nThis API call can be called by a service principal profile. For more information see: [Service principal profiles in Power BI Embedded](/power-bi/developer/embedded/embed-multi-tenancy).\n\n## Required Scope\n\nWorkspace.Read.All or Workspace.ReadWrite.All\n<br><br>",
+                "description": "\n## Permissions\n\nThis API call can be called by a service principal profile. For more information see: [Service principal profiles in Power BI Embedded](/power-bi/developer/embedded/embed-multi-tenancy).\n\n## Required Scope\n\nWorkspace.Read.All or Workspace.ReadWrite.All\n\n## Limitations\n\n- User permissions for workspaces take time to get updated and may not be immediately available when using API calls. To refresh user permissions, use the [Refresh User Permissions](/rest/api/power-bi/users/refresh-user-permissions) API call.\n<br><br>",
                 "operationId": "Groups_GetGroups",
                 "consumes": [],
                 "produces": [
@@ -10979,13 +10979,17 @@
                                     {
                                         "id": "3d9b93c6-7b6d-4801-a491-1738910904fd",
                                         "isReadOnly": false,
-                                        "isOnDedicatedCapacity": false,
+                                        "isOnDedicatedCapacity": true,
+                                        "capacityId": "0f084df7-c13d-451b-af5f-ed0c466403b2",
+                                        "defaultDatasetStorageFormat": "Small",
                                         "name": "marketing group"
                                     },
                                     {
                                         "id": "a2f89923-421a-464e-bf4c-25eab39bb09f",
                                         "isReadOnly": false,
-                                        "isOnDedicatedCapacity": false,
+                                        "isOnDedicatedCapacity": true,
+                                        "capacityId": "0f084df7-c13d-451b-af5f-ed0c466403b2",
+                                        "defaultDatasetStorageFormat": "Large",
                                         "name": "contoso",
                                         "dataflowStorageId": "d692ae06-708c-485e-9987-06ff0fbdbb1f"
                                     }
@@ -11103,6 +11107,54 @@
             }
         },
         "/v1.0/myorg/groups/{groupId}": {
+            "get": {
+                "tags": [
+                    "Groups"
+                ],
+                "summary": "Returns a specified workspace.",
+                "description": "\n## Permissions\n\nThis API call can be called by a service principal profile. For more information see: [Service principal profiles in Power BI Embedded](/power-bi/developer/embedded/embed-multi-tenancy).\n\n## Required Scope\n\nWorkspace.Read.All or Workspace.ReadWrite.All\n\n## Limitations\n\n- User permissions for workspaces take time to get updated and may not be immediately available when using API calls. To refresh user permissions, use the [Refresh User Permissions](/rest/api/power-bi/users/refresh-user-permissions) API call.\n<br><br>",
+                "operationId": "Groups_GetGroup",
+                "consumes": [],
+                "produces": [],
+                "parameters": [
+                    {
+                        "name": "groupId",
+                        "in": "path",
+                        "required": true,
+                        "description": "The workspace ID",
+                        "type": "string",
+                        "format": "uuid"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/Group"
+                        }
+                    }
+                },
+                "x-ms-examples": {
+                    "Example": {
+                        "parameters": {
+                            "groupId": "f089354e-8366-4e18-aea3-4cb4a3a50b48"
+                        },
+                        "responses": {
+                            "200": {
+                                "body": {
+                                    "id": "f089354e-8366-4e18-aea3-4cb4a3a50b48",
+                                    "isReadOnly": false,
+                                    "isOnDedicatedCapacity": true,
+                                    "capacityId": "0f084df7-c13d-451b-af5f-ed0c466403b2",
+                                    "defaultDatasetStorageFormat": "Small",
+                                    "name": "Sample Group 1"
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": false
+            },
             "delete": {
                 "tags": [
                     "Groups"
@@ -11117,7 +11169,7 @@
                         "name": "groupId",
                         "in": "path",
                         "required": true,
-                        "description": "The workspace ID to delete",
+                        "description": "The workspace ID",
                         "type": "string",
                         "format": "uuid"
                     }
@@ -11138,6 +11190,55 @@
                     }
                 },
                 "deprecated": false
+            },
+            "patch": {
+                "tags": [
+                    "Groups"
+                ],
+                "summary": "Updates a specified workspace.",
+                "description": "\n## Permissions\n\nThis API call can be called by a service principal profile. For more information see: [Service principal profiles in Power BI Embedded](/power-bi/developer/embedded/embed-multi-tenancy).\n\n## Required Scope\n\nWorkspace.ReadWrite.All\n\n## Limitations\n\n- For Shared capacities, only the name can be updated.\n- For Premium capacities, only the name and defaultDatasetStorageFormat can be updated.\n- The name must be unique inside an organization.\n<br><br>",
+                "operationId": "Groups_UpdateGroup",
+                "consumes": [],
+                "produces": [],
+                "parameters": [
+                    {
+                        "name": "groupId",
+                        "in": "path",
+                        "required": true,
+                        "description": "The workspace ID",
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    {
+                        "name": "groupProperties",
+                        "in": "body",
+                        "required": true,
+                        "description": "The properties to update",
+                        "schema": {
+                            "$ref": "#/definitions/UpdateGroupRequest"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                },
+                "x-ms-examples": {
+                    "Example": {
+                        "parameters": {
+                            "groupId": "e2284830-c8dc-416b-b19a-8cdcd2729332",
+                            "groupProperties": {
+                                "name": "Updated Sales Results",
+                                "defaultDatasetStorageFormat": "Large"
+                            }
+                        },
+                        "responses": {
+                            "200": {}
+                        }
+                    }
+                },
+                "deprecated": false
             }
         },
         "/v1.0/myorg/groups/{groupId}/users": {
@@ -11146,7 +11247,7 @@
                     "Groups"
                 ],
                 "summary": "Returns a list of users that have access to the specified workspace.",
-                "description": "\nWhen user permissions to a workspace have been recently updated, the new permissions might not be immediately available through API calls. As a result, this API call might return an HTTP 401 error when a user has permissions to a workspace. To refresh user permissions, use the [Refresh User Permissions](/rest/api/power-bi/users/refresh-user-permissions) API call.\n\n## Permissions\n\nThis API call can be called by a service principal profile. For more information see: [Service principal profiles in Power BI Embedded](/power-bi/developer/embedded/embed-multi-tenancy).\n\n## Required Scope\n\nWorkspace.Read.All or Workspace.ReadWrite.All\n<br><br>",
+                "description": "\n## Permissions\n\nThis API call can be called by a service principal profile. For more information see: [Service principal profiles in Power BI Embedded](/power-bi/developer/embedded/embed-multi-tenancy).\n\n## Required Scope\n\nWorkspace.Read.All or Workspace.ReadWrite.All\n\n## Limitations\n\n- User permissions for workspaces take time to get updated and may not be immediately available when using API calls. To refresh user permissions, use the [Refresh User Permissions](/rest/api/power-bi/users/refresh-user-permissions) API call.\n<br><br>",
                 "operationId": "Groups_GetGroupUsers",
                 "consumes": [],
                 "produces": [
@@ -11226,7 +11327,7 @@
                     "Groups"
                 ],
                 "summary": "Grants the specified user the specified permissions to the specified workspace.",
-                "description": "\nWhen user permissions to a workspace have been recently updated, the new permissions might not be immediately available through API calls. To refresh user permissions, use the [Refresh User Permissions](/rest/api/power-bi/users/refresh-user-permissions) API call.\n\n## Permissions\n\nThis API call can be called by a service principal profile. For more information see: [Service principal profiles in Power BI Embedded](/power-bi/developer/embedded/embed-multi-tenancy).\n\n## Required Scope\n\nWorkspace.ReadWrite.All\n<br><br>",
+                "description": "\n## Permissions\n\nThis API call can be called by a service principal profile. For more information see: [Service principal profiles in Power BI Embedded](/power-bi/developer/embedded/embed-multi-tenancy).\n\n## Required Scope\n\nWorkspace.ReadWrite.All\n\n## Limitations\n\n- User permissions for workspaces take time to get updated and may not be immediately available when using API calls. To refresh user permissions, use the [Refresh User Permissions](/rest/api/power-bi/users/refresh-user-permissions) API call.\n<br><br>",
                 "operationId": "Groups_AddGroupUser",
                 "consumes": [
                     "application/json"
@@ -11290,7 +11391,7 @@
                     "Groups"
                 ],
                 "summary": "Updates the specified user permissions to the specified workspace.",
-                "description": "\nWhen user permissions to a workspace have been recently updated, the new permissions might not be immediately available through API calls. To refresh user permissions, use the [Refresh User Permissions](/rest/api/power-bi/users/refresh-user-permissions) API call.\n\n## Permissions\n\nThis API call can be called by a service principal profile. For more information see: [Service principal profiles in Power BI Embedded](/power-bi/developer/embedded/embed-multi-tenancy).\n\n## Required Scope\n\nWorkspace.ReadWrite.All\n<br><br>",
+                "description": "\n## Permissions\n\nThis API call can be called by a service principal profile. For more information see: [Service principal profiles in Power BI Embedded](/power-bi/developer/embedded/embed-multi-tenancy).\n\n## Required Scope\n\nWorkspace.ReadWrite.All\n\n## Limitations\n\n- User permissions for workspaces take time to get updated and may not be immediately available when using API calls. To refresh user permissions, use the [Refresh User Permissions](/rest/api/power-bi/users/refresh-user-permissions) API call.\n<br><br>",
                 "operationId": "Groups_UpdateGroupUser",
                 "consumes": [
                     "application/json"
@@ -13987,7 +14088,9 @@
                                             "name": "V2 shared",
                                             "type": "Workspace",
                                             "state": "Active",
-                                            "isOnDedicatedCapacity": false,
+                                            "isOnDedicatedCapacity": true,
+                                            "capacityId": "0f084df7-c13d-451b-af5f-ed0c466403b2",
+                                            "defaultDatasetStorageFormat": "Small",
                                             "reports": [
                                                 {
                                                     "id": "c6d072d1-ed20-4b60-8329-16c4b934203b",
@@ -14699,7 +14802,9 @@
                                         {
                                             "id": "e380d1d0-1fa6-460b-9a90-1a5c6b02414c",
                                             "isReadOnly": false,
-                                            "isOnDedicatedCapacity": false,
+                                            "isOnDedicatedCapacity": true,
+                                            "capacityId": "0f084df7-c13d-451b-af5f-ed0c466403b2",
+                                            "defaultDatasetStorageFormat": "Small",
                                             "name": "Sample Group 1",
                                             "description": "Sample group",
                                             "type": "Workspace",
@@ -14933,7 +15038,9 @@
                                         {
                                             "id": "e380d1d0-1fa6-460b-9a90-1a5c6b02414c",
                                             "isReadOnly": false,
-                                            "isOnDedicatedCapacity": false,
+                                            "isOnDedicatedCapacity": true,
+                                            "capacityId": "0f084df7-c13d-451b-af5f-ed0c466403b2",
+                                            "defaultDatasetStorageFormat": "Small",
                                             "name": "Sample Group 1",
                                             "description": "Sample group",
                                             "type": "Workspace",
@@ -15051,19 +15158,23 @@
                         },
                         "responses": {
                             "200": {
-                                "id": "e380d1d0-1fa6-460b-9a90-1a5c6b02414c",
-                                "isReadOnly": false,
-                                "isOnDedicatedCapacity": false,
-                                "name": "Sample Group 1",
-                                "description": "Sample group",
-                                "type": "Workspace",
-                                "state": "Active",
-                                "users": [
-                                    {
-                                        "emailAddress": "john@contoso.com",
-                                        "groupUserAccessRight": "Admin"
-                                    }
-                                ]
+                                "body": {
+                                    "id": "e380d1d0-1fa6-460b-9a90-1a5c6b02414c",
+                                    "isReadOnly": false,
+                                    "isOnDedicatedCapacity": true,
+                                    "capacityId": "0f084df7-c13d-451b-af5f-ed0c466403b2",
+                                    "defaultDatasetStorageFormat": "Small",
+                                    "name": "Sample Group 1",
+                                    "description": "Sample group",
+                                    "type": "Workspace",
+                                    "state": "Active",
+                                    "users": [
+                                        {
+                                            "emailAddress": "john@contoso.com",
+                                            "groupUserAccessRight": "Admin"
+                                        }
+                                    ]
+                                }
                             }
                         }
                     }
@@ -15075,7 +15186,7 @@
                     "Admin"
                 ],
                 "summary": "Updates the properties of the specified workspace.",
-                "description": "\nOnly the name, description and Log Analytics workspace can be updated. The name must be unique inside an organization. To unassign a Log Analytics workspace, explicitly set the value to null.\n\n## Permissions\n\nThe user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator).\n\n## Required Scope\n\nTenant.ReadWrite.All\n\n## Limitations\n\nMaximum 200 requests per hour.\n<br><br>",
+                "description": "\nTo unassign a Log Analytics workspace, explicitly set the value to null.\n\n## Permissions\n\nThe user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator).\n\n## Required Scope\n\nTenant.ReadWrite.All\n\n## Limitations\n\n- Maximum 200 requests per hour.\n- For Shared capacities, only the name and description can be updated.\n- For Premium capacities, only the name, description, defaultDatasetStorageFormat and Log Analytics workspace can be updated.\n- The name must be unique inside an organization.\n<br><br>",
                 "operationId": "Groups_UpdateGroupAsAdmin",
                 "consumes": [],
                 "produces": [],
@@ -15104,12 +15215,13 @@
                     }
                 },
                 "x-ms-examples": {
-                    "Example of updating group description": {
+                    "Example of updating group description and defaultDatasetStorageFormat": {
                         "parameters": {
                             "groupId": "e2284830-c8dc-416b-b19a-8cdcd2729332",
                             "groupProperties": {
                                 "name": "Updated Sales Results",
-                                "description": "Refreshed sales numbers"
+                                "description": "Refreshed sales numbers",
+                                "defaultDatasetStorageFormat": "Large"
                             }
                         },
                         "responses": {
@@ -22063,6 +22175,10 @@
                     "type": "string",
                     "description": "The workspace capacity ID"
                 },
+                "defaultDatasetStorageFormat": {
+                    "description": "The default dataset storage format in the workspace. Returned only when `isOnDedicatedCapacity` is `true`",
+                    "$ref": "#/definitions/DefaultDatasetStorageFormat"
+                },
                 "reports": {
                     "type": "array",
                     "description": "The reports associated with this workspace. The list of report properties returned varies for different API calls, so you might not see all report properties in an API response.",
@@ -24441,6 +24557,10 @@
                     "format": "uuid",
                     "description": "The Power BI dataflow storage account ID"
                 },
+                "defaultDatasetStorageFormat": {
+                    "description": "The default dataset storage format in the workspace. Returned only when `isOnDedicatedCapacity` is `true`",
+                    "$ref": "#/definitions/DefaultDatasetStorageFormat"
+                },
                 "logAnalyticsWorkspace": {
                     "description": "The Log Analytics workspace assigned to the group.  This is returned only when retrieving a single group.",
                     "$ref": "#/definitions/AzureResource"
@@ -24521,6 +24641,19 @@
                     "$ref": "#/definitions/GroupBaseProperties"
                 }
             ]
+        },
+        "UpdateGroupRequest": {
+            "description": "An update request for the group",
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "description": "The group name"
+                },
+                "defaultDatasetStorageFormat": {
+                    "description": "The default dataset storage format in the group",
+                    "$ref": "#/definitions/DefaultDatasetStorageFormat"
+                }
+            }
         },
         "Group": {
             "description": "A Power BI group",
@@ -25418,6 +25551,28 @@
                         ]
                     }
                 }
+            }
+        },
+        "DefaultDatasetStorageFormat": {
+            "type": "string",
+            "description": "The default dataset storage format in the group",
+            "enum": [
+                "Small",
+                "Large"
+            ],
+            "x-ms-enum": {
+                "name": "DefaultDatasetStorageFormat",
+                "modelAsString": true,
+                "values": [
+                    {
+                        "value": "Small",
+                        "description": "Small dataset storage format"
+                    },
+                    {
+                        "value": "Large",
+                        "description": "Large dataset storage format"
+                    }
+                ]
             }
         },
         "DirectQueryRefreshScheduleRequest": {

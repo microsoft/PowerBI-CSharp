@@ -37,6 +37,10 @@ namespace Microsoft.PowerBI.Api.Models
         /// <param name="isOnDedicatedCapacity">Whether the workspace is
         /// assigned to a dedicated capacity</param>
         /// <param name="capacityId">The workspace capacity ID</param>
+        /// <param name="defaultDatasetStorageFormat">The default dataset
+        /// storage format in the workspace. Returned only when
+        /// `isOnDedicatedCapacity` is `true`. Possible values include:
+        /// 'Small', 'Large'</param>
         /// <param name="reports">The reports associated with this workspace.
         /// The list of report properties returned varies for different API
         /// calls, so you might not see all report properties in an API
@@ -61,7 +65,7 @@ namespace Microsoft.PowerBI.Api.Models
         /// list is returned only when explicitly requested. To retrieve a list
         /// of users for a classic workspace, use the Azure Active Directory
         /// Graph API.</param>
-        public WorkspaceInfo(System.Guid id, string name = default(string), string description = default(string), string type = default(string), string state = default(string), string dataRetrievalState = default(string), bool? isOnDedicatedCapacity = default(bool?), string capacityId = default(string), IList<WorkspaceInfoReport> reports = default(IList<WorkspaceInfoReport>), IList<WorkspaceInfoDashboard> dashboards = default(IList<WorkspaceInfoDashboard>), IList<WorkspaceInfoDataset> datasets = default(IList<WorkspaceInfoDataset>), IList<WorkspaceInfoDataflow> dataflows = default(IList<WorkspaceInfoDataflow>), IList<WorkspaceInfoDatamart> datamarts = default(IList<WorkspaceInfoDatamart>), IList<GroupUser> users = default(IList<GroupUser>))
+        public WorkspaceInfo(System.Guid id, string name = default(string), string description = default(string), string type = default(string), string state = default(string), string dataRetrievalState = default(string), bool? isOnDedicatedCapacity = default(bool?), string capacityId = default(string), string defaultDatasetStorageFormat = default(string), IList<WorkspaceInfoReport> reports = default(IList<WorkspaceInfoReport>), IList<WorkspaceInfoDashboard> dashboards = default(IList<WorkspaceInfoDashboard>), IList<WorkspaceInfoDataset> datasets = default(IList<WorkspaceInfoDataset>), IList<WorkspaceInfoDataflow> dataflows = default(IList<WorkspaceInfoDataflow>), IList<WorkspaceInfoDatamart> datamarts = default(IList<WorkspaceInfoDatamart>), IList<GroupUser> users = default(IList<GroupUser>))
         {
             Id = id;
             Name = name;
@@ -71,6 +75,7 @@ namespace Microsoft.PowerBI.Api.Models
             DataRetrievalState = dataRetrievalState;
             IsOnDedicatedCapacity = isOnDedicatedCapacity;
             CapacityId = capacityId;
+            DefaultDatasetStorageFormat = defaultDatasetStorageFormat;
             Reports = reports;
             Dashboards = dashboards;
             Datasets = datasets;
@@ -133,6 +138,14 @@ namespace Microsoft.PowerBI.Api.Models
         /// </summary>
         [JsonProperty(PropertyName = "capacityId")]
         public string CapacityId { get; set; }
+
+        /// <summary>
+        /// Gets or sets the default dataset storage format in the workspace.
+        /// Returned only when `isOnDedicatedCapacity` is `true`. Possible
+        /// values include: 'Small', 'Large'
+        /// </summary>
+        [JsonProperty(PropertyName = "defaultDatasetStorageFormat")]
+        public string DefaultDatasetStorageFormat { get; set; }
 
         /// <summary>
         /// Gets or sets the reports associated with this workspace. The list

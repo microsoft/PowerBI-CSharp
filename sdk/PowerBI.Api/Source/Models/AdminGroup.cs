@@ -35,6 +35,10 @@ namespace Microsoft.PowerBI.Api.Models
         /// <param name="capacityId">The capacity ID</param>
         /// <param name="dataflowStorageId">The Power BI dataflow storage
         /// account ID</param>
+        /// <param name="defaultDatasetStorageFormat">The default dataset
+        /// storage format in the workspace. Returned only when
+        /// `isOnDedicatedCapacity` is `true`. Possible values include:
+        /// 'Small', 'Large'</param>
         /// <param name="logAnalyticsWorkspace">The Log Analytics workspace
         /// assigned to the group.  This is returned only when retrieving a
         /// single group.</param>
@@ -65,7 +69,7 @@ namespace Microsoft.PowerBI.Api.Models
         /// workspace is assigned to.</param>
         /// <param name="hasWorkspaceLevelSettings">Whether the workspace has
         /// custom settings</param>
-        public AdminGroup(System.Guid id, string name = default(string), bool? isReadOnly = default(bool?), bool? isOnDedicatedCapacity = default(bool?), System.Guid? capacityId = default(System.Guid?), System.Guid? dataflowStorageId = default(System.Guid?), AzureResource logAnalyticsWorkspace = default(AzureResource), string description = default(string), GroupType? type = default(GroupType?), string state = default(string), IList<GroupUser> users = default(IList<GroupUser>), IList<AdminReport> reports = default(IList<AdminReport>), IList<AdminDashboard> dashboards = default(IList<AdminDashboard>), IList<AdminDataset> datasets = default(IList<AdminDataset>), IList<AdminDataflow> dataflows = default(IList<AdminDataflow>), IList<Workbook> workbooks = default(IList<Workbook>), System.Guid? pipelineId = default(System.Guid?), bool? hasWorkspaceLevelSettings = default(bool?))
+        public AdminGroup(System.Guid id, string name = default(string), bool? isReadOnly = default(bool?), bool? isOnDedicatedCapacity = default(bool?), System.Guid? capacityId = default(System.Guid?), System.Guid? dataflowStorageId = default(System.Guid?), string defaultDatasetStorageFormat = default(string), AzureResource logAnalyticsWorkspace = default(AzureResource), string description = default(string), GroupType? type = default(GroupType?), string state = default(string), IList<GroupUser> users = default(IList<GroupUser>), IList<AdminReport> reports = default(IList<AdminReport>), IList<AdminDashboard> dashboards = default(IList<AdminDashboard>), IList<AdminDataset> datasets = default(IList<AdminDataset>), IList<AdminDataflow> dataflows = default(IList<AdminDataflow>), IList<Workbook> workbooks = default(IList<Workbook>), System.Guid? pipelineId = default(System.Guid?), bool? hasWorkspaceLevelSettings = default(bool?))
         {
             Id = id;
             Name = name;
@@ -73,6 +77,7 @@ namespace Microsoft.PowerBI.Api.Models
             IsOnDedicatedCapacity = isOnDedicatedCapacity;
             CapacityId = capacityId;
             DataflowStorageId = dataflowStorageId;
+            DefaultDatasetStorageFormat = defaultDatasetStorageFormat;
             LogAnalyticsWorkspace = logAnalyticsWorkspace;
             Description = description;
             Type = type;
@@ -128,6 +133,14 @@ namespace Microsoft.PowerBI.Api.Models
         /// </summary>
         [JsonProperty(PropertyName = "dataflowStorageId")]
         public System.Guid? DataflowStorageId { get; set; }
+
+        /// <summary>
+        /// Gets or sets the default dataset storage format in the workspace.
+        /// Returned only when `isOnDedicatedCapacity` is `true`. Possible
+        /// values include: 'Small', 'Large'
+        /// </summary>
+        [JsonProperty(PropertyName = "defaultDatasetStorageFormat")]
+        public string DefaultDatasetStorageFormat { get; set; }
 
         /// <summary>
         /// Gets or sets the Log Analytics workspace assigned to the group.

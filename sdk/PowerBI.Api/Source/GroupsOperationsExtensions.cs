@@ -20,11 +20,6 @@ namespace Microsoft.PowerBI.Api
             /// </summary>
             /// <remarks>
             ///
-            /// When user permissions to a workspace have been recently updated, the new
-            /// permissions might not be immediately available through API calls. To
-            /// refresh user permissions, use the [Refresh User
-            /// Permissions](/rest/api/power-bi/users/refresh-user-permissions) API call.
-            ///
             /// ## Permissions
             ///
             /// This API call can be called by a service principal profile. For more
@@ -34,6 +29,13 @@ namespace Microsoft.PowerBI.Api
             /// ## Required Scope
             ///
             /// Workspace.Read.All or Workspace.ReadWrite.All
+            ///
+            /// ## Limitations
+            ///
+            /// - User permissions for workspaces take time to get updated and may not be
+            /// immediately available when using API calls. To refresh user permissions,
+            /// use the [Refresh User
+            /// Permissions](/rest/api/power-bi/users/refresh-user-permissions) API call.
             /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
@@ -58,11 +60,6 @@ namespace Microsoft.PowerBI.Api
             /// </summary>
             /// <remarks>
             ///
-            /// When user permissions to a workspace have been recently updated, the new
-            /// permissions might not be immediately available through API calls. To
-            /// refresh user permissions, use the [Refresh User
-            /// Permissions](/rest/api/power-bi/users/refresh-user-permissions) API call.
-            ///
             /// ## Permissions
             ///
             /// This API call can be called by a service principal profile. For more
@@ -72,6 +69,13 @@ namespace Microsoft.PowerBI.Api
             /// ## Required Scope
             ///
             /// Workspace.Read.All or Workspace.ReadWrite.All
+            ///
+            /// ## Limitations
+            ///
+            /// - User permissions for workspaces take time to get updated and may not be
+            /// immediately available when using API calls. To refresh user permissions,
+            /// use the [Refresh User
+            /// Permissions](/rest/api/power-bi/users/refresh-user-permissions) API call.
             /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
@@ -166,6 +170,80 @@ namespace Microsoft.PowerBI.Api
             }
 
             /// <summary>
+            /// Returns a specified workspace.
+            /// </summary>
+            /// <remarks>
+            ///
+            /// ## Permissions
+            ///
+            /// This API call can be called by a service principal profile. For more
+            /// information see: [Service principal profiles in Power BI
+            /// Embedded](/power-bi/developer/embedded/embed-multi-tenancy).
+            ///
+            /// ## Required Scope
+            ///
+            /// Workspace.Read.All or Workspace.ReadWrite.All
+            ///
+            /// ## Limitations
+            ///
+            /// - User permissions for workspaces take time to get updated and may not be
+            /// immediately available when using API calls. To refresh user permissions,
+            /// use the [Refresh User
+            /// Permissions](/rest/api/power-bi/users/refresh-user-permissions) API call.
+            /// &lt;br&gt;&lt;br&gt;
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='groupId'>
+            /// The workspace ID
+            /// </param>
+            public static Group GetGroup(this IGroupsOperations operations, System.Guid groupId)
+            {
+                return operations.GetGroupAsync(groupId).GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Returns a specified workspace.
+            /// </summary>
+            /// <remarks>
+            ///
+            /// ## Permissions
+            ///
+            /// This API call can be called by a service principal profile. For more
+            /// information see: [Service principal profiles in Power BI
+            /// Embedded](/power-bi/developer/embedded/embed-multi-tenancy).
+            ///
+            /// ## Required Scope
+            ///
+            /// Workspace.Read.All or Workspace.ReadWrite.All
+            ///
+            /// ## Limitations
+            ///
+            /// - User permissions for workspaces take time to get updated and may not be
+            /// immediately available when using API calls. To refresh user permissions,
+            /// use the [Refresh User
+            /// Permissions](/rest/api/power-bi/users/refresh-user-permissions) API call.
+            /// &lt;br&gt;&lt;br&gt;
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='groupId'>
+            /// The workspace ID
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<Group> GetGroupAsync(this IGroupsOperations operations, System.Guid groupId, CancellationToken cancellationToken = default(CancellationToken))
+            {
+                using (var _result = await operations.GetGroupWithHttpMessagesAsync(groupId, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
+            /// <summary>
             /// Deletes the specified workspace.
             /// </summary>
             /// <remarks>
@@ -185,7 +263,7 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='groupId'>
-            /// The workspace ID to delete
+            /// The workspace ID
             /// </param>
             public static void DeleteGroup(this IGroupsOperations operations, System.Guid groupId)
             {
@@ -212,7 +290,7 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='groupId'>
-            /// The workspace ID to delete
+            /// The workspace ID
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
@@ -223,16 +301,86 @@ namespace Microsoft.PowerBI.Api
             }
 
             /// <summary>
-            /// Returns a list of users that have access to the specified workspace.
+            /// Updates a specified workspace.
             /// </summary>
             /// <remarks>
             ///
-            /// When user permissions to a workspace have been recently updated, the new
-            /// permissions might not be immediately available through API calls. As a
-            /// result, this API call might return an HTTP 401 error when a user has
-            /// permissions to a workspace. To refresh user permissions, use the [Refresh
-            /// User Permissions](/rest/api/power-bi/users/refresh-user-permissions) API
-            /// call.
+            /// ## Permissions
+            ///
+            /// This API call can be called by a service principal profile. For more
+            /// information see: [Service principal profiles in Power BI
+            /// Embedded](/power-bi/developer/embedded/embed-multi-tenancy).
+            ///
+            /// ## Required Scope
+            ///
+            /// Workspace.ReadWrite.All
+            ///
+            /// ## Limitations
+            ///
+            /// - For Shared capacities, only the name can be updated.
+            /// - For Premium capacities, only the name and defaultDatasetStorageFormat can
+            /// be updated.
+            /// - The name must be unique inside an organization.
+            /// &lt;br&gt;&lt;br&gt;
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='groupId'>
+            /// The workspace ID
+            /// </param>
+            /// <param name='groupProperties'>
+            /// The properties to update
+            /// </param>
+            public static void UpdateGroup(this IGroupsOperations operations, System.Guid groupId, UpdateGroupRequest groupProperties)
+            {
+                operations.UpdateGroupAsync(groupId, groupProperties).GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Updates a specified workspace.
+            /// </summary>
+            /// <remarks>
+            ///
+            /// ## Permissions
+            ///
+            /// This API call can be called by a service principal profile. For more
+            /// information see: [Service principal profiles in Power BI
+            /// Embedded](/power-bi/developer/embedded/embed-multi-tenancy).
+            ///
+            /// ## Required Scope
+            ///
+            /// Workspace.ReadWrite.All
+            ///
+            /// ## Limitations
+            ///
+            /// - For Shared capacities, only the name can be updated.
+            /// - For Premium capacities, only the name and defaultDatasetStorageFormat can
+            /// be updated.
+            /// - The name must be unique inside an organization.
+            /// &lt;br&gt;&lt;br&gt;
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='groupId'>
+            /// The workspace ID
+            /// </param>
+            /// <param name='groupProperties'>
+            /// The properties to update
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task UpdateGroupAsync(this IGroupsOperations operations, System.Guid groupId, UpdateGroupRequest groupProperties, CancellationToken cancellationToken = default(CancellationToken))
+            {
+                (await operations.UpdateGroupWithHttpMessagesAsync(groupId, groupProperties, null, cancellationToken).ConfigureAwait(false)).Dispose();
+            }
+
+            /// <summary>
+            /// Returns a list of users that have access to the specified workspace.
+            /// </summary>
+            /// <remarks>
             ///
             /// ## Permissions
             ///
@@ -243,6 +391,13 @@ namespace Microsoft.PowerBI.Api
             /// ## Required Scope
             ///
             /// Workspace.Read.All or Workspace.ReadWrite.All
+            ///
+            /// ## Limitations
+            ///
+            /// - User permissions for workspaces take time to get updated and may not be
+            /// immediately available when using API calls. To refresh user permissions,
+            /// use the [Refresh User
+            /// Permissions](/rest/api/power-bi/users/refresh-user-permissions) API call.
             /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
@@ -267,13 +422,6 @@ namespace Microsoft.PowerBI.Api
             /// </summary>
             /// <remarks>
             ///
-            /// When user permissions to a workspace have been recently updated, the new
-            /// permissions might not be immediately available through API calls. As a
-            /// result, this API call might return an HTTP 401 error when a user has
-            /// permissions to a workspace. To refresh user permissions, use the [Refresh
-            /// User Permissions](/rest/api/power-bi/users/refresh-user-permissions) API
-            /// call.
-            ///
             /// ## Permissions
             ///
             /// This API call can be called by a service principal profile. For more
@@ -283,6 +431,13 @@ namespace Microsoft.PowerBI.Api
             /// ## Required Scope
             ///
             /// Workspace.Read.All or Workspace.ReadWrite.All
+            ///
+            /// ## Limitations
+            ///
+            /// - User permissions for workspaces take time to get updated and may not be
+            /// immediately available when using API calls. To refresh user permissions,
+            /// use the [Refresh User
+            /// Permissions](/rest/api/power-bi/users/refresh-user-permissions) API call.
             /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
@@ -314,11 +469,6 @@ namespace Microsoft.PowerBI.Api
             /// </summary>
             /// <remarks>
             ///
-            /// When user permissions to a workspace have been recently updated, the new
-            /// permissions might not be immediately available through API calls. To
-            /// refresh user permissions, use the [Refresh User
-            /// Permissions](/rest/api/power-bi/users/refresh-user-permissions) API call.
-            ///
             /// ## Permissions
             ///
             /// This API call can be called by a service principal profile. For more
@@ -328,6 +478,13 @@ namespace Microsoft.PowerBI.Api
             /// ## Required Scope
             ///
             /// Workspace.ReadWrite.All
+            ///
+            /// ## Limitations
+            ///
+            /// - User permissions for workspaces take time to get updated and may not be
+            /// immediately available when using API calls. To refresh user permissions,
+            /// use the [Refresh User
+            /// Permissions](/rest/api/power-bi/users/refresh-user-permissions) API call.
             /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
@@ -350,11 +507,6 @@ namespace Microsoft.PowerBI.Api
             /// </summary>
             /// <remarks>
             ///
-            /// When user permissions to a workspace have been recently updated, the new
-            /// permissions might not be immediately available through API calls. To
-            /// refresh user permissions, use the [Refresh User
-            /// Permissions](/rest/api/power-bi/users/refresh-user-permissions) API call.
-            ///
             /// ## Permissions
             ///
             /// This API call can be called by a service principal profile. For more
@@ -364,6 +516,13 @@ namespace Microsoft.PowerBI.Api
             /// ## Required Scope
             ///
             /// Workspace.ReadWrite.All
+            ///
+            /// ## Limitations
+            ///
+            /// - User permissions for workspaces take time to get updated and may not be
+            /// immediately available when using API calls. To refresh user permissions,
+            /// use the [Refresh User
+            /// Permissions](/rest/api/power-bi/users/refresh-user-permissions) API call.
             /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
@@ -388,11 +547,6 @@ namespace Microsoft.PowerBI.Api
             /// </summary>
             /// <remarks>
             ///
-            /// When user permissions to a workspace have been recently updated, the new
-            /// permissions might not be immediately available through API calls. To
-            /// refresh user permissions, use the [Refresh User
-            /// Permissions](/rest/api/power-bi/users/refresh-user-permissions) API call.
-            ///
             /// ## Permissions
             ///
             /// This API call can be called by a service principal profile. For more
@@ -402,6 +556,13 @@ namespace Microsoft.PowerBI.Api
             /// ## Required Scope
             ///
             /// Workspace.ReadWrite.All
+            ///
+            /// ## Limitations
+            ///
+            /// - User permissions for workspaces take time to get updated and may not be
+            /// immediately available when using API calls. To refresh user permissions,
+            /// use the [Refresh User
+            /// Permissions](/rest/api/power-bi/users/refresh-user-permissions) API call.
             /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
@@ -423,11 +584,6 @@ namespace Microsoft.PowerBI.Api
             /// </summary>
             /// <remarks>
             ///
-            /// When user permissions to a workspace have been recently updated, the new
-            /// permissions might not be immediately available through API calls. To
-            /// refresh user permissions, use the [Refresh User
-            /// Permissions](/rest/api/power-bi/users/refresh-user-permissions) API call.
-            ///
             /// ## Permissions
             ///
             /// This API call can be called by a service principal profile. For more
@@ -437,6 +593,13 @@ namespace Microsoft.PowerBI.Api
             /// ## Required Scope
             ///
             /// Workspace.ReadWrite.All
+            ///
+            /// ## Limitations
+            ///
+            /// - User permissions for workspaces take time to get updated and may not be
+            /// immediately available when using API calls. To refresh user permissions,
+            /// use the [Refresh User
+            /// Permissions](/rest/api/power-bi/users/refresh-user-permissions) API call.
             /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
@@ -1033,9 +1196,7 @@ namespace Microsoft.PowerBI.Api
             /// </summary>
             /// <remarks>
             ///
-            /// Only the name, description and Log Analytics workspace can be updated. The
-            /// name must be unique inside an organization. To unassign a Log Analytics
-            /// workspace, explicitly set the value to null.
+            /// To unassign a Log Analytics workspace, explicitly set the value to null.
             ///
             /// ## Permissions
             ///
@@ -1048,7 +1209,11 @@ namespace Microsoft.PowerBI.Api
             ///
             /// ## Limitations
             ///
-            /// Maximum 200 requests per hour.
+            /// - Maximum 200 requests per hour.
+            /// - For Shared capacities, only the name and description can be updated.
+            /// - For Premium capacities, only the name, description,
+            /// defaultDatasetStorageFormat and Log Analytics workspace can be updated.
+            /// - The name must be unique inside an organization.
             /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
@@ -1070,9 +1235,7 @@ namespace Microsoft.PowerBI.Api
             /// </summary>
             /// <remarks>
             ///
-            /// Only the name, description and Log Analytics workspace can be updated. The
-            /// name must be unique inside an organization. To unassign a Log Analytics
-            /// workspace, explicitly set the value to null.
+            /// To unassign a Log Analytics workspace, explicitly set the value to null.
             ///
             /// ## Permissions
             ///
@@ -1085,7 +1248,11 @@ namespace Microsoft.PowerBI.Api
             ///
             /// ## Limitations
             ///
-            /// Maximum 200 requests per hour.
+            /// - Maximum 200 requests per hour.
+            /// - For Shared capacities, only the name and description can be updated.
+            /// - For Premium capacities, only the name, description,
+            /// defaultDatasetStorageFormat and Log Analytics workspace can be updated.
+            /// - The name must be unique inside an organization.
             /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
