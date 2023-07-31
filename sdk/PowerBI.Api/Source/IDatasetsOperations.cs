@@ -220,8 +220,8 @@ namespace Microsoft.PowerBI.Api
         /// - Maximum of 15MB of data per query. Once 15MB is exceeded, the
         /// current row will be completed but no additional rows will be
         /// written.
-        /// - Maximum of 120 requests per user per minute. Target dataset does
-        /// not impact this rate limit.
+        /// - There's a limit of 120 query requests per minute per user,
+        /// regardless of the dataset that's queried.
         /// - Service Principals aren't supported for datasets with RLS per
         /// [RLS
         /// limitations](/power-bi/admin/service-admin-rls#considerations-and-limitations)
@@ -2670,8 +2670,8 @@ namespace Microsoft.PowerBI.Api
         /// - Maximum of 15MB of data per query. Once 15MB is exceeded, the
         /// current row will be completed but no additional rows will be
         /// written.
-        /// - Maximum of 120 requests per user per minute. Target dataset does
-        /// not impact this rate limit.
+        /// - There's a limit of 120 query requests per minute per user,
+        /// regardless of the dataset that's queried.
         /// - Service Principals aren't supported for datasets with RLS per
         /// [RLS
         /// limitations](/power-bi/admin/service-admin-rls#considerations-and-limitations)
