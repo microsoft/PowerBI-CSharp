@@ -166,6 +166,12 @@ namespace Microsoft.PowerBI.Api
         /// [Download a report from the Power BI service to Power BI
         /// Desktop](/power-bi/create-reports/service-export-to-pbix).
         ///
+        /// &gt; [!NOTE]
+        /// &gt; Try-it feature is not supported for this API.
+        /// See [Export Power BI
+        /// Report](https://github.com/microsoft/PowerBI-Developer-Samples/blob/master/PowerShell%20Scripts/Export-PowerBIReport.ps1)
+        /// Powershell script for an example of how to use this API.
+        ///
         /// ## Required Scope
         ///
         /// Report.ReadWrite.All or both Report.Read.All and Dataset.Read.All
@@ -712,6 +718,12 @@ namespace Microsoft.PowerBI.Api
         /// This API call can be called by a service principal profile. For
         /// more information see: [Service principal profiles in Power BI
         /// Embedded](/power-bi/developer/embedded/embed-multi-tenancy).
+        ///
+        /// &gt; [!NOTE]
+        /// &gt; Try-it feature is not supported for this API.
+        /// See [Export Power BI
+        /// Report](https://github.com/microsoft/PowerBI-Developer-Samples/blob/master/PowerShell%20Scripts/Export-PowerBIReport.ps1)
+        /// Powershell script for an example of how to use this API.
         ///
         /// ## Required Scope
         ///
