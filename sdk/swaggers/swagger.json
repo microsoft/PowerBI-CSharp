@@ -26996,6 +26996,10 @@
                     "type": "string",
                     "description": "The effective username within a token that applies row-level security rules. For an on-premises model, the username can contain alphanumeric or any of the following characters `.`, `-`, `_`, `!`, `#`, `^`, `~`, `\\\\`, `@`. For cloud models, the username can contain any ASCII character. For either model, the username length must not exceed 256 characters, and the username shouldn't contain spaces."
                 },
+                "auditableContext": {
+                    "type": "string",
+                    "description": "The EffectiveIdentity auditable context. If this parameter is provided and isn't empty, it will enable auditing of the EffectiveIdentity and its value will be set to the username in the audit record. Otherwise, the EffectiveIdentity context will be omitted from the GenerateToken audit record."
+                },
                 "datasets": {
                     "type": "array",
                     "description": "An array of datasets for which this identity applies",
