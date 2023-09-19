@@ -4678,8 +4678,8 @@ namespace Microsoft.PowerBI.Api
             ///
             /// ## Permissions
             ///
-            /// The user must have dataset read permissions. For more information, see
-            /// [Manage dataset access
+            /// The user must have access to the workspace and dataset read permissions.
+            /// For more information, see [Manage dataset access
             /// permissions](/power-bi/connect-data/service-datasets-manage-access-permissions).
             ///
             /// ## Required Scope
@@ -4756,8 +4756,8 @@ namespace Microsoft.PowerBI.Api
             ///
             /// ## Permissions
             ///
-            /// The user must have dataset read permissions. For more information, see
-            /// [Manage dataset access
+            /// The user must have access to the workspace and dataset read permissions.
+            /// For more information, see [Manage dataset access
             /// permissions](/power-bi/connect-data/service-datasets-manage-access-permissions).
             ///
             /// ## Required Scope
