@@ -678,7 +678,7 @@
                     "Datasets"
                 ],
                 "summary": "Returns the refresh history for the specified dataset from **My workspace**.",
-                "description": "\n## Required Scope\n\nDataset.ReadWrite.All or Dataset.Read.All\n\n## Limitations\n\nOneDrive refresh history isn't returned.\n<br><br>",
+                "description": "\n## Required Scope\n\nDataset.ReadWrite.All or Dataset.Read.All\n\n## Limitations\n\nOneDrive refresh history isn't returned.\n\nThere are always between 20–60 available refresh history entries for each dataset, depending on the number of refreshes in the last 3 days.  \nThe most recent 60 are kept if they are all less than 3 days old.  \nEntries more than 3 days old are deleted when there are at least 20 more recent entries.\n<br><br>",
                 "operationId": "Datasets_GetRefreshHistory",
                 "consumes": [],
                 "produces": [
@@ -18500,7 +18500,7 @@
                                             "ClientIP": "131.107.160.240",
                                             "CapacityId": "zy5bad4z-x1a2-491a-9f0c-f012171ee02e",
                                             "CapacityName": "Shared On Premium - Reserved",
-                                            "WorkspaceId": "bf10ae91-c4f6-494e-b538-e2454229a765"                                            
+                                            "WorkspaceId": "bf10ae91-c4f6-494e-b538-e2454229a765"
                                         }
                                     ],
                                     "continuationUri": "https://api.powerbi.com/v1.0/myorg/admin/activityevents?continuationToken='%2BRID%3A244SAKlHY7YGAAAAAAAAAA%3D%3D%23RT%3A1%23TRC%3A5%23FPC%3AAQYAAAAAAAAAFwAAAAAAAAA%3D'",
@@ -18542,7 +18542,7 @@
                                             "ClientIP": "131.107.160.240",
                                             "CapacityId": "zy5bad4z-x1a2-491a-9f0c-f012171ee02e",
                                             "CapacityName": "Shared On Premium - Reserved",
-                                            "WorkspaceId": "bf10ae91-c4f6-494e-b538-e2454229a765"                                            
+                                            "WorkspaceId": "bf10ae91-c4f6-494e-b538-e2454229a765"
                                         }
                                     ],
                                     "continuationUri": "https://api.powerbi.com/v1.0/myorg/admin/activityevents?continuationToken='%2BRID%3A244SAKlHY7YQAAAAAAAAAA%3D%3D%23RT%3A1%23TRC%3A5%23FPC%3AARAAAAAAAAAAFwAAAAAAAAA%3D'&$filter=Activity eq 'ViewReport'",
@@ -18584,7 +18584,7 @@
                                             "ClientIP": "131.107.160.240",
                                             "CapacityId": "zy5bad4z-x1a2-491a-9f0c-f012171ee02e",
                                             "CapacityName": "Shared On Premium - Reserved",
-                                            "WorkspaceId": "bf10ae91-c4f6-494e-b538-e2454229a765"                                            
+                                            "WorkspaceId": "bf10ae91-c4f6-494e-b538-e2454229a765"
                                         }
                                     ],
                                     "continuationUri": "https://api.powerbi.com/v1.0/myorg/admin/activityevents?continuationToken='%2BRID%3A244SAKlHY7YQAAAAAAAAAA%3D%3D%23RT%3A1%23TRC%3A5%23FPC%3AARAAAAAAAAAAFwAAAAAAAAA%3D'&$filter=Activity eq 'ViewReport'",

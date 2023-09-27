@@ -710,6 +710,12 @@ namespace Microsoft.PowerBI.Api
             /// ## Limitations
             ///
             /// OneDrive refresh history isn't returned.
+            ///
+            /// There are always between 20–60 available refresh history entries for each
+            /// dataset, depending on the number of refreshes in the last 3 days.
+            /// The most recent 60 are kept if they are all less than 3 days old.
+            /// Entries more than 3 days old are deleted when there are at least 20 more
+            /// recent entries.
             /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
@@ -740,6 +746,12 @@ namespace Microsoft.PowerBI.Api
             /// ## Limitations
             ///
             /// OneDrive refresh history isn't returned.
+            ///
+            /// There are always between 20–60 available refresh history entries for each
+            /// dataset, depending on the number of refreshes in the last 3 days.
+            /// The most recent 60 are kept if they are all less than 3 days old.
+            /// Entries more than 3 days old are deleted when there are at least 20 more
+            /// recent entries.
             /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
