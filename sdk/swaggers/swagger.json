@@ -11737,7 +11737,7 @@
                     {
                         "name": "$expand",
                         "in": "query",
-                        "description": "Accepts a comma-separated list of data types, which will be expanded inline in the response. Supports `capacities` and `groups`.",
+                        "description": "Accepts a comma-separated list of data types, which will be expanded inline in the response. Supports `capacity` and `group`.",
                         "required": false,
                         "type": "string"
                     },
@@ -23829,8 +23829,14 @@
                     "type": "string",
                     "description": "The report type",
                     "enum": [
-                        "PaginatedReport"
+                        "PaginatedReport",
+                        "PowerBIReport"
                     ]
+                },
+                "originalReportId": {
+                    "type": "string",
+                    "format": "uuid",
+                    "description": "The actual report ID when the workspace is published as an app."
                 }
             }
         },
