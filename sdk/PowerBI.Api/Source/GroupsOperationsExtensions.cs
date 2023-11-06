@@ -1363,7 +1363,8 @@ namespace Microsoft.PowerBI.Api
             /// </summary>
             /// <remarks>
             ///
-            /// This API call only supports adding a user principle.
+            /// This API call only supports adding a user, security group, M365 group and
+            /// service principal.
             ///
             /// ## Permissions
             ///
@@ -1398,7 +1399,8 @@ namespace Microsoft.PowerBI.Api
             /// </summary>
             /// <remarks>
             ///
-            /// This API call only supports adding a user principle.
+            /// This API call only supports adding a user, security group, M365 group and
+            /// service principal.
             ///
             /// ## Permissions
             ///
@@ -1436,7 +1438,9 @@ namespace Microsoft.PowerBI.Api
             /// </summary>
             /// <remarks>
             ///
-            /// This API call only supports adding a user principle.
+            /// This API call supports removing a user, security group, M365 group and
+            /// service principal.Please use email address or UPN for user, group object Id
+            /// for group and app object Id for service principal to delete.
             ///
             /// ## Permissions
             ///
@@ -1456,17 +1460,22 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='groupId'>
-            /// The workspace ID
+            /// The workspace ID.
             /// </param>
             /// <param name='user'>
-            /// The user principal name (UPN) of the user to remove
+            /// The user principal name (UPN) of the user or group object Id of the group
+            /// or app object Id of the service principal to delete.
             /// </param>
             /// <param name='profileId'>
-            /// The service principal profile ID to delete
+            /// The service principal profile ID to delete.
             /// </param>
-            public static void DeleteUserAsAdmin(this IGroupsOperations operations, System.Guid groupId, string user, System.Guid? profileId = default(System.Guid?))
+            /// <param name='isGroup'>
+            /// Whether a given user is a group or not. This parameter is required when
+            /// user to delete is group.
+            /// </param>
+            public static void DeleteUserAsAdmin(this IGroupsOperations operations, System.Guid groupId, string user, System.Guid? profileId = default(System.Guid?), bool? isGroup = default(bool?))
             {
-                operations.DeleteUserAsAdminAsync(groupId, user, profileId).GetAwaiter().GetResult();
+                operations.DeleteUserAsAdminAsync(groupId, user, profileId, isGroup).GetAwaiter().GetResult();
             }
 
             /// <summary>
@@ -1474,7 +1483,9 @@ namespace Microsoft.PowerBI.Api
             /// </summary>
             /// <remarks>
             ///
-            /// This API call only supports adding a user principle.
+            /// This API call supports removing a user, security group, M365 group and
+            /// service principal.Please use email address or UPN for user, group object Id
+            /// for group and app object Id for service principal to delete.
             ///
             /// ## Permissions
             ///
@@ -1494,20 +1505,25 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='groupId'>
-            /// The workspace ID
+            /// The workspace ID.
             /// </param>
             /// <param name='user'>
-            /// The user principal name (UPN) of the user to remove
+            /// The user principal name (UPN) of the user or group object Id of the group
+            /// or app object Id of the service principal to delete.
             /// </param>
             /// <param name='profileId'>
-            /// The service principal profile ID to delete
+            /// The service principal profile ID to delete.
+            /// </param>
+            /// <param name='isGroup'>
+            /// Whether a given user is a group or not. This parameter is required when
+            /// user to delete is group.
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task DeleteUserAsAdminAsync(this IGroupsOperations operations, System.Guid groupId, string user, System.Guid? profileId = default(System.Guid?), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task DeleteUserAsAdminAsync(this IGroupsOperations operations, System.Guid groupId, string user, System.Guid? profileId = default(System.Guid?), bool? isGroup = default(bool?), CancellationToken cancellationToken = default(CancellationToken))
             {
-                (await operations.DeleteUserAsAdminWithHttpMessagesAsync(groupId, user, profileId, null, cancellationToken).ConfigureAwait(false)).Dispose();
+                (await operations.DeleteUserAsAdminWithHttpMessagesAsync(groupId, user, profileId, isGroup, null, cancellationToken).ConfigureAwait(false)).Dispose();
             }
 
             /// <summary>

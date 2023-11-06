@@ -15410,7 +15410,7 @@
                     "Admin"
                 ],
                 "summary": "Grants user permissions to the specified workspace.",
-                "description": "\nThis API call only supports adding a user principle.\n\n## Permissions\n\nThe user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator).\n\n## Required Scope\n\nTenant.ReadWrite.All\n\n## Limitations\n\nMaximum 200 requests per hour.\n<br><br>",
+                "description": "\nThis API call only supports adding a user, security group, M365 group and service principal.\n\n## Permissions\n\nThe user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator).\n\n## Required Scope\n\nTenant.ReadWrite.All\n\n## Limitations\n\nMaximum 200 requests per hour.\n<br><br>",
                 "operationId": "Groups_AddUserAsAdmin",
                 "consumes": [
                     "application/json"
@@ -15441,12 +15441,38 @@
                     }
                 },
                 "x-ms-examples": {
-                    "Example": {
+                    "Add user to group example": {
                         "parameters": {
                             "groupId": "206d27ca-94e8-4a69-855b-5c32bdd458a8",
                             "userDetails": {
                                 "emailAddress": "john@contoso.com",
                                 "groupUserAccessRight": "Admin"
+                            }
+                        },
+                        "responses": {
+                            "200": {}
+                        }
+                    },
+                    "Add eecurity group to workspace example": {
+                        "parameters": {
+                            "groupId": "206d27ca-94e8-4a69-855b-5c32bdd458a8",
+                            "userDetails": {
+                                "identifier": "ece007fa-2f19-4df1-bdd5-539881ec5f83", 
+                                "principalType": "Group",
+                                "groupUserAccessRight": "Member"
+                            }
+                        },
+                        "responses": {
+                            "200": {}
+                        }
+                    },
+                    "Add service principal to workspace example": {
+                        "parameters": {
+                            "groupId": "206d27ca-94e8-4a69-855b-5c32bdd458a8",
+                            "userDetails": {
+                                "identifier": "84c468ad-12f1-471e-af6f-0999da422391",
+                                "principalType": "App",
+                                "groupUserAccessRight": "Viewer"
                             }
                         },
                         "responses": {
@@ -15463,7 +15489,7 @@
                     "Admin"
                 ],
                 "summary": "Removes user permissions from the specified workspace.",
-                "description": "\nThis API call only supports adding a user principle.\n\n## Permissions\n\nThe user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator).\n\n## Required Scope\n\nTenant.ReadWrite.All\n\n## Limitations\n\nMaximum 200 requests per hour.\n<br><br>",
+                "description": "\nThis API call supports removing a user, security group, M365 group and service principal.Please use email address or UPN for user, group object Id for group and app object Id for service principal to delete.\n\n## Permissions\n\nThe user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator).\n\n## Required Scope\n\nTenant.ReadWrite.All\n\n## Limitations\n\nMaximum 200 requests per hour.\n<br><br>",
                 "operationId": "Groups_DeleteUserAsAdmin",
                 "consumes": [],
                 "produces": [],
@@ -15472,7 +15498,7 @@
                         "name": "groupId",
                         "in": "path",
                         "required": true,
-                        "description": "The workspace ID",
+                        "description": "The workspace ID.",
                         "type": "string",
                         "format": "uuid"
                     },
@@ -15480,16 +15506,23 @@
                         "name": "user",
                         "in": "path",
                         "required": true,
-                        "description": "The user principal name (UPN) of the user to remove",
+                        "description": "The user principal name (UPN) of the user or group object Id of the group or app object Id of the service principal to delete.",
                         "type": "string"
                     },
                     {
                         "name": "profileId",
                         "in": "query",
-                        "description": "The service principal profile ID to delete",
+                        "description": "The service principal profile ID to delete.",
                         "required": false,
                         "type": "string",
                         "format": "uuid"
+                    },
+                    {
+                        "name": "isGroup",
+                        "in": "query",
+                        "description": "Whether a given user is a group or not. This parameter is required when user to delete is group.",
+                        "required": false,
+                        "type": "boolean"
                     }
                 ],
                 "responses": {
@@ -15498,10 +15531,29 @@
                     }
                 },
                 "x-ms-examples": {
-                    "Example": {
+                    "Delete user example": {
                         "parameters": {
                             "groupId": "f7d76f5a-7190-43c6-bf12-7a135c6c2d69",
                             "user": "john@contoso.com"
+                        },
+                        "responses": {
+                            "200": {}
+                        }
+                    },
+                    "Delete group example": {
+                        "parameters": {
+                            "groupId": "f7d76f5a-7190-43c6-bf12-7a135c6c2d23",
+                            "user": "23476f5a-7190-43c6-bf12-7a135c6c2d23",
+                            "isGroup": true
+                        },
+                        "responses": {
+                            "200": {}
+                        }
+                    },
+                    "Delete service principal example": {
+                        "parameters": {
+                            "groupId": "f7d76f5a-7190-43c6-bf12-7a135c6c2d23",
+                            "user": "23476f5a-7190-43c6-bf12-7a135c6c2d23"
                         },
                         "responses": {
                             "200": {}

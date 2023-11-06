@@ -760,7 +760,8 @@ namespace Microsoft.PowerBI.Api
         /// </summary>
         /// <remarks>
         ///
-        /// This API call only supports adding a user principle.
+        /// This API call only supports adding a user, security group, M365
+        /// group and service principal.
         ///
         /// ## Permissions
         ///
@@ -800,7 +801,10 @@ namespace Microsoft.PowerBI.Api
         /// </summary>
         /// <remarks>
         ///
-        /// This API call only supports adding a user principle.
+        /// This API call supports removing a user, security group, M365 group
+        /// and service principal.Please use email address or UPN for user,
+        /// group object Id for group and app object Id for service principal
+        /// to delete.
         ///
         /// ## Permissions
         ///
@@ -817,13 +821,18 @@ namespace Microsoft.PowerBI.Api
         /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='groupId'>
-        /// The workspace ID
+        /// The workspace ID.
         /// </param>
         /// <param name='user'>
-        /// The user principal name (UPN) of the user to remove
+        /// The user principal name (UPN) of the user or group object Id of the
+        /// group or app object Id of the service principal to delete.
         /// </param>
         /// <param name='profileId'>
-        /// The service principal profile ID to delete
+        /// The service principal profile ID to delete.
+        /// </param>
+        /// <param name='isGroup'>
+        /// Whether a given user is a group or not. This parameter is required
+        /// when user to delete is group.
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -837,7 +846,7 @@ namespace Microsoft.PowerBI.Api
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse> DeleteUserAsAdminWithHttpMessagesAsync(System.Guid groupId, string user, System.Guid? profileId = default(System.Guid?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse> DeleteUserAsAdminWithHttpMessagesAsync(System.Guid groupId, string user, System.Guid? profileId = default(System.Guid?), bool? isGroup = default(bool?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Restores a deleted workspace.
         /// </summary>
