@@ -744,7 +744,21 @@
                                             "startTime": "2017-06-13T09:25:43.153Z",
                                             "endTime": "2017-06-13T09:31:43.153Z",
                                             "status": "Completed",
-                                            "requestId": "9399bb89-25d1-44f8-8576-136d7e9014b1"
+                                            "requestId": "9399bb89-25d1-44f8-8576-136d7e9014b1",
+                                            "refreshAttempts": [
+                                                {
+                                                    "attemptId": 1,
+                                                    "startTime": "2017-06-13T09:25:43.153Z",
+                                                    "endTime": "2017-06-13T09:31:40.153Z",
+                                                    "type": "Data"
+                                                },
+                                                {
+                                                    "attemptId": 1,
+                                                    "startTime": "2017-06-13T09:31:40.156Z",
+                                                    "endTime": "2017-06-13T09:31:43.153Z",
+                                                    "type": "Query"
+                                                }
+                                            ]
                                         }
                                     ]
                                 }
@@ -766,7 +780,16 @@
                                             "endTime": "2017-06-13T09:31:43.153Z",
                                             "serviceExceptionJson": "{\"errorCode\":\"ModelRefreshFailed_CredentialsNotSpecified\"}",
                                             "status": "Failed",
-                                            "requestId": "11bf290a-346b-48b7-8973-c5df149337ff"
+                                            "requestId": "11bf290a-346b-48b7-8973-c5df149337ff",
+                                            "refreshAttempts": [
+                                                {
+                                                    "attemptId": 1,
+                                                    "startTime": "2017-06-13T09:25:43.153Z",
+                                                    "endTime": "2017-06-13T09:31:43.153Z",
+                                                    "serviceExceptionJson": "{\"errorCode\":\"ModelRefreshFailed_CredentialsNotSpecified\"}",
+                                                    "type": "Data"
+                                                }
+                                            ]
                                         }
                                     ]
                                 }
@@ -1034,6 +1057,14 @@
                                             "table": "FactInternetSales",
                                             "status": "Completed"
                                         }
+                                    ],
+                                    "refreshAttempts": [
+                                        {
+                                            "attemptId": 1,
+                                            "startTime": "2021-12-10T08:40:31.57",
+                                            "endTime": "2021-12-10T08:40:43.87",
+                                            "type": "Data"
+                                        }
                                     ]
                                 }
                             }
@@ -1059,6 +1090,15 @@
                                         {
                                             "message": "RefreshApiRequest for table refresh using refresh policy must have the property 'CommitMode' = 'Transactional' instead of 'PartialBatch'.",
                                             "type": "Error"
+                                        }
+                                    ],
+                                    "refreshAttempts": [
+                                        {
+                                            "attemptId": 1,
+                                            "startTime": "2021-12-10T08:39:28.517",
+                                            "endTime": "2021-12-10T08:39:30.04",
+                                            "serviceExceptionJson": "{\"errorCode\":\"ModelRefresh_ShortMessage_ProcessingError\",\"errorDescription\":\"0xC112001C: Expression.Error: Forced Error. . The exception was raised by the IDbCommand interface.\\n0xC112001C: The command has been canceled.. The exception was raised by the IDbCommand interface.\\n0xC11C0006: The current operation was cancelled because another operation in the transaction failed.\\n0xC112001C: The command has been canceled.. The exception was raised by the IDbCommand interface.\\n0xC112001C: The command has been canceled.. The exception was raised by the IDbCommand interface.\\n0xC112001C: The command has been canceled.. The exception was raised by the IDbCommand interface.\"}",
+                                            "type": "Data"
                                         }
                                     ]
                                 }
@@ -4888,7 +4928,21 @@
                                             "startTime": "2017-06-13T09:25:43.153Z",
                                             "endTime": "2017-06-13T09:31:43.153Z",
                                             "status": "Completed",
-                                            "requestId": "9399bb89-25d1-44f8-8576-136d7e9014b1"
+                                            "requestId": "9399bb89-25d1-44f8-8576-136d7e9014b1",
+                                            "refreshAttempts": [
+                                                {
+                                                    "attemptId": 1,
+                                                    "startTime": "2017-06-13T09:25:43.153Z",
+                                                    "endTime": "2017-06-13T09:31:40.153Z",
+                                                    "type": "Data"
+                                                },
+                                                {
+                                                    "attemptId": 1,
+                                                    "startTime": "2017-06-13T09:31:40.156Z",
+                                                    "endTime": "2017-06-13T09:31:43.153Z",
+                                                    "type": "Query"
+                                                }
+                                            ]
                                         }
                                     ]
                                 }
@@ -4910,7 +4964,16 @@
                                             "endTime": "2017-06-13T09:31:43.153Z",
                                             "serviceExceptionJson": "{\"errorCode\":\"ModelRefreshFailed_CredentialsNotSpecified\"}",
                                             "status": "Failed",
-                                            "requestId": "11bf290a-346b-48b7-8973-c5df149337ff"
+                                            "requestId": "11bf290a-346b-48b7-8973-c5df149337ff",
+                                            "refreshAttempts": [
+                                                {
+                                                    "attemptId": 1,
+                                                    "startTime": "2017-06-13T09:25:43.153Z",
+                                                    "endTime": "2017-06-13T09:31:43.153Z",
+                                                    "serviceExceptionJson": "{\"errorCode\":\"ModelRefreshFailed_CredentialsNotSpecified\"}",
+                                                    "type": "Data"
+                                                }
+                                            ]
                                         }
                                     ]
                                 }
@@ -5197,6 +5260,14 @@
                                             "table": "FactInternetSales",
                                             "status": "Completed"
                                         }
+                                    ],
+                                    "refreshAttempts": [
+                                        {
+                                            "attemptId": 1,
+                                            "startTime": "2021-12-10T08:40:31.57",
+                                            "endTime": "2021-12-10T08:40:43.87",
+                                            "type": "Data"
+                                        }
                                     ]
                                 }
                             }
@@ -5223,6 +5294,15 @@
                                         {
                                             "message": "RefreshApiRequest for table refresh using refresh policy must have the property 'CommitMode' = 'Transactional' instead of 'PartialBatch'.",
                                             "type": "Error"
+                                        }
+                                    ],
+                                    "refreshAttempts": [
+                                        {
+                                            "attemptId": 1,
+                                            "startTime": "2021-12-10T08:39:28.517",
+                                            "endTime": "2021-12-10T08:39:30.04",
+                                            "serviceExceptionJson": "{\"errorCode\":\"ModelRefresh_ShortMessage_ProcessingError\",\"errorDescription\":\"0xC112001C: Expression.Error: Forced Error. . The exception was raised by the IDbCommand interface.\\n0xC112001C: The command has been canceled.. The exception was raised by the IDbCommand interface.\\n0xC11C0006: The current operation was cancelled because another operation in the transaction failed.\\n0xC112001C: The command has been canceled.. The exception was raised by the IDbCommand interface.\\n0xC112001C: The command has been canceled.. The exception was raised by the IDbCommand interface.\\n0xC112001C: The command has been canceled.. The exception was raised by the IDbCommand interface.\"}",
+                                            "type": "Data"
                                         }
                                     ]
                                 }
@@ -25084,6 +25164,58 @@
                 "requestId": {
                     "type": "string",
                     "description": "The identifier of the refresh request. Provide this identifier in all service requests."
+                },
+                "refreshAttempts": {
+                    "type": "array",
+                    "description": "The refresh attempt list.",
+                    "items": {
+                        "$ref": "#/definitions/RefreshAttempt"
+                    }
+                }
+            }
+        },
+        "RefreshAttempt": {
+            "description": "Power BI automatically makes multiple attempts to refresh a dataset if it experiences a refresh failure. This object contains information about each refresh attempt.",
+            "properties": {
+                "attemptId": {
+                    "type": "integer",
+                    "description": "The index of the refresh attempt."
+                },
+                "startTime": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "The start date and time of the refresh attempt."
+                },
+                "endTime": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "The end date and time of the refresh attempt. The value is void if the refresh attempt is in progress."
+                },
+                "serviceExceptionJson": {
+                    "type": "string",
+                    "description": "Failure error code in JSON format. Void if there's no error."
+                },
+                "type": {
+                    "type": "string",
+                    "description": "The type of refresh attempt.",
+                    "enum": [
+                        "Data",
+                        "Query"
+                    ],
+                    "x-ms-enum": {
+                        "name": "RefreshAttemptType",
+                        "modelAsExtensible": true,
+                        "values": [
+                            {
+                                "value": "Data",
+                                "description": "The refresh attempt to load data into the dataset."
+                            },
+                            {
+                                "value": "Query",
+                                "description": "The attempt to refresh premium query caches and dashboard tiles.u"
+                            }
+                        ]
+                    }
                 }
             }
         },
@@ -25388,6 +25520,13 @@
                     "description": "An array of engine error or warning messages for the refresh request",
                     "items": {
                         "$ref": "#/definitions/EngineMessage"
+                    }
+                },
+                "refreshAttempts": {
+                    "type": "array",
+                    "description": "The refresh attempt list.",
+                    "items": {
+                        "$ref": "#/definitions/RefreshAttempt"
                     }
                 }
             }
