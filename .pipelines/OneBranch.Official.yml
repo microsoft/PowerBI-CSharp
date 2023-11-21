@@ -48,7 +48,7 @@ extends:
   parameters:
     globalSdl: # https://aka.ms/obpipelines/sdl
       tsa:
-        enabled: false
+        enabled: true
       cg:
         failOnAlert: false
 
