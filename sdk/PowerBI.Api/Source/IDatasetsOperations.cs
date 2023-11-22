@@ -196,7 +196,8 @@ namespace Microsoft.PowerBI.Api
         ///
         /// ## Permissions
         ///
-        /// The user must have [Manage dataset access
+        /// The user must have dataset read and build permissions. For more
+        /// information, see [Manage dataset access
         /// permissions](/power-bi/connect-data/service-datasets-manage-access-permissions).
         ///
         /// ## Required Scope
@@ -219,8 +220,8 @@ namespace Microsoft.PowerBI.Api
         /// - Maximum of 15MB of data per query. Once 15MB is exceeded, the
         /// current row will be completed but no additional rows will be
         /// written.
-        /// - Maximum of 120 requests per user per minute. Target dataset does
-        /// not impact this rate limit.
+        /// - There's a limit of 120 query requests per minute per user,
+        /// regardless of the dataset that's queried.
         /// - Service Principals aren't supported for datasets with RLS per
         /// [RLS
         /// limitations](/power-bi/admin/service-admin-rls#considerations-and-limitations)
@@ -418,6 +419,13 @@ namespace Microsoft.PowerBI.Api
         /// ## Limitations
         ///
         /// OneDrive refresh history isn't returned.
+        ///
+        /// There are always between 20–60 available refresh history entries
+        /// for each dataset, depending on the number of refreshes in the last
+        /// 3 days.
+        /// The most recent 60 are kept if they are all less than 3 days old.
+        /// Entries more than 3 days old are deleted when there are more than
+        /// 20 entries.
         /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='datasetId'>
@@ -2645,7 +2653,8 @@ namespace Microsoft.PowerBI.Api
         ///
         /// ## Permissions
         ///
-        /// The user must have [Manage dataset access
+        /// The user must have access to the workspace, and dataset read and
+        /// build permissions. For more information, see [Manage dataset access
         /// permissions](/power-bi/connect-data/service-datasets-manage-access-permissions).
         ///
         /// ## Required Scope
@@ -2668,8 +2677,8 @@ namespace Microsoft.PowerBI.Api
         /// - Maximum of 15MB of data per query. Once 15MB is exceeded, the
         /// current row will be completed but no additional rows will be
         /// written.
-        /// - Maximum of 120 requests per user per minute. Target dataset does
-        /// not impact this rate limit.
+        /// - There's a limit of 120 query requests per minute per user,
+        /// regardless of the dataset that's queried.
         /// - Service Principals aren't supported for datasets with RLS per
         /// [RLS
         /// limitations](/power-bi/admin/service-admin-rls#considerations-and-limitations)

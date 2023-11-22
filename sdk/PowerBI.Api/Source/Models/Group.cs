@@ -33,10 +33,14 @@ namespace Microsoft.PowerBI.Api.Models
         /// <param name="capacityId">The capacity ID</param>
         /// <param name="dataflowStorageId">The Power BI dataflow storage
         /// account ID</param>
+        /// <param name="defaultDatasetStorageFormat">The default dataset
+        /// storage format in the workspace. Returned only when
+        /// `isOnDedicatedCapacity` is `true`. Possible values include:
+        /// 'Small', 'Large'</param>
         /// <param name="logAnalyticsWorkspace">The Log Analytics workspace
         /// assigned to the group.  This is returned only when retrieving a
         /// single group.</param>
-        public Group(System.Guid id, string name = default(string), bool? isReadOnly = default(bool?), bool? isOnDedicatedCapacity = default(bool?), System.Guid? capacityId = default(System.Guid?), System.Guid? dataflowStorageId = default(System.Guid?), AzureResource logAnalyticsWorkspace = default(AzureResource))
+        public Group(System.Guid id, string name = default(string), bool? isReadOnly = default(bool?), bool? isOnDedicatedCapacity = default(bool?), System.Guid? capacityId = default(System.Guid?), System.Guid? dataflowStorageId = default(System.Guid?), string defaultDatasetStorageFormat = default(string), AzureResource logAnalyticsWorkspace = default(AzureResource))
         {
             Id = id;
             Name = name;
@@ -44,6 +48,7 @@ namespace Microsoft.PowerBI.Api.Models
             IsOnDedicatedCapacity = isOnDedicatedCapacity;
             CapacityId = capacityId;
             DataflowStorageId = dataflowStorageId;
+            DefaultDatasetStorageFormat = defaultDatasetStorageFormat;
             LogAnalyticsWorkspace = logAnalyticsWorkspace;
             CustomInit();
         }
@@ -88,6 +93,14 @@ namespace Microsoft.PowerBI.Api.Models
         /// </summary>
         [JsonProperty(PropertyName = "dataflowStorageId")]
         public System.Guid? DataflowStorageId { get; set; }
+
+        /// <summary>
+        /// Gets or sets the default dataset storage format in the workspace.
+        /// Returned only when `isOnDedicatedCapacity` is `true`. Possible
+        /// values include: 'Small', 'Large'
+        /// </summary>
+        [JsonProperty(PropertyName = "defaultDatasetStorageFormat")]
+        public string DefaultDatasetStorageFormat { get; set; }
 
         /// <summary>
         /// Gets or sets the Log Analytics workspace assigned to the group.
