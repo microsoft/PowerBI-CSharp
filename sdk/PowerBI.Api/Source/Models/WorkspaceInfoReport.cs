@@ -37,7 +37,9 @@ namespace Microsoft.PowerBI.Api.Models
         /// to an app</param>
         /// <param name="description">The report description</param>
         /// <param name="reportType">The report type. Possible values include:
-        /// 'PaginatedReport'</param>
+        /// 'PaginatedReport', 'PowerBIReport'</param>
+        /// <param name="originalReportId">The actual report ID when the
+        /// workspace is published as an app.</param>
         /// <param name="createdBy">The report owner. Available only for
         /// reports created after June 2019.</param>
         /// <param name="modifiedBy">The last user that modified the
@@ -63,7 +65,7 @@ namespace Microsoft.PowerBI.Api.Models
         /// <param name="datasetWorkspaceId">The workspace ID of the related
         /// dataset, returned only if the related dataset belongs to a
         /// different workspace</param>
-        public WorkspaceInfoReport(System.Guid id, string name = default(string), string datasetId = default(string), string appId = default(string), string description = default(string), string reportType = default(string), string createdBy = default(string), string modifiedBy = default(string), System.DateTime? createdDateTime = default(System.DateTime?), System.DateTime? modifiedDateTime = default(System.DateTime?), string createdById = default(string), string modifiedById = default(string), EndorsementDetails endorsementDetails = default(EndorsementDetails), SensitivityLabel sensitivityLabel = default(SensitivityLabel), IList<ReportUser> users = default(IList<ReportUser>), System.Guid? datasetWorkspaceId = default(System.Guid?))
+        public WorkspaceInfoReport(System.Guid id, string name = default(string), string datasetId = default(string), string appId = default(string), string description = default(string), string reportType = default(string), System.Guid? originalReportId = default(System.Guid?), string createdBy = default(string), string modifiedBy = default(string), System.DateTime? createdDateTime = default(System.DateTime?), System.DateTime? modifiedDateTime = default(System.DateTime?), string createdById = default(string), string modifiedById = default(string), EndorsementDetails endorsementDetails = default(EndorsementDetails), SensitivityLabel sensitivityLabel = default(SensitivityLabel), IList<ReportUser> users = default(IList<ReportUser>), System.Guid? datasetWorkspaceId = default(System.Guid?))
         {
             Id = id;
             Name = name;
@@ -71,6 +73,7 @@ namespace Microsoft.PowerBI.Api.Models
             AppId = appId;
             Description = description;
             ReportType = reportType;
+            OriginalReportId = originalReportId;
             CreatedBy = createdBy;
             ModifiedBy = modifiedBy;
             CreatedDateTime = createdDateTime;
@@ -122,10 +125,17 @@ namespace Microsoft.PowerBI.Api.Models
 
         /// <summary>
         /// Gets or sets the report type. Possible values include:
-        /// 'PaginatedReport'
+        /// 'PaginatedReport', 'PowerBIReport'
         /// </summary>
         [JsonProperty(PropertyName = "reportType")]
         public string ReportType { get; set; }
+
+        /// <summary>
+        /// Gets or sets the actual report ID when the workspace is published
+        /// as an app.
+        /// </summary>
+        [JsonProperty(PropertyName = "originalReportId")]
+        public System.Guid? OriginalReportId { get; set; }
 
         /// <summary>
         /// Gets or sets the report owner. Available only for reports created

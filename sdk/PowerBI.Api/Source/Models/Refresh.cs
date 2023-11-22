@@ -7,6 +7,8 @@
 namespace Microsoft.PowerBI.Api.Models
 {
     using Newtonsoft.Json;
+    using System.Collections;
+    using System.Collections.Generic;
     using System.Linq;
 
     /// <summary>
@@ -43,7 +45,8 @@ namespace Microsoft.PowerBI.Api.Models
         /// refresh.</param>
         /// <param name="requestId">The identifier of the refresh request.
         /// Provide this identifier in all service requests.</param>
-        public Refresh(RefreshType? refreshType = default(RefreshType?), System.DateTime? startTime = default(System.DateTime?), System.DateTime? endTime = default(System.DateTime?), string serviceExceptionJson = default(string), string status = default(string), string requestId = default(string))
+        /// <param name="refreshAttempts">The refresh attempt list.</param>
+        public Refresh(RefreshType? refreshType = default(RefreshType?), System.DateTime? startTime = default(System.DateTime?), System.DateTime? endTime = default(System.DateTime?), string serviceExceptionJson = default(string), string status = default(string), string requestId = default(string), IList<RefreshAttempt> refreshAttempts = default(IList<RefreshAttempt>))
         {
             RefreshType = refreshType;
             StartTime = startTime;
@@ -51,6 +54,7 @@ namespace Microsoft.PowerBI.Api.Models
             ServiceExceptionJson = serviceExceptionJson;
             Status = status;
             RequestId = requestId;
+            RefreshAttempts = refreshAttempts;
             CustomInit();
         }
 
@@ -103,6 +107,12 @@ namespace Microsoft.PowerBI.Api.Models
         /// </summary>
         [JsonProperty(PropertyName = "requestId")]
         public string RequestId { get; set; }
+
+        /// <summary>
+        /// Gets or sets the refresh attempt list.
+        /// </summary>
+        [JsonProperty(PropertyName = "refreshAttempts")]
+        public IList<RefreshAttempt> RefreshAttempts { get; set; }
 
     }
 }

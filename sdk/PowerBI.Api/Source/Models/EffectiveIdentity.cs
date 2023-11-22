@@ -37,6 +37,12 @@ namespace Microsoft.PowerBI.Api.Models
         /// models, the username can contain any ASCII character. For either
         /// model, the username length must not exceed 256 characters, and the
         /// username shouldn't contain spaces.</param>
+        /// <param name="auditableContext">The EffectiveIdentity auditable
+        /// context. If this parameter is provided and isn't empty, it will
+        /// enable auditing of the EffectiveIdentity and its value will be set
+        /// to the username in the audit record. Otherwise, the
+        /// EffectiveIdentity context will be omitted from the GenerateToken
+        /// audit record.</param>
         /// <param name="datasets">An array of datasets for which this identity
         /// applies</param>
         /// <param name="roles">An array of row-level security (RLS) roles
@@ -54,9 +60,10 @@ namespace Microsoft.PowerBI.Api.Models
         /// SQL.</param>
         /// <param name="reports">An array of reports for which this identity
         /// applies. Only supported for paginated reports.</param>
-        public EffectiveIdentity(string username, IList<string> datasets = default(IList<string>), IList<string> roles = default(IList<string>), string customData = default(string), IdentityBlob identityBlob = default(IdentityBlob), IList<string> reports = default(IList<string>))
+        public EffectiveIdentity(string username, string auditableContext = default(string), IList<string> datasets = default(IList<string>), IList<string> roles = default(IList<string>), string customData = default(string), IdentityBlob identityBlob = default(IdentityBlob), IList<string> reports = default(IList<string>))
         {
             Username = username;
+            AuditableContext = auditableContext;
             Datasets = datasets;
             Roles = roles;
             CustomData = customData;
@@ -81,6 +88,16 @@ namespace Microsoft.PowerBI.Api.Models
         /// </summary>
         [JsonProperty(PropertyName = "username")]
         public string Username { get; set; }
+
+        /// <summary>
+        /// Gets or sets the EffectiveIdentity auditable context. If this
+        /// parameter is provided and isn't empty, it will enable auditing of
+        /// the EffectiveIdentity and its value will be set to the username in
+        /// the audit record. Otherwise, the EffectiveIdentity context will be
+        /// omitted from the GenerateToken audit record.
+        /// </summary>
+        [JsonProperty(PropertyName = "auditableContext")]
+        public string AuditableContext { get; set; }
 
         /// <summary>
         /// Gets or sets an array of datasets for which this identity applies

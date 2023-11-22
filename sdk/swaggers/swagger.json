@@ -343,7 +343,7 @@
                     "Datasets"
                 ],
                 "summary": "Executes Data Analysis Expressions (DAX) queries against the provided dataset. The dataset must reside in **My workspace** or another workspace.",
-                "description": "\nDAX query errors will result in:\n\n- A response error, such as `DAX query failure`.\n- A failure HTTP status code (400).\n\nA query that requests more than one table, or more than the allowed number of table rows, will result in:\n\n- Limited data being returned.\n- A response error, such as `More than one result table in a query` or `More than {allowed number} rows in a query result`.\n- A successful HTTP status code (200).\n\nColumns that are fully qualified in the query will be returned with a fully qualified name, for example, `MyTable[MyColumn]`. Columns that are renamed or created in the query will be returned within square bracket, for example, `[MyNewColumn]`.\n\n## Permissions\n\nThe user must have [Manage dataset access permissions](/power-bi/connect-data/service-datasets-manage-access-permissions).\n\n## Required Scope\n\nDataset.ReadWrite.All or Dataset.Read.All\n\n## Limitations\n\n- Datasets that are hosted in Azure Analysis Services or that have a live connection to an on-premises Azure Analysis Services model aren't supported.\n- The tenant setting **Dataset Execute Queries REST API**, found under **Integration settings**, must be enabled.\n- One query per API call.\n- One table request per query.\n- Maximum of 100,000 rows or 1,000,000 values per query (whichever is hit first). For example if you query for 5 columns, you can get back max 100,000 rows. If you query for 20 columns, you can get back max 50,000 rows (1 million divided by 20).\n- Maximum of 15MB of data per query. Once 15MB is exceeded, the current row will be completed but no additional rows will be written.\n- Maximum of 120 requests per user per minute. Target dataset does not impact this rate limit.\n- Service Principals aren't supported for datasets with RLS per [RLS limitations](/power-bi/admin/service-admin-rls#considerations-and-limitations) or with SSO enabled. To use Service Principals, make sure the admin tenant setting [_Allow service principals to use Power BI APIs_](/power-bi/admin/service-admin-portal-developer#allow-service-principals-to-use-power-bi-apis) under _Developer settings_ is enabled.\n- Only DAX queries are supported at this time. MDX and DMV queries are not supported. \n<br><br>",
+                "description": "\nDAX query errors will result in:\n\n- A response error, such as `DAX query failure`.\n- A failure HTTP status code (400).\n\nA query that requests more than one table, or more than the allowed number of table rows, will result in:\n\n- Limited data being returned.\n- A response error, such as `More than one result table in a query` or `More than {allowed number} rows in a query result`.\n- A successful HTTP status code (200).\n\nColumns that are fully qualified in the query will be returned with a fully qualified name, for example, `MyTable[MyColumn]`. Columns that are renamed or created in the query will be returned within square bracket, for example, `[MyNewColumn]`.\n\n## Permissions\n\nThe user must have dataset read and build permissions. For more information, see [Manage dataset access permissions](/power-bi/connect-data/service-datasets-manage-access-permissions).\n\n## Required Scope\n\nDataset.ReadWrite.All or Dataset.Read.All\n\n## Limitations\n\n- Datasets that are hosted in Azure Analysis Services or that have a live connection to an on-premises Azure Analysis Services model aren't supported.\n- The tenant setting **Dataset Execute Queries REST API**, found under **Integration settings**, must be enabled.\n- One query per API call.\n- One table request per query.\n- Maximum of 100,000 rows or 1,000,000 values per query (whichever is hit first). For example if you query for 5 columns, you can get back max 100,000 rows. If you query for 20 columns, you can get back max 50,000 rows (1 million divided by 20).\n- Maximum of 15MB of data per query. Once 15MB is exceeded, the current row will be completed but no additional rows will be written.\n- There's a limit of 120 query requests per minute per user, regardless of the dataset that's queried.\n- Service Principals aren't supported for datasets with RLS per [RLS limitations](/power-bi/admin/service-admin-rls#considerations-and-limitations) or with SSO enabled. To use Service Principals, make sure the admin tenant setting [_Allow service principals to use Power BI APIs_](/power-bi/admin/service-admin-portal-developer#allow-service-principals-to-use-power-bi-apis) under _Developer settings_ is enabled.\n- Only DAX queries are supported at this time. MDX and DMV queries are not supported. \n<br><br>",
                 "operationId": "Datasets_ExecuteQueries",
                 "consumes": [],
                 "produces": [
@@ -678,7 +678,7 @@
                     "Datasets"
                 ],
                 "summary": "Returns the refresh history for the specified dataset from **My workspace**.",
-                "description": "\n## Required Scope\n\nDataset.ReadWrite.All or Dataset.Read.All\n\n## Limitations\n\nOneDrive refresh history isn't returned.\n<br><br>",
+                "description": "\n## Required Scope\n\nDataset.ReadWrite.All or Dataset.Read.All\n\n## Limitations\n\nOneDrive refresh history isn't returned.\n\nThere are always between 20–60 available refresh history entries for each dataset, depending on the number of refreshes in the last 3 days.  \nThe most recent 60 are kept if they are all less than 3 days old. \nEntries more than 3 days old are deleted when there are more than 20 entries.\n<br><br>",
                 "operationId": "Datasets_GetRefreshHistory",
                 "consumes": [],
                 "produces": [
@@ -744,7 +744,21 @@
                                             "startTime": "2017-06-13T09:25:43.153Z",
                                             "endTime": "2017-06-13T09:31:43.153Z",
                                             "status": "Completed",
-                                            "requestId": "9399bb89-25d1-44f8-8576-136d7e9014b1"
+                                            "requestId": "9399bb89-25d1-44f8-8576-136d7e9014b1",
+                                            "refreshAttempts": [
+                                                {
+                                                    "attemptId": 1,
+                                                    "startTime": "2017-06-13T09:25:43.153Z",
+                                                    "endTime": "2017-06-13T09:31:40.153Z",
+                                                    "type": "Data"
+                                                },
+                                                {
+                                                    "attemptId": 1,
+                                                    "startTime": "2017-06-13T09:31:40.156Z",
+                                                    "endTime": "2017-06-13T09:31:43.153Z",
+                                                    "type": "Query"
+                                                }
+                                            ]
                                         }
                                     ]
                                 }
@@ -766,7 +780,16 @@
                                             "endTime": "2017-06-13T09:31:43.153Z",
                                             "serviceExceptionJson": "{\"errorCode\":\"ModelRefreshFailed_CredentialsNotSpecified\"}",
                                             "status": "Failed",
-                                            "requestId": "11bf290a-346b-48b7-8973-c5df149337ff"
+                                            "requestId": "11bf290a-346b-48b7-8973-c5df149337ff",
+                                            "refreshAttempts": [
+                                                {
+                                                    "attemptId": 1,
+                                                    "startTime": "2017-06-13T09:25:43.153Z",
+                                                    "endTime": "2017-06-13T09:31:43.153Z",
+                                                    "serviceExceptionJson": "{\"errorCode\":\"ModelRefreshFailed_CredentialsNotSpecified\"}",
+                                                    "type": "Data"
+                                                }
+                                            ]
                                         }
                                     ]
                                 }
@@ -1034,6 +1057,14 @@
                                             "table": "FactInternetSales",
                                             "status": "Completed"
                                         }
+                                    ],
+                                    "refreshAttempts": [
+                                        {
+                                            "attemptId": 1,
+                                            "startTime": "2021-12-10T08:40:31.57",
+                                            "endTime": "2021-12-10T08:40:43.87",
+                                            "type": "Data"
+                                        }
                                     ]
                                 }
                             }
@@ -1059,6 +1090,15 @@
                                         {
                                             "message": "RefreshApiRequest for table refresh using refresh policy must have the property 'CommitMode' = 'Transactional' instead of 'PartialBatch'.",
                                             "type": "Error"
+                                        }
+                                    ],
+                                    "refreshAttempts": [
+                                        {
+                                            "attemptId": 1,
+                                            "startTime": "2021-12-10T08:39:28.517",
+                                            "endTime": "2021-12-10T08:39:30.04",
+                                            "serviceExceptionJson": "{\"errorCode\":\"ModelRefresh_ShortMessage_ProcessingError\",\"errorDescription\":\"0xC112001C: Expression.Error: Forced Error. . The exception was raised by the IDbCommand interface.\\n0xC112001C: The command has been canceled.. The exception was raised by the IDbCommand interface.\\n0xC11C0006: The current operation was cancelled because another operation in the transaction failed.\\n0xC112001C: The command has been canceled.. The exception was raised by the IDbCommand interface.\\n0xC112001C: The command has been canceled.. The exception was raised by the IDbCommand interface.\\n0xC112001C: The command has been canceled.. The exception was raised by the IDbCommand interface.\"}",
+                                            "type": "Data"
                                         }
                                     ]
                                 }
@@ -3236,7 +3276,7 @@
                     "Reports"
                 ],
                 "summary": "Exports the specified report from **My workspace** to a Power BI .pbix or .rdl file.",
-                "description": "\n- For .pbix reports - \n As a [workaround](/power-bi/developer/embedded/troubleshoot-rest-api#fix-timeout-exceptions-when-using-import-and-export-apis) for timeout issues, set the `preferClientRouting` URL query parameter to `true`.\n- Large files are downloaded to a temporary blob. Their URL is returned in the response, and stored in the locally downloaded Power BI .pbix file.\n- For more information on requirements and limitations, see [Download a report from the Power BI service to Power BI Desktop](/power-bi/create-reports/service-export-to-pbix).\n\n## Required Scope\n\nReport.ReadWrite.All or both Report.Read.All and Dataset.Read.All\n\n## Limitations\n\nFor .pbix report, after calling [Rebind Report](/rest/api/power-bi/reports/rebind-report), export of a report with a [Power BI service live connection](/power-bi/desktop-report-lifecycle-datasets) isn't supported.\n<br><br>",
+                "description": "\n- For .pbix reports - \n As a [workaround](/power-bi/developer/embedded/troubleshoot-rest-api#fix-timeout-exceptions-when-using-import-and-export-apis) for timeout issues, set the `preferClientRouting` URL query parameter to `true`.\n- Large files are downloaded to a temporary blob. Their URL is returned in the response, and stored in the locally downloaded Power BI .pbix file.\n- For more information on requirements and limitations, see [Download a report from the Power BI service to Power BI Desktop](/power-bi/create-reports/service-export-to-pbix).\n\n> [!NOTE]\n> Try-it feature is not supported for this API.\n See [Export Power BI Report](https://github.com/microsoft/PowerBI-Developer-Samples/blob/master/PowerShell%20Scripts/Export-PowerBIReport.ps1) Powershell script for an example of how to use this API.\n\n## Required Scope\n\nReport.ReadWrite.All or both Report.Read.All and Dataset.Read.All\n\n## Limitations\n\nFor .pbix report, after calling [Rebind Report](/rest/api/power-bi/reports/rebind-report), export of a report with a [Power BI service live connection](/power-bi/desktop-report-lifecycle-datasets) isn't supported.\n<br><br>",
                 "operationId": "Reports_ExportReport",
                 "consumes": [],
                 "produces": [
@@ -4888,7 +4928,21 @@
                                             "startTime": "2017-06-13T09:25:43.153Z",
                                             "endTime": "2017-06-13T09:31:43.153Z",
                                             "status": "Completed",
-                                            "requestId": "9399bb89-25d1-44f8-8576-136d7e9014b1"
+                                            "requestId": "9399bb89-25d1-44f8-8576-136d7e9014b1",
+                                            "refreshAttempts": [
+                                                {
+                                                    "attemptId": 1,
+                                                    "startTime": "2017-06-13T09:25:43.153Z",
+                                                    "endTime": "2017-06-13T09:31:40.153Z",
+                                                    "type": "Data"
+                                                },
+                                                {
+                                                    "attemptId": 1,
+                                                    "startTime": "2017-06-13T09:31:40.156Z",
+                                                    "endTime": "2017-06-13T09:31:43.153Z",
+                                                    "type": "Query"
+                                                }
+                                            ]
                                         }
                                     ]
                                 }
@@ -4910,7 +4964,16 @@
                                             "endTime": "2017-06-13T09:31:43.153Z",
                                             "serviceExceptionJson": "{\"errorCode\":\"ModelRefreshFailed_CredentialsNotSpecified\"}",
                                             "status": "Failed",
-                                            "requestId": "11bf290a-346b-48b7-8973-c5df149337ff"
+                                            "requestId": "11bf290a-346b-48b7-8973-c5df149337ff",
+                                            "refreshAttempts": [
+                                                {
+                                                    "attemptId": 1,
+                                                    "startTime": "2017-06-13T09:25:43.153Z",
+                                                    "endTime": "2017-06-13T09:31:43.153Z",
+                                                    "serviceExceptionJson": "{\"errorCode\":\"ModelRefreshFailed_CredentialsNotSpecified\"}",
+                                                    "type": "Data"
+                                                }
+                                            ]
                                         }
                                     ]
                                 }
@@ -5197,6 +5260,14 @@
                                             "table": "FactInternetSales",
                                             "status": "Completed"
                                         }
+                                    ],
+                                    "refreshAttempts": [
+                                        {
+                                            "attemptId": 1,
+                                            "startTime": "2021-12-10T08:40:31.57",
+                                            "endTime": "2021-12-10T08:40:43.87",
+                                            "type": "Data"
+                                        }
                                     ]
                                 }
                             }
@@ -5223,6 +5294,15 @@
                                         {
                                             "message": "RefreshApiRequest for table refresh using refresh policy must have the property 'CommitMode' = 'Transactional' instead of 'PartialBatch'.",
                                             "type": "Error"
+                                        }
+                                    ],
+                                    "refreshAttempts": [
+                                        {
+                                            "attemptId": 1,
+                                            "startTime": "2021-12-10T08:39:28.517",
+                                            "endTime": "2021-12-10T08:39:30.04",
+                                            "serviceExceptionJson": "{\"errorCode\":\"ModelRefresh_ShortMessage_ProcessingError\",\"errorDescription\":\"0xC112001C: Expression.Error: Forced Error. . The exception was raised by the IDbCommand interface.\\n0xC112001C: The command has been canceled.. The exception was raised by the IDbCommand interface.\\n0xC11C0006: The current operation was cancelled because another operation in the transaction failed.\\n0xC112001C: The command has been canceled.. The exception was raised by the IDbCommand interface.\\n0xC112001C: The command has been canceled.. The exception was raised by the IDbCommand interface.\\n0xC112001C: The command has been canceled.. The exception was raised by the IDbCommand interface.\"}",
+                                            "type": "Data"
                                         }
                                     ]
                                 }
@@ -6500,7 +6580,7 @@
                     "Datasets"
                 ],
                 "summary": "Executes Data Analysis Expressions (DAX) queries against the provided dataset.",
-                "description": "\nDAX query errors will result in:\n\n- A response error, such as `DAX query failure`.\n- A failure HTTP status code (400).\n\nA query that requests more than one table, or more than the allowed number of table rows, will result in:\n\n- Limited data being returned.\n- A response error, such as `More than one result table in a query` or `More than {allowed number} rows in a query result`.\n- A successful HTTP status code (200).\n\nColumns that are fully qualified in the query will be returned with a fully qualified name, for example, `MyTable[MyColumn]`. Columns that are renamed or created in the query will be returned within square bracket, for example, `[MyNewColumn]`.\n\n## Permissions\n\nThe user must have [Manage dataset access permissions](/power-bi/connect-data/service-datasets-manage-access-permissions).\n\n## Required Scope\n\nDataset.ReadWrite.All or Dataset.Read.All\n\n## Limitations\n\n- Datasets that are hosted in Azure Analysis Services or that have a live connection to an on-premises Azure Analysis Services model aren't supported.\n- The tenant setting **Dataset Execute Queries REST API**, found under **Integration settings**, must be enabled.\n- One query per API call.\n- One table request per query.\n- Maximum of 100,000 rows or 1,000,000 values per query (whichever is hit first). For example if you query for 5 columns, you can get back max 100,000 rows. If you query for 20 columns, you can get back max 50,000 rows (1 million divided by 20).\n- Maximum of 15MB of data per query. Once 15MB is exceeded, the current row will be completed but no additional rows will be written.\n- Maximum of 120 requests per user per minute. Target dataset does not impact this rate limit.\n- Service Principals aren't supported for datasets with RLS per [RLS limitations](/power-bi/admin/service-admin-rls#considerations-and-limitations) or with SSO enabled. To use Service Principals, make sure the admin tenant setting [_Allow service principals to use Power BI APIs_](/power-bi/admin/service-admin-portal-developer#allow-service-principals-to-use-power-bi-apis) under _Developer settings_ is enabled.\n- Only DAX queries are supported at this time. MDX and DMV queries are not supported. \n<br><br>",
+                "description": "\nDAX query errors will result in:\n\n- A response error, such as `DAX query failure`.\n- A failure HTTP status code (400).\n\nA query that requests more than one table, or more than the allowed number of table rows, will result in:\n\n- Limited data being returned.\n- A response error, such as `More than one result table in a query` or `More than {allowed number} rows in a query result`.\n- A successful HTTP status code (200).\n\nColumns that are fully qualified in the query will be returned with a fully qualified name, for example, `MyTable[MyColumn]`. Columns that are renamed or created in the query will be returned within square bracket, for example, `[MyNewColumn]`.\n\n## Permissions\n\nThe user must have access to the workspace, and dataset read and build permissions. For more information, see [Manage dataset access permissions](/power-bi/connect-data/service-datasets-manage-access-permissions).\n\n## Required Scope\n\nDataset.ReadWrite.All or Dataset.Read.All\n\n## Limitations\n\n- Datasets that are hosted in Azure Analysis Services or that have a live connection to an on-premises Azure Analysis Services model aren't supported.\n- The tenant setting **Dataset Execute Queries REST API**, found under **Integration settings**, must be enabled.\n- One query per API call.\n- One table request per query.\n- Maximum of 100,000 rows or 1,000,000 values per query (whichever is hit first). For example if you query for 5 columns, you can get back max 100,000 rows. If you query for 20 columns, you can get back max 50,000 rows (1 million divided by 20).\n- Maximum of 15MB of data per query. Once 15MB is exceeded, the current row will be completed but no additional rows will be written.\n- There's a limit of 120 query requests per minute per user, regardless of the dataset that's queried.\n- Service Principals aren't supported for datasets with RLS per [RLS limitations](/power-bi/admin/service-admin-rls#considerations-and-limitations) or with SSO enabled. To use Service Principals, make sure the admin tenant setting [_Allow service principals to use Power BI APIs_](/power-bi/admin/service-admin-portal-developer#allow-service-principals-to-use-power-bi-apis) under _Developer settings_ is enabled.\n- Only DAX queries are supported at this time. MDX and DMV queries are not supported. \n<br><br>",
                 "operationId": "Datasets_ExecuteQueriesInGroup",
                 "consumes": [],
                 "produces": [
@@ -7336,7 +7416,7 @@
                     "Reports"
                 ],
                 "summary": "Exports the specified report from the specified workspace to a Power BI .pbix or .rdl file.",
-                "description": "\n- For .pbix reports - \n You can set the `preferClientRouting` URL query parameter to `true` as a [workaround](/power-bi/developer/embedded/troubleshoot-rest-api#fix-timeout-exceptions-when-using-import-and-export-apis) for timeout issues.\n- Large files are downloaded to a temporary blob. Their URL is returned in the response and stored in the locally downloaded Power BI .pbix file.\n- For more information on requirements and limitations, see [Download a report from the Power BI service to Power BI Desktop](/power-bi/create-reports/service-export-to-pbix).\n\n## Permissions\n\nThis API call can be called by a service principal profile. For more information see: [Service principal profiles in Power BI Embedded](/power-bi/developer/embedded/embed-multi-tenancy).\n\n## Required Scope\n\nReport.ReadWrite.All or both Report.Read.All and Dataset.Read.All\n\n## Limitations\n\nFor .pbix reports, exporting a report with a [Power BI service live connection](/power-bi/desktop-report-lifecycle-datasets) isn't supported after calling [Rebind Report](/rest/api/power-bi/reports/rebind-report).\n<br><br>",
+                "description": "\n- For .pbix reports - \n You can set the `preferClientRouting` URL query parameter to `true` as a [workaround](/power-bi/developer/embedded/troubleshoot-rest-api#fix-timeout-exceptions-when-using-import-and-export-apis) for timeout issues.\n- Large files are downloaded to a temporary blob. Their URL is returned in the response and stored in the locally downloaded Power BI .pbix file.\n- For more information on requirements and limitations, see [Download a report from the Power BI service to Power BI Desktop](/power-bi/create-reports/service-export-to-pbix).\n\n## Permissions\n\nThis API call can be called by a service principal profile. For more information see: [Service principal profiles in Power BI Embedded](/power-bi/developer/embedded/embed-multi-tenancy).\n\n> [!NOTE]\n> Try-it feature is not supported for this API.\n See [Export Power BI Report](https://github.com/microsoft/PowerBI-Developer-Samples/blob/master/PowerShell%20Scripts/Export-PowerBIReport.ps1) Powershell script for an example of how to use this API.\n\n## Required Scope\n\nReport.ReadWrite.All or both Report.Read.All and Dataset.Read.All\n\n## Limitations\n\nFor .pbix reports, exporting a report with a [Power BI service live connection](/power-bi/desktop-report-lifecycle-datasets) isn't supported after calling [Rebind Report](/rest/api/power-bi/reports/rebind-report).\n<br><br>",
                 "operationId": "Reports_ExportReportInGroup",
                 "consumes": [],
                 "produces": [
@@ -10502,8 +10582,7 @@
                     "Gateways"
                 ],
                 "summary": "Updates the credentials of the specified data source from the specified gateway.",
-                "description": "\nOn Premises data source credentials must be encrypted, as described in the [On-premise encrypted credentials example](/rest/api/power-bi/gateways/update-datasource#on-premise-encrypted-credentials-example). \n\n> [!NOTE]\n> - To encrypt credentials, see [Configure credentials programmatically](/power-bi/developer/embedded/configure-credentials) for Power BI and review the EncryptCredentials [.NET Core](https://github.com/microsoft/PowerBI-Developer-Samples/tree/master/.NET%20Core/EncryptCredentials), [Java](https://github.com/microsoft/PowerBI-Developer-Samples/tree/master/Java/EncryptCredentials) and [Python](https://github.com/microsoft/PowerBI-Developer-Samples/tree/master/Python/Encrypt%20credentials) examples.\n> - Windows credentials before encryption look like the credentials in the credentials of [Basic credentials example](/rest/api/power-bi/gateways/update-datasource#basic-credentials-example).\n\nWhen changing from single sign-on to other credential types, such as `Basic` or `OAuth2`, set the parameter `useEndUserOAuth2Credentials` to `false` as described in the [Basic credentials example](/rest/api/power-bi/gateways/update-datasource#basic-credentials-example).\n\nOAuth 2.0 credentials are valid as long as the provided token is valid. When using the OAuth 2.0 credential type, do the following: \n- Set the OAuth 2.0 token audience correctly, according to the data source type. \n- Send the OAuth 2.0 token in the payload as shown in the [OAuth 2.0 credentials example](/rest/api/power-bi/gateways/update-datasource#oauth-2.0-credentials-example).\n- If you're using **Extension** data sources, don't set `useCallerAADIdentity` to `true`.\n\n## Permissions\n\n- With on-premises gateways, the user must have gateway admin permissions.\n- With cloud data sources, user must be the data source owner. Use [Datasets - Take Over API](/rest/api/power-bi/datasets/take-over-in-group) to transfer ownership over the specified dataset or [Paginated reports - Take Over API](/rest/api/power-bi/reports/take-over-in-group) to transfer ownership of the data sources over the specified paginated report.\n- This API call can be called by a service principal profile. For more information see: [Service principal profiles in Power BI Embedded](/power-bi/developer/embedded/embed-multi-tenancy).\n\n## Required Scope\n\nDataset.ReadWrite.All\n\n## Limitations\n\n- When setting OAuth credentials, a refresh token isn't incorporated as it is when setting credentials through the UI in Power BI service. Therefore, credentials can only be used for one hour.\n- Virtual network (VNet) gateways aren't supported.\n- SAS Token credentials are supported only with AzureBlobStorage and AzureDataLakeStorage.\n<br><br>",
-                "operationId": "Gateways_UpdateDatasource",
+                "description": "\nOn Premises data source credentials must be encrypted, as described in the [On-premise encrypted credentials example](/rest/api/power-bi/gateways/update-datasource#on-premise-encrypted-credentials-example). \n\n See the [Patch Datasource Credentials](https://github.com/microsoft/PowerBI-Developer-Samples/blob/master/PowerShell%20Scripts/PatchDatasourceCredentials.ps1) PowerShell script for an example of using this API, this script uses the PowerShell script mentioned in the note below for encrypting the credentials. \n\n> [!NOTE]\n> - To encrypt credentials, see [Configure credentials programmatically](/power-bi/developer/embedded/configure-credentials) for Power BI and review the EncryptCredentials [.NET Core](https://github.com/microsoft/PowerBI-Developer-Samples/tree/master/.NET%20Core/EncryptCredentials), [Java](https://github.com/microsoft/PowerBI-Developer-Samples/tree/master/Java/EncryptCredentials), [Python](https://github.com/microsoft/PowerBI-Developer-Samples/tree/master/Python/Encrypt%20credentials) and [PowerShell](https://github.com/microsoft/PowerBI-Developer-Samples/blob/master/PowerShell%20Scripts/EncryptGatewayCredentials.ps1) examples.\n> - Windows credentials before encryption look like the credentials in the credentials of [Basic credentials example](/rest/api/power-bi/gateways/update-datasource#basic-credentials-example).\n\nWhen changing from single sign-on to other credential types, such as `Basic` or `OAuth2`, set the parameter `useEndUserOAuth2Credentials` to `false` as described in the [Basic credentials example](/rest/api/power-bi/gateways/update-datasource#basic-credentials-example).\n\nOAuth 2.0 credentials are valid as long as the provided token is valid. When using the OAuth 2.0 credential type, do the following: \n- Set the OAuth 2.0 token audience correctly, according to the data source type. \n- Send the OAuth 2.0 token in the payload as shown in the [OAuth 2.0 credentials example](/rest/api/power-bi/gateways/update-datasource#oauth-2.0-credentials-example).\n- If you're using **Extension** data sources, don't set `useCallerAADIdentity` to `true`.\n\n## Permissions\n\n- With on-premises gateways, the user must have gateway admin permissions.\n- With cloud data sources, user must be the data source owner. Use [Datasets - Take Over API](/rest/api/power-bi/datasets/take-over-in-group) to transfer ownership over the specified dataset or [Paginated reports - Take Over API](/rest/api/power-bi/reports/take-over-in-group) to transfer ownership of the data sources over the specified paginated report.\n- This API call can be called by a service principal profile. For more information see: [Service principal profiles in Power BI Embedded](/power-bi/developer/embedded/embed-multi-tenancy).\n\n## Required Scope\n\nDataset.ReadWrite.All\n\n## Limitations\n\n- When setting OAuth credentials, a refresh token isn't incorporated as it is when setting credentials through the UI in Power BI service. Therefore, credentials can only be used for one hour.\n- Virtual network (VNet) gateways aren't supported.\n- SAS Token credentials are supported only with AzureBlobStorage and AzureDataLakeStorage.\n<br><br>",                "operationId": "Gateways_UpdateDatasource",
                 "consumes": [],
                 "produces": [],
                 "parameters": [
@@ -10925,7 +11004,7 @@
                     "Groups"
                 ],
                 "summary": "Returns a list of workspaces the user has access to.",
-                "description": "\nWhen user permissions to a workspace have been recently updated, the new permissions might not be immediately available through API calls. To refresh user permissions, use the [Refresh User Permissions](/rest/api/power-bi/users/refresh-user-permissions) API call.\n\n## Permissions\n\nThis API call can be called by a service principal profile. For more information see: [Service principal profiles in Power BI Embedded](/power-bi/developer/embedded/embed-multi-tenancy).\n\n## Required Scope\n\nWorkspace.Read.All or Workspace.ReadWrite.All\n<br><br>",
+                "description": "\n## Permissions\n\nThis API call can be called by a service principal profile. For more information see: [Service principal profiles in Power BI Embedded](/power-bi/developer/embedded/embed-multi-tenancy).\n\n## Required Scope\n\nWorkspace.Read.All or Workspace.ReadWrite.All\n\n## Limitations\n\n- User permissions for workspaces take time to get updated and may not be immediately available when using API calls. To refresh user permissions, use the [Refresh User Permissions](/rest/api/power-bi/users/refresh-user-permissions) API call.\n<br><br>",
                 "operationId": "Groups_GetGroups",
                 "consumes": [],
                 "produces": [
@@ -10979,13 +11058,17 @@
                                     {
                                         "id": "3d9b93c6-7b6d-4801-a491-1738910904fd",
                                         "isReadOnly": false,
-                                        "isOnDedicatedCapacity": false,
+                                        "isOnDedicatedCapacity": true,
+                                        "capacityId": "0f084df7-c13d-451b-af5f-ed0c466403b2",
+                                        "defaultDatasetStorageFormat": "Small",
                                         "name": "marketing group"
                                     },
                                     {
                                         "id": "a2f89923-421a-464e-bf4c-25eab39bb09f",
                                         "isReadOnly": false,
-                                        "isOnDedicatedCapacity": false,
+                                        "isOnDedicatedCapacity": true,
+                                        "capacityId": "0f084df7-c13d-451b-af5f-ed0c466403b2",
+                                        "defaultDatasetStorageFormat": "Large",
                                         "name": "contoso",
                                         "dataflowStorageId": "d692ae06-708c-485e-9987-06ff0fbdbb1f"
                                     }
@@ -11103,6 +11186,54 @@
             }
         },
         "/v1.0/myorg/groups/{groupId}": {
+            "get": {
+                "tags": [
+                    "Groups"
+                ],
+                "summary": "Returns a specified workspace.",
+                "description": "\n## Permissions\n\nThis API call can be called by a service principal profile. For more information see: [Service principal profiles in Power BI Embedded](/power-bi/developer/embedded/embed-multi-tenancy).\n\n## Required Scope\n\nWorkspace.Read.All or Workspace.ReadWrite.All\n\n## Limitations\n\n- User permissions for workspaces take time to get updated and may not be immediately available when using API calls. To refresh user permissions, use the [Refresh User Permissions](/rest/api/power-bi/users/refresh-user-permissions) API call.\n<br><br>",
+                "operationId": "Groups_GetGroup",
+                "consumes": [],
+                "produces": [],
+                "parameters": [
+                    {
+                        "name": "groupId",
+                        "in": "path",
+                        "required": true,
+                        "description": "The workspace ID",
+                        "type": "string",
+                        "format": "uuid"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/Group"
+                        }
+                    }
+                },
+                "x-ms-examples": {
+                    "Example": {
+                        "parameters": {
+                            "groupId": "f089354e-8366-4e18-aea3-4cb4a3a50b48"
+                        },
+                        "responses": {
+                            "200": {
+                                "body": {
+                                    "id": "f089354e-8366-4e18-aea3-4cb4a3a50b48",
+                                    "isReadOnly": false,
+                                    "isOnDedicatedCapacity": true,
+                                    "capacityId": "0f084df7-c13d-451b-af5f-ed0c466403b2",
+                                    "defaultDatasetStorageFormat": "Small",
+                                    "name": "Sample Group 1"
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": false
+            },
             "delete": {
                 "tags": [
                     "Groups"
@@ -11117,7 +11248,7 @@
                         "name": "groupId",
                         "in": "path",
                         "required": true,
-                        "description": "The workspace ID to delete",
+                        "description": "The workspace ID",
                         "type": "string",
                         "format": "uuid"
                     }
@@ -11138,6 +11269,55 @@
                     }
                 },
                 "deprecated": false
+            },
+            "patch": {
+                "tags": [
+                    "Groups"
+                ],
+                "summary": "Updates a specified workspace.",
+                "description": "\n## Permissions\n\nThis API call can be called by a service principal profile. For more information see: [Service principal profiles in Power BI Embedded](/power-bi/developer/embedded/embed-multi-tenancy).\n\n## Required Scope\n\nWorkspace.ReadWrite.All\n\n## Limitations\n\n- For Shared capacities, only the name can be updated.\n- For Premium capacities, only the name and defaultDatasetStorageFormat can be updated.\n- The name must be unique inside an organization.\n<br><br>",
+                "operationId": "Groups_UpdateGroup",
+                "consumes": [],
+                "produces": [],
+                "parameters": [
+                    {
+                        "name": "groupId",
+                        "in": "path",
+                        "required": true,
+                        "description": "The workspace ID",
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    {
+                        "name": "groupProperties",
+                        "in": "body",
+                        "required": true,
+                        "description": "The properties to update",
+                        "schema": {
+                            "$ref": "#/definitions/UpdateGroupRequest"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                },
+                "x-ms-examples": {
+                    "Example": {
+                        "parameters": {
+                            "groupId": "e2284830-c8dc-416b-b19a-8cdcd2729332",
+                            "groupProperties": {
+                                "name": "Updated Sales Results",
+                                "defaultDatasetStorageFormat": "Large"
+                            }
+                        },
+                        "responses": {
+                            "200": {}
+                        }
+                    }
+                },
+                "deprecated": false
             }
         },
         "/v1.0/myorg/groups/{groupId}/users": {
@@ -11146,7 +11326,7 @@
                     "Groups"
                 ],
                 "summary": "Returns a list of users that have access to the specified workspace.",
-                "description": "\nWhen user permissions to a workspace have been recently updated, the new permissions might not be immediately available through API calls. As a result, this API call might return an HTTP 401 error when a user has permissions to a workspace. To refresh user permissions, use the [Refresh User Permissions](/rest/api/power-bi/users/refresh-user-permissions) API call.\n\n## Permissions\n\nThis API call can be called by a service principal profile. For more information see: [Service principal profiles in Power BI Embedded](/power-bi/developer/embedded/embed-multi-tenancy).\n\n## Required Scope\n\nWorkspace.Read.All or Workspace.ReadWrite.All\n<br><br>",
+                "description": "\n## Permissions\n\nThis API call can be called by a service principal profile. For more information see: [Service principal profiles in Power BI Embedded](/power-bi/developer/embedded/embed-multi-tenancy).\n\n## Required Scope\n\nWorkspace.Read.All or Workspace.ReadWrite.All\n\n## Limitations\n\n- User permissions for workspaces take time to get updated and may not be immediately available when using API calls. To refresh user permissions, use the [Refresh User Permissions](/rest/api/power-bi/users/refresh-user-permissions) API call.\n<br><br>",
                 "operationId": "Groups_GetGroupUsers",
                 "consumes": [],
                 "produces": [
@@ -11226,7 +11406,7 @@
                     "Groups"
                 ],
                 "summary": "Grants the specified user the specified permissions to the specified workspace.",
-                "description": "\nWhen user permissions to a workspace have been recently updated, the new permissions might not be immediately available through API calls. To refresh user permissions, use the [Refresh User Permissions](/rest/api/power-bi/users/refresh-user-permissions) API call.\n\n## Permissions\n\nThis API call can be called by a service principal profile. For more information see: [Service principal profiles in Power BI Embedded](/power-bi/developer/embedded/embed-multi-tenancy).\n\n## Required Scope\n\nWorkspace.ReadWrite.All\n<br><br>",
+                "description": "\n## Permissions\n\nThis API call can be called by a service principal profile. For more information see: [Service principal profiles in Power BI Embedded](/power-bi/developer/embedded/embed-multi-tenancy).\n\n## Required Scope\n\nWorkspace.ReadWrite.All\n\n## Limitations\n\n- User permissions for workspaces take time to get updated and may not be immediately available when using API calls. To refresh user permissions, use the [Refresh User Permissions](/rest/api/power-bi/users/refresh-user-permissions) API call.\n<br><br>",
                 "operationId": "Groups_AddGroupUser",
                 "consumes": [
                     "application/json"
@@ -11290,7 +11470,7 @@
                     "Groups"
                 ],
                 "summary": "Updates the specified user permissions to the specified workspace.",
-                "description": "\nWhen user permissions to a workspace have been recently updated, the new permissions might not be immediately available through API calls. To refresh user permissions, use the [Refresh User Permissions](/rest/api/power-bi/users/refresh-user-permissions) API call.\n\n## Permissions\n\nThis API call can be called by a service principal profile. For more information see: [Service principal profiles in Power BI Embedded](/power-bi/developer/embedded/embed-multi-tenancy).\n\n## Required Scope\n\nWorkspace.ReadWrite.All\n<br><br>",
+                "description": "\n## Permissions\n\nThis API call can be called by a service principal profile. For more information see: [Service principal profiles in Power BI Embedded](/power-bi/developer/embedded/embed-multi-tenancy).\n\n## Required Scope\n\nWorkspace.ReadWrite.All\n\n## Limitations\n\n- User permissions for workspaces take time to get updated and may not be immediately available when using API calls. To refresh user permissions, use the [Refresh User Permissions](/rest/api/power-bi/users/refresh-user-permissions) API call.\n<br><br>",
                 "operationId": "Groups_UpdateGroupUser",
                 "consumes": [
                     "application/json"
@@ -11637,7 +11817,7 @@
                     {
                         "name": "$expand",
                         "in": "query",
-                        "description": "Accepts a comma-separated list of data types, which will be expanded inline in the response. Supports `capacities` and `groups`.",
+                        "description": "Accepts a comma-separated list of data types, which will be expanded inline in the response. Supports `capacity` and `group`.",
                         "required": false,
                         "type": "string"
                     },
@@ -13987,7 +14167,9 @@
                                             "name": "V2 shared",
                                             "type": "Workspace",
                                             "state": "Active",
-                                            "isOnDedicatedCapacity": false,
+                                            "isOnDedicatedCapacity": true,
+                                            "capacityId": "0f084df7-c13d-451b-af5f-ed0c466403b2",
+                                            "defaultDatasetStorageFormat": "Small",
                                             "reports": [
                                                 {
                                                     "id": "c6d072d1-ed20-4b60-8329-16c4b934203b",
@@ -14699,7 +14881,9 @@
                                         {
                                             "id": "e380d1d0-1fa6-460b-9a90-1a5c6b02414c",
                                             "isReadOnly": false,
-                                            "isOnDedicatedCapacity": false,
+                                            "isOnDedicatedCapacity": true,
+                                            "capacityId": "0f084df7-c13d-451b-af5f-ed0c466403b2",
+                                            "defaultDatasetStorageFormat": "Small",
                                             "name": "Sample Group 1",
                                             "description": "Sample group",
                                             "type": "Workspace",
@@ -14933,7 +15117,9 @@
                                         {
                                             "id": "e380d1d0-1fa6-460b-9a90-1a5c6b02414c",
                                             "isReadOnly": false,
-                                            "isOnDedicatedCapacity": false,
+                                            "isOnDedicatedCapacity": true,
+                                            "capacityId": "0f084df7-c13d-451b-af5f-ed0c466403b2",
+                                            "defaultDatasetStorageFormat": "Small",
                                             "name": "Sample Group 1",
                                             "description": "Sample group",
                                             "type": "Workspace",
@@ -15051,19 +15237,23 @@
                         },
                         "responses": {
                             "200": {
-                                "id": "e380d1d0-1fa6-460b-9a90-1a5c6b02414c",
-                                "isReadOnly": false,
-                                "isOnDedicatedCapacity": false,
-                                "name": "Sample Group 1",
-                                "description": "Sample group",
-                                "type": "Workspace",
-                                "state": "Active",
-                                "users": [
-                                    {
-                                        "emailAddress": "john@contoso.com",
-                                        "groupUserAccessRight": "Admin"
-                                    }
-                                ]
+                                "body": {
+                                    "id": "e380d1d0-1fa6-460b-9a90-1a5c6b02414c",
+                                    "isReadOnly": false,
+                                    "isOnDedicatedCapacity": true,
+                                    "capacityId": "0f084df7-c13d-451b-af5f-ed0c466403b2",
+                                    "defaultDatasetStorageFormat": "Small",
+                                    "name": "Sample Group 1",
+                                    "description": "Sample group",
+                                    "type": "Workspace",
+                                    "state": "Active",
+                                    "users": [
+                                        {
+                                            "emailAddress": "john@contoso.com",
+                                            "groupUserAccessRight": "Admin"
+                                        }
+                                    ]
+                                }
                             }
                         }
                     }
@@ -15075,7 +15265,7 @@
                     "Admin"
                 ],
                 "summary": "Updates the properties of the specified workspace.",
-                "description": "\nOnly the name, description and Log Analytics workspace can be updated. The name must be unique inside an organization. To unassign a Log Analytics workspace, explicitly set the value to null.\n\n## Permissions\n\nThe user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator).\n\n## Required Scope\n\nTenant.ReadWrite.All\n\n## Limitations\n\nMaximum 200 requests per hour.\n<br><br>",
+                "description": "\nTo unassign a Log Analytics workspace, explicitly set the value to null.\n\n## Permissions\n\nThe user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator).\n\n## Required Scope\n\nTenant.ReadWrite.All\n\n## Limitations\n\n- Maximum 200 requests per hour.\n- For Shared capacities, only the name and description can be updated.\n- For Premium capacities, only the name, description, defaultDatasetStorageFormat and Log Analytics workspace can be updated.\n- The name must be unique inside an organization.\n<br><br>",
                 "operationId": "Groups_UpdateGroupAsAdmin",
                 "consumes": [],
                 "produces": [],
@@ -15104,12 +15294,13 @@
                     }
                 },
                 "x-ms-examples": {
-                    "Example of updating group description": {
+                    "Example of updating group description and defaultDatasetStorageFormat": {
                         "parameters": {
                             "groupId": "e2284830-c8dc-416b-b19a-8cdcd2729332",
                             "groupProperties": {
                                 "name": "Updated Sales Results",
-                                "description": "Refreshed sales numbers"
+                                "description": "Refreshed sales numbers",
+                                "defaultDatasetStorageFormat": "Large"
                             }
                         },
                         "responses": {
@@ -15219,7 +15410,7 @@
                     "Admin"
                 ],
                 "summary": "Grants user permissions to the specified workspace.",
-                "description": "\nThis API call only supports adding a user principle.\n\n## Permissions\n\nThe user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator).\n\n## Required Scope\n\nTenant.ReadWrite.All\n\n## Limitations\n\nMaximum 200 requests per hour.\n<br><br>",
+                "description": "\nThis API call only supports adding a user, security group, M365 group and service principal.\n\n## Permissions\n\nThe user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator).\n\n## Required Scope\n\nTenant.ReadWrite.All\n\n## Limitations\n\nMaximum 200 requests per hour.\n<br><br>",
                 "operationId": "Groups_AddUserAsAdmin",
                 "consumes": [
                     "application/json"
@@ -15250,12 +15441,38 @@
                     }
                 },
                 "x-ms-examples": {
-                    "Example": {
+                    "Add user to group example": {
                         "parameters": {
                             "groupId": "206d27ca-94e8-4a69-855b-5c32bdd458a8",
                             "userDetails": {
                                 "emailAddress": "john@contoso.com",
                                 "groupUserAccessRight": "Admin"
+                            }
+                        },
+                        "responses": {
+                            "200": {}
+                        }
+                    },
+                    "Add eecurity group to workspace example": {
+                        "parameters": {
+                            "groupId": "206d27ca-94e8-4a69-855b-5c32bdd458a8",
+                            "userDetails": {
+                                "identifier": "ece007fa-2f19-4df1-bdd5-539881ec5f83", 
+                                "principalType": "Group",
+                                "groupUserAccessRight": "Member"
+                            }
+                        },
+                        "responses": {
+                            "200": {}
+                        }
+                    },
+                    "Add service principal to workspace example": {
+                        "parameters": {
+                            "groupId": "206d27ca-94e8-4a69-855b-5c32bdd458a8",
+                            "userDetails": {
+                                "identifier": "84c468ad-12f1-471e-af6f-0999da422391",
+                                "principalType": "App",
+                                "groupUserAccessRight": "Viewer"
                             }
                         },
                         "responses": {
@@ -15272,7 +15489,7 @@
                     "Admin"
                 ],
                 "summary": "Removes user permissions from the specified workspace.",
-                "description": "\nThis API call only supports adding a user principle.\n\n## Permissions\n\nThe user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator).\n\n## Required Scope\n\nTenant.ReadWrite.All\n\n## Limitations\n\nMaximum 200 requests per hour.\n<br><br>",
+                "description": "\nThis API call supports removing a user, security group, M365 group and service principal.Please use email address or UPN for user, group object Id for group and app object Id for service principal to delete.\n\n## Permissions\n\nThe user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator).\n\n## Required Scope\n\nTenant.ReadWrite.All\n\n## Limitations\n\nMaximum 200 requests per hour.\n<br><br>",
                 "operationId": "Groups_DeleteUserAsAdmin",
                 "consumes": [],
                 "produces": [],
@@ -15281,7 +15498,7 @@
                         "name": "groupId",
                         "in": "path",
                         "required": true,
-                        "description": "The workspace ID",
+                        "description": "The workspace ID.",
                         "type": "string",
                         "format": "uuid"
                     },
@@ -15289,16 +15506,23 @@
                         "name": "user",
                         "in": "path",
                         "required": true,
-                        "description": "The user principal name (UPN) of the user to remove",
+                        "description": "The user principal name (UPN) of the user or group object Id of the group or app object Id of the service principal to delete.",
                         "type": "string"
                     },
                     {
                         "name": "profileId",
                         "in": "query",
-                        "description": "The service principal profile ID to delete",
+                        "description": "The service principal profile ID to delete.",
                         "required": false,
                         "type": "string",
                         "format": "uuid"
+                    },
+                    {
+                        "name": "isGroup",
+                        "in": "query",
+                        "description": "Whether a given user is a group or not. This parameter is required when user to delete is group.",
+                        "required": false,
+                        "type": "boolean"
                     }
                 ],
                 "responses": {
@@ -15307,10 +15531,29 @@
                     }
                 },
                 "x-ms-examples": {
-                    "Example": {
+                    "Delete user example": {
                         "parameters": {
                             "groupId": "f7d76f5a-7190-43c6-bf12-7a135c6c2d69",
                             "user": "john@contoso.com"
+                        },
+                        "responses": {
+                            "200": {}
+                        }
+                    },
+                    "Delete group example": {
+                        "parameters": {
+                            "groupId": "f7d76f5a-7190-43c6-bf12-7a135c6c2d23",
+                            "user": "23476f5a-7190-43c6-bf12-7a135c6c2d23",
+                            "isGroup": true
+                        },
+                        "responses": {
+                            "200": {}
+                        }
+                    },
+                    "Delete service principal example": {
+                        "parameters": {
+                            "groupId": "f7d76f5a-7190-43c6-bf12-7a135c6c2d23",
+                            "user": "23476f5a-7190-43c6-bf12-7a135c6c2d23"
                         },
                         "responses": {
                             "200": {}
@@ -22063,6 +22306,10 @@
                     "type": "string",
                     "description": "The workspace capacity ID"
                 },
+                "defaultDatasetStorageFormat": {
+                    "description": "The default dataset storage format in the workspace. Returned only when `isOnDedicatedCapacity` is `true`",
+                    "$ref": "#/definitions/DefaultDatasetStorageFormat"
+                },
                 "reports": {
                     "type": "array",
                     "description": "The reports associated with this workspace. The list of report properties returned varies for different API calls, so you might not see all report properties in an API response.",
@@ -23714,8 +23961,14 @@
                     "type": "string",
                     "description": "The report type",
                     "enum": [
-                        "PaginatedReport"
+                        "PaginatedReport",
+                        "PowerBIReport"
                     ]
+                },
+                "originalReportId": {
+                    "type": "string",
+                    "format": "uuid",
+                    "description": "The actual report ID when the workspace is published as an app."
                 }
             }
         },
@@ -24441,6 +24694,10 @@
                     "format": "uuid",
                     "description": "The Power BI dataflow storage account ID"
                 },
+                "defaultDatasetStorageFormat": {
+                    "description": "The default dataset storage format in the workspace. Returned only when `isOnDedicatedCapacity` is `true`",
+                    "$ref": "#/definitions/DefaultDatasetStorageFormat"
+                },
                 "logAnalyticsWorkspace": {
                     "description": "The Log Analytics workspace assigned to the group.  This is returned only when retrieving a single group.",
                     "$ref": "#/definitions/AzureResource"
@@ -24521,6 +24778,19 @@
                     "$ref": "#/definitions/GroupBaseProperties"
                 }
             ]
+        },
+        "UpdateGroupRequest": {
+            "description": "An update request for the group",
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "description": "The group name"
+                },
+                "defaultDatasetStorageFormat": {
+                    "description": "The default dataset storage format in the group",
+                    "$ref": "#/definitions/DefaultDatasetStorageFormat"
+                }
+            }
         },
         "Group": {
             "description": "A Power BI group",
@@ -24946,6 +25216,58 @@
                 "requestId": {
                     "type": "string",
                     "description": "The identifier of the refresh request. Provide this identifier in all service requests."
+                },
+                "refreshAttempts": {
+                    "type": "array",
+                    "description": "The refresh attempt list.",
+                    "items": {
+                        "$ref": "#/definitions/RefreshAttempt"
+                    }
+                }
+            }
+        },
+        "RefreshAttempt": {
+            "description": "Power BI automatically makes multiple attempts to refresh a dataset if it experiences a refresh failure. This object contains information about each refresh attempt.",
+            "properties": {
+                "attemptId": {
+                    "type": "integer",
+                    "description": "The index of the refresh attempt."
+                },
+                "startTime": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "The start date and time of the refresh attempt."
+                },
+                "endTime": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "The end date and time of the refresh attempt. The value is void if the refresh attempt is in progress."
+                },
+                "serviceExceptionJson": {
+                    "type": "string",
+                    "description": "Failure error code in JSON format. Void if there's no error."
+                },
+                "type": {
+                    "type": "string",
+                    "description": "The type of refresh attempt.",
+                    "enum": [
+                        "Data",
+                        "Query"
+                    ],
+                    "x-ms-enum": {
+                        "name": "RefreshAttemptType",
+                        "modelAsExtensible": true,
+                        "values": [
+                            {
+                                "value": "Data",
+                                "description": "The refresh attempt to load data into the dataset."
+                            },
+                            {
+                                "value": "Query",
+                                "description": "The attempt to refresh premium query caches and dashboard tiles.u"
+                            }
+                        ]
+                    }
                 }
             }
         },
@@ -25251,6 +25573,13 @@
                     "items": {
                         "$ref": "#/definitions/EngineMessage"
                     }
+                },
+                "refreshAttempts": {
+                    "type": "array",
+                    "description": "The refresh attempt list.",
+                    "items": {
+                        "$ref": "#/definitions/RefreshAttempt"
+                    }
                 }
             }
         },
@@ -25418,6 +25747,28 @@
                         ]
                     }
                 }
+            }
+        },
+        "DefaultDatasetStorageFormat": {
+            "type": "string",
+            "description": "The default dataset storage format in the group",
+            "enum": [
+                "Small",
+                "Large"
+            ],
+            "x-ms-enum": {
+                "name": "DefaultDatasetStorageFormat",
+                "modelAsString": true,
+                "values": [
+                    {
+                        "value": "Small",
+                        "description": "Small dataset storage format"
+                    },
+                    {
+                        "value": "Large",
+                        "description": "Large dataset storage format"
+                    }
+                ]
             }
         },
         "DirectQueryRefreshScheduleRequest": {
@@ -26841,6 +27192,10 @@
                 "username": {
                     "type": "string",
                     "description": "The effective username within a token that applies row-level security rules. For an on-premises model, the username can contain alphanumeric or any of the following characters `.`, `-`, `_`, `!`, `#`, `^`, `~`, `\\\\`, `@`. For cloud models, the username can contain any ASCII character. For either model, the username length must not exceed 256 characters, and the username shouldn't contain spaces."
+                },
+                "auditableContext": {
+                    "type": "string",
+                    "description": "The EffectiveIdentity auditable context. If this parameter is provided and isn't empty, it will enable auditing of the EffectiveIdentity and its value will be set to the username in the audit record. Otherwise, the EffectiveIdentity context will be omitted from the GenerateToken audit record."
                 },
                 "datasets": {
                     "type": "array",

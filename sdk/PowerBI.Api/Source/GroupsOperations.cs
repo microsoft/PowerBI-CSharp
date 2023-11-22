@@ -51,11 +51,6 @@ namespace Microsoft.PowerBI.Api
         /// </summary>
         /// <remarks>
         ///
-        /// When user permissions to a workspace have been recently updated, the new
-        /// permissions might not be immediately available through API calls. To
-        /// refresh user permissions, use the [Refresh User
-        /// Permissions](/rest/api/power-bi/users/refresh-user-permissions) API call.
-        ///
         /// ## Permissions
         ///
         /// This API call can be called by a service principal profile. For more
@@ -65,6 +60,13 @@ namespace Microsoft.PowerBI.Api
         /// ## Required Scope
         ///
         /// Workspace.Read.All or Workspace.ReadWrite.All
+        ///
+        /// ## Limitations
+        ///
+        /// - User permissions for workspaces take time to get updated and may not be
+        /// immediately available when using API calls. To refresh user permissions,
+        /// use the [Refresh User
+        /// Permissions](/rest/api/power-bi/users/refresh-user-permissions) API call.
         /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='filter'>
@@ -397,6 +399,157 @@ namespace Microsoft.PowerBI.Api
         }
 
         /// <summary>
+        /// Returns a specified workspace.
+        /// </summary>
+        /// <remarks>
+        ///
+        /// ## Permissions
+        ///
+        /// This API call can be called by a service principal profile. For more
+        /// information see: [Service principal profiles in Power BI
+        /// Embedded](/power-bi/developer/embedded/embed-multi-tenancy).
+        ///
+        /// ## Required Scope
+        ///
+        /// Workspace.Read.All or Workspace.ReadWrite.All
+        ///
+        /// ## Limitations
+        ///
+        /// - User permissions for workspaces take time to get updated and may not be
+        /// immediately available when using API calls. To refresh user permissions,
+        /// use the [Refresh User
+        /// Permissions](/rest/api/power-bi/users/refresh-user-permissions) API call.
+        /// &lt;br&gt;&lt;br&gt;
+        /// </remarks>
+        /// <param name='groupId'>
+        /// The workspace ID
+        /// </param>
+        /// <param name='customHeaders'>
+        /// Headers that will be added to request.
+        /// </param>
+        /// <param name='cancellationToken'>
+        /// The cancellation token.
+        /// </param>
+        /// <exception cref="HttpOperationException">
+        /// Thrown when the operation returned an invalid status code
+        /// </exception>
+        /// <exception cref="SerializationException">
+        /// Thrown when unable to deserialize the response
+        /// </exception>
+        /// <return>
+        /// A response object containing the response body and response headers.
+        /// </return>
+        public async Task<HttpOperationResponse<Group>> GetGroupWithHttpMessagesAsync(System.Guid groupId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // Tracing
+            bool _shouldTrace = ServiceClientTracing.IsEnabled;
+            string _invocationId = null;
+            if (_shouldTrace)
+            {
+                _invocationId = ServiceClientTracing.NextInvocationId.ToString();
+                Dictionary<string, object> tracingParameters = new Dictionary<string, object>();
+                tracingParameters.Add("groupId", groupId);
+                tracingParameters.Add("cancellationToken", cancellationToken);
+                ServiceClientTracing.Enter(_invocationId, this, "GetGroup", tracingParameters);
+            }
+            // Construct URL
+            var _baseUrl = Client.BaseUri.AbsoluteUri;
+            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v1.0/myorg/groups/{groupId}").ToString();
+            _url = _url.Replace("{groupId}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(groupId, Client.SerializationSettings).Trim('"')));
+            // Create HTTP transport objects
+            var _httpRequest = new HttpRequestMessage();
+            HttpResponseMessage _httpResponse = null;
+            _httpRequest.Method = new HttpMethod("GET");
+            _httpRequest.RequestUri = new System.Uri(_url);
+            // Set Headers
+
+
+            if (customHeaders != null)
+            {
+                foreach(var _header in customHeaders)
+                {
+                    if (_httpRequest.Headers.Contains(_header.Key))
+                    {
+                        _httpRequest.Headers.Remove(_header.Key);
+                    }
+                    _httpRequest.Headers.TryAddWithoutValidation(_header.Key, _header.Value);
+                }
+            }
+
+            // Serialize Request
+            string _requestContent = null;
+            // Set Credentials
+            if (Client.Credentials != null)
+            {
+                cancellationToken.ThrowIfCancellationRequested();
+                await Client.Credentials.ProcessHttpRequestAsync(_httpRequest, cancellationToken).ConfigureAwait(false);
+            }
+            // Send Request
+            if (_shouldTrace)
+            {
+                ServiceClientTracing.SendRequest(_invocationId, _httpRequest);
+            }
+            cancellationToken.ThrowIfCancellationRequested();
+            _httpResponse = await Client.HttpClient.SendAsync(_httpRequest, cancellationToken).ConfigureAwait(false);
+            if (_shouldTrace)
+            {
+                ServiceClientTracing.ReceiveResponse(_invocationId, _httpResponse);
+            }
+            HttpStatusCode _statusCode = _httpResponse.StatusCode;
+            cancellationToken.ThrowIfCancellationRequested();
+            string _responseContent = null;
+            if ((int)_statusCode != 200)
+            {
+                var ex = new HttpOperationException(string.Format("Operation returned an invalid status code '{0}'", _statusCode));
+                if (_httpResponse.Content != null) {
+                    _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
+                }
+                else {
+                    _responseContent = string.Empty;
+                }
+                ex.Request = new HttpRequestMessageWrapper(_httpRequest, _requestContent);
+                ex.Response = new HttpResponseMessageWrapper(_httpResponse, _responseContent);
+                if (_shouldTrace)
+                {
+                    ServiceClientTracing.Error(_invocationId, ex);
+                }
+                _httpRequest.Dispose();
+                if (_httpResponse != null)
+                {
+                    _httpResponse.Dispose();
+                }
+                throw ex;
+            }
+            // Create Result
+            var _result = new HttpOperationResponse<Group>();
+            _result.Request = _httpRequest;
+            _result.Response = _httpResponse;
+            // Deserialize Response
+            if ((int)_statusCode == 200)
+            {
+                _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
+                try
+                {
+                    _result.Body = Rest.Serialization.SafeJsonConvert.DeserializeObject<Group>(_responseContent, Client.DeserializationSettings);
+                }
+                catch (JsonException ex)
+                {
+                    _httpRequest.Dispose();
+                    if (_httpResponse != null)
+                    {
+                        _httpResponse.Dispose();
+                    }
+                    throw new SerializationException("Unable to deserialize the response.", _responseContent, ex);
+                }
+            }
+            if (_shouldTrace)
+            {
+                ServiceClientTracing.Exit(_invocationId, _result);
+            }
+            return _result;
+        }
+
+        /// <summary>
         /// Deletes the specified workspace.
         /// </summary>
         /// <remarks>
@@ -413,7 +566,7 @@ namespace Microsoft.PowerBI.Api
         /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='groupId'>
-        /// The workspace ID to delete
+        /// The workspace ID
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -520,16 +673,159 @@ namespace Microsoft.PowerBI.Api
         }
 
         /// <summary>
-        /// Returns a list of users that have access to the specified workspace.
+        /// Updates a specified workspace.
         /// </summary>
         /// <remarks>
         ///
-        /// When user permissions to a workspace have been recently updated, the new
-        /// permissions might not be immediately available through API calls. As a
-        /// result, this API call might return an HTTP 401 error when a user has
-        /// permissions to a workspace. To refresh user permissions, use the [Refresh
-        /// User Permissions](/rest/api/power-bi/users/refresh-user-permissions) API
-        /// call.
+        /// ## Permissions
+        ///
+        /// This API call can be called by a service principal profile. For more
+        /// information see: [Service principal profiles in Power BI
+        /// Embedded](/power-bi/developer/embedded/embed-multi-tenancy).
+        ///
+        /// ## Required Scope
+        ///
+        /// Workspace.ReadWrite.All
+        ///
+        /// ## Limitations
+        ///
+        /// - For Shared capacities, only the name can be updated.
+        /// - For Premium capacities, only the name and defaultDatasetStorageFormat can
+        /// be updated.
+        /// - The name must be unique inside an organization.
+        /// &lt;br&gt;&lt;br&gt;
+        /// </remarks>
+        /// <param name='groupId'>
+        /// The workspace ID
+        /// </param>
+        /// <param name='groupProperties'>
+        /// The properties to update
+        /// </param>
+        /// <param name='customHeaders'>
+        /// Headers that will be added to request.
+        /// </param>
+        /// <param name='cancellationToken'>
+        /// The cancellation token.
+        /// </param>
+        /// <exception cref="HttpOperationException">
+        /// Thrown when the operation returned an invalid status code
+        /// </exception>
+        /// <exception cref="ValidationException">
+        /// Thrown when a required parameter is null
+        /// </exception>
+        /// <exception cref="System.ArgumentNullException">
+        /// Thrown when a required parameter is null
+        /// </exception>
+        /// <return>
+        /// A response object containing the response body and response headers.
+        /// </return>
+        public async Task<HttpOperationResponse> UpdateGroupWithHttpMessagesAsync(System.Guid groupId, UpdateGroupRequest groupProperties, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            if (groupProperties == null)
+            {
+                throw new ValidationException(ValidationRules.CannotBeNull, "groupProperties");
+            }
+            // Tracing
+            bool _shouldTrace = ServiceClientTracing.IsEnabled;
+            string _invocationId = null;
+            if (_shouldTrace)
+            {
+                _invocationId = ServiceClientTracing.NextInvocationId.ToString();
+                Dictionary<string, object> tracingParameters = new Dictionary<string, object>();
+                tracingParameters.Add("groupId", groupId);
+                tracingParameters.Add("groupProperties", groupProperties);
+                tracingParameters.Add("cancellationToken", cancellationToken);
+                ServiceClientTracing.Enter(_invocationId, this, "UpdateGroup", tracingParameters);
+            }
+            // Construct URL
+            var _baseUrl = Client.BaseUri.AbsoluteUri;
+            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v1.0/myorg/groups/{groupId}").ToString();
+            _url = _url.Replace("{groupId}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(groupId, Client.SerializationSettings).Trim('"')));
+            // Create HTTP transport objects
+            var _httpRequest = new HttpRequestMessage();
+            HttpResponseMessage _httpResponse = null;
+            _httpRequest.Method = new HttpMethod("PATCH");
+            _httpRequest.RequestUri = new System.Uri(_url);
+            // Set Headers
+
+
+            if (customHeaders != null)
+            {
+                foreach(var _header in customHeaders)
+                {
+                    if (_httpRequest.Headers.Contains(_header.Key))
+                    {
+                        _httpRequest.Headers.Remove(_header.Key);
+                    }
+                    _httpRequest.Headers.TryAddWithoutValidation(_header.Key, _header.Value);
+                }
+            }
+
+            // Serialize Request
+            string _requestContent = null;
+            if(groupProperties != null)
+            {
+                _requestContent = Rest.Serialization.SafeJsonConvert.SerializeObject(groupProperties, Client.SerializationSettings);
+                _httpRequest.Content = new StringContent(_requestContent, System.Text.Encoding.UTF8);
+                _httpRequest.Content.Headers.ContentType =System.Net.Http.Headers.MediaTypeHeaderValue.Parse("application/json; charset=utf-8");
+            }
+            // Set Credentials
+            if (Client.Credentials != null)
+            {
+                cancellationToken.ThrowIfCancellationRequested();
+                await Client.Credentials.ProcessHttpRequestAsync(_httpRequest, cancellationToken).ConfigureAwait(false);
+            }
+            // Send Request
+            if (_shouldTrace)
+            {
+                ServiceClientTracing.SendRequest(_invocationId, _httpRequest);
+            }
+            cancellationToken.ThrowIfCancellationRequested();
+            _httpResponse = await Client.HttpClient.SendAsync(_httpRequest, cancellationToken).ConfigureAwait(false);
+            if (_shouldTrace)
+            {
+                ServiceClientTracing.ReceiveResponse(_invocationId, _httpResponse);
+            }
+            HttpStatusCode _statusCode = _httpResponse.StatusCode;
+            cancellationToken.ThrowIfCancellationRequested();
+            string _responseContent = null;
+            if ((int)_statusCode != 200)
+            {
+                var ex = new HttpOperationException(string.Format("Operation returned an invalid status code '{0}'", _statusCode));
+                if (_httpResponse.Content != null) {
+                    _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
+                }
+                else {
+                    _responseContent = string.Empty;
+                }
+                ex.Request = new HttpRequestMessageWrapper(_httpRequest, _requestContent);
+                ex.Response = new HttpResponseMessageWrapper(_httpResponse, _responseContent);
+                if (_shouldTrace)
+                {
+                    ServiceClientTracing.Error(_invocationId, ex);
+                }
+                _httpRequest.Dispose();
+                if (_httpResponse != null)
+                {
+                    _httpResponse.Dispose();
+                }
+                throw ex;
+            }
+            // Create Result
+            var _result = new HttpOperationResponse();
+            _result.Request = _httpRequest;
+            _result.Response = _httpResponse;
+            if (_shouldTrace)
+            {
+                ServiceClientTracing.Exit(_invocationId, _result);
+            }
+            return _result;
+        }
+
+        /// <summary>
+        /// Returns a list of users that have access to the specified workspace.
+        /// </summary>
+        /// <remarks>
         ///
         /// ## Permissions
         ///
@@ -540,6 +836,13 @@ namespace Microsoft.PowerBI.Api
         /// ## Required Scope
         ///
         /// Workspace.Read.All or Workspace.ReadWrite.All
+        ///
+        /// ## Limitations
+        ///
+        /// - User permissions for workspaces take time to get updated and may not be
+        /// immediately available when using API calls. To refresh user permissions,
+        /// use the [Refresh User
+        /// Permissions](/rest/api/power-bi/users/refresh-user-permissions) API call.
         /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='groupId'>
@@ -697,11 +1000,6 @@ namespace Microsoft.PowerBI.Api
         /// </summary>
         /// <remarks>
         ///
-        /// When user permissions to a workspace have been recently updated, the new
-        /// permissions might not be immediately available through API calls. To
-        /// refresh user permissions, use the [Refresh User
-        /// Permissions](/rest/api/power-bi/users/refresh-user-permissions) API call.
-        ///
         /// ## Permissions
         ///
         /// This API call can be called by a service principal profile. For more
@@ -711,6 +1009,13 @@ namespace Microsoft.PowerBI.Api
         /// ## Required Scope
         ///
         /// Workspace.ReadWrite.All
+        ///
+        /// ## Limitations
+        ///
+        /// - User permissions for workspaces take time to get updated and may not be
+        /// immediately available when using API calls. To refresh user permissions,
+        /// use the [Refresh User
+        /// Permissions](/rest/api/power-bi/users/refresh-user-permissions) API call.
         /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='groupId'>
@@ -849,11 +1154,6 @@ namespace Microsoft.PowerBI.Api
         /// </summary>
         /// <remarks>
         ///
-        /// When user permissions to a workspace have been recently updated, the new
-        /// permissions might not be immediately available through API calls. To
-        /// refresh user permissions, use the [Refresh User
-        /// Permissions](/rest/api/power-bi/users/refresh-user-permissions) API call.
-        ///
         /// ## Permissions
         ///
         /// This API call can be called by a service principal profile. For more
@@ -863,6 +1163,13 @@ namespace Microsoft.PowerBI.Api
         /// ## Required Scope
         ///
         /// Workspace.ReadWrite.All
+        ///
+        /// ## Limitations
+        ///
+        /// - User permissions for workspaces take time to get updated and may not be
+        /// immediately available when using API calls. To refresh user permissions,
+        /// use the [Refresh User
+        /// Permissions](/rest/api/power-bi/users/refresh-user-permissions) API call.
         /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='groupId'>
@@ -2240,9 +2547,7 @@ namespace Microsoft.PowerBI.Api
         /// </summary>
         /// <remarks>
         ///
-        /// Only the name, description and Log Analytics workspace can be updated. The
-        /// name must be unique inside an organization. To unassign a Log Analytics
-        /// workspace, explicitly set the value to null.
+        /// To unassign a Log Analytics workspace, explicitly set the value to null.
         ///
         /// ## Permissions
         ///
@@ -2255,7 +2560,11 @@ namespace Microsoft.PowerBI.Api
         ///
         /// ## Limitations
         ///
-        /// Maximum 200 requests per hour.
+        /// - Maximum 200 requests per hour.
+        /// - For Shared capacities, only the name and description can be updated.
+        /// - For Premium capacities, only the name, description,
+        /// defaultDatasetStorageFormat and Log Analytics workspace can be updated.
+        /// - The name must be unique inside an organization.
         /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='groupId'>
@@ -2547,7 +2856,8 @@ namespace Microsoft.PowerBI.Api
         /// </summary>
         /// <remarks>
         ///
-        /// This API call only supports adding a user principle.
+        /// This API call only supports adding a user, security group, M365 group and
+        /// service principal.
         ///
         /// ## Permissions
         ///
@@ -2699,7 +3009,9 @@ namespace Microsoft.PowerBI.Api
         /// </summary>
         /// <remarks>
         ///
-        /// This API call only supports adding a user principle.
+        /// This API call supports removing a user, security group, M365 group and
+        /// service principal.Please use email address or UPN for user, group object Id
+        /// for group and app object Id for service principal to delete.
         ///
         /// ## Permissions
         ///
@@ -2716,13 +3028,18 @@ namespace Microsoft.PowerBI.Api
         /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='groupId'>
-        /// The workspace ID
+        /// The workspace ID.
         /// </param>
         /// <param name='user'>
-        /// The user principal name (UPN) of the user to remove
+        /// The user principal name (UPN) of the user or group object Id of the group
+        /// or app object Id of the service principal to delete.
         /// </param>
         /// <param name='profileId'>
-        /// The service principal profile ID to delete
+        /// The service principal profile ID to delete.
+        /// </param>
+        /// <param name='isGroup'>
+        /// Whether a given user is a group or not. This parameter is required when
+        /// user to delete is group.
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -2742,7 +3059,7 @@ namespace Microsoft.PowerBI.Api
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse> DeleteUserAsAdminWithHttpMessagesAsync(System.Guid groupId, string user, System.Guid? profileId = default(System.Guid?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse> DeleteUserAsAdminWithHttpMessagesAsync(System.Guid groupId, string user, System.Guid? profileId = default(System.Guid?), bool? isGroup = default(bool?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (user == null)
             {
@@ -2758,6 +3075,7 @@ namespace Microsoft.PowerBI.Api
                 tracingParameters.Add("groupId", groupId);
                 tracingParameters.Add("user", user);
                 tracingParameters.Add("profileId", profileId);
+                tracingParameters.Add("isGroup", isGroup);
                 tracingParameters.Add("cancellationToken", cancellationToken);
                 ServiceClientTracing.Enter(_invocationId, this, "DeleteUserAsAdmin", tracingParameters);
             }
@@ -2770,6 +3088,10 @@ namespace Microsoft.PowerBI.Api
             if (profileId != null)
             {
                 _queryParameters.Add(string.Format("profileId={0}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(profileId, Client.SerializationSettings).Trim('"'))));
+            }
+            if (isGroup != null)
+            {
+                _queryParameters.Add(string.Format("isGroup={0}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(isGroup, Client.SerializationSettings).Trim('"'))));
             }
             if (_queryParameters.Count > 0)
             {

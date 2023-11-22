@@ -37,7 +37,9 @@ namespace Microsoft.PowerBI.Api.Models
         /// to an app</param>
         /// <param name="description">The report description</param>
         /// <param name="reportType">The report type. Possible values include:
-        /// 'PaginatedReport'</param>
+        /// 'PaginatedReport', 'PowerBIReport'</param>
+        /// <param name="originalReportId">The actual report ID when the
+        /// workspace is published as an app.</param>
         /// <param name="webUrl">The web URL of the report</param>
         /// <param name="embedUrl">The embed URL of the report</param>
         /// <param name="createdBy">The report owner. Available only for
@@ -65,7 +67,7 @@ namespace Microsoft.PowerBI.Api.Models
         /// API call.</param>
         /// <param name="workspaceId">The workspace ID (GUID) of the report.
         /// This property will be returned only in GetReportsAsAdmin.</param>
-        public AdminReport(System.Guid id, string name = default(string), string datasetId = default(string), string appId = default(string), string description = default(string), string reportType = default(string), string webUrl = default(string), string embedUrl = default(string), string createdBy = default(string), string modifiedBy = default(string), System.DateTime? createdDateTime = default(System.DateTime?), System.DateTime? modifiedDateTime = default(System.DateTime?), IList<ReportUser> users = default(IList<ReportUser>), IList<Subscription> subscriptions = default(IList<Subscription>), System.Guid? workspaceId = default(System.Guid?))
+        public AdminReport(System.Guid id, string name = default(string), string datasetId = default(string), string appId = default(string), string description = default(string), string reportType = default(string), System.Guid? originalReportId = default(System.Guid?), string webUrl = default(string), string embedUrl = default(string), string createdBy = default(string), string modifiedBy = default(string), System.DateTime? createdDateTime = default(System.DateTime?), System.DateTime? modifiedDateTime = default(System.DateTime?), IList<ReportUser> users = default(IList<ReportUser>), IList<Subscription> subscriptions = default(IList<Subscription>), System.Guid? workspaceId = default(System.Guid?))
         {
             Id = id;
             Name = name;
@@ -73,6 +75,7 @@ namespace Microsoft.PowerBI.Api.Models
             AppId = appId;
             Description = description;
             ReportType = reportType;
+            OriginalReportId = originalReportId;
             WebUrl = webUrl;
             EmbedUrl = embedUrl;
             CreatedBy = createdBy;
@@ -123,10 +126,17 @@ namespace Microsoft.PowerBI.Api.Models
 
         /// <summary>
         /// Gets or sets the report type. Possible values include:
-        /// 'PaginatedReport'
+        /// 'PaginatedReport', 'PowerBIReport'
         /// </summary>
         [JsonProperty(PropertyName = "reportType")]
         public string ReportType { get; set; }
+
+        /// <summary>
+        /// Gets or sets the actual report ID when the workspace is published
+        /// as an app.
+        /// </summary>
+        [JsonProperty(PropertyName = "originalReportId")]
+        public System.Guid? OriginalReportId { get; set; }
 
         /// <summary>
         /// Gets or sets the web URL of the report

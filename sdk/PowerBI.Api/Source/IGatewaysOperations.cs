@@ -271,14 +271,21 @@ namespace Microsoft.PowerBI.Api
         /// in the [On-premise encrypted credentials
         /// example](/rest/api/power-bi/gateways/update-datasource#on-premise-encrypted-credentials-example).
         ///
+        /// See the [Patch Datasource
+        /// Credentials](https://github.com/microsoft/PowerBI-Developer-Samples/blob/master/PowerShell%20Scripts/PatchDatasourceCredentials.ps1)
+        /// PowerShell script for an example of using this API, this script
+        /// uses the PowerShell script mentioned in the note below for
+        /// encrypting the credentials.
+        ///
         /// &gt; [!NOTE]
         /// &gt; - To encrypt credentials, see [Configure credentials
         /// programmatically](/power-bi/developer/embedded/configure-credentials)
         /// for Power BI and review the EncryptCredentials [.NET
         /// Core](https://github.com/microsoft/PowerBI-Developer-Samples/tree/master/.NET%20Core/EncryptCredentials),
-        /// [Java](https://github.com/microsoft/PowerBI-Developer-Samples/tree/master/Java/EncryptCredentials)
-        /// and
+        /// [Java](https://github.com/microsoft/PowerBI-Developer-Samples/tree/master/Java/EncryptCredentials),
         /// [Python](https://github.com/microsoft/PowerBI-Developer-Samples/tree/master/Python/Encrypt%20credentials)
+        /// and
+        /// [PowerShell](https://github.com/microsoft/PowerBI-Developer-Samples/blob/master/PowerShell%20Scripts/EncryptGatewayCredentials.ps1)
         /// examples.
         /// &gt; - Windows credentials before encryption look like the
         /// credentials in the credentials of [Basic credentials

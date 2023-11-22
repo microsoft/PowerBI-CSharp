@@ -53,7 +53,8 @@ namespace Microsoft.PowerBI.Api.Models
         /// request</param>
         /// <param name="messages">An array of engine error or warning messages
         /// for the refresh request</param>
-        public DatasetRefreshDetail(System.DateTime? startTime = default(System.DateTime?), System.DateTime? endTime = default(System.DateTime?), string type = default(string), string commitMode = default(string), string status = default(string), string extendedStatus = default(string), string currentRefreshType = default(string), int? numberOfAttempts = default(int?), IList<DatasetRefreshObjects> objects = default(IList<DatasetRefreshObjects>), IList<EngineMessage> messages = default(IList<EngineMessage>))
+        /// <param name="refreshAttempts">The refresh attempt list.</param>
+        public DatasetRefreshDetail(System.DateTime? startTime = default(System.DateTime?), System.DateTime? endTime = default(System.DateTime?), string type = default(string), string commitMode = default(string), string status = default(string), string extendedStatus = default(string), string currentRefreshType = default(string), int? numberOfAttempts = default(int?), IList<DatasetRefreshObjects> objects = default(IList<DatasetRefreshObjects>), IList<EngineMessage> messages = default(IList<EngineMessage>), IList<RefreshAttempt> refreshAttempts = default(IList<RefreshAttempt>))
         {
             StartTime = startTime;
             EndTime = endTime;
@@ -65,6 +66,7 @@ namespace Microsoft.PowerBI.Api.Models
             NumberOfAttempts = numberOfAttempts;
             Objects = objects;
             Messages = messages;
+            RefreshAttempts = refreshAttempts;
             CustomInit();
         }
 
@@ -144,6 +146,12 @@ namespace Microsoft.PowerBI.Api.Models
         /// </summary>
         [JsonProperty(PropertyName = "messages")]
         public IList<EngineMessage> Messages { get; set; }
+
+        /// <summary>
+        /// Gets or sets the refresh attempt list.
+        /// </summary>
+        [JsonProperty(PropertyName = "refreshAttempts")]
+        public IList<RefreshAttempt> RefreshAttempts { get; set; }
 
     }
 }
