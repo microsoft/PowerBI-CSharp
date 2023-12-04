@@ -15453,7 +15453,7 @@
                             "200": {}
                         }
                     },
-                    "Add eecurity group to workspace example": {
+                    "Add security group to workspace example": {
                         "parameters": {
                             "groupId": "206d27ca-94e8-4a69-855b-5c32bdd458a8",
                             "userDetails": {
@@ -15554,6 +15554,15 @@
                         "parameters": {
                             "groupId": "f7d76f5a-7190-43c6-bf12-7a135c6c2d23",
                             "user": "23476f5a-7190-43c6-bf12-7a135c6c2d23"
+                        },
+                        "responses": {
+                            "200": {}
+                        }
+                    },
+                    "Delete guest user example": {
+                        "parameters": {
+                            "groupId": "f7d76f5a-7190-43c6-bf12-7a135c6c2d23",
+                            "user": "john_contoso.com%23EXT%23@test.com"
                         },
                         "responses": {
                             "200": {}
@@ -18583,7 +18592,28 @@
                                 }
                             }
                         }
-                    }
+                    },
+                    "Example with Guest User": {
+                        "parameters": {
+                            "userId": "testUser_microsoft.com%23EXT%23@contoso.com"
+                        },
+                        "responses": {
+                            "200": {
+                                "body": {
+                                    "artifactAccessEntities": [
+                                        {
+                                            "artifactId": "41ce06d1-d81b-4ea0-bc6d-2ce3dd2f8e87",
+                                            "displayName": "test report",
+                                            "artifactType": "Report",
+                                            "accessRight": "ReadWrite"
+                                        }
+                                    ],
+                                    "continuationUri": "https://api.powerbi.com/v1.0/myorg/admin/users/testUser_microsoft.com%23EXT%23%40contoso.com/artifactAccess?continuationToken='LDEsMTAwMDAwLDA%3D'",
+                                    "continuationToken": "LDEsMTAwMDAwLDA%3D"
+                                }
+                            }
+                        }
+                    },
                 },
                 "deprecated": false
             }
