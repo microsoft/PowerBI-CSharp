@@ -29,7 +29,14 @@ namespace Microsoft.PowerBI.Api.Models
         public static readonly DatasetCommitMode Transactional = "Transactional";
 
         /// <summary>
-        /// Commit the refresh operation in batches
+        /// Commit the refresh operation in batches. When utilizing
+        /// `partialBatch` mode, the refresh operation does not occur within a
+        /// transaction. Consequently, each command will be committed
+        /// individually, and in the event of a failure, the model may end up
+        /// in a state where only a subset of the data is loaded, or the table
+        /// is left empty. If you desire to guarantee the preservation of
+        /// previous data in case of a failure, you should execute the
+        /// operation with `commitMode = transactional.`
         /// </summary>
         public static readonly DatasetCommitMode PartialBatch = "PartialBatch";
 
