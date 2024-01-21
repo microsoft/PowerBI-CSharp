@@ -819,6 +819,9 @@ namespace Microsoft.PowerBI.Api
         ///
         /// ## Permissions
         ///
+        /// The tenant setting **Dataset Execute Queries REST API**, found under
+        /// **Integration settings**, must be enabled.
+        ///
         /// The user must have dataset read and build permissions. For more
         /// information, see [Manage dataset access
         /// permissions](/power-bi/connect-data/service-datasets-manage-access-permissions).
@@ -832,8 +835,6 @@ namespace Microsoft.PowerBI.Api
         /// - Datasets that are hosted in Azure Analysis Services or that have a live
         /// connection to an on-premises Azure Analysis Services model aren't
         /// supported.
-        /// - The tenant setting **Dataset Execute Queries REST API**, found under
-        /// **Integration settings**, must be enabled.
         /// - One query per API call.
         /// - One table request per query.
         /// - Maximum of 100,000 rows or 1,000,000 values per query (whichever is hit
@@ -844,12 +845,14 @@ namespace Microsoft.PowerBI.Api
         /// will be completed but no additional rows will be written.
         /// - There's a limit of 120 query requests per minute per user, regardless of
         /// the dataset that's queried.
-        /// - Service Principals aren't supported for datasets with RLS per [RLS
-        /// limitations](/power-bi/admin/service-admin-rls#considerations-and-limitations)
-        /// or with SSO enabled. To use Service Principals, make sure the admin tenant
-        /// setting [_Allow service principals to use Power BI
+        /// - To use Service Principals, make sure the admin tenant setting [_Allow
+        /// service principals to use Power BI
         /// APIs_](/power-bi/admin/service-admin-portal-developer#allow-service-principals-to-use-power-bi-apis)
-        /// under _Developer settings_ is enabled.
+        /// under _Developer settings_ is enabled. However, regardless of the admin
+        /// tenant setting, Service Principals aren't supported for datasets with RLS
+        /// per [RLS
+        /// limitations](/power-bi/admin/service-admin-rls#considerations-and-limitations)
+        /// or datasets with SSO enabled.
         /// - Only DAX queries are supported at this time. MDX and DMV queries are not
         /// supported.
         /// &lt;br&gt;&lt;br&gt;
@@ -9919,6 +9922,9 @@ namespace Microsoft.PowerBI.Api
         ///
         /// ## Permissions
         ///
+        /// The tenant setting **Dataset Execute Queries REST API**, found under
+        /// **Integration settings**, must be enabled.
+        ///
         /// The user must have access to the workspace, and dataset read and build
         /// permissions. For more information, see [Manage dataset access
         /// permissions](/power-bi/connect-data/service-datasets-manage-access-permissions).
@@ -9932,8 +9938,6 @@ namespace Microsoft.PowerBI.Api
         /// - Datasets that are hosted in Azure Analysis Services or that have a live
         /// connection to an on-premises Azure Analysis Services model aren't
         /// supported.
-        /// - The tenant setting **Dataset Execute Queries REST API**, found under
-        /// **Integration settings**, must be enabled.
         /// - One query per API call.
         /// - One table request per query.
         /// - Maximum of 100,000 rows or 1,000,000 values per query (whichever is hit
@@ -9944,12 +9948,14 @@ namespace Microsoft.PowerBI.Api
         /// will be completed but no additional rows will be written.
         /// - There's a limit of 120 query requests per minute per user, regardless of
         /// the dataset that's queried.
-        /// - Service Principals aren't supported for datasets with RLS per [RLS
-        /// limitations](/power-bi/admin/service-admin-rls#considerations-and-limitations)
-        /// or with SSO enabled. To use Service Principals, make sure the admin tenant
-        /// setting [_Allow service principals to use Power BI
+        /// - To use Service Principals, make sure the admin tenant setting [_Allow
+        /// service principals to use Power BI
         /// APIs_](/power-bi/admin/service-admin-portal-developer#allow-service-principals-to-use-power-bi-apis)
-        /// under _Developer settings_ is enabled.
+        /// under _Developer settings_ is enabled. However, regardless of the admin
+        /// tenant setting, Service Principals aren't supported for datasets with RLS
+        /// per [RLS
+        /// limitations](/power-bi/admin/service-admin-rls#considerations-and-limitations)
+        /// or datasets with SSO enabled.
         /// - Only DAX queries are supported at this time. MDX and DMV queries are not
         /// supported.
         /// &lt;br&gt;&lt;br&gt;
