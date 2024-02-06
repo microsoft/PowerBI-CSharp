@@ -1444,7 +1444,10 @@ namespace Microsoft.PowerBI.Api
             /// ## Required Scope
             ///
             /// Report.ReadWrite.All
-            /// &lt;br&gt;&lt;br&gt;
+            ///
+            /// ## Limitations
+            ///
+            /// Paginated reports are not supported.&lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -1490,7 +1493,10 @@ namespace Microsoft.PowerBI.Api
             /// ## Required Scope
             ///
             /// Report.ReadWrite.All
-            /// &lt;br&gt;&lt;br&gt;
+            ///
+            /// ## Limitations
+            ///
+            /// Paginated reports are not supported.&lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
