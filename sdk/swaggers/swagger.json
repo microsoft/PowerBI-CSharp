@@ -2882,6 +2882,13 @@
                         "type": "boolean"
                     },
                     {
+                        "name": "subfolderId",
+                        "in": "query",
+                        "required": false,
+                        "description": "The subfolder id to import the file to subfolder",
+                        "type": "integer"
+                    },
+                    {
                         "name": "importInfo",
                         "in": "body",
                         "description": "The import to post",
@@ -6959,6 +6966,13 @@
                         "required": false,
                         "description": "Determines whether to override the existing label on a model when republishing a Power BI .pbix file. The service default value is `true`.",
                         "type": "boolean"
+                    },
+                    {
+                        "name": "subfolderId",
+                        "in": "query",
+                        "required": false,
+                        "description": "The subfolder id to import the file to subfolder",
+                        "type": "integer"
                     },
                     {
                         "name": "importInfo",
