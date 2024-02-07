@@ -35,9 +35,12 @@ namespace Microsoft.PowerBI.Api
         /// <param name='overrideModelLabel'>
         /// Determines whether to override existing label on model during republish of PBIX file, service default value is true.
         /// </param>
-        public static Import PostImportWithFileInGroup(this IImportsOperations operations, Guid groupId, Stream fileStream, string datasetDisplayName = default(string), ImportConflictHandlerMode? nameConflict = default(ImportConflictHandlerMode?), bool? skipReport = default(bool?), bool? overrideReportLabel = default(bool?), bool? overrideModelLabel = default(bool?))
+        /// <param name="subfolderId">
+        /// The subfolder id to import the file to subfolder
+        /// </param>
+        public static Import PostImportWithFileInGroup(this IImportsOperations operations, Guid groupId, Stream fileStream, string datasetDisplayName = default(string), ImportConflictHandlerMode? nameConflict = default(ImportConflictHandlerMode?), bool? skipReport = default(bool?), bool? overrideReportLabel = default(bool?), bool? overrideModelLabel = default(bool?), long? subfolderId = default(long?))
         {
-            return Task.Factory.StartNew(s => ((IImportsOperations)s).PostImportFileWithHttpMessage(groupId, fileStream, datasetDisplayName, nameConflict, skipReport, overrideReportLabel: overrideReportLabel, overrideModelLabel: overrideModelLabel), operations, CancellationToken.None, TaskCreationOptions.None, TaskScheduler.Default).Unwrap().GetAwaiter().GetResult().Body;
+            return Task.Factory.StartNew(s => ((IImportsOperations)s).PostImportFileWithHttpMessage(groupId, fileStream, datasetDisplayName, nameConflict, skipReport, overrideReportLabel: overrideReportLabel, overrideModelLabel: overrideModelLabel, subfolderId: subfolderId), operations, CancellationToken.None, TaskCreationOptions.None, TaskScheduler.Default).Unwrap().GetAwaiter().GetResult().Body;
         }
 
         /// <summary>
@@ -67,12 +70,15 @@ namespace Microsoft.PowerBI.Api
         /// <param name='overrideModelLabel'>
         /// Determines whether to override existing label on model during republish of PBIX file, service default value is true.
         /// </param>
+        /// <param name="subfolderId">
+        /// The subfolder id to import the file to subfolder
+        /// </param>
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
-        public static async Task<Import> PostImportWithFileAsyncInGroup(this IImportsOperations operations, Guid groupId, Stream fileStream, string datasetDisplayName = default(string), ImportConflictHandlerMode? nameConflict = default(ImportConflictHandlerMode?), bool? skipReport = default(bool?), bool? overrideReportLabel = default(bool?), bool? overrideModelLabel = default(bool?), CancellationToken cancellationToken = default(CancellationToken))
+        public static async Task<Import> PostImportWithFileAsyncInGroup(this IImportsOperations operations, Guid groupId, Stream fileStream, string datasetDisplayName = default(string), ImportConflictHandlerMode? nameConflict = default(ImportConflictHandlerMode?), bool? skipReport = default(bool?), bool? overrideReportLabel = default(bool?), bool? overrideModelLabel = default(bool?), long? subfolderId = default(long?), CancellationToken cancellationToken = default(CancellationToken))
         {
-            using (var _result = await operations.PostImportFileWithHttpMessage(groupId, fileStream, datasetDisplayName, nameConflict, skipReport, overrideReportLabel, overrideModelLabel, null, cancellationToken).ConfigureAwait(false))
+            using (var _result = await operations.PostImportFileWithHttpMessage(groupId, fileStream, datasetDisplayName, nameConflict, skipReport, overrideReportLabel, overrideModelLabel, subfolderId, null, cancellationToken).ConfigureAwait(false))
             {
                 return _result.Body;
             }
@@ -102,9 +108,12 @@ namespace Microsoft.PowerBI.Api
         /// <param name='overrideModelLabel'>
         /// Determines whether to override existing label on model during republish of PBIX file, service default value is true.
         /// </param>
-        public static Import PostImportWithFile(this IImportsOperations operations, Stream fileStream, string datasetDisplayName = default(string), ImportConflictHandlerMode? nameConflict = default(ImportConflictHandlerMode?), bool? skipReport = default(bool?), bool? overrideReportLabel = default(bool?), bool? overrideModelLabel = default(bool?))
+        /// <param name="subfolderId">
+        /// The subfolder id to import the file to subfolder
+        /// </param>
+        public static Import PostImportWithFile(this IImportsOperations operations, Stream fileStream, string datasetDisplayName = default(string), ImportConflictHandlerMode? nameConflict = default(ImportConflictHandlerMode?), bool? skipReport = default(bool?), bool? overrideReportLabel = default(bool?), bool? overrideModelLabel = default(bool?), long? subfolderId = default(long?))
         {
-            return Task.Factory.StartNew(s => ((IImportsOperations)s).PostImportFileWithHttpMessage(fileStream, datasetDisplayName, nameConflict, skipReport, overrideReportLabel, overrideModelLabel), operations, CancellationToken.None, TaskCreationOptions.None, TaskScheduler.Default).Unwrap().GetAwaiter().GetResult().Body;
+            return Task.Factory.StartNew(s => ((IImportsOperations)s).PostImportFileWithHttpMessage(fileStream, datasetDisplayName, nameConflict, skipReport, overrideReportLabel, overrideModelLabel, subfolderId), operations, CancellationToken.None, TaskCreationOptions.None, TaskScheduler.Default).Unwrap().GetAwaiter().GetResult().Body;
         }
 
         /// <summary>
@@ -131,12 +140,15 @@ namespace Microsoft.PowerBI.Api
         /// <param name='overrideModelLabel'>
         /// Determines whether to override existing label on model during republish of PBIX file, service default value is true.
         /// </param>
+        /// <param name="subfolderId">
+        /// The subfolder id to import the file to subfolder
+        /// </param>
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
-        public static async Task<Import> PostImportWithFileAsync(this IImportsOperations operations, Stream fileStream, string datasetDisplayName = default(string), ImportConflictHandlerMode? nameConflict = default(ImportConflictHandlerMode?), bool? skipReport = default(bool?), bool? overrideReportLabel = default(bool?), bool? overrideModelLabel = default(bool?), CancellationToken cancellationToken = default(CancellationToken))
+        public static async Task<Import> PostImportWithFileAsync(this IImportsOperations operations, Stream fileStream, string datasetDisplayName = default(string), ImportConflictHandlerMode? nameConflict = default(ImportConflictHandlerMode?), bool? skipReport = default(bool?), bool? overrideReportLabel = default(bool?), bool? overrideModelLabel = default(bool?), long? subfolderId = default(long?), CancellationToken cancellationToken = default(CancellationToken))
         {
-            using (var _result = await operations.PostImportFileWithHttpMessage(fileStream, datasetDisplayName, nameConflict, skipReport, overrideReportLabel, overrideModelLabel, null, cancellationToken).ConfigureAwait(false))
+            using (var _result = await operations.PostImportFileWithHttpMessage(fileStream, datasetDisplayName, nameConflict, skipReport, overrideReportLabel, overrideModelLabel, subfolderId, null, cancellationToken).ConfigureAwait(false))
             {
                 return _result.Body;
             }
