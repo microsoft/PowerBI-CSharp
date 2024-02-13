@@ -1393,7 +1393,7 @@ namespace Microsoft.PowerBI.Api
         ///
         /// ## Limitations
         ///
-        /// Maximum 1 request per 10 minutes.
+        /// Maximum 50 requests per hour or 5 requests per minute, per tenant.
         /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='filter'>
