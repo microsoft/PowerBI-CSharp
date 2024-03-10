@@ -1260,9 +1260,11 @@ namespace Microsoft.PowerBI.Api
             ///
             /// ## Limitations
             ///
-            /// Datasets with SQL, Oracle, Teradata, and SAP HANA
+            /// - Datasets with SQL, Oracle, Teradata, and SAP HANA
             /// [DirectQuery](/power-bi/connect-data/desktop-directquery-about) connections
             /// aren't supported.
+            /// - Datasets created or modified using the public [XMLA
+            /// endpoint](/power-bi/admin/service-premium-connect-tools) aren't supported.
             /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
@@ -1288,9 +1290,11 @@ namespace Microsoft.PowerBI.Api
             ///
             /// ## Limitations
             ///
-            /// Datasets with SQL, Oracle, Teradata, and SAP HANA
+            /// - Datasets with SQL, Oracle, Teradata, and SAP HANA
             /// [DirectQuery](/power-bi/connect-data/desktop-directquery-about) connections
             /// aren't supported.
+            /// - Datasets created or modified using the public [XMLA
+            /// endpoint](/power-bi/admin/service-premium-connect-tools) aren't supported.
             /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
@@ -1339,10 +1343,10 @@ namespace Microsoft.PowerBI.Api
             ///
             /// ## Limitations
             ///
-            /// - Datasets created using the public [XMLA
+            /// - Datasets created or modified using the public [XMLA
             /// endpoint](/power-bi/admin/service-premium-connect-tools) aren't supported.
-            /// To make changes to those data sources, the admin must use the Azure
-            /// Analysis Services client library for Tabular Object Model.
+            /// To make changes to those datasets, the admin must use the Azure Analysis
+            /// Services client library for Tabular Object Model.
             /// - [DirectQuery](/power-bi/connect-data/desktop-directquery-about)
             /// connections are only supported with [enhanced dataset
             /// metadata](/power-bi/connect-data/desktop-enhanced-dataset-metadata).
@@ -1398,10 +1402,10 @@ namespace Microsoft.PowerBI.Api
             ///
             /// ## Limitations
             ///
-            /// - Datasets created using the public [XMLA
+            /// - Datasets created or modified using the public [XMLA
             /// endpoint](/power-bi/admin/service-premium-connect-tools) aren't supported.
-            /// To make changes to those data sources, the admin must use the Azure
-            /// Analysis Services client library for Tabular Object Model.
+            /// To make changes to those datasets, the admin must use the Azure Analysis
+            /// Services client library for Tabular Object Model.
             /// - [DirectQuery](/power-bi/connect-data/desktop-directquery-about)
             /// connections are only supported with [enhanced dataset
             /// metadata](/power-bi/connect-data/desktop-enhanced-dataset-metadata).
@@ -1507,7 +1511,7 @@ namespace Microsoft.PowerBI.Api
             ///
             /// ## Limitations
             ///
-            /// - Datasets created using the public [XMLA
+            /// - Datasets created or modified using the public [XMLA
             /// endpoint](/power-bi/admin/service-premium-connect-tools) aren't supported.
             /// To make changes to those data sources, the admin must use the Azure
             /// Analysis Services client library for Tabular Object Model.
@@ -1573,7 +1577,7 @@ namespace Microsoft.PowerBI.Api
             ///
             /// ## Limitations
             ///
-            /// - Datasets created using the public [XMLA
+            /// - Datasets created or modified using the public [XMLA
             /// endpoint](/power-bi/admin/service-premium-connect-tools) aren't supported.
             /// To make changes to those data sources, the admin must use the Azure
             /// Analysis Services client library for Tabular Object Model.
@@ -3875,9 +3879,11 @@ namespace Microsoft.PowerBI.Api
             ///
             /// ## Limitations
             ///
-            /// Datasets with SQL, Oracle, Teradata, and SAP HANA
+            /// - Datasets with SQL, Oracle, Teradata, and SAP HANA
             /// [DirectQuery](/power-bi/connect-data/desktop-directquery-about) connections
             /// aren't supported.
+            /// - Datasets created or modified using the public [XMLA
+            /// endpoint](/power-bi/admin/service-premium-connect-tools) aren't supported.
             /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
@@ -3911,9 +3917,11 @@ namespace Microsoft.PowerBI.Api
             ///
             /// ## Limitations
             ///
-            /// Datasets with SQL, Oracle, Teradata, and SAP HANA
+            /// - Datasets with SQL, Oracle, Teradata, and SAP HANA
             /// [DirectQuery](/power-bi/connect-data/desktop-directquery-about) connections
             /// aren't supported.
+            /// - Datasets created or modified using the public [XMLA
+            /// endpoint](/power-bi/admin/service-premium-connect-tools) aren't supported.
             /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
@@ -3967,10 +3975,10 @@ namespace Microsoft.PowerBI.Api
             ///
             /// ## Limitations
             ///
-            /// - Datasets created using the public [XMLA
+            /// - Datasets created or modified using the public [XMLA
             /// endpoint](/power-bi/admin/service-premium-connect-tools) aren't supported.
-            /// To make changes to those data sources, the admin must use the Azure
-            /// Analysis Services client library for Tabular Object Model.
+            /// To make changes to those datsets, the admin must use the Azure Analysis
+            /// Services client library for Tabular Object Model.
             /// - [DirectQuery](/power-bi/connect-data/desktop-directquery-about)
             /// connections are only supported with [enhanced dataset
             /// metadata](/power-bi/connect-data/desktop-enhanced-dataset-metadata).
@@ -4031,10 +4039,10 @@ namespace Microsoft.PowerBI.Api
             ///
             /// ## Limitations
             ///
-            /// - Datasets created using the public [XMLA
+            /// - Datasets created or modified using the public [XMLA
             /// endpoint](/power-bi/admin/service-premium-connect-tools) aren't supported.
-            /// To make changes to those data sources, the admin must use the Azure
-            /// Analysis Services client library for Tabular Object Model.
+            /// To make changes to those datsets, the admin must use the Azure Analysis
+            /// Services client library for Tabular Object Model.
             /// - [DirectQuery](/power-bi/connect-data/desktop-directquery-about)
             /// connections are only supported with [enhanced dataset
             /// metadata](/power-bi/connect-data/desktop-enhanced-dataset-metadata).
@@ -4166,7 +4174,7 @@ namespace Microsoft.PowerBI.Api
             ///
             /// ## Limitations
             ///
-            /// - Datasets created using the public [XMLA
+            /// - Datasets created or modified using the public [XMLA
             /// endpoint](/power-bi/admin/service-premium-connect-tools) aren't supported.
             /// To make changes to those data sources, the admin must use the Azure
             /// Analysis Services client library for Tabular Object Model.
@@ -4238,7 +4246,7 @@ namespace Microsoft.PowerBI.Api
             ///
             /// ## Limitations
             ///
-            /// - Datasets created using the public [XMLA
+            /// - Datasets created or modified using the public [XMLA
             /// endpoint](/power-bi/admin/service-premium-connect-tools) aren't supported.
             /// To make changes to those data sources, the admin must use the Azure
             /// Analysis Services client library for Tabular Object Model.
