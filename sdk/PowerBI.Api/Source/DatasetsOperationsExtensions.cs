@@ -3977,7 +3977,7 @@ namespace Microsoft.PowerBI.Api
             ///
             /// - Datasets created or modified using the public [XMLA
             /// endpoint](/power-bi/admin/service-premium-connect-tools) aren't supported.
-            /// To make changes to those datsets, the admin must use the Azure Analysis
+            /// To make changes to those datasets, the admin must use the Azure Analysis
             /// Services client library for Tabular Object Model.
             /// - [DirectQuery](/power-bi/connect-data/desktop-directquery-about)
             /// connections are only supported with [enhanced dataset
@@ -4041,7 +4041,7 @@ namespace Microsoft.PowerBI.Api
             ///
             /// - Datasets created or modified using the public [XMLA
             /// endpoint](/power-bi/admin/service-premium-connect-tools) aren't supported.
-            /// To make changes to those datsets, the admin must use the Azure Analysis
+            /// To make changes to those datasets, the admin must use the Azure Analysis
             /// Services client library for Tabular Object Model.
             /// - [DirectQuery](/power-bi/connect-data/desktop-directquery-about)
             /// connections are only supported with [enhanced dataset
