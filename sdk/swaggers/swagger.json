@@ -24007,6 +24007,10 @@
                     "type": "string",
                     "format": "uuid",
                     "description": "The actual report ID when the workspace is published as an app."
+                },
+                "isOwnedByMe": {
+                    "type": "boolean",
+                    "description": "Determine if the report is created by the current user."
                 }
             }
         },

@@ -38,7 +38,9 @@ namespace Microsoft.PowerBI.Api.Models
         /// 'PaginatedReport', 'PowerBIReport'</param>
         /// <param name="originalReportId">The actual report ID when the
         /// workspace is published as an app.</param>
-        public ReportBaseProperties(System.Guid id, string name = default(string), string datasetId = default(string), string appId = default(string), string description = default(string), string reportType = default(string), System.Guid? originalReportId = default(System.Guid?))
+        /// <param name="isOwnedByMe">Determine if the report is created by the
+        /// current user.</param>
+        public ReportBaseProperties(System.Guid id, string name = default(string), string datasetId = default(string), string appId = default(string), string description = default(string), string reportType = default(string), System.Guid? originalReportId = default(System.Guid?), bool? isOwnedByMe = default(bool?))
         {
             Id = id;
             Name = name;
@@ -47,6 +49,7 @@ namespace Microsoft.PowerBI.Api.Models
             Description = description;
             ReportType = reportType;
             OriginalReportId = originalReportId;
+            IsOwnedByMe = isOwnedByMe;
             CustomInit();
         }
 
@@ -99,6 +102,13 @@ namespace Microsoft.PowerBI.Api.Models
         /// </summary>
         [JsonProperty(PropertyName = "originalReportId")]
         public System.Guid? OriginalReportId { get; set; }
+
+        /// <summary>
+        /// Gets or sets determine if the report is created by the current
+        /// user.
+        /// </summary>
+        [JsonProperty(PropertyName = "isOwnedByMe")]
+        public bool? IsOwnedByMe { get; set; }
 
         /// <summary>
         /// Validate the object.
