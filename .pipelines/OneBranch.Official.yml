@@ -49,6 +49,9 @@ extends:
     globalSdl: # https://aka.ms/obpipelines/sdl
       tsa:
         enabled: true
+      codeql:
+        compiled:
+          enabled: true
       cg:
         failOnAlert: false
 
