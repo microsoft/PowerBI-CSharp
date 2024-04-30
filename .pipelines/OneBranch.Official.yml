@@ -67,7 +67,6 @@ extends:
           ob_sdl_binskim_break: true
           ob_artifactBaseName: 'drop'
           ob_sdl_cg_failOnAlert: false
-          ob_sdl_codeSignValidation_excludes: 'regex|.+(?:exe|dll)$;-|*.nd.dll;-|.gdn\**'
 
         steps:
           - task: onebranch.pipeline.version@1
