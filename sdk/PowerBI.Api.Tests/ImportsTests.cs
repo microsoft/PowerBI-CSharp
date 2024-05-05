@@ -259,6 +259,23 @@ namespace PowerBI.Api.Tests
             }
         }
 
+        [TestMethod]
+        public async Task PostImportWithFileWithNameAndSubfolderObjectId()
+        {
+            var datasetDisplayName = "TestDataset";
+            Guid subfolderObjectId = new Guid();
+            var importResponse = CreateSampleImportResponse();
+
+            using (var handler = new FakeHttpClientHandler(importResponse))
+            using (var client = CreatePowerBIClient(handler))
+            using (var stream = new MemoryStream())
+            {
+                await client.Imports.PostImportWithFileAsync(stream, datasetDisplayName, subfolderObjectId: subfolderObjectId);
+                var expectedRequesetUrl = $"https://api.powerbi.com/v1.0/myorg/imports?datasetDisplayName={datasetDisplayName}&subfolderObjectId={subfolderObjectId}";
+                Assert.AreEqual(expectedRequesetUrl, handler.Request.RequestUri.ToString());
+            }
+        }
+
         private static HttpResponseMessage CreateSampleImportResponse(string name = default(string))
         {
             var import = new Import

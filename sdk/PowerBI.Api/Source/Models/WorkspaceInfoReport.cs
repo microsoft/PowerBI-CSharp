@@ -40,6 +40,8 @@ namespace Microsoft.PowerBI.Api.Models
         /// 'PaginatedReport', 'PowerBIReport'</param>
         /// <param name="originalReportId">The actual report ID when the
         /// workspace is published as an app.</param>
+        /// <param name="isOwnedByMe">Determine if the report is created by the
+        /// current user.</param>
         /// <param name="createdBy">The report owner. Available only for
         /// reports created after June 2019.</param>
         /// <param name="modifiedBy">The last user that modified the
@@ -65,7 +67,7 @@ namespace Microsoft.PowerBI.Api.Models
         /// <param name="datasetWorkspaceId">The workspace ID of the related
         /// dataset, returned only if the related dataset belongs to a
         /// different workspace</param>
-        public WorkspaceInfoReport(System.Guid id, string name = default(string), string datasetId = default(string), string appId = default(string), string description = default(string), string reportType = default(string), System.Guid? originalReportId = default(System.Guid?), string createdBy = default(string), string modifiedBy = default(string), System.DateTime? createdDateTime = default(System.DateTime?), System.DateTime? modifiedDateTime = default(System.DateTime?), string createdById = default(string), string modifiedById = default(string), EndorsementDetails endorsementDetails = default(EndorsementDetails), SensitivityLabel sensitivityLabel = default(SensitivityLabel), IList<ReportUser> users = default(IList<ReportUser>), System.Guid? datasetWorkspaceId = default(System.Guid?))
+        public WorkspaceInfoReport(System.Guid id, string name = default(string), string datasetId = default(string), string appId = default(string), string description = default(string), string reportType = default(string), System.Guid? originalReportId = default(System.Guid?), bool? isOwnedByMe = default(bool?), string createdBy = default(string), string modifiedBy = default(string), System.DateTime? createdDateTime = default(System.DateTime?), System.DateTime? modifiedDateTime = default(System.DateTime?), string createdById = default(string), string modifiedById = default(string), EndorsementDetails endorsementDetails = default(EndorsementDetails), SensitivityLabel sensitivityLabel = default(SensitivityLabel), IList<ReportUser> users = default(IList<ReportUser>), System.Guid? datasetWorkspaceId = default(System.Guid?))
         {
             Id = id;
             Name = name;
@@ -74,6 +76,7 @@ namespace Microsoft.PowerBI.Api.Models
             Description = description;
             ReportType = reportType;
             OriginalReportId = originalReportId;
+            IsOwnedByMe = isOwnedByMe;
             CreatedBy = createdBy;
             ModifiedBy = modifiedBy;
             CreatedDateTime = createdDateTime;
@@ -136,6 +139,13 @@ namespace Microsoft.PowerBI.Api.Models
         /// </summary>
         [JsonProperty(PropertyName = "originalReportId")]
         public System.Guid? OriginalReportId { get; set; }
+
+        /// <summary>
+        /// Gets or sets determine if the report is created by the current
+        /// user.
+        /// </summary>
+        [JsonProperty(PropertyName = "isOwnedByMe")]
+        public bool? IsOwnedByMe { get; set; }
 
         /// <summary>
         /// Gets or sets the report owner. Available only for reports created

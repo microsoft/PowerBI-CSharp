@@ -251,6 +251,9 @@ namespace Microsoft.PowerBI.Api
         /// Whether to override the existing label on a model when republishing a Power
         /// BI .pbix file. The service default value is `true`.
         /// </param>
+        /// <param name='subfolderObjectId'>
+        /// The subfolder ID to import the file to subfolder.
+        /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
         /// </param>
@@ -272,7 +275,7 @@ namespace Microsoft.PowerBI.Api
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<Import>> PostImportWithHttpMessagesAsync(string datasetDisplayName, ImportInfo importInfo, ImportConflictHandlerMode? nameConflict = default(ImportConflictHandlerMode?), bool? skipReport = default(bool?), bool? overrideReportLabel = default(bool?), bool? overrideModelLabel = default(bool?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<Import>> PostImportWithHttpMessagesAsync(string datasetDisplayName, ImportInfo importInfo, ImportConflictHandlerMode? nameConflict = default(ImportConflictHandlerMode?), bool? skipReport = default(bool?), bool? overrideReportLabel = default(bool?), bool? overrideModelLabel = default(bool?), System.Guid? subfolderObjectId = default(System.Guid?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (datasetDisplayName == null)
             {
@@ -294,6 +297,7 @@ namespace Microsoft.PowerBI.Api
                 tracingParameters.Add("skipReport", skipReport);
                 tracingParameters.Add("overrideReportLabel", overrideReportLabel);
                 tracingParameters.Add("overrideModelLabel", overrideModelLabel);
+                tracingParameters.Add("subfolderObjectId", subfolderObjectId);
                 tracingParameters.Add("importInfo", importInfo);
                 tracingParameters.Add("cancellationToken", cancellationToken);
                 ServiceClientTracing.Enter(_invocationId, this, "PostImport", tracingParameters);
@@ -321,6 +325,10 @@ namespace Microsoft.PowerBI.Api
             if (overrideModelLabel != null)
             {
                 _queryParameters.Add(string.Format("overrideModelLabel={0}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(overrideModelLabel, Client.SerializationSettings).Trim('"'))));
+            }
+            if (subfolderObjectId != null)
+            {
+                _queryParameters.Add(string.Format("subfolderObjectId={0}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(subfolderObjectId, Client.SerializationSettings).Trim('"'))));
             }
             if (_queryParameters.Count > 0)
             {
@@ -964,6 +972,9 @@ namespace Microsoft.PowerBI.Api
         /// Determines whether to override the existing label on a model when
         /// republishing a Power BI .pbix file. The service default value is `true`.
         /// </param>
+        /// <param name='subfolderObjectId'>
+        /// The subfolder ID to import the file to subfolder.
+        /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
         /// </param>
@@ -985,7 +996,7 @@ namespace Microsoft.PowerBI.Api
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<Import>> PostImportInGroupWithHttpMessagesAsync(System.Guid groupId, string datasetDisplayName, ImportInfo importInfo, ImportConflictHandlerMode? nameConflict = default(ImportConflictHandlerMode?), bool? skipReport = default(bool?), bool? overrideReportLabel = default(bool?), bool? overrideModelLabel = default(bool?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<Import>> PostImportInGroupWithHttpMessagesAsync(System.Guid groupId, string datasetDisplayName, ImportInfo importInfo, ImportConflictHandlerMode? nameConflict = default(ImportConflictHandlerMode?), bool? skipReport = default(bool?), bool? overrideReportLabel = default(bool?), bool? overrideModelLabel = default(bool?), System.Guid? subfolderObjectId = default(System.Guid?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (datasetDisplayName == null)
             {
@@ -1008,6 +1019,7 @@ namespace Microsoft.PowerBI.Api
                 tracingParameters.Add("skipReport", skipReport);
                 tracingParameters.Add("overrideReportLabel", overrideReportLabel);
                 tracingParameters.Add("overrideModelLabel", overrideModelLabel);
+                tracingParameters.Add("subfolderObjectId", subfolderObjectId);
                 tracingParameters.Add("importInfo", importInfo);
                 tracingParameters.Add("cancellationToken", cancellationToken);
                 ServiceClientTracing.Enter(_invocationId, this, "PostImportInGroup", tracingParameters);
@@ -1036,6 +1048,10 @@ namespace Microsoft.PowerBI.Api
             if (overrideModelLabel != null)
             {
                 _queryParameters.Add(string.Format("overrideModelLabel={0}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(overrideModelLabel, Client.SerializationSettings).Trim('"'))));
+            }
+            if (subfolderObjectId != null)
+            {
+                _queryParameters.Add(string.Format("subfolderObjectId={0}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(subfolderObjectId, Client.SerializationSettings).Trim('"'))));
             }
             if (_queryParameters.Count > 0)
             {

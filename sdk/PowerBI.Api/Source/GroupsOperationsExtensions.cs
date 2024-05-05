@@ -1023,8 +1023,9 @@ namespace Microsoft.PowerBI.Api
             ///
             /// ## Limitations
             ///
-            /// Maximum 50 requests per hour, per tenant. This call will also time out
-            /// after 30 seconds to prevent adverse effect on the Power BI service.
+            /// Maximum 50 requests per hour or 15 requests per minute, per tenant. This
+            /// call will also time out after 30 seconds to prevent adverse effect on the
+            /// Power BI service.
             /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
@@ -1077,8 +1078,9 @@ namespace Microsoft.PowerBI.Api
             ///
             /// ## Limitations
             ///
-            /// Maximum 50 requests per hour, per tenant. This call will also time out
-            /// after 30 seconds to prevent adverse effect on the Power BI service.
+            /// Maximum 50 requests per hour or 15 requests per minute, per tenant. This
+            /// call will also time out after 30 seconds to prevent adverse effect on the
+            /// Power BI service.
             /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>

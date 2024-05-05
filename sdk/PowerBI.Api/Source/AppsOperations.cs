@@ -1239,8 +1239,10 @@ namespace Microsoft.PowerBI.Api
         /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='top'>
-        /// The requested number of entries in the refresh history. If not provided,
-        /// the default is all available entries.
+        /// The requested number of apps.
+        /// </param>
+        /// <param name='skip'>
+        /// The number entries to be skipped.
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -1257,11 +1259,15 @@ namespace Microsoft.PowerBI.Api
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<AdminApps>> GetAppsAsAdminWithHttpMessagesAsync(int top, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<AdminApps>> GetAppsAsAdminWithHttpMessagesAsync(int top, int? skip = default(int?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (top < 1)
             {
                 throw new ValidationException(ValidationRules.InclusiveMinimum, "top", 1);
+            }
+            if (skip < 1)
+            {
+                throw new ValidationException(ValidationRules.InclusiveMinimum, "skip", 1);
             }
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
@@ -1271,6 +1277,7 @@ namespace Microsoft.PowerBI.Api
                 _invocationId = ServiceClientTracing.NextInvocationId.ToString();
                 Dictionary<string, object> tracingParameters = new Dictionary<string, object>();
                 tracingParameters.Add("top", top);
+                tracingParameters.Add("skip", skip);
                 tracingParameters.Add("cancellationToken", cancellationToken);
                 ServiceClientTracing.Enter(_invocationId, this, "GetAppsAsAdmin", tracingParameters);
             }
@@ -1279,6 +1286,10 @@ namespace Microsoft.PowerBI.Api
             var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v1.0/myorg/admin/apps").ToString();
             List<string> _queryParameters = new List<string>();
             _queryParameters.Add(string.Format("$top={0}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(top, Client.SerializationSettings).Trim('"'))));
+            if (skip != null)
+            {
+                _queryParameters.Add(string.Format("$skip={0}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(skip, Client.SerializationSettings).Trim('"'))));
+            }
             if (_queryParameters.Count > 0)
             {
                 _url += "?" + string.Join("&", _queryParameters);

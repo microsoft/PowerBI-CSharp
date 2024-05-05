@@ -532,12 +532,14 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='top'>
-            /// The requested number of entries in the refresh history. If not provided,
-            /// the default is all available entries.
+            /// The requested number of apps.
             /// </param>
-            public static AdminApps GetAppsAsAdmin(this IAppsOperations operations, int top)
+            /// <param name='skip'>
+            /// The number entries to be skipped.
+            /// </param>
+            public static AdminApps GetAppsAsAdmin(this IAppsOperations operations, int top, int? skip = default(int?))
             {
-                return operations.GetAppsAsAdminAsync(top).GetAwaiter().GetResult();
+                return operations.GetAppsAsAdminAsync(top, skip).GetAwaiter().GetResult();
             }
 
             /// <summary>
@@ -575,15 +577,17 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='top'>
-            /// The requested number of entries in the refresh history. If not provided,
-            /// the default is all available entries.
+            /// The requested number of apps.
+            /// </param>
+            /// <param name='skip'>
+            /// The number entries to be skipped.
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<AdminApps> GetAppsAsAdminAsync(this IAppsOperations operations, int top, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<AdminApps> GetAppsAsAdminAsync(this IAppsOperations operations, int top, int? skip = default(int?), CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.GetAppsAsAdminWithHttpMessagesAsync(top, null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.GetAppsAsAdminWithHttpMessagesAsync(top, skip, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }

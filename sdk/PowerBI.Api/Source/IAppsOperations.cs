@@ -307,8 +307,10 @@ namespace Microsoft.PowerBI.Api
         /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='top'>
-        /// The requested number of entries in the refresh history. If not
-        /// provided, the default is all available entries.
+        /// The requested number of apps.
+        /// </param>
+        /// <param name='skip'>
+        /// The number entries to be skipped.
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -322,7 +324,7 @@ namespace Microsoft.PowerBI.Api
         /// <exception cref="Microsoft.Rest.SerializationException">
         /// Thrown when unable to deserialize the response
         /// </exception>
-        Task<HttpOperationResponse<AdminApps>> GetAppsAsAdminWithHttpMessagesAsync(int top, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<AdminApps>> GetAppsAsAdminWithHttpMessagesAsync(int top, int? skip = default(int?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Returns a list of users that have access to the specified app.
         /// </summary>

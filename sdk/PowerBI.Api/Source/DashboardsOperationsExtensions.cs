@@ -1199,7 +1199,7 @@ namespace Microsoft.PowerBI.Api
             ///
             /// ## Limitations
             ///
-            /// Maximum 200 requests per hour.
+            /// Maximum 50 requests per hour or 5 requests per minute, per tenant.
             /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
@@ -1249,7 +1249,7 @@ namespace Microsoft.PowerBI.Api
             ///
             /// ## Limitations
             ///
-            /// Maximum 200 requests per hour.
+            /// Maximum 50 requests per hour or 5 requests per minute, per tenant.
             /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
