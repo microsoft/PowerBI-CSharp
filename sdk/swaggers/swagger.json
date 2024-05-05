@@ -343,7 +343,7 @@
                     "Datasets"
                 ],
                 "summary": "Executes Data Analysis Expressions (DAX) queries against the provided dataset. The dataset must reside in **My workspace** or another workspace.",
-                "description": "\nDAX query errors will result in:\n\n- A response error, such as `DAX query failure`.\n- A failure HTTP status code (400).\n\nA query that requests more than one table, or more than the allowed number of table rows, will result in:\n\n- Limited data being returned.\n- A response error, such as `More than one result table in a query` or `More than {allowed number} rows in a query result`.\n- A successful HTTP status code (200).\n\nColumns that are fully qualified in the query will be returned with a fully qualified name, for example, `MyTable[MyColumn]`. Columns that are renamed or created in the query will be returned within square bracket, for example, `[MyNewColumn]`.\n\n## Permissions\n\nThe user must have dataset read and build permissions. For more information, see [Manage dataset access permissions](/power-bi/connect-data/service-datasets-manage-access-permissions).\n\n## Required Scope\n\nDataset.ReadWrite.All or Dataset.Read.All\n\n## Limitations\n\n- Datasets that are hosted in Azure Analysis Services or that have a live connection to an on-premises Azure Analysis Services model aren't supported.\n- The tenant setting **Dataset Execute Queries REST API**, found under **Integration settings**, must be enabled.\n- One query per API call.\n- One table request per query.\n- Maximum of 100,000 rows or 1,000,000 values per query (whichever is hit first). For example if you query for 5 columns, you can get back max 100,000 rows. If you query for 20 columns, you can get back max 50,000 rows (1 million divided by 20).\n- Maximum of 15MB of data per query. Once 15MB is exceeded, the current row will be completed but no additional rows will be written.\n- There's a limit of 120 query requests per minute per user, regardless of the dataset that's queried.\n- Service Principals aren't supported for datasets with RLS per [RLS limitations](/power-bi/admin/service-admin-rls#considerations-and-limitations) or with SSO enabled. To use Service Principals, make sure the admin tenant setting [_Allow service principals to use Power BI APIs_](/power-bi/admin/service-admin-portal-developer#allow-service-principals-to-use-power-bi-apis) under _Developer settings_ is enabled.\n- Only DAX queries are supported at this time. MDX and DMV queries are not supported. \n<br><br>",
+                "description": "\nDAX query errors will result in:\n\n- A response error, such as `DAX query failure`.\n- A failure HTTP status code (400).\n\nA query that requests more than one table, or more than the allowed number of table rows, will result in:\n\n- Limited data being returned.\n- A response error, such as `More than one result table in a query` or `More than {allowed number} rows in a query result`.\n- A successful HTTP status code (200).\n\nColumns that are fully qualified in the query will be returned with a fully qualified name, for example, `MyTable[MyColumn]`. Columns that are renamed or created in the query will be returned within square bracket, for example, `[MyNewColumn]`.\n\n## Permissions\n\nThe tenant setting **Dataset Execute Queries REST API**, found under **Integration settings**, must be enabled.\n\nThe user must have dataset read and build permissions. For more information, see [Manage dataset access permissions](/power-bi/connect-data/service-datasets-manage-access-permissions).\n\n## Required Scope\n\nDataset.ReadWrite.All or Dataset.Read.All\n\n## Limitations\n\n- Datasets that are hosted in Azure Analysis Services or that have a live connection to an on-premises Azure Analysis Services model aren't supported.\n- One query per API call.\n- One table request per query.\n- Maximum of 100,000 rows or 1,000,000 values per query (whichever is hit first). For example if you query for 5 columns, you can get back max 100,000 rows. If you query for 20 columns, you can get back max 50,000 rows (1 million divided by 20).\n- Maximum of 15MB of data per query. Once 15MB is exceeded, the current row will be completed but no additional rows will be written.\n- There's a limit of 120 query requests per minute per user, regardless of the dataset that's queried.\n- To use Service Principals, make sure the admin tenant setting [_Allow service principals to use Power BI APIs_](/power-bi/admin/service-admin-portal-developer#allow-service-principals-to-use-power-bi-apis) under _Developer settings_ is enabled. However, regardless of the admin tenant setting, Service Principals aren't supported for datasets with RLS per [RLS limitations](/power-bi/admin/service-admin-rls#considerations-and-limitations) or datasets with SSO enabled.\n- Only DAX queries are supported at this time. MDX and DMV queries are not supported. \n<br><br>",
                 "operationId": "Datasets_ExecuteQueries",
                 "consumes": [],
                 "produces": [
@@ -1502,7 +1502,7 @@
                     "Datasets"
                 ],
                 "summary": "Returns a list of parameters for the specified dataset from **My workspace**.",
-                "description": "\n## Required Scope\n\nDataset.Read.All or Dataset.ReadWrite.All\n\n## Limitations\n\nDatasets with SQL, Oracle, Teradata, and SAP HANA [DirectQuery](/power-bi/connect-data/desktop-directquery-about) connections aren't supported.\n<br><br>",
+                "description": "\n## Required Scope\n\nDataset.Read.All or Dataset.ReadWrite.All\n\n## Limitations\n\n- Datasets with SQL, Oracle, Teradata, and SAP HANA [DirectQuery](/power-bi/connect-data/desktop-directquery-about) connections aren't supported.\n- Datasets created or modified using the public [XMLA endpoint](/power-bi/admin/service-premium-connect-tools) aren't supported.\n<br><br>",
                 "operationId": "Datasets_GetParameters",
                 "consumes": [],
                 "produces": [
@@ -1585,7 +1585,7 @@
                     "Datasets"
                 ],
                 "summary": "Updates the parameters values for the specified dataset from **My workspace**.",
-                "description": "\n> [!NOTE]\n> We recommend using [enhanced dataset metadata](/power-bi/connect-data/desktop-enhanced-dataset-metadata) with this API call.\n\n> [!IMPORTANT]\n>\n> - If you're using **enhanced dataset metadata**, refresh the dataset to apply the new parameter values.\n> - If you're not using **enhanced dataset metadata**, wait 30 minutes for the update data sources operation to complete, and then refresh the dataset.\n\n## Permissions\n\nThe user must be the dataset owner.\n\n## Required Scope\n\nDataset.ReadWrite.All\n\n## Limitations\n\n- Datasets created using the public [XMLA endpoint](/power-bi/admin/service-premium-connect-tools) aren't supported. To make changes to those data sources, the admin must use the Azure Analysis Services client library for Tabular Object Model.\n- [DirectQuery](/power-bi/connect-data/desktop-directquery-about) connections are only supported with [enhanced dataset metadata](/power-bi/connect-data/desktop-enhanced-dataset-metadata).\n- Datasets with Azure Analysis Services live connections aren't supported.\n- Maximum of 100 parameters per request.\n- All specified parameters must exist in the dataset.\n- Parameters values should be of the expected type.\n- The parameter list can't be empty or include duplicate parameters.\n- Parameters names are case-sensitive.\n- Parameter `IsRequired` must have a non-empty value.\n- The parameter types `Any` and `Binary` can't be updated.\n<br><br>",
+                "description": "\n> [!NOTE]\n> We recommend using [enhanced dataset metadata](/power-bi/connect-data/desktop-enhanced-dataset-metadata) with this API call.\n\n> [!IMPORTANT]\n>\n> - If you're using **enhanced dataset metadata**, refresh the dataset to apply the new parameter values.\n> - If you're not using **enhanced dataset metadata**, wait 30 minutes for the update data sources operation to complete, and then refresh the dataset.\n\n## Permissions\n\nThe user must be the dataset owner.\n\n## Required Scope\n\nDataset.ReadWrite.All\n\n## Limitations\n\n- Datasets created or modified using the public [XMLA endpoint](/power-bi/admin/service-premium-connect-tools) aren't supported. To make changes to those datasets, the admin must use the Azure Analysis Services client library for Tabular Object Model.\n- [DirectQuery](/power-bi/connect-data/desktop-directquery-about) connections are only supported with [enhanced dataset metadata](/power-bi/connect-data/desktop-enhanced-dataset-metadata).\n- Datasets with Azure Analysis Services live connections aren't supported.\n- Maximum of 100 parameters per request.\n- All specified parameters must exist in the dataset.\n- Parameters values should be of the expected type.\n- The parameter list can't be empty or include duplicate parameters.\n- Parameters names are case-sensitive.\n- Parameter `IsRequired` must have a non-empty value.\n- The parameter types `Any` and `Binary` can't be updated.\n<br><br>",
                 "operationId": "Datasets_UpdateParameters",
                 "consumes": [
                     "application/json"
@@ -1897,7 +1897,7 @@
                     "Datasets"
                 ],
                 "summary": "Updates the data sources of the specified dataset from **My workspace**.",
-                "description": "\n> [!NOTE]\n> We recommend using [enhanced dataset metadata](/power-bi/connect-data/desktop-enhanced-dataset-metadata) with this API call.\n\n> [!IMPORTANT]\n>\n> - The original data source and the new data source must have the exact same schema.\n> - If you're using **enhanced dataset metadata**, refresh the dataset to get data from the new data sources.\n> - If you're not using **enhanced dataset metadata**, wait 30 minutes for the update data sources operation to complete, and then refresh the dataset.\n\n## Permissions\n\nThe user must be the dataset owner.\n\n## Limitations\n\n- Datasets created using the public [XMLA endpoint](/power-bi/admin/service-premium-connect-tools) aren't supported. To make changes to those data sources, the admin must use the Azure Analysis Services client library for Tabular Object Model.\n- Only these data sources are supported: SQL Server, Azure SQL Server, Azure Analysis Services, Azure Synapse, OData, SharePoint, Teradata, and SAP HANA. For other data sources, use the [Update Parameters](/rest/api/power-bi/datasets/update-parameters) API call.\n- Changing the data source type isn't supported.\n- Data sources that contain parameters in the connection string aren't supported.\n- Updating data sources that are part of merged or joined tables is only supported if you're using [enhanced dataset metadata](/power-bi/connect-data/desktop-enhanced-dataset-metadata).\n- For an Advanced Query that references multiple data sources, only the first data source will be updated. To overcome this limitation, define the data source as a parameter and use the [Update Parameters](/rest/api/power-bi/datasets/update-parameters) API call.\n- Datasets with incremental refresh policy are not fully supported, calling this API may not work as expected and result of partial datasources update, to overcome this you can try run a dataset refresh before calling this API.\n\n## Required Scope\n\nDataset.ReadWrite.All\n<br><br>",
+                "description": "\n> [!NOTE]\n> We recommend using [enhanced dataset metadata](/power-bi/connect-data/desktop-enhanced-dataset-metadata) with this API call.\n\n> [!IMPORTANT]\n>\n> - The original data source and the new data source must have the exact same schema.\n> - If you're using **enhanced dataset metadata**, refresh the dataset to get data from the new data sources.\n> - If you're not using **enhanced dataset metadata**, wait 30 minutes for the update data sources operation to complete, and then refresh the dataset.\n\n## Permissions\n\nThe user must be the dataset owner.\n\n## Limitations\n\n- Datasets created or modified using the public [XMLA endpoint](/power-bi/admin/service-premium-connect-tools) aren't supported. To make changes to those data sources, the admin must use the Azure Analysis Services client library for Tabular Object Model.\n- Only these data sources are supported: SQL Server, Azure SQL Server, Azure Analysis Services, Azure Synapse, OData, SharePoint, Teradata, and SAP HANA. For other data sources, use the [Update Parameters](/rest/api/power-bi/datasets/update-parameters) API call.\n- Changing the data source type isn't supported.\n- Data sources that contain parameters in the connection string aren't supported.\n- Updating data sources that are part of merged or joined tables is only supported if you're using [enhanced dataset metadata](/power-bi/connect-data/desktop-enhanced-dataset-metadata).\n- For an Advanced Query that references multiple data sources, only the first data source will be updated. To overcome this limitation, define the data source as a parameter and use the [Update Parameters](/rest/api/power-bi/datasets/update-parameters) API call.\n- Datasets with incremental refresh policy are not fully supported, calling this API may not work as expected and result of partial datasources update, to overcome this you can try run a dataset refresh before calling this API.\n\n## Required Scope\n\nDataset.ReadWrite.All\n<br><br>",
                 "operationId": "Datasets_UpdateDatasources",
                 "consumes": [
                     "application/json"
@@ -2880,6 +2880,14 @@
                         "required": false,
                         "description": "Whether to override the existing label on a model when republishing a Power BI .pbix file. The service default value is `true`.",
                         "type": "boolean"
+                    },
+                    {
+                        "name": "subfolderObjectId",
+                        "in": "query",
+                        "required": false,
+                        "description": "The subfolder ID to import the file to subfolder.",
+                        "type": "string",
+                        "format": "uuid"
                     },
                     {
                         "name": "importInfo",
@@ -5744,7 +5752,7 @@
                     "Datasets"
                 ],
                 "summary": "Returns a list of parameters for the specified dataset from the specified workspace.",
-                "description": "\n## Permissions\n\nThis API call can be called by a service principal profile. For more information see: [Service principal profiles in Power BI Embedded](/power-bi/developer/embedded/embed-multi-tenancy).\n\n## Required Scope\n\nDataset.Read.All or Dataset.ReadWrite.All\n\n## Limitations\n\nDatasets with SQL, Oracle, Teradata, and SAP HANA [DirectQuery](/power-bi/connect-data/desktop-directquery-about) connections aren't supported.\n<br><br>",
+                "description": "\n## Permissions\n\nThis API call can be called by a service principal profile. For more information see: [Service principal profiles in Power BI Embedded](/power-bi/developer/embedded/embed-multi-tenancy).\n\n## Required Scope\n\nDataset.Read.All or Dataset.ReadWrite.All\n\n## Limitations\n\n- Datasets with SQL, Oracle, Teradata, and SAP HANA [DirectQuery](/power-bi/connect-data/desktop-directquery-about) connections aren't supported.\n- Datasets created or modified using the public [XMLA endpoint](/power-bi/admin/service-premium-connect-tools) aren't supported.\n<br><br>",
                 "operationId": "Datasets_GetParametersInGroup",
                 "consumes": [],
                 "produces": [
@@ -5835,7 +5843,7 @@
                     "Datasets"
                 ],
                 "summary": "Updates the parameters values for the specified dataset from the specified workspace.",
-                "description": "\n> [!NOTE]\n> We recommend using [enhanced dataset metadata](/power-bi/connect-data/desktop-enhanced-dataset-metadata) with this API call.\n\n> [!IMPORTANT]\n>\n> - If you're using **enhanced dataset metadata**, refresh the dataset to apply the new parameter values.\n> - If you're not using **enhanced dataset metadata**, wait 30 minutes for the update data sources operation to complete, and then refresh the dataset.\n\n## Permissions\n\n- The user must be the dataset owner.\n- This API call can be called by a service principal profile. For more information see: [Service principal profiles in Power BI Embedded](/power-bi/developer/embedded/embed-multi-tenancy).\n\n## Required Scope\n\nDataset.ReadWrite.All\n\n## Limitations\n\n- Datasets created using the public [XMLA endpoint](/power-bi/admin/service-premium-connect-tools) aren't supported. To make changes to those data sources, the admin must use the Azure Analysis Services client library for Tabular Object Model.\n- [DirectQuery](/power-bi/connect-data/desktop-directquery-about) connections are only supported with [enhanced dataset metadata](/power-bi/connect-data/desktop-enhanced-dataset-metadata).\n- Datasets with Azure Analysis Services live connections aren't supported.\n- Maximum of 100 parameters per request.\n- All specified parameters must exist in the dataset.\n- Parameters values should be of the expected type.\n- The parameter list can't be empty or include duplicate parameters.\n- Parameters names are case-sensitive.\n- Parameter `IsRequired` must have a non-empty value.\n- The parameter types `Any` and `Binary` can't be updated.\n<br><br>",
+                "description": "\n> [!NOTE]\n> We recommend using [enhanced dataset metadata](/power-bi/connect-data/desktop-enhanced-dataset-metadata) with this API call.\n\n> [!IMPORTANT]\n>\n> - If you're using **enhanced dataset metadata**, refresh the dataset to apply the new parameter values.\n> - If you're not using **enhanced dataset metadata**, wait 30 minutes for the update data sources operation to complete, and then refresh the dataset.\n\n## Permissions\n\n- The user must be the dataset owner.\n- This API call can be called by a service principal profile. For more information see: [Service principal profiles in Power BI Embedded](/power-bi/developer/embedded/embed-multi-tenancy).\n\n## Required Scope\n\nDataset.ReadWrite.All\n\n## Limitations\n\n- Datasets created or modified using the public [XMLA endpoint](/power-bi/admin/service-premium-connect-tools) aren't supported. To make changes to those datasets, the admin must use the Azure Analysis Services client library for Tabular Object Model.\n- [DirectQuery](/power-bi/connect-data/desktop-directquery-about) connections are only supported with [enhanced dataset metadata](/power-bi/connect-data/desktop-enhanced-dataset-metadata).\n- Datasets with Azure Analysis Services live connections aren't supported.\n- Maximum of 100 parameters per request.\n- All specified parameters must exist in the dataset.\n- Parameters values should be of the expected type.\n- The parameter list can't be empty or include duplicate parameters.\n- Parameters names are case-sensitive.\n- Parameter `IsRequired` must have a non-empty value.\n- The parameter types `Any` and `Binary` can't be updated.\n<br><br>",
                 "operationId": "Datasets_UpdateParametersInGroup",
                 "consumes": [
                     "application/json"
@@ -6188,7 +6196,7 @@
                     "Datasets"
                 ],
                 "summary": "Updates the data sources of the specified dataset from the specified workspace.",
-                "description": "\n> [!NOTE]\n> We recommend using [enhanced dataset metadata](/power-bi/connect-data/desktop-enhanced-dataset-metadata) with this API call.\n\n> [!IMPORTANT]\n>\n> - The original data source and the new data source must have the exact same schema.\n> - If you're using **enhanced dataset metadata**, refresh the dataset to get data from the new data sources.\n> - If you're not using **enhanced dataset metadata**, wait 30 minutes for the update data sources operation to complete, and then refresh the dataset.\n\n## Permissions\n\n- The user must be the dataset owner.\n- This API call can be called by a service principal profile. For more information see: [Service principal profiles in Power BI Embedded](/power-bi/developer/embedded/embed-multi-tenancy).\n\n## Required Scope\n\nDataset.ReadWrite.All\n\n## Limitations\n\n- Datasets created using the public [XMLA endpoint](/power-bi/admin/service-premium-connect-tools) aren't supported. To make changes to those data sources, the admin must use the Azure Analysis Services client library for Tabular Object Model.\n- Only these data sources are supported: SQL Server, Azure SQL Server, Azure Analysis Services, Azure Synapse, OData, SharePoint, Teradata, and SAP HANA. For other data sources, use the [Update Parameters In Group](/rest/api/power-bi/datasets/update-parameters-in-group) API call.\n- Changing the data source type isn't supported.\n- Data sources that contain parameters in the connection string aren't supported.\n- Updating data sources that are part of merged or joined tables is only supported if you're using [enhanced dataset metadata](/power-bi/connect-data/desktop-enhanced-dataset-metadata).\n- For an Advanced Query that reference multiple data sources, only the first data source will be updated. To overcome this limitation, define the data source as a parameter and use the [Update Parameters In Group](/rest/api/power-bi/datasets/update-parameters-in-group) API call.\n- Datasets with incremental refresh policy are not fully supported, calling this API may not work as expected and result of partial datasources update, to overcome this you can try run a dataset refresh before calling this API.\n<br><br>",
+                "description": "\n> [!NOTE]\n> We recommend using [enhanced dataset metadata](/power-bi/connect-data/desktop-enhanced-dataset-metadata) with this API call.\n\n> [!IMPORTANT]\n>\n> - The original data source and the new data source must have the exact same schema.\n> - If you're using **enhanced dataset metadata**, refresh the dataset to get data from the new data sources.\n> - If you're not using **enhanced dataset metadata**, wait 30 minutes for the update data sources operation to complete, and then refresh the dataset.\n\n## Permissions\n\n- The user must be the dataset owner.\n- This API call can be called by a service principal profile. For more information see: [Service principal profiles in Power BI Embedded](/power-bi/developer/embedded/embed-multi-tenancy).\n\n## Required Scope\n\nDataset.ReadWrite.All\n\n## Limitations\n\n- Datasets created or modified using the public [XMLA endpoint](/power-bi/admin/service-premium-connect-tools) aren't supported. To make changes to those data sources, the admin must use the Azure Analysis Services client library for Tabular Object Model.\n- Only these data sources are supported: SQL Server, Azure SQL Server, Azure Analysis Services, Azure Synapse, OData, SharePoint, Teradata, and SAP HANA. For other data sources, use the [Update Parameters In Group](/rest/api/power-bi/datasets/update-parameters-in-group) API call.\n- Changing the data source type isn't supported.\n- Data sources that contain parameters in the connection string aren't supported.\n- Updating data sources that are part of merged or joined tables is only supported if you're using [enhanced dataset metadata](/power-bi/connect-data/desktop-enhanced-dataset-metadata).\n- For an Advanced Query that reference multiple data sources, only the first data source will be updated. To overcome this limitation, define the data source as a parameter and use the [Update Parameters In Group](/rest/api/power-bi/datasets/update-parameters-in-group) API call.\n- Datasets with incremental refresh policy are not fully supported, calling this API may not work as expected and result of partial datasources update, to overcome this you can try run a dataset refresh before calling this API.\n<br><br>",
                 "operationId": "Datasets_UpdateDatasourcesInGroup",
                 "consumes": [
                     "application/json"
@@ -6580,7 +6588,7 @@
                     "Datasets"
                 ],
                 "summary": "Executes Data Analysis Expressions (DAX) queries against the provided dataset.",
-                "description": "\nDAX query errors will result in:\n\n- A response error, such as `DAX query failure`.\n- A failure HTTP status code (400).\n\nA query that requests more than one table, or more than the allowed number of table rows, will result in:\n\n- Limited data being returned.\n- A response error, such as `More than one result table in a query` or `More than {allowed number} rows in a query result`.\n- A successful HTTP status code (200).\n\nColumns that are fully qualified in the query will be returned with a fully qualified name, for example, `MyTable[MyColumn]`. Columns that are renamed or created in the query will be returned within square bracket, for example, `[MyNewColumn]`.\n\n## Permissions\n\nThe user must have access to the workspace, and dataset read and build permissions. For more information, see [Manage dataset access permissions](/power-bi/connect-data/service-datasets-manage-access-permissions).\n\n## Required Scope\n\nDataset.ReadWrite.All or Dataset.Read.All\n\n## Limitations\n\n- Datasets that are hosted in Azure Analysis Services or that have a live connection to an on-premises Azure Analysis Services model aren't supported.\n- The tenant setting **Dataset Execute Queries REST API**, found under **Integration settings**, must be enabled.\n- One query per API call.\n- One table request per query.\n- Maximum of 100,000 rows or 1,000,000 values per query (whichever is hit first). For example if you query for 5 columns, you can get back max 100,000 rows. If you query for 20 columns, you can get back max 50,000 rows (1 million divided by 20).\n- Maximum of 15MB of data per query. Once 15MB is exceeded, the current row will be completed but no additional rows will be written.\n- There's a limit of 120 query requests per minute per user, regardless of the dataset that's queried.\n- Service Principals aren't supported for datasets with RLS per [RLS limitations](/power-bi/admin/service-admin-rls#considerations-and-limitations) or with SSO enabled. To use Service Principals, make sure the admin tenant setting [_Allow service principals to use Power BI APIs_](/power-bi/admin/service-admin-portal-developer#allow-service-principals-to-use-power-bi-apis) under _Developer settings_ is enabled.\n- Only DAX queries are supported at this time. MDX and DMV queries are not supported. \n<br><br>",
+                "description": "\nDAX query errors will result in:\n\n- A response error, such as `DAX query failure`.\n- A failure HTTP status code (400).\n\nA query that requests more than one table, or more than the allowed number of table rows, will result in:\n\n- Limited data being returned.\n- A response error, such as `More than one result table in a query` or `More than {allowed number} rows in a query result`.\n- A successful HTTP status code (200).\n\nColumns that are fully qualified in the query will be returned with a fully qualified name, for example, `MyTable[MyColumn]`. Columns that are renamed or created in the query will be returned within square bracket, for example, `[MyNewColumn]`.\n\n## Permissions\n\nThe tenant setting **Dataset Execute Queries REST API**, found under **Integration settings**, must be enabled.\n\nThe user must have access to the workspace, and dataset read and build permissions. For more information, see [Manage dataset access permissions](/power-bi/connect-data/service-datasets-manage-access-permissions).\n\n## Required Scope\n\nDataset.ReadWrite.All or Dataset.Read.All\n\n## Limitations\n\n- Datasets that are hosted in Azure Analysis Services or that have a live connection to an on-premises Azure Analysis Services model aren't supported.\n- One query per API call.\n- One table request per query.\n- Maximum of 100,000 rows or 1,000,000 values per query (whichever is hit first). For example if you query for 5 columns, you can get back max 100,000 rows. If you query for 20 columns, you can get back max 50,000 rows (1 million divided by 20).\n- Maximum of 15MB of data per query. Once 15MB is exceeded, the current row will be completed but no additional rows will be written.\n- There's a limit of 120 query requests per minute per user, regardless of the dataset that's queried.\n- To use Service Principals, make sure the admin tenant setting [_Allow service principals to use Power BI APIs_](/power-bi/admin/service-admin-portal-developer#allow-service-principals-to-use-power-bi-apis) under _Developer settings_ is enabled. However, regardless of the admin tenant setting, Service Principals aren't supported for datasets with RLS per [RLS limitations](/power-bi/admin/service-admin-rls#considerations-and-limitations) or datasets with SSO enabled.\n- Only DAX queries are supported at this time. MDX and DMV queries are not supported. \n<br><br>",
                 "operationId": "Datasets_ExecuteQueriesInGroup",
                 "consumes": [],
                 "produces": [
@@ -6959,6 +6967,14 @@
                         "required": false,
                         "description": "Determines whether to override the existing label on a model when republishing a Power BI .pbix file. The service default value is `true`.",
                         "type": "boolean"
+                    },
+                    {
+                        "name": "subfolderObjectId",
+                        "in": "query",
+                        "required": false,
+                        "description": "The subfolder ID to import the file to subfolder.",
+                        "type": "string",
+                        "format": "uuid"
                     },
                     {
                         "name": "importInfo",
@@ -7528,7 +7544,7 @@
                     "Reports"
                 ],
                 "summary": "Rebinds the specified report from the specified workspace to the specified dataset.",
-                "description": "\n- If the specified dataset resides in a different workspace than the report or in **My workspace**, then a shared dataset will be created in the report's workspace.\n- On rebind, reports with a [live connection](/power-bi/desktop-report-lifecycle-datasets) will lose that connection and instead have a direct binding to the target dataset.\n\n## Permissions\n\n- The user must have all of the following:\n\n  - **Write** permission on the specified report.\n  - **Build** permission on the target dataset.\n\n- This API call can be called by a service principal profile. For more information see: [Service principal profiles in Power BI Embedded](/power-bi/developer/embedded/embed-multi-tenancy).\n\n## Required Scope\n\nReport.ReadWrite.All\n<br><br>",
+                "description": "\n- If the specified dataset resides in a different workspace than the report or in **My workspace**, then a shared dataset will be created in the report's workspace.\n- On rebind, reports with a [live connection](/power-bi/desktop-report-lifecycle-datasets) will lose that connection and instead have a direct binding to the target dataset.\n\n## Permissions\n\n- The user must have all of the following:\n\n  - **Write** permission on the specified report.\n  - **Build** permission on the target dataset.\n\n- This API call can be called by a service principal profile. For more information see: [Service principal profiles in Power BI Embedded](/power-bi/developer/embedded/embed-multi-tenancy).\n\n## Required Scope\n\nReport.ReadWrite.All\n\n## Limitations\n\nPaginated reports are not supported.<br><br>",
                 "operationId": "Reports_RebindReportInGroup",
                 "consumes": [
                     "application/json"
@@ -14636,7 +14652,7 @@
                     "Admin"
                 ],
                 "summary": "Returns a list of datasets for the organization.",
-                "description": "\nEach request takes two seconds to process, during which time other requests are queued.\n\n## Permissions\n\n- The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) or authenticate using a service principal.\n- Delegated permissions are supported.\n\nWhen running under service prinicipal authentication, an app **must not** have any admin-consent required premissions for Power BI set on it in the Azure portal. \n\n## Required Scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n\nRelevant only when authenticating via a standard delegated admin access token. Must not be present when authentication via a service principal is used.\n<br><br>",
+                "description": "\n## Permissions\n\n- The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) or authenticate using a service principal.\n- Delegated permissions are supported.\n\nWhen running under service prinicipal authentication, an app **must not** have any admin-consent required premissions for Power BI set on it in the Azure portal. \n\n## Required Scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n\nRelevant only when authenticating via a standard delegated admin access token. Must not be present when authentication via a service principal is used.\n\n## Limitations\n\nMaximum 50 requests per hour or 5 requests per minute, per tenant.\n<br><br>",
                 "operationId": "Datasets_GetDatasetsAsAdmin",
                 "consumes": [],
                 "produces": [
@@ -14820,7 +14836,7 @@
                     "Admin"
                 ],
                 "summary": "Returns a list of workspaces for the organization.",
-                "description": "\n## Permissions\n\n- The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) or authenticate using a service principal.\n- Delegated permissions are supported.\n\nWhen running under service prinicipal authentication, an app **must not** have any admin-consent required premissions for Power BI set on it in the Azure portal. \n\n## Required Scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n\nRelevant only when authenticating via a standard delegated admin access token. Must not be present when authentication via a service principal is used.\n\n## Limitations\n\nMaximum 50 requests per hour, per tenant. This call will also time out after 30 seconds to prevent adverse effect on the Power BI service.\n<br><br>",
+                "description": "\n## Permissions\n\n- The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) or authenticate using a service principal.\n- Delegated permissions are supported.\n\nWhen running under service prinicipal authentication, an app **must not** have any admin-consent required premissions for Power BI set on it in the Azure portal. \n\n## Required Scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n\nRelevant only when authenticating via a standard delegated admin access token. Must not be present when authentication via a service principal is used.\n\n## Limitations\n\nMaximum 50 requests per hour or 15 requests per minute, per tenant. This call will also time out after 30 seconds to prevent adverse effect on the Power BI service.\n<br><br>",
                 "operationId": "Groups_GetGroupsAsAdmin",
                 "consumes": [],
                 "produces": [
@@ -15453,7 +15469,7 @@
                             "200": {}
                         }
                     },
-                    "Add eecurity group to workspace example": {
+                    "Add security group to workspace example": {
                         "parameters": {
                             "groupId": "206d27ca-94e8-4a69-855b-5c32bdd458a8",
                             "userDetails": {
@@ -15554,6 +15570,15 @@
                         "parameters": {
                             "groupId": "f7d76f5a-7190-43c6-bf12-7a135c6c2d23",
                             "user": "23476f5a-7190-43c6-bf12-7a135c6c2d23"
+                        },
+                        "responses": {
+                            "200": {}
+                        }
+                    },
+                    "Delete guest user example": {
+                        "parameters": {
+                            "groupId": "f7d76f5a-7190-43c6-bf12-7a135c6c2d23",
+                            "user": "john_contoso.com%23EXT%23@test.com"
                         },
                         "responses": {
                             "200": {}
@@ -16154,7 +16179,7 @@
                     "Admin"
                 ],
                 "summary": "Returns a list of reports for the organization.",
-                "description": "\n## Permissions\n\n- The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) or authenticate using a service principal.\n- Delegated permissions are supported.\n\nWhen running under service prinicipal authentication, an app **must not** have any admin-consent required premissions for Power BI set on it in the Azure portal.\n\n## Required Scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n\nRelevant only when authenticating via a standard delegated admin access token. Must not be present when authentication via a service principal is used.\n\n## Limitations\n\nMaximum 1 request per 10 minutes.\n<br><br>",
+                "description": "\n## Permissions\n\n- The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) or authenticate using a service principal.\n- Delegated permissions are supported.\n\nWhen running under service prinicipal authentication, an app **must not** have any admin-consent required premissions for Power BI set on it in the Azure portal.\n\n## Required Scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n\nRelevant only when authenticating via a standard delegated admin access token. Must not be present when authentication via a service principal is used.\n\n## Limitations\n\nMaximum 50 requests per hour or 5 requests per minute, per tenant.\n<br><br>",
                 "operationId": "Reports_GetReportsAsAdmin",
                 "consumes": [],
                 "produces": [
@@ -16347,7 +16372,7 @@
                     "Admin"
                 ],
                 "summary": "Returns a list of dashboards for the organization.",
-                "description": "\n## Permissions\n\n- The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) or authenticate using a service principal.\n- Delegated permissions are supported.\n\nWhen running under service prinicipal authentication, an app **must not** have any admin-consent required premissions for Power BI set on it in the Azure portal.\n\n## Required Scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n\nRelevant only when authenticating via a standard delegated admin access token. Must not be present when authentication via a service principal is used.\n\n## Limitations\n\nMaximum 200 requests per hour.\n<br><br>",
+                "description": "\n## Permissions\n\n- The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) or authenticate using a service principal.\n- Delegated permissions are supported.\n\nWhen running under service prinicipal authentication, an app **must not** have any admin-consent required premissions for Power BI set on it in the Azure portal.\n\n## Required Scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n\nRelevant only when authenticating via a standard delegated admin access token. Must not be present when authentication via a service principal is used.\n\n## Limitations\n\nMaximum 50 requests per hour or 5 requests per minute, per tenant.\n<br><br>",
                 "operationId": "Dashboards_GetDashboardsAsAdmin",
                 "consumes": [],
                 "produces": [
@@ -18375,9 +18400,17 @@
                 "parameters": [
                     {
                         "name": "$top",
-                        "description": "The requested number of entries in the refresh history. If not provided, the default is all available entries.",
+                        "description": "The requested number of apps.",
                         "in": "query",
                         "required": true,
+                        "type": "integer",
+                        "minimum": 1
+                    },
+                    {
+                        "name": "$skip",
+                        "description": "The number entries to be skipped.",
+                        "in": "query",
+                        "required": false,
                         "type": "integer",
                         "minimum": 1
                     }
@@ -18579,6 +18612,27 @@
                                         }
                                     ],
                                     "continuationUri": "https://api.powerbi.com/v1.0/myorg/admin/users/testUser%40microsoft.com/artifactAccess?continuationToken='LDEsMTAwMDAwLDA%3D'",
+                                    "continuationToken": "LDEsMTAwMDAwLDA%3D"
+                                }
+                            }
+                        }
+                    },
+                    "Example with Guest User": {
+                        "parameters": {
+                            "userId": "testUser_microsoft.com%23EXT%23@contoso.com"
+                        },
+                        "responses": {
+                            "200": {
+                                "body": {
+                                    "artifactAccessEntities": [
+                                        {
+                                            "artifactId": "41ce06d1-d81b-4ea0-bc6d-2ce3dd2f8e87",
+                                            "displayName": "test report",
+                                            "artifactType": "Report",
+                                            "accessRight": "ReadWrite"
+                                        }
+                                    ],
+                                    "continuationUri": "https://api.powerbi.com/v1.0/myorg/admin/users/testUser_microsoft.com%23EXT%23%40contoso.com/artifactAccess?continuationToken='LDEsMTAwMDAwLDA%3D'",
                                     "continuationToken": "LDEsMTAwMDAwLDA%3D"
                                 }
                             }
@@ -23969,6 +24023,10 @@
                     "type": "string",
                     "format": "uuid",
                     "description": "The actual report ID when the workspace is published as an app."
+                },
+                "isOwnedByMe": {
+                    "type": "boolean",
+                    "description": "Determine if the report is created by the current user."
                 }
             }
         },
@@ -25395,7 +25453,7 @@
                             },
                             {
                                 "value": "PartialBatch",
-                                "description": "Commit the refresh operation in batches"
+                                "description": "Commit the refresh operation in batches. When utilizing `partialBatch` mode, the refresh operation does not occur within a transaction. Consequently, each command will be committed individually, and in the event of a failure, the model may end up in a state where only a subset of the data is loaded, or the table is left empty. If you desire to guarantee the preservation of previous data in case of a failure, you should execute the operation with `commitMode = transactional.`"
                             }
                         ]
                     }
@@ -30254,7 +30312,7 @@
             }
         },
         "GoalRankValidationInfo": {
-            "description": "The rank validation information for a Power BI goal, to be used with the [Move Goals](/rest/api/power-bi/scorecards/move-goals) API request. The caller provides validation information to confirm that they know the existing position of the goal within the hierarchy of goals.",
+            "description": "The rank validation information for a Power BI goal, to be used with the [Move Goals](/rest/api/power-bi/scorecards_(preview)/move-goals) API request. The caller provides validation information to confirm that they know the existing position of the goal within the hierarchy of goals.",
             "properties": {
                 "goalId": {
                     "description": "The goal ID",
@@ -30269,7 +30327,7 @@
             }
         },
         "GoalsMoveRequest": {
-            "description": "A request object to be used with the [Move Goals](/rest/api/power-bi/scorecards/move-goals) API request",
+            "description": "A request object to be used with the [Move Goals](/rest/api/power-bi/scorecards_(preview)/move-goals) API request",
             "required": [
                 "goalToMove"
             ],
