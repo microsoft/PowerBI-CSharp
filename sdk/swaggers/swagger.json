@@ -22581,7 +22581,7 @@
                 },
                 "IsRefreshable": {
                     "type": "boolean",
-                    "description": "Whether the dataset is refreshable or not. A Power BI refreshable dataset is a dataset that has been refreshed at least once, or for which a valid refresh schedule exists."
+                    "description": "This field returns `true` when the dataset is either recently refreshed or is configured for automatic refresh, with the connection mode specifically set to 'Import'. The value will return `false` for other connection modes, such as 'DirectQuery' and 'LiveConnection', regardless of whether the dataset is manually refreshed or is set up for automatic refresh."
                 },
                 "IsInPlaceSharingEnabled": {
                     "type": "boolean",
