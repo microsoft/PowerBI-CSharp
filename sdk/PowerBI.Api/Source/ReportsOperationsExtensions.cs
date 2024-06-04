@@ -1335,9 +1335,14 @@ namespace Microsoft.PowerBI.Api
             ///
             /// ## Limitations
             ///
-            /// For .pbix reports, exporting a report with a [Power BI service live
-            /// connection](/power-bi/desktop-report-lifecycle-datasets) isn't supported
-            /// after calling [Rebind Report](/rest/api/power-bi/reports/rebind-report).
+            /// * For .pbix reports, exporting a report is subject to the same limitation
+            /// as [downloading a report .pbix
+            /// file](/power-bi/create-reports/service-export-to-pbix#limitations-when-downloading-a-report-pbix-file).
+            ///
+            /// * After calling [Rebind Report](/rest/api/power-bi/reports/rebind-report),
+            /// exporting a report with a [Power BI service live
+            /// connection](/power-bi/connect-data/desktop-report-lifecycle-datasets) isn't
+            /// supported.
             /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
@@ -1388,9 +1393,14 @@ namespace Microsoft.PowerBI.Api
             ///
             /// ## Limitations
             ///
-            /// For .pbix reports, exporting a report with a [Power BI service live
-            /// connection](/power-bi/desktop-report-lifecycle-datasets) isn't supported
-            /// after calling [Rebind Report](/rest/api/power-bi/reports/rebind-report).
+            /// * For .pbix reports, exporting a report is subject to the same limitation
+            /// as [downloading a report .pbix
+            /// file](/power-bi/create-reports/service-export-to-pbix#limitations-when-downloading-a-report-pbix-file).
+            ///
+            /// * After calling [Rebind Report](/rest/api/power-bi/reports/rebind-report),
+            /// exporting a report with a [Power BI service live
+            /// connection](/power-bi/connect-data/desktop-report-lifecycle-datasets) isn't
+            /// supported.
             /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
