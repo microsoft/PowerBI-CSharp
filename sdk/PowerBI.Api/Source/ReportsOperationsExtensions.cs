@@ -934,6 +934,79 @@ namespace Microsoft.PowerBI.Api
             }
 
             /// <summary>
+            /// Binds the specified data source of the paginated report from **My
+            /// workspace** to the specified gateway, optionally with a given data source
+            /// ID. If you don't supply a specific data source ID, the data source will be
+            /// bound to the first matching data source in the gateway.
+            /// </summary>
+            /// <remarks>
+            ///
+            /// ## Permissions
+            ///
+            /// This API call can be called by a service principal profile.
+            ///
+            /// ## Required Delegated Scopes
+            ///
+            /// Report.ReadWrite.All or Report.Read.All
+            ///
+            /// ## Limitations
+            ///
+            /// Only supports on-premises data gateway
+            /// &lt;br&gt;&lt;br&gt;
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='reportId'>
+            /// The report ID
+            /// </param>
+            /// <param name='rdlBindToGatewayRequest'>
+            /// The bind to gateway request payload.
+            /// </param>
+            public static void BindToGateway(this IReportsOperations operations, System.Guid reportId, RdlBindToGatewayRequest rdlBindToGatewayRequest)
+            {
+                operations.BindToGatewayAsync(reportId, rdlBindToGatewayRequest).GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Binds the specified data source of the paginated report from **My
+            /// workspace** to the specified gateway, optionally with a given data source
+            /// ID. If you don't supply a specific data source ID, the data source will be
+            /// bound to the first matching data source in the gateway.
+            /// </summary>
+            /// <remarks>
+            ///
+            /// ## Permissions
+            ///
+            /// This API call can be called by a service principal profile.
+            ///
+            /// ## Required Delegated Scopes
+            ///
+            /// Report.ReadWrite.All or Report.Read.All
+            ///
+            /// ## Limitations
+            ///
+            /// Only supports on-premises data gateway
+            /// &lt;br&gt;&lt;br&gt;
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='reportId'>
+            /// The report ID
+            /// </param>
+            /// <param name='rdlBindToGatewayRequest'>
+            /// The bind to gateway request payload.
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task BindToGatewayAsync(this IReportsOperations operations, System.Guid reportId, RdlBindToGatewayRequest rdlBindToGatewayRequest, CancellationToken cancellationToken = default(CancellationToken))
+            {
+                (await operations.BindToGatewayWithHttpMessagesAsync(reportId, rdlBindToGatewayRequest, null, cancellationToken).ConfigureAwait(false)).Dispose();
+            }
+
+            /// <summary>
             /// Returns a list of reports from the specified workspace.
             /// </summary>
             /// <remarks>
@@ -2340,6 +2413,85 @@ namespace Microsoft.PowerBI.Api
                 {
                     return _result.Body;
                 }
+            }
+
+            /// <summary>
+            /// Binds the specified data source of the paginated report from the specified
+            /// workspace to the specified gateway, optionally with a given data source ID.
+            /// If you don't supply a specific data source ID, the data source will be
+            /// bound to the first matching data source in the gateway.
+            /// </summary>
+            /// <remarks>
+            ///
+            /// ## Permissions
+            ///
+            /// This API call can be called by a service principal profile.
+            ///
+            /// ## Required Delegated Scopes
+            ///
+            /// Workspace.Read.All or Workspace.ReadWrite.All
+            ///
+            /// ## Limitations
+            ///
+            /// Only supports the on-premises data gateway
+            /// &lt;br&gt;&lt;br&gt;
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='groupId'>
+            /// The workspace ID
+            /// </param>
+            /// <param name='reportId'>
+            /// The report ID
+            /// </param>
+            /// <param name='rdlBindToGatewayRequest'>
+            /// The bind to gateway request payload.
+            /// </param>
+            public static void BindToGatewayInGroup(this IReportsOperations operations, System.Guid groupId, System.Guid reportId, RdlBindToGatewayRequest rdlBindToGatewayRequest)
+            {
+                operations.BindToGatewayInGroupAsync(groupId, reportId, rdlBindToGatewayRequest).GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Binds the specified data source of the paginated report from the specified
+            /// workspace to the specified gateway, optionally with a given data source ID.
+            /// If you don't supply a specific data source ID, the data source will be
+            /// bound to the first matching data source in the gateway.
+            /// </summary>
+            /// <remarks>
+            ///
+            /// ## Permissions
+            ///
+            /// This API call can be called by a service principal profile.
+            ///
+            /// ## Required Delegated Scopes
+            ///
+            /// Workspace.Read.All or Workspace.ReadWrite.All
+            ///
+            /// ## Limitations
+            ///
+            /// Only supports the on-premises data gateway
+            /// &lt;br&gt;&lt;br&gt;
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='groupId'>
+            /// The workspace ID
+            /// </param>
+            /// <param name='reportId'>
+            /// The report ID
+            /// </param>
+            /// <param name='rdlBindToGatewayRequest'>
+            /// The bind to gateway request payload.
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task BindToGatewayInGroupAsync(this IReportsOperations operations, System.Guid groupId, System.Guid reportId, RdlBindToGatewayRequest rdlBindToGatewayRequest, CancellationToken cancellationToken = default(CancellationToken))
+            {
+                (await operations.BindToGatewayInGroupWithHttpMessagesAsync(groupId, reportId, rdlBindToGatewayRequest, null, cancellationToken).ConfigureAwait(false)).Dispose();
             }
 
             /// <summary>

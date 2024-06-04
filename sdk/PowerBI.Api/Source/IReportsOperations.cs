@@ -538,6 +538,47 @@ namespace Microsoft.PowerBI.Api
         /// </exception>
         Task<HttpOperationResponse<Stream>> GetFileOfExportToFileWithHttpMessagesAsync(System.Guid reportId, string exportId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
+        /// Binds the specified data source of the paginated report from **My
+        /// workspace** to the specified gateway, optionally with a given data
+        /// source ID. If you don't supply a specific data source ID, the data
+        /// source will be bound to the first matching data source in the
+        /// gateway.
+        /// </summary>
+        /// <remarks>
+        ///
+        /// ## Permissions
+        ///
+        /// This API call can be called by a service principal profile.
+        ///
+        /// ## Required Delegated Scopes
+        ///
+        /// Report.ReadWrite.All or Report.Read.All
+        ///
+        /// ## Limitations
+        ///
+        /// Only supports on-premises data gateway
+        /// &lt;br&gt;&lt;br&gt;
+        /// </remarks>
+        /// <param name='reportId'>
+        /// The report ID
+        /// </param>
+        /// <param name='rdlBindToGatewayRequest'>
+        /// The bind to gateway request payload.
+        /// </param>
+        /// <param name='customHeaders'>
+        /// The headers that will be added to request.
+        /// </param>
+        /// <param name='cancellationToken'>
+        /// The cancellation token.
+        /// </param>
+        /// <exception cref="Microsoft.Rest.HttpOperationException">
+        /// Thrown when the operation returned an invalid status code
+        /// </exception>
+        /// <exception cref="Microsoft.Rest.ValidationException">
+        /// Thrown when a required parameter is null
+        /// </exception>
+        Task<HttpOperationResponse> BindToGatewayWithHttpMessagesAsync(System.Guid reportId, RdlBindToGatewayRequest rdlBindToGatewayRequest, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
         /// Returns a list of reports from the specified workspace.
         /// </summary>
         /// <remarks>
@@ -1313,6 +1354,50 @@ namespace Microsoft.PowerBI.Api
         /// Thrown when a required parameter is null
         /// </exception>
         Task<HttpOperationResponse<EmbedToken>> GenerateTokenInGroupWithHttpMessagesAsync(System.Guid groupId, System.Guid reportId, GenerateTokenRequest requestParameters, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Binds the specified data source of the paginated report from the
+        /// specified workspace to the specified gateway, optionally with a
+        /// given data source ID. If you don't supply a specific data source
+        /// ID, the data source will be bound to the first matching data source
+        /// in the gateway.
+        /// </summary>
+        /// <remarks>
+        ///
+        /// ## Permissions
+        ///
+        /// This API call can be called by a service principal profile.
+        ///
+        /// ## Required Delegated Scopes
+        ///
+        /// Workspace.Read.All or Workspace.ReadWrite.All
+        ///
+        /// ## Limitations
+        ///
+        /// Only supports the on-premises data gateway
+        /// &lt;br&gt;&lt;br&gt;
+        /// </remarks>
+        /// <param name='groupId'>
+        /// The workspace ID
+        /// </param>
+        /// <param name='reportId'>
+        /// The report ID
+        /// </param>
+        /// <param name='rdlBindToGatewayRequest'>
+        /// The bind to gateway request payload.
+        /// </param>
+        /// <param name='customHeaders'>
+        /// The headers that will be added to request.
+        /// </param>
+        /// <param name='cancellationToken'>
+        /// The cancellation token.
+        /// </param>
+        /// <exception cref="Microsoft.Rest.HttpOperationException">
+        /// Thrown when the operation returned an invalid status code
+        /// </exception>
+        /// <exception cref="Microsoft.Rest.ValidationException">
+        /// Thrown when a required parameter is null
+        /// </exception>
+        Task<HttpOperationResponse> BindToGatewayInGroupWithHttpMessagesAsync(System.Guid groupId, System.Guid reportId, RdlBindToGatewayRequest rdlBindToGatewayRequest, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Returns a list of reports from the specified workspace.
         /// </summary>
