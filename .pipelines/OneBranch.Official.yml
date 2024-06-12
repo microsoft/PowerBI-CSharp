@@ -28,7 +28,7 @@ variables:
   ${{ if eq(variables['Build.DefinitionName'], 'PowerBI-CSharp-Official') }}:
     obpTemplate: v2/OneBranch.Official.CrossPlat.yml@templates # https://aka.ms/obpipelines/templates
     obpMajor: 4
-    obpMinor: 19
+    obpMinor: 20
   ${{ else }}:
     obpTemplate: v2/OneBranch.NonOfficial.CrossPlat.yml@templates # https://aka.ms/obpipelines/templates
     obpMajor: 0
