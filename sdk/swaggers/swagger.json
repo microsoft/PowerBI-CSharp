@@ -3807,6 +3807,68 @@
                 "deprecated": false
             }
         },
+        "/v1.0/myorg/reports/{reportId}/Default.BindToGateway": {
+            "post": {
+                "tags": [
+                    "Reports"
+                ],
+                "summary": "Binds the specified data source of the paginated report from **My workspace** to the specified gateway, optionally with a given data source ID. If you don't supply a specific data source ID, the data source will be bound to the first matching data source in the gateway.",
+                "description": "\n## Permissions\n\n This API call can be called by a service principal profile. \n\n## Required Delegated Scopes\n\nReport.ReadWrite.All or Report.Read.All\n\n## Limitations\n\nOnly supports on-premises data gateway\n<br><br>",
+                "operationId": "Reports_BindToGateway",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [],
+                "parameters": [
+                    {
+                        "name": "reportId",
+                        "in": "path",
+                        "description": "The report ID",
+                        "type": "string",
+                        "format": "uuid",
+                        "required": true
+                    },
+                    {
+                        "name": "rdlBindToGatewayRequest",
+                        "in": "body",
+                        "description": "The bind to gateway request payload.",
+                        "schema": {
+                            "$ref": "#/definitions/RdlBindToGatewayRequest"
+                        },
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                },
+                "x-ms-examples": {
+                    "Example": {
+                        "parameters": {
+                            "reportId": "cfafbeb1-8037-4d0c-896e-a46fb27ff229",
+                            "rdlBindToGatewayRequest": {
+                                "gatewayObjectId": "1f69e798-5852-4fdd-ab01-33bb14b6e934",
+                                "bindDetails": [
+                                    {
+                                        "dataSourceName": "DataSource1",
+                                        "dataSourceObjectId": "dc2f2dac-e5e2-4c37-af76-2a0bc10f16cb"
+                                    },
+                                    {
+                                        "dataSourceName": "DataSource2",
+                                        "dataSourceObjectId": "3bfe5d33-ab7d-4d24-b0b5-e2bb8eb01cf5"
+                                    }
+                                ]
+                            }
+                        },
+                        "responses": {
+                            "200": {}
+                        }
+                    }
+                },
+                "deprecated": false
+            }
+        },
         "/v1.0/myorg/dashboards": {
             "get": {
                 "tags": [
@@ -9134,6 +9196,77 @@
                                     "expiration": "2018-07-29T17:58:19Z"
                                 }
                             }
+                        }
+                    }
+                },
+                "deprecated": false
+            }
+        },
+        "/v1.0/myorg/groups/{groupId}/reports/{reportId}/Default.BindToGateway": {
+            "post": {
+                "tags": [
+                    "Reports"
+                ],
+                "summary": "Binds the specified data source of the paginated report from the specified workspace to the specified gateway, optionally with a given data source ID. If you don't supply a specific data source ID, the data source will be bound to the first matching data source in the gateway.",
+                "description": "\n## Permissions\n\n This API call can be called by a service principal profile. \n\n## Required Delegated Scopes\n\nWorkspace.Read.All or Workspace.ReadWrite.All\n\n## Limitations\n\nOnly supports the on-premises data gateway\n<br><br>",
+                "operationId": "Reports_BindToGatewayInGroup",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [],
+                "parameters": [
+                    {
+                        "name": "groupId",
+                        "in": "path",
+                        "description": "The workspace ID",
+                        "type": "string",
+                        "format": "uuid",
+                        "required": true
+                    },
+                    {
+                        "name": "reportId",
+                        "in": "path",
+                        "description": "The report ID",
+                        "type": "string",
+                        "format": "uuid",
+                        "required": true
+                    },
+                    {
+                        "name": "rdlBindToGatewayRequest",
+                        "in": "body",
+                        "description": "The bind to gateway request payload.",
+                        "schema": {
+                            "$ref": "#/definitions/RdlBindToGatewayRequest"
+                        },
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                },
+                "x-ms-examples": {
+                    "Example": {
+                        "parameters": {
+                            "groupId": "f089354e-8366-4e18-aea3-4cb4a3a50b48",
+                            "reportId": "cfafbeb1-8037-4d0c-896e-a46fb27ff229",
+                            "rdlBindToGatewayRequest": {
+                                "gatewayObjectId": "1f69e798-5852-4fdd-ab01-33bb14b6e934",
+                                "bindDetails": [
+                                    {
+                                        "dataSourceName": "DataSource1",
+                                        "dataSourceObjectId": "dc2f2dac-e5e2-4c37-af76-2a0bc10f16cb"
+                                    },
+                                    {
+                                        "dataSourceName": "DataSource2",
+                                        "dataSourceObjectId": "3bfe5d33-ab7d-4d24-b0b5-e2bb8eb01cf5"
+                                    }
+                                ]
+                            }
+                        },
+                        "responses": {
+                            "200": {}
                         }
                     }
                 },
@@ -14538,10 +14671,10 @@
                             "200": {
                                 "body": [
                                     {
-                                        "Id": "3740504d-1f93-42f9-8e9d-c8ba9b787a3b"
+                                        "id": "3740504d-1f93-42f9-8e9d-c8ba9b787a3b"
                                     },
                                     {
-                                        "Id": "19cb346c-9839-4e19-81e6-76364d0b836f"
+                                        "id": "19cb346c-9839-4e19-81e6-76364d0b836f"
                                     }
                                 ]
                             }
@@ -22230,11 +22363,11 @@
         },
         "ModifiedWorkspace": {
             "required": [
-                "Id"
+                "id"
             ],
             "description": "A modified workspace",
             "properties": {
-                "Id": {
+                "id": {
                     "type": "string",
                     "format": "uuid",
                     "description": "The workspace object ID"
@@ -22581,7 +22714,7 @@
                 },
                 "IsRefreshable": {
                     "type": "boolean",
-                    "description": "Whether the dataset is refreshable or not. A Power BI refreshable dataset is a dataset that has been refreshed at least once, or for which a valid refresh schedule exists."
+                    "description": "This field returns `true` when the dataset is either recently refreshed or is configured for automatic refresh, with the connection mode specifically set to 'Import'. The value will return `false` for other connection modes, such as 'DirectQuery' and 'LiveConnection', regardless of whether the dataset is manually refreshed or is set up for automatic refresh."
                 },
                 "IsInPlaceSharingEnabled": {
                     "type": "boolean",
@@ -28692,6 +28825,43 @@
                 "database": {
                     "type": "string",
                     "description": "The connection database"
+                }
+            }
+        },
+        "RdlBindToGatewayRequest": {
+            "required": [
+                "gatewayObjectId",
+                "bindDetails"
+            ],
+            "description": "Paginated report bind data source to gateway request",
+            "properties": {
+                "gatewayObjectId": {
+                    "type": "string",
+                    "format": "uuid",
+                    "description": "The gateway ID. When using a gateway cluster, the gateway ID refers to the primary (first) gateway in the cluster and is similar to the gateway cluster ID."
+                },
+                "bindDetails": {
+                    "description": "List of bind details",
+                    "type": "array",  
+                    "items": {
+                        "$ref": "#/definitions/RdlBindDetail",
+                        "description": "BindDetail for each data source in the paginated report"
+                    }
+                }
+            }
+        },
+        "RdlBindDetail": {
+            "description": "BindDetail for each data source in a paginated report",
+            "required": ["dataSourceName"],
+            "properties": {
+                "dataSourceName": {
+                    "description": "Name of the data source in the paginated report",
+                    "type": "string"
+                },
+                "dataSourceObjectId": {
+                    "description": "The unique identifier for the data source in the gateway",
+                    "type": "string",
+                    "format": "uuid"
                 }
             }
         },

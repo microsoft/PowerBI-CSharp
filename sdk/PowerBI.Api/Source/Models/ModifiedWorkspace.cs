@@ -40,7 +40,7 @@ namespace Microsoft.PowerBI.Api.Models
         /// <summary>
         /// Gets or sets the workspace object ID
         /// </summary>
-        [JsonProperty(PropertyName = "Id")]
+        [JsonProperty(PropertyName = "id")]
         public System.Guid Id { get; set; }
 
         /// <summary>
