@@ -67,10 +67,13 @@ namespace Microsoft.PowerBI.Api.Models
         /// API with the `getArtifactUsers` parameter.</param>
         /// <param name="addRowsAPIEnabled">Whether the dataset allows adding
         /// new rows</param>
-        /// <param name="isRefreshable">Whether the dataset is refreshable or
-        /// not. A Power BI refreshable dataset is a dataset that has been
-        /// refreshed at least once, or for which a valid refresh schedule
-        /// exists.</param>
+        /// <param name="isRefreshable">This field returns `true` when the
+        /// dataset is either recently refreshed or is configured for automatic
+        /// refresh, with the connection mode specifically set to 'Import'. The
+        /// value will return `false` for other connection modes, such as
+        /// 'DirectQuery' and 'LiveConnection', regardless of whether the
+        /// dataset is manually refreshed or is set up for automatic
+        /// refresh.</param>
         /// <param name="isInPlaceSharingEnabled">Whether the dataset can be
         /// shared with external users to be consumed in their own
         /// tenant</param>
@@ -218,9 +221,12 @@ namespace Microsoft.PowerBI.Api.Models
         public bool? AddRowsAPIEnabled { get; set; }
 
         /// <summary>
-        /// Gets or sets whether the dataset is refreshable or not. A Power BI
-        /// refreshable dataset is a dataset that has been refreshed at least
-        /// once, or for which a valid refresh schedule exists.
+        /// Gets or sets this field returns `true` when the dataset is either
+        /// recently refreshed or is configured for automatic refresh, with the
+        /// connection mode specifically set to 'Import'. The value will return
+        /// `false` for other connection modes, such as 'DirectQuery' and
+        /// 'LiveConnection', regardless of whether the dataset is manually
+        /// refreshed or is set up for automatic refresh.
         /// </summary>
         [JsonProperty(PropertyName = "IsRefreshable")]
         public bool? IsRefreshable { get; set; }
