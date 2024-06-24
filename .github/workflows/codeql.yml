@@ -39,7 +39,7 @@ jobs:
         build-mode: ${{ matrix.build-mode }}
 
     - name: Build
-      run: scripts\build-sdk.cmd
+      run: scripts/build-sdk.cmd
         
     - name: Perform CodeQL Analysis
       uses: github/codeql-action/analyze@v3
