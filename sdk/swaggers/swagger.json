@@ -13815,7 +13815,7 @@
                     "Pipelines"
                 ],
                 "summary": "Deploys all supported items from the source stage of the specified deployment pipeline.",
-                "description": "\nTo learn about items that aren't supported in deployment pipelines, see [Unsupported items](/power-bi/create-reports/deployment-pipelines-process#unsupported-items).\n\n## Permissions\n\nThe user must at least be a member on both source and target deployment workspaces. For more information, see [Permissions](/power-bi/create-reports/deployment-pipelines-process#permissions).\n\n## Required Scope\n\nPipeline.Deploy\n\n## Limitations\n\nMaximum 300 deployed items per request.\n<br><br>",
+                "description": "\nTo learn about items that aren't supported in deployment pipelines, see [Unsupported items](/power-bi/create-reports/deployment-pipelines-process#unsupported-items).\n\n## Permissions\n\nThe user must at least be a contributor on both source and target deployment workspaces. For more information, see [Permissions](/power-bi/create-reports/deployment-pipelines-process#permissions).\n\n## Required Scope\n\nPipeline.Deploy\n\n## Limitations\n\nMaximum 300 deployed items per request.\n<br><br>",
                 "operationId": "Pipelines_DeployAll",
                 "consumes": [
                     "application/json"
@@ -13890,7 +13890,7 @@
                     "Pipelines"
                 ],
                 "summary": "Deploys the specified items from the source stage of the specified deployment pipeline.",
-                "description": "\n## Permissions\n\nThe user must at least be a member on both source and target deployment workspaces. For more information, see [Permissions](/power-bi/create-reports/deployment-pipelines-process#permissions).\n\n## Required Scope\n\nPipeline.Deploy\n\n## Limitations\n\nMaximum 300 deployed items per request.\n<br><br>",
+                "description": "\n## Permissions\n\nThe user must at least be a contributor on both source and target deployment workspaces. For more information, see [Permissions](/power-bi/create-reports/deployment-pipelines-process#permissions).\n\n## Required Scope\n\nPipeline.Deploy\n\n## Limitations\n\nMaximum 300 deployed items per request.\n<br><br>",
                 "operationId": "Pipelines_SelectiveDeploy",
                 "consumes": [
                     "application/json"
