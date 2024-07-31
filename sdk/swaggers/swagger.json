@@ -20083,7 +20083,7 @@
                     "Profiles"
                 ],
                 "summary": "Creates a new service principal profile.",
-                "description": "<br/>Creates a new profile that belongs to service principal caller.\n\n## Limitations\n\nCan only be called by a service principal.",
+                "description": "<br/>Creates a new profile that belongs to service principal caller.\n\n## Limitations\n\nCan only be called by a service principal. The maximum number of profiles a single service principal can have, is 100,000.",
                 "operationId": "Profiles_CreateProfile",
                 "consumes": [
                     "application/json"
