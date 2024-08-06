@@ -23,6 +23,8 @@ namespace Microsoft.PowerBI.Api
     /// </summary>
     public partial class DatasetsOperations : IServiceOperations<PowerBIClient>, IDatasetsOperations
     {
+        private const string DefaultContentTypeHeaderValue = "application/json; charset=utf-8";
+        
         /// <summary>
         /// Initializes a new instance of the DatasetsOperations class.
         /// </summary>
@@ -92,7 +94,7 @@ namespace Microsoft.PowerBI.Api
             _httpRequest.Method = new HttpMethod("GET");
             _httpRequest.RequestUri = new System.Uri(_url);
             // Set Headers
-
+            _httpRequest.Content.Headers.ContentType = System.Net.Http.Headers.MediaTypeHeaderValue.Parse(DefaultContentTypeHeaderValue);
 
             if (customHeaders != null)
             {
@@ -262,7 +264,7 @@ namespace Microsoft.PowerBI.Api
             _httpRequest.Method = new HttpMethod("POST");
             _httpRequest.RequestUri = new System.Uri(_url);
             // Set Headers
-
+            _httpRequest.Content.Headers.ContentType = System.Net.Http.Headers.MediaTypeHeaderValue.Parse(DefaultContentTypeHeaderValue);
 
             if (customHeaders != null)
             {
@@ -282,7 +284,6 @@ namespace Microsoft.PowerBI.Api
             {
                 _requestContent = Rest.Serialization.SafeJsonConvert.SerializeObject(dataset, Client.SerializationSettings);
                 _httpRequest.Content = new StringContent(_requestContent, System.Text.Encoding.UTF8);
-                _httpRequest.Content.Headers.ContentType =System.Net.Http.Headers.MediaTypeHeaderValue.Parse("application/json; charset=utf-8");
             }
             // Set Credentials
             if (Client.Credentials != null)
@@ -434,7 +435,7 @@ namespace Microsoft.PowerBI.Api
             _httpRequest.Method = new HttpMethod("GET");
             _httpRequest.RequestUri = new System.Uri(_url);
             // Set Headers
-
+            _httpRequest.Content.Headers.ContentType = System.Net.Http.Headers.MediaTypeHeaderValue.Parse(DefaultContentTypeHeaderValue);
 
             if (customHeaders != null)
             {
@@ -591,7 +592,7 @@ namespace Microsoft.PowerBI.Api
             _httpRequest.Method = new HttpMethod("PATCH");
             _httpRequest.RequestUri = new System.Uri(_url);
             // Set Headers
-
+            _httpRequest.Content.Headers.ContentType = System.Net.Http.Headers.MediaTypeHeaderValue.Parse(DefaultContentTypeHeaderValue);
 
             if (customHeaders != null)
             {
@@ -611,7 +612,6 @@ namespace Microsoft.PowerBI.Api
             {
                 _requestContent = Rest.Serialization.SafeJsonConvert.SerializeObject(updateDatasetRequest, Client.SerializationSettings);
                 _httpRequest.Content = new StringContent(_requestContent, System.Text.Encoding.UTF8);
-                _httpRequest.Content.Headers.ContentType =System.Net.Http.Headers.MediaTypeHeaderValue.Parse("application/json; charset=utf-8");
             }
             // Set Credentials
             if (Client.Credentials != null)
@@ -724,7 +724,7 @@ namespace Microsoft.PowerBI.Api
             _httpRequest.Method = new HttpMethod("DELETE");
             _httpRequest.RequestUri = new System.Uri(_url);
             // Set Headers
-
+            _httpRequest.Content.Headers.ContentType = System.Net.Http.Headers.MediaTypeHeaderValue.Parse(DefaultContentTypeHeaderValue);
 
             if (customHeaders != null)
             {
@@ -920,7 +920,7 @@ namespace Microsoft.PowerBI.Api
             _httpRequest.Method = new HttpMethod("POST");
             _httpRequest.RequestUri = new System.Uri(_url);
             // Set Headers
-
+            _httpRequest.Content.Headers.ContentType = System.Net.Http.Headers.MediaTypeHeaderValue.Parse(DefaultContentTypeHeaderValue);
 
             if (customHeaders != null)
             {
@@ -940,7 +940,6 @@ namespace Microsoft.PowerBI.Api
             {
                 _requestContent = Rest.Serialization.SafeJsonConvert.SerializeObject(requestMessage, Client.SerializationSettings);
                 _httpRequest.Content = new StringContent(_requestContent, System.Text.Encoding.UTF8);
-                _httpRequest.Content.Headers.ContentType =System.Net.Http.Headers.MediaTypeHeaderValue.Parse("application/json; charset=utf-8");
             }
             // Set Credentials
             if (Client.Credentials != null)
@@ -1081,7 +1080,7 @@ namespace Microsoft.PowerBI.Api
             _httpRequest.Method = new HttpMethod("GET");
             _httpRequest.RequestUri = new System.Uri(_url);
             // Set Headers
-
+            _httpRequest.Content.Headers.ContentType = System.Net.Http.Headers.MediaTypeHeaderValue.Parse(DefaultContentTypeHeaderValue);
 
             if (customHeaders != null)
             {
@@ -1255,7 +1254,7 @@ namespace Microsoft.PowerBI.Api
             _httpRequest.Method = new HttpMethod("PUT");
             _httpRequest.RequestUri = new System.Uri(_url);
             // Set Headers
-
+            _httpRequest.Content.Headers.ContentType = System.Net.Http.Headers.MediaTypeHeaderValue.Parse(DefaultContentTypeHeaderValue);
 
             if (customHeaders != null)
             {
@@ -1275,7 +1274,6 @@ namespace Microsoft.PowerBI.Api
             {
                 _requestContent = Rest.Serialization.SafeJsonConvert.SerializeObject(requestMessage, Client.SerializationSettings);
                 _httpRequest.Content = new StringContent(_requestContent, System.Text.Encoding.UTF8);
-                _httpRequest.Content.Headers.ContentType =System.Net.Http.Headers.MediaTypeHeaderValue.Parse("application/json; charset=utf-8");
             }
             // Set Credentials
             if (Client.Credentials != null)
@@ -1430,7 +1428,7 @@ namespace Microsoft.PowerBI.Api
             _httpRequest.Method = new HttpMethod("POST");
             _httpRequest.RequestUri = new System.Uri(_url);
             // Set Headers
-
+            _httpRequest.Content.Headers.ContentType = System.Net.Http.Headers.MediaTypeHeaderValue.Parse(DefaultContentTypeHeaderValue);
 
             if (customHeaders != null)
             {
@@ -1450,7 +1448,6 @@ namespace Microsoft.PowerBI.Api
             {
                 _requestContent = Rest.Serialization.SafeJsonConvert.SerializeObject(requestMessage, Client.SerializationSettings);
                 _httpRequest.Content = new StringContent(_requestContent, System.Text.Encoding.UTF8);
-                _httpRequest.Content.Headers.ContentType =System.Net.Http.Headers.MediaTypeHeaderValue.Parse("application/json; charset=utf-8");
             }
             // Set Credentials
             if (Client.Credentials != null)
@@ -1579,7 +1576,7 @@ namespace Microsoft.PowerBI.Api
             _httpRequest.Method = new HttpMethod("DELETE");
             _httpRequest.RequestUri = new System.Uri(_url);
             // Set Headers
-
+            _httpRequest.Content.Headers.ContentType = System.Net.Http.Headers.MediaTypeHeaderValue.Parse(DefaultContentTypeHeaderValue);
 
             if (customHeaders != null)
             {
@@ -1738,7 +1735,7 @@ namespace Microsoft.PowerBI.Api
             _httpRequest.Method = new HttpMethod("GET");
             _httpRequest.RequestUri = new System.Uri(_url);
             // Set Headers
-
+            _httpRequest.Content.Headers.ContentType = System.Net.Http.Headers.MediaTypeHeaderValue.Parse(DefaultContentTypeHeaderValue);
 
             if (customHeaders != null)
             {
@@ -1907,8 +1904,8 @@ namespace Microsoft.PowerBI.Api
             _httpRequest.Method = new HttpMethod("POST");
             _httpRequest.RequestUri = new System.Uri(_url);
             // Set Headers
-
-
+            _httpRequest.Content.Headers.ContentType = System.Net.Http.Headers.MediaTypeHeaderValue.Parse(DefaultContentTypeHeaderValue);
+            
             if (customHeaders != null)
             {
                 foreach(var _header in customHeaders)
@@ -1927,7 +1924,6 @@ namespace Microsoft.PowerBI.Api
             {
                 _requestContent = Rest.Serialization.SafeJsonConvert.SerializeObject(datasetRefreshRequest, Client.SerializationSettings);
                 _httpRequest.Content = new StringContent(_requestContent, System.Text.Encoding.UTF8);
-                _httpRequest.Content.Headers.ContentType =System.Net.Http.Headers.MediaTypeHeaderValue.Parse("application/json; charset=utf-8");
             }
             // Set Credentials
             if (Client.Credentials != null)
@@ -2053,7 +2049,7 @@ namespace Microsoft.PowerBI.Api
             _httpRequest.Method = new HttpMethod("GET");
             _httpRequest.RequestUri = new System.Uri(_url);
             // Set Headers
-
+            _httpRequest.Content.Headers.ContentType = System.Net.Http.Headers.MediaTypeHeaderValue.Parse(DefaultContentTypeHeaderValue);
 
             if (customHeaders != null)
             {
@@ -2212,7 +2208,7 @@ namespace Microsoft.PowerBI.Api
             _httpRequest.Method = new HttpMethod("DELETE");
             _httpRequest.RequestUri = new System.Uri(_url);
             // Set Headers
-
+            _httpRequest.Content.Headers.ContentType = System.Net.Http.Headers.MediaTypeHeaderValue.Parse(DefaultContentTypeHeaderValue);
 
             if (customHeaders != null)
             {
@@ -2343,7 +2339,7 @@ namespace Microsoft.PowerBI.Api
             _httpRequest.Method = new HttpMethod("GET");
             _httpRequest.RequestUri = new System.Uri(_url);
             // Set Headers
-
+            _httpRequest.Content.Headers.ContentType = System.Net.Http.Headers.MediaTypeHeaderValue.Parse(DefaultContentTypeHeaderValue);
 
             if (customHeaders != null)
             {
@@ -2514,7 +2510,7 @@ namespace Microsoft.PowerBI.Api
             _httpRequest.Method = new HttpMethod("PATCH");
             _httpRequest.RequestUri = new System.Uri(_url);
             // Set Headers
-
+            _httpRequest.Content.Headers.ContentType = System.Net.Http.Headers.MediaTypeHeaderValue.Parse(DefaultContentTypeHeaderValue);
 
             if (customHeaders != null)
             {
@@ -2534,7 +2530,6 @@ namespace Microsoft.PowerBI.Api
             {
                 _requestContent = Rest.Serialization.SafeJsonConvert.SerializeObject(datasetModelRefreshScheduleRequest, Client.SerializationSettings);
                 _httpRequest.Content = new StringContent(_requestContent, System.Text.Encoding.UTF8);
-                _httpRequest.Content.Headers.ContentType =System.Net.Http.Headers.MediaTypeHeaderValue.Parse("application/json; charset=utf-8");
             }
             // Set Credentials
             if (Client.Credentials != null)
@@ -2653,7 +2648,7 @@ namespace Microsoft.PowerBI.Api
             _httpRequest.Method = new HttpMethod("GET");
             _httpRequest.RequestUri = new System.Uri(_url);
             // Set Headers
-
+            _httpRequest.Content.Headers.ContentType = System.Net.Http.Headers.MediaTypeHeaderValue.Parse(DefaultContentTypeHeaderValue);
 
             if (customHeaders != null)
             {
@@ -2819,7 +2814,7 @@ namespace Microsoft.PowerBI.Api
             _httpRequest.Method = new HttpMethod("PATCH");
             _httpRequest.RequestUri = new System.Uri(_url);
             // Set Headers
-
+            _httpRequest.Content.Headers.ContentType = System.Net.Http.Headers.MediaTypeHeaderValue.Parse(DefaultContentTypeHeaderValue);
 
             if (customHeaders != null)
             {
@@ -2839,7 +2834,6 @@ namespace Microsoft.PowerBI.Api
             {
                 _requestContent = Rest.Serialization.SafeJsonConvert.SerializeObject(datasetDQRefreshScheduleRequest, Client.SerializationSettings);
                 _httpRequest.Content = new StringContent(_requestContent, System.Text.Encoding.UTF8);
-                _httpRequest.Content.Headers.ContentType =System.Net.Http.Headers.MediaTypeHeaderValue.Parse("application/json; charset=utf-8");
             }
             // Set Credentials
             if (Client.Credentials != null)
@@ -2964,7 +2958,7 @@ namespace Microsoft.PowerBI.Api
             _httpRequest.Method = new HttpMethod("GET");
             _httpRequest.RequestUri = new System.Uri(_url);
             // Set Headers
-
+            _httpRequest.Content.Headers.ContentType = System.Net.Http.Headers.MediaTypeHeaderValue.Parse(DefaultContentTypeHeaderValue);
 
             if (customHeaders != null)
             {
@@ -3156,7 +3150,7 @@ namespace Microsoft.PowerBI.Api
             _httpRequest.Method = new HttpMethod("POST");
             _httpRequest.RequestUri = new System.Uri(_url);
             // Set Headers
-
+            _httpRequest.Content.Headers.ContentType = System.Net.Http.Headers.MediaTypeHeaderValue.Parse(DefaultContentTypeHeaderValue);
 
             if (customHeaders != null)
             {
@@ -3176,7 +3170,6 @@ namespace Microsoft.PowerBI.Api
             {
                 _requestContent = Rest.Serialization.SafeJsonConvert.SerializeObject(updateMashupParametersRequest, Client.SerializationSettings);
                 _httpRequest.Content = new StringContent(_requestContent, System.Text.Encoding.UTF8);
-                _httpRequest.Content.Headers.ContentType =System.Net.Http.Headers.MediaTypeHeaderValue.Parse("application/json; charset=utf-8");
             }
             // Set Credentials
             if (Client.Credentials != null)
@@ -3293,7 +3286,7 @@ namespace Microsoft.PowerBI.Api
             _httpRequest.Method = new HttpMethod("GET");
             _httpRequest.RequestUri = new System.Uri(_url);
             // Set Headers
-
+            _httpRequest.Content.Headers.ContentType = System.Net.Http.Headers.MediaTypeHeaderValue.Parse(DefaultContentTypeHeaderValue);
 
             if (customHeaders != null)
             {
@@ -3492,7 +3485,7 @@ namespace Microsoft.PowerBI.Api
             _httpRequest.Method = new HttpMethod("POST");
             _httpRequest.RequestUri = new System.Uri(_url);
             // Set Headers
-
+            _httpRequest.Content.Headers.ContentType = System.Net.Http.Headers.MediaTypeHeaderValue.Parse(DefaultContentTypeHeaderValue);
 
             if (customHeaders != null)
             {
@@ -3512,7 +3505,6 @@ namespace Microsoft.PowerBI.Api
             {
                 _requestContent = Rest.Serialization.SafeJsonConvert.SerializeObject(updateDatasourcesRequest, Client.SerializationSettings);
                 _httpRequest.Content = new StringContent(_requestContent, System.Text.Encoding.UTF8);
-                _httpRequest.Content.Headers.ContentType =System.Net.Http.Headers.MediaTypeHeaderValue.Parse("application/json; charset=utf-8");
             }
             // Set Credentials
             if (Client.Credentials != null)
@@ -3652,7 +3644,7 @@ namespace Microsoft.PowerBI.Api
             _httpRequest.Method = new HttpMethod("POST");
             _httpRequest.RequestUri = new System.Uri(_url);
             // Set Headers
-
+            _httpRequest.Content.Headers.ContentType = System.Net.Http.Headers.MediaTypeHeaderValue.Parse(DefaultContentTypeHeaderValue);
 
             if (customHeaders != null)
             {
@@ -3672,7 +3664,6 @@ namespace Microsoft.PowerBI.Api
             {
                 _requestContent = Rest.Serialization.SafeJsonConvert.SerializeObject(parameters, Client.SerializationSettings);
                 _httpRequest.Content = new StringContent(_requestContent, System.Text.Encoding.UTF8);
-                _httpRequest.Content.Headers.ContentType =System.Net.Http.Headers.MediaTypeHeaderValue.Parse("application/json; charset=utf-8");
             }
             // Set Credentials
             if (Client.Credentials != null)
@@ -3807,7 +3798,7 @@ namespace Microsoft.PowerBI.Api
             _httpRequest.Method = new HttpMethod("POST");
             _httpRequest.RequestUri = new System.Uri(_url);
             // Set Headers
-
+            _httpRequest.Content.Headers.ContentType = System.Net.Http.Headers.MediaTypeHeaderValue.Parse(DefaultContentTypeHeaderValue);
 
             if (customHeaders != null)
             {
@@ -3827,7 +3818,6 @@ namespace Microsoft.PowerBI.Api
             {
                 _requestContent = Rest.Serialization.SafeJsonConvert.SerializeObject(bindToGatewayRequest, Client.SerializationSettings);
                 _httpRequest.Content = new StringContent(_requestContent, System.Text.Encoding.UTF8);
-                _httpRequest.Content.Headers.ContentType =System.Net.Http.Headers.MediaTypeHeaderValue.Parse("application/json; charset=utf-8");
             }
             // Set Credentials
             if (Client.Credentials != null)
@@ -3948,7 +3938,7 @@ namespace Microsoft.PowerBI.Api
             _httpRequest.Method = new HttpMethod("GET");
             _httpRequest.RequestUri = new System.Uri(_url);
             // Set Headers
-
+            _httpRequest.Content.Headers.ContentType = System.Net.Http.Headers.MediaTypeHeaderValue.Parse(DefaultContentTypeHeaderValue);
 
             if (customHeaders != null)
             {
@@ -4101,7 +4091,7 @@ namespace Microsoft.PowerBI.Api
             _httpRequest.Method = new HttpMethod("GET");
             _httpRequest.RequestUri = new System.Uri(_url);
             // Set Headers
-
+            _httpRequest.Content.Headers.ContentType = System.Net.Http.Headers.MediaTypeHeaderValue.Parse(DefaultContentTypeHeaderValue);
 
             if (customHeaders != null)
             {
@@ -4250,7 +4240,7 @@ namespace Microsoft.PowerBI.Api
             _httpRequest.Method = new HttpMethod("GET");
             _httpRequest.RequestUri = new System.Uri(_url);
             // Set Headers
-
+            _httpRequest.Content.Headers.ContentType = System.Net.Http.Headers.MediaTypeHeaderValue.Parse(DefaultContentTypeHeaderValue);
 
             if (customHeaders != null)
             {
@@ -4399,7 +4389,7 @@ namespace Microsoft.PowerBI.Api
             _httpRequest.Method = new HttpMethod("POST");
             _httpRequest.RequestUri = new System.Uri(_url);
             // Set Headers
-
+            _httpRequest.Content.Headers.ContentType = System.Net.Http.Headers.MediaTypeHeaderValue.Parse(DefaultContentTypeHeaderValue);
 
             if (customHeaders != null)
             {
@@ -4574,7 +4564,7 @@ namespace Microsoft.PowerBI.Api
             _httpRequest.Method = new HttpMethod("POST");
             _httpRequest.RequestUri = new System.Uri(_url);
             // Set Headers
-
+            _httpRequest.Content.Headers.ContentType = System.Net.Http.Headers.MediaTypeHeaderValue.Parse(DefaultContentTypeHeaderValue);
 
             if (customHeaders != null)
             {
@@ -4594,7 +4584,6 @@ namespace Microsoft.PowerBI.Api
             {
                 _requestContent = Rest.Serialization.SafeJsonConvert.SerializeObject(userDetails, Client.SerializationSettings);
                 _httpRequest.Content = new StringContent(_requestContent, System.Text.Encoding.UTF8);
-                _httpRequest.Content.Headers.ContentType =System.Net.Http.Headers.MediaTypeHeaderValue.Parse("application/json; charset=utf-8");
             }
             // Set Credentials
             if (Client.Credentials != null)
@@ -4749,7 +4738,7 @@ namespace Microsoft.PowerBI.Api
             _httpRequest.Method = new HttpMethod("PUT");
             _httpRequest.RequestUri = new System.Uri(_url);
             // Set Headers
-
+            _httpRequest.Content.Headers.ContentType = System.Net.Http.Headers.MediaTypeHeaderValue.Parse(DefaultContentTypeHeaderValue);
 
             if (customHeaders != null)
             {
@@ -4769,7 +4758,6 @@ namespace Microsoft.PowerBI.Api
             {
                 _requestContent = Rest.Serialization.SafeJsonConvert.SerializeObject(userDetails, Client.SerializationSettings);
                 _httpRequest.Content = new StringContent(_requestContent, System.Text.Encoding.UTF8);
-                _httpRequest.Content.Headers.ContentType =System.Net.Http.Headers.MediaTypeHeaderValue.Parse("application/json; charset=utf-8");
             }
             // Set Credentials
             if (Client.Credentials != null)
@@ -4905,7 +4893,7 @@ namespace Microsoft.PowerBI.Api
             _httpRequest.Method = new HttpMethod("GET");
             _httpRequest.RequestUri = new System.Uri(_url);
             // Set Headers
-
+            _httpRequest.Content.Headers.ContentType = System.Net.Http.Headers.MediaTypeHeaderValue.Parse(DefaultContentTypeHeaderValue);
 
             if (customHeaders != null)
             {
@@ -5075,7 +5063,7 @@ namespace Microsoft.PowerBI.Api
             _httpRequest.Method = new HttpMethod("POST");
             _httpRequest.RequestUri = new System.Uri(_url);
             // Set Headers
-
+            _httpRequest.Content.Headers.ContentType = System.Net.Http.Headers.MediaTypeHeaderValue.Parse(DefaultContentTypeHeaderValue);
 
             if (customHeaders != null)
             {
@@ -5095,7 +5083,6 @@ namespace Microsoft.PowerBI.Api
             {
                 _requestContent = Rest.Serialization.SafeJsonConvert.SerializeObject(userDetails, Client.SerializationSettings);
                 _httpRequest.Content = new StringContent(_requestContent, System.Text.Encoding.UTF8);
-                _httpRequest.Content.Headers.ContentType =System.Net.Http.Headers.MediaTypeHeaderValue.Parse("application/json; charset=utf-8");
             }
             // Set Credentials
             if (Client.Credentials != null)
@@ -5246,7 +5233,7 @@ namespace Microsoft.PowerBI.Api
             _httpRequest.Method = new HttpMethod("PUT");
             _httpRequest.RequestUri = new System.Uri(_url);
             // Set Headers
-
+            _httpRequest.Content.Headers.ContentType = System.Net.Http.Headers.MediaTypeHeaderValue.Parse(DefaultContentTypeHeaderValue);
 
             if (customHeaders != null)
             {
@@ -5266,7 +5253,6 @@ namespace Microsoft.PowerBI.Api
             {
                 _requestContent = Rest.Serialization.SafeJsonConvert.SerializeObject(userDetails, Client.SerializationSettings);
                 _httpRequest.Content = new StringContent(_requestContent, System.Text.Encoding.UTF8);
-                _httpRequest.Content.Headers.ContentType =System.Net.Http.Headers.MediaTypeHeaderValue.Parse("application/json; charset=utf-8");
             }
             // Set Credentials
             if (Client.Credentials != null)
@@ -5397,7 +5383,7 @@ namespace Microsoft.PowerBI.Api
             _httpRequest.Method = new HttpMethod("GET");
             _httpRequest.RequestUri = new System.Uri(_url);
             // Set Headers
-
+            _httpRequest.Content.Headers.ContentType = System.Net.Http.Headers.MediaTypeHeaderValue.Parse(DefaultContentTypeHeaderValue);
 
             if (customHeaders != null)
             {
@@ -5541,7 +5527,7 @@ namespace Microsoft.PowerBI.Api
             _httpRequest.Method = new HttpMethod("GET");
             _httpRequest.RequestUri = new System.Uri(_url);
             // Set Headers
-
+            _httpRequest.Content.Headers.ContentType = System.Net.Http.Headers.MediaTypeHeaderValue.Parse(DefaultContentTypeHeaderValue);
 
             if (customHeaders != null)
             {
@@ -5716,7 +5702,7 @@ namespace Microsoft.PowerBI.Api
             _httpRequest.Method = new HttpMethod("POST");
             _httpRequest.RequestUri = new System.Uri(_url);
             // Set Headers
-
+            _httpRequest.Content.Headers.ContentType = System.Net.Http.Headers.MediaTypeHeaderValue.Parse(DefaultContentTypeHeaderValue);
 
             if (customHeaders != null)
             {
@@ -5736,7 +5722,6 @@ namespace Microsoft.PowerBI.Api
             {
                 _requestContent = Rest.Serialization.SafeJsonConvert.SerializeObject(dataset, Client.SerializationSettings);
                 _httpRequest.Content = new StringContent(_requestContent, System.Text.Encoding.UTF8);
-                _httpRequest.Content.Headers.ContentType =System.Net.Http.Headers.MediaTypeHeaderValue.Parse("application/json; charset=utf-8");
             }
             // Set Credentials
             if (Client.Credentials != null)
@@ -5885,7 +5870,7 @@ namespace Microsoft.PowerBI.Api
             _httpRequest.Method = new HttpMethod("GET");
             _httpRequest.RequestUri = new System.Uri(_url);
             // Set Headers
-
+            _httpRequest.Content.Headers.ContentType = System.Net.Http.Headers.MediaTypeHeaderValue.Parse(DefaultContentTypeHeaderValue);
 
             if (customHeaders != null)
             {
@@ -6044,7 +6029,7 @@ namespace Microsoft.PowerBI.Api
             _httpRequest.Method = new HttpMethod("GET");
             _httpRequest.RequestUri = new System.Uri(_url);
             // Set Headers
-
+            _httpRequest.Content.Headers.ContentType = System.Net.Http.Headers.MediaTypeHeaderValue.Parse(DefaultContentTypeHeaderValue);
 
             if (customHeaders != null)
             {
@@ -6207,7 +6192,7 @@ namespace Microsoft.PowerBI.Api
             _httpRequest.Method = new HttpMethod("PATCH");
             _httpRequest.RequestUri = new System.Uri(_url);
             // Set Headers
-
+            _httpRequest.Content.Headers.ContentType = System.Net.Http.Headers.MediaTypeHeaderValue.Parse(DefaultContentTypeHeaderValue);
 
             if (customHeaders != null)
             {
@@ -6227,7 +6212,6 @@ namespace Microsoft.PowerBI.Api
             {
                 _requestContent = Rest.Serialization.SafeJsonConvert.SerializeObject(updateDatasetRequest, Client.SerializationSettings);
                 _httpRequest.Content = new StringContent(_requestContent, System.Text.Encoding.UTF8);
-                _httpRequest.Content.Headers.ContentType =System.Net.Http.Headers.MediaTypeHeaderValue.Parse("application/json; charset=utf-8");
             }
             // Set Credentials
             if (Client.Credentials != null)
@@ -6351,7 +6335,7 @@ namespace Microsoft.PowerBI.Api
             _httpRequest.Method = new HttpMethod("DELETE");
             _httpRequest.RequestUri = new System.Uri(_url);
             // Set Headers
-
+            _httpRequest.Content.Headers.ContentType = System.Net.Http.Headers.MediaTypeHeaderValue.Parse(DefaultContentTypeHeaderValue);
 
             if (customHeaders != null)
             {
@@ -6491,7 +6475,7 @@ namespace Microsoft.PowerBI.Api
             _httpRequest.Method = new HttpMethod("GET");
             _httpRequest.RequestUri = new System.Uri(_url);
             // Set Headers
-
+            _httpRequest.Content.Headers.ContentType = System.Net.Http.Headers.MediaTypeHeaderValue.Parse(DefaultContentTypeHeaderValue);
 
             if (customHeaders != null)
             {
@@ -6670,7 +6654,7 @@ namespace Microsoft.PowerBI.Api
             _httpRequest.Method = new HttpMethod("PUT");
             _httpRequest.RequestUri = new System.Uri(_url);
             // Set Headers
-
+            _httpRequest.Content.Headers.ContentType = System.Net.Http.Headers.MediaTypeHeaderValue.Parse(DefaultContentTypeHeaderValue);
 
             if (customHeaders != null)
             {
@@ -6690,7 +6674,6 @@ namespace Microsoft.PowerBI.Api
             {
                 _requestContent = Rest.Serialization.SafeJsonConvert.SerializeObject(requestMessage, Client.SerializationSettings);
                 _httpRequest.Content = new StringContent(_requestContent, System.Text.Encoding.UTF8);
-                _httpRequest.Content.Headers.ContentType =System.Net.Http.Headers.MediaTypeHeaderValue.Parse("application/json; charset=utf-8");
             }
             // Set Credentials
             if (Client.Credentials != null)
@@ -6850,7 +6833,7 @@ namespace Microsoft.PowerBI.Api
             _httpRequest.Method = new HttpMethod("POST");
             _httpRequest.RequestUri = new System.Uri(_url);
             // Set Headers
-
+            _httpRequest.Content.Headers.ContentType = System.Net.Http.Headers.MediaTypeHeaderValue.Parse(DefaultContentTypeHeaderValue);
 
             if (customHeaders != null)
             {
@@ -6870,7 +6853,6 @@ namespace Microsoft.PowerBI.Api
             {
                 _requestContent = Rest.Serialization.SafeJsonConvert.SerializeObject(requestMessage, Client.SerializationSettings);
                 _httpRequest.Content = new StringContent(_requestContent, System.Text.Encoding.UTF8);
-                _httpRequest.Content.Headers.ContentType =System.Net.Http.Headers.MediaTypeHeaderValue.Parse("application/json; charset=utf-8");
             }
             // Set Credentials
             if (Client.Credentials != null)
@@ -7004,7 +6986,7 @@ namespace Microsoft.PowerBI.Api
             _httpRequest.Method = new HttpMethod("DELETE");
             _httpRequest.RequestUri = new System.Uri(_url);
             // Set Headers
-
+            _httpRequest.Content.Headers.ContentType = System.Net.Http.Headers.MediaTypeHeaderValue.Parse(DefaultContentTypeHeaderValue);
 
             if (customHeaders != null)
             {
@@ -7168,7 +7150,7 @@ namespace Microsoft.PowerBI.Api
             _httpRequest.Method = new HttpMethod("GET");
             _httpRequest.RequestUri = new System.Uri(_url);
             // Set Headers
-
+            _httpRequest.Content.Headers.ContentType = System.Net.Http.Headers.MediaTypeHeaderValue.Parse(DefaultContentTypeHeaderValue);
 
             if (customHeaders != null)
             {
@@ -7348,7 +7330,7 @@ namespace Microsoft.PowerBI.Api
             _httpRequest.Method = new HttpMethod("POST");
             _httpRequest.RequestUri = new System.Uri(_url);
             // Set Headers
-
+            _httpRequest.Content.Headers.ContentType = System.Net.Http.Headers.MediaTypeHeaderValue.Parse(DefaultContentTypeHeaderValue);
 
             if (customHeaders != null)
             {
@@ -7368,7 +7350,6 @@ namespace Microsoft.PowerBI.Api
             {
                 _requestContent = Rest.Serialization.SafeJsonConvert.SerializeObject(datasetRefreshRequest, Client.SerializationSettings);
                 _httpRequest.Content = new StringContent(_requestContent, System.Text.Encoding.UTF8);
-                _httpRequest.Content.Headers.ContentType =System.Net.Http.Headers.MediaTypeHeaderValue.Parse("application/json; charset=utf-8");
             }
             // Set Credentials
             if (Client.Credentials != null)
@@ -7505,7 +7486,7 @@ namespace Microsoft.PowerBI.Api
             _httpRequest.Method = new HttpMethod("GET");
             _httpRequest.RequestUri = new System.Uri(_url);
             // Set Headers
-
+            _httpRequest.Content.Headers.ContentType = System.Net.Http.Headers.MediaTypeHeaderValue.Parse(DefaultContentTypeHeaderValue);
 
             if (customHeaders != null)
             {
@@ -7675,7 +7656,7 @@ namespace Microsoft.PowerBI.Api
             _httpRequest.Method = new HttpMethod("DELETE");
             _httpRequest.RequestUri = new System.Uri(_url);
             // Set Headers
-
+            _httpRequest.Content.Headers.ContentType = System.Net.Http.Headers.MediaTypeHeaderValue.Parse(DefaultContentTypeHeaderValue);
 
             if (customHeaders != null)
             {
@@ -7817,7 +7798,7 @@ namespace Microsoft.PowerBI.Api
             _httpRequest.Method = new HttpMethod("GET");
             _httpRequest.RequestUri = new System.Uri(_url);
             // Set Headers
-
+            _httpRequest.Content.Headers.ContentType = System.Net.Http.Headers.MediaTypeHeaderValue.Parse(DefaultContentTypeHeaderValue);
 
             if (customHeaders != null)
             {
@@ -7996,7 +7977,7 @@ namespace Microsoft.PowerBI.Api
             _httpRequest.Method = new HttpMethod("PATCH");
             _httpRequest.RequestUri = new System.Uri(_url);
             // Set Headers
-
+            _httpRequest.Content.Headers.ContentType = System.Net.Http.Headers.MediaTypeHeaderValue.Parse(DefaultContentTypeHeaderValue);
 
             if (customHeaders != null)
             {
@@ -8016,7 +7997,6 @@ namespace Microsoft.PowerBI.Api
             {
                 _requestContent = Rest.Serialization.SafeJsonConvert.SerializeObject(datasetModelRefreshScheduleRequest, Client.SerializationSettings);
                 _httpRequest.Content = new StringContent(_requestContent, System.Text.Encoding.UTF8);
-                _httpRequest.Content.Headers.ContentType =System.Net.Http.Headers.MediaTypeHeaderValue.Parse("application/json; charset=utf-8");
             }
             // Set Credentials
             if (Client.Credentials != null)
@@ -8146,7 +8126,7 @@ namespace Microsoft.PowerBI.Api
             _httpRequest.Method = new HttpMethod("GET");
             _httpRequest.RequestUri = new System.Uri(_url);
             // Set Headers
-
+            _httpRequest.Content.Headers.ContentType = System.Net.Http.Headers.MediaTypeHeaderValue.Parse(DefaultContentTypeHeaderValue);
 
             if (customHeaders != null)
             {
@@ -8320,7 +8300,7 @@ namespace Microsoft.PowerBI.Api
             _httpRequest.Method = new HttpMethod("PATCH");
             _httpRequest.RequestUri = new System.Uri(_url);
             // Set Headers
-
+            _httpRequest.Content.Headers.ContentType = System.Net.Http.Headers.MediaTypeHeaderValue.Parse(DefaultContentTypeHeaderValue);
 
             if (customHeaders != null)
             {
@@ -8340,7 +8320,6 @@ namespace Microsoft.PowerBI.Api
             {
                 _requestContent = Rest.Serialization.SafeJsonConvert.SerializeObject(datasetDQRefreshScheduleRequest, Client.SerializationSettings);
                 _httpRequest.Content = new StringContent(_requestContent, System.Text.Encoding.UTF8);
-                _httpRequest.Content.Headers.ContentType =System.Net.Http.Headers.MediaTypeHeaderValue.Parse("application/json; charset=utf-8");
             }
             // Set Credentials
             if (Client.Credentials != null)
@@ -8475,7 +8454,7 @@ namespace Microsoft.PowerBI.Api
             _httpRequest.Method = new HttpMethod("GET");
             _httpRequest.RequestUri = new System.Uri(_url);
             // Set Headers
-
+            _httpRequest.Content.Headers.ContentType = System.Net.Http.Headers.MediaTypeHeaderValue.Parse(DefaultContentTypeHeaderValue);
 
             if (customHeaders != null)
             {
@@ -8674,7 +8653,7 @@ namespace Microsoft.PowerBI.Api
             _httpRequest.Method = new HttpMethod("POST");
             _httpRequest.RequestUri = new System.Uri(_url);
             // Set Headers
-
+            _httpRequest.Content.Headers.ContentType = System.Net.Http.Headers.MediaTypeHeaderValue.Parse(DefaultContentTypeHeaderValue);
 
             if (customHeaders != null)
             {
@@ -8694,7 +8673,6 @@ namespace Microsoft.PowerBI.Api
             {
                 _requestContent = Rest.Serialization.SafeJsonConvert.SerializeObject(updateMashupParametersRequest, Client.SerializationSettings);
                 _httpRequest.Content = new StringContent(_requestContent, System.Text.Encoding.UTF8);
-                _httpRequest.Content.Headers.ContentType =System.Net.Http.Headers.MediaTypeHeaderValue.Parse("application/json; charset=utf-8");
             }
             // Set Credentials
             if (Client.Credentials != null)
@@ -8821,7 +8799,7 @@ namespace Microsoft.PowerBI.Api
             _httpRequest.Method = new HttpMethod("GET");
             _httpRequest.RequestUri = new System.Uri(_url);
             // Set Headers
-
+            _httpRequest.Content.Headers.ContentType = System.Net.Http.Headers.MediaTypeHeaderValue.Parse(DefaultContentTypeHeaderValue);
 
             if (customHeaders != null)
             {
@@ -9028,7 +9006,7 @@ namespace Microsoft.PowerBI.Api
             _httpRequest.Method = new HttpMethod("POST");
             _httpRequest.RequestUri = new System.Uri(_url);
             // Set Headers
-
+            _httpRequest.Content.Headers.ContentType = System.Net.Http.Headers.MediaTypeHeaderValue.Parse(DefaultContentTypeHeaderValue);
 
             if (customHeaders != null)
             {
@@ -9048,7 +9026,6 @@ namespace Microsoft.PowerBI.Api
             {
                 _requestContent = Rest.Serialization.SafeJsonConvert.SerializeObject(updateDatasourcesRequest, Client.SerializationSettings);
                 _httpRequest.Content = new StringContent(_requestContent, System.Text.Encoding.UTF8);
-                _httpRequest.Content.Headers.ContentType =System.Net.Http.Headers.MediaTypeHeaderValue.Parse("application/json; charset=utf-8");
             }
             // Set Credentials
             if (Client.Credentials != null)
@@ -9198,7 +9175,7 @@ namespace Microsoft.PowerBI.Api
             _httpRequest.Method = new HttpMethod("POST");
             _httpRequest.RequestUri = new System.Uri(_url);
             // Set Headers
-
+            _httpRequest.Content.Headers.ContentType = System.Net.Http.Headers.MediaTypeHeaderValue.Parse(DefaultContentTypeHeaderValue);
 
             if (customHeaders != null)
             {
@@ -9218,7 +9195,6 @@ namespace Microsoft.PowerBI.Api
             {
                 _requestContent = Rest.Serialization.SafeJsonConvert.SerializeObject(parameters, Client.SerializationSettings);
                 _httpRequest.Content = new StringContent(_requestContent, System.Text.Encoding.UTF8);
-                _httpRequest.Content.Headers.ContentType =System.Net.Http.Headers.MediaTypeHeaderValue.Parse("application/json; charset=utf-8");
             }
             // Set Credentials
             if (Client.Credentials != null)
@@ -9364,7 +9340,7 @@ namespace Microsoft.PowerBI.Api
             _httpRequest.Method = new HttpMethod("POST");
             _httpRequest.RequestUri = new System.Uri(_url);
             // Set Headers
-
+            _httpRequest.Content.Headers.ContentType = System.Net.Http.Headers.MediaTypeHeaderValue.Parse(DefaultContentTypeHeaderValue);
 
             if (customHeaders != null)
             {
@@ -9384,7 +9360,6 @@ namespace Microsoft.PowerBI.Api
             {
                 _requestContent = Rest.Serialization.SafeJsonConvert.SerializeObject(bindToGatewayRequest, Client.SerializationSettings);
                 _httpRequest.Content = new StringContent(_requestContent, System.Text.Encoding.UTF8);
-                _httpRequest.Content.Headers.ContentType =System.Net.Http.Headers.MediaTypeHeaderValue.Parse("application/json; charset=utf-8");
             }
             // Set Credentials
             if (Client.Credentials != null)
@@ -9510,7 +9485,7 @@ namespace Microsoft.PowerBI.Api
             _httpRequest.Method = new HttpMethod("GET");
             _httpRequest.RequestUri = new System.Uri(_url);
             // Set Headers
-
+            _httpRequest.Content.Headers.ContentType = System.Net.Http.Headers.MediaTypeHeaderValue.Parse(DefaultContentTypeHeaderValue);
 
             if (customHeaders != null)
             {
@@ -9674,7 +9649,7 @@ namespace Microsoft.PowerBI.Api
             _httpRequest.Method = new HttpMethod("GET");
             _httpRequest.RequestUri = new System.Uri(_url);
             // Set Headers
-
+            _httpRequest.Content.Headers.ContentType = System.Net.Http.Headers.MediaTypeHeaderValue.Parse(DefaultContentTypeHeaderValue);
 
             if (customHeaders != null)
             {
@@ -9831,7 +9806,7 @@ namespace Microsoft.PowerBI.Api
             _httpRequest.Method = new HttpMethod("POST");
             _httpRequest.RequestUri = new System.Uri(_url);
             // Set Headers
-
+            _httpRequest.Content.Headers.ContentType = System.Net.Http.Headers.MediaTypeHeaderValue.Parse(DefaultContentTypeHeaderValue);
 
             if (customHeaders != null)
             {
@@ -10032,7 +10007,7 @@ namespace Microsoft.PowerBI.Api
             _httpRequest.Method = new HttpMethod("POST");
             _httpRequest.RequestUri = new System.Uri(_url);
             // Set Headers
-
+            _httpRequest.Content.Headers.ContentType = System.Net.Http.Headers.MediaTypeHeaderValue.Parse(DefaultContentTypeHeaderValue);
 
             if (customHeaders != null)
             {
@@ -10052,7 +10027,6 @@ namespace Microsoft.PowerBI.Api
             {
                 _requestContent = Rest.Serialization.SafeJsonConvert.SerializeObject(requestMessage, Client.SerializationSettings);
                 _httpRequest.Content = new StringContent(_requestContent, System.Text.Encoding.UTF8);
-                _httpRequest.Content.Headers.ContentType =System.Net.Http.Headers.MediaTypeHeaderValue.Parse("application/json; charset=utf-8");
             }
             // Set Credentials
             if (Client.Credentials != null)
@@ -10198,7 +10172,7 @@ namespace Microsoft.PowerBI.Api
             _httpRequest.Method = new HttpMethod("GET");
             _httpRequest.RequestUri = new System.Uri(_url);
             // Set Headers
-
+            _httpRequest.Content.Headers.ContentType = System.Net.Http.Headers.MediaTypeHeaderValue.Parse(DefaultContentTypeHeaderValue);
 
             if (customHeaders != null)
             {
@@ -10358,7 +10332,7 @@ namespace Microsoft.PowerBI.Api
             _httpRequest.Method = new HttpMethod("POST");
             _httpRequest.RequestUri = new System.Uri(_url);
             // Set Headers
-
+            _httpRequest.Content.Headers.ContentType = System.Net.Http.Headers.MediaTypeHeaderValue.Parse(DefaultContentTypeHeaderValue);
 
             if (customHeaders != null)
             {
@@ -10547,7 +10521,7 @@ namespace Microsoft.PowerBI.Api
             _httpRequest.Method = new HttpMethod("POST");
             _httpRequest.RequestUri = new System.Uri(_url);
             // Set Headers
-
+            _httpRequest.Content.Headers.ContentType = System.Net.Http.Headers.MediaTypeHeaderValue.Parse(DefaultContentTypeHeaderValue);
 
             if (customHeaders != null)
             {
@@ -10567,7 +10541,6 @@ namespace Microsoft.PowerBI.Api
             {
                 _requestContent = Rest.Serialization.SafeJsonConvert.SerializeObject(requestParameters, Client.SerializationSettings);
                 _httpRequest.Content = new StringContent(_requestContent, System.Text.Encoding.UTF8);
-                _httpRequest.Content.Headers.ContentType =System.Net.Http.Headers.MediaTypeHeaderValue.Parse("application/json; charset=utf-8");
             }
             // Set Credentials
             if (Client.Credentials != null)
@@ -10734,7 +10707,7 @@ namespace Microsoft.PowerBI.Api
             _httpRequest.Method = new HttpMethod("GET");
             _httpRequest.RequestUri = new System.Uri(_url);
             // Set Headers
-
+            _httpRequest.Content.Headers.ContentType = System.Net.Http.Headers.MediaTypeHeaderValue.Parse(DefaultContentTypeHeaderValue);
 
             if (customHeaders != null)
             {
@@ -10899,7 +10872,7 @@ namespace Microsoft.PowerBI.Api
             _httpRequest.Method = new HttpMethod("GET");
             _httpRequest.RequestUri = new System.Uri(_url);
             // Set Headers
-
+            _httpRequest.Content.Headers.ContentType = System.Net.Http.Headers.MediaTypeHeaderValue.Parse(DefaultContentTypeHeaderValue);
 
             if (customHeaders != null)
             {
@@ -11058,7 +11031,7 @@ namespace Microsoft.PowerBI.Api
             _httpRequest.Method = new HttpMethod("GET");
             _httpRequest.RequestUri = new System.Uri(_url);
             // Set Headers
-
+            _httpRequest.Content.Headers.ContentType = System.Net.Http.Headers.MediaTypeHeaderValue.Parse(DefaultContentTypeHeaderValue);
 
             if (customHeaders != null)
             {
@@ -11252,7 +11225,7 @@ namespace Microsoft.PowerBI.Api
             _httpRequest.Method = new HttpMethod("GET");
             _httpRequest.RequestUri = new System.Uri(_url);
             // Set Headers
-
+            _httpRequest.Content.Headers.ContentType = System.Net.Http.Headers.MediaTypeHeaderValue.Parse(DefaultContentTypeHeaderValue);
 
             if (customHeaders != null)
             {
@@ -11410,7 +11383,7 @@ namespace Microsoft.PowerBI.Api
             _httpRequest.Method = new HttpMethod("GET");
             _httpRequest.RequestUri = new System.Uri(_url);
             // Set Headers
-
+            _httpRequest.Content.Headers.ContentType = System.Net.Http.Headers.MediaTypeHeaderValue.Parse(DefaultContentTypeHeaderValue);
 
             if (customHeaders != null)
             {
