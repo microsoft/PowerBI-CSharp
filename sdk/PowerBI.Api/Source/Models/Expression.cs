@@ -28,7 +28,8 @@ namespace Microsoft.PowerBI.Api.Models
         /// </summary>
         /// <param name="name">The expression name</param>
         /// <param name="description">The expression description</param>
-        public Expression(ASMashupExpression expressionProperty, string name = default(string), string description = default(string))
+        /// <param name="expressionProperty">The expression</param>
+        public Expression(string expressionProperty = default(string), string name = default(string), string description = default(string))
         {
             ExpressionProperty = expressionProperty;
             Name = name;
@@ -44,7 +45,7 @@ namespace Microsoft.PowerBI.Api.Models
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "expression")]
-        public ASMashupExpression ExpressionProperty { get; set; }
+        public string ExpressionProperty { get; set; }
 
         /// <summary>
         /// Gets or sets the expression name
@@ -57,23 +58,5 @@ namespace Microsoft.PowerBI.Api.Models
         /// </summary>
         [JsonProperty(PropertyName = "description")]
         public string Description { get; set; }
-
-        /// <summary>
-        /// Validate the object.
-        /// </summary>
-        /// <exception cref="ValidationException">
-        /// Thrown if validation fails
-        /// </exception>
-        public virtual void Validate()
-        {
-            if (ExpressionProperty == null)
-            {
-                throw new ValidationException(ValidationRules.CannotBeNull, "ExpressionProperty");
-            }
-            if (ExpressionProperty != null)
-            {
-                ExpressionProperty.Validate();
-            }
-        }
     }
 }
