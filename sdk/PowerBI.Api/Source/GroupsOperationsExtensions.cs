@@ -42,7 +42,9 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='filter'>
-            /// Filters the results, based on a boolean condition
+            /// Returns a subset of a results based on
+            /// [Odata](https://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part2-url-conventions.html#sec_SystemQueryOptions)
+            /// filter query parameter condition.
             /// </param>
             /// <param name='top'>
             /// Returns only the first n results
@@ -82,7 +84,9 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='filter'>
-            /// Filters the results, based on a boolean condition
+            /// Returns a subset of a results based on
+            /// [Odata](https://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part2-url-conventions.html#sec_SystemQueryOptions)
+            /// filter query parameter condition.
             /// </param>
             /// <param name='top'>
             /// Returns only the first n results
@@ -1041,7 +1045,9 @@ namespace Microsoft.PowerBI.Api
             /// `dataflows`, and `workbooks`.
             /// </param>
             /// <param name='filter'>
-            /// Filters the results based on a boolean condition
+            /// Returns a subset of a results based on
+            /// [Odata](https://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part2-url-conventions.html#sec_SystemQueryOptions)
+            /// filter query parameter condition.
             /// </param>
             /// <param name='skip'>
             /// Skips the first n results. Use with top to fetch results beyond the first
@@ -1096,7 +1102,9 @@ namespace Microsoft.PowerBI.Api
             /// `dataflows`, and `workbooks`.
             /// </param>
             /// <param name='filter'>
-            /// Filters the results based on a boolean condition
+            /// Returns a subset of a results based on
+            /// [Odata](https://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part2-url-conventions.html#sec_SystemQueryOptions)
+            /// filter query parameter condition.
             /// </param>
             /// <param name='skip'>
             /// Skips the first n results. Use with top to fetch results beyond the first

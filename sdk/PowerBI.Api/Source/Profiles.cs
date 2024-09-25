@@ -516,7 +516,8 @@ namespace Microsoft.PowerBI.Api
         ///
         /// ## Limitations
         ///
-        /// Can only be called by a service principal.
+        /// Can only be called by a service principal. The maximum number of profiles a
+        /// single service principal can have, is 100,000.
         /// </remarks>
         /// <param name='createOrUpdateProfileRequest'>
         /// The create profile request
