@@ -109,7 +109,7 @@ extends:
             inputs:
               command: 'sign'
               signing_environment: 'azure-ado'
-              signing_profile: 'internal_azure_service'
+              signing_profile: 'external_distribution'
               files_to_sign: '**\bin\**\Microsoft.PowerBI.Api.dll;**\obj\**\Microsoft.PowerBI.Api.dll'
               search_root: '$(Build.SourcesDirectory)\sdk\PowerBI.Api'
 
@@ -185,6 +185,6 @@ extends:
             inputs:
               command: 'sign'
               signing_environment: 'azure-ado'
-              signing_profile: 'internal_azure_service'
+              signing_profile: 'external_distribution'
               files_to_sign: '**'
               search_root: '$(OUTPUTROOT)\package'
