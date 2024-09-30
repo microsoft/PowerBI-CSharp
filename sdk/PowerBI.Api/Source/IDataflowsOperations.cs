@@ -364,9 +364,8 @@ namespace Microsoft.PowerBI.Api
         ///
         /// ## Permissions
         ///
-        /// - The user must have administrator rights (such as Office 365
-        /// Global Administrator or Power BI Service Administrator) or
-        /// authenticate using a service principal.
+        /// - The user must be a Fabric administrator or authenticate using a
+        /// service principal.
         /// - Delegated permissions are supported.
         ///
         /// When running under service prinicipal authentication, an app **must
@@ -412,9 +411,8 @@ namespace Microsoft.PowerBI.Api
         ///
         /// ## Permissions
         ///
-        /// - The user must have administrator rights (such as Office 365
-        /// Global Administrator or Power BI Service Administrator) or
-        /// authenticate using a service principal.
+        /// - The user must be a Fabric administrator or authenticate using a
+        /// service principal.
         /// - Delegated permissions are supported.
         ///
         /// When running under service prinicipal authentication, an app **must
@@ -468,9 +466,8 @@ namespace Microsoft.PowerBI.Api
         ///
         /// ## Permissions
         ///
-        /// - The user must have administrator rights (such as Office 365
-        /// Global Administrator or Power BI Service Administrator) or
-        /// authenticate using a service principal.
+        /// - The user must be a Fabric administrator or authenticate using a
+        /// service principal.
         /// - Delegated permissions are supported.
         ///
         /// When running under service prinicipal authentication, an app **must
@@ -517,9 +514,8 @@ namespace Microsoft.PowerBI.Api
         ///
         /// ## Permissions
         ///
-        /// - The user must have administrator rights (such as Office 365
-        /// Global Administrator or Power BI Service Administrator) or
-        /// authenticate using a service principal.
+        /// - The user must be a Fabric administrator or authenticate using a
+        /// service principal.
         /// - Delegated permissions are supported.
         ///
         /// When running under service prinicipal authentication, an app **must
@@ -563,9 +559,8 @@ namespace Microsoft.PowerBI.Api
         ///
         /// ## Permissions
         ///
-        /// - The user must have administrator rights (such as Office 365
-        /// Global Administrator or Power BI Service Administrator) or
-        /// authenticate using a service principal.
+        /// - The user must be a Fabric administrator or authenticate using a
+        /// service principal.
         /// - Delegated permissions are supported.
         ///
         /// When running under service prinicipal authentication, an app **must
@@ -604,9 +599,8 @@ namespace Microsoft.PowerBI.Api
         ///
         /// ## Permissions
         ///
-        /// - The user must have administrator rights (such as Office 365
-        /// Global Administrator or Power BI Service Administrator) or
-        /// authenticate using a service principal.
+        /// - The user must be a Fabric administrator or authenticate using a
+        /// service principal.
         /// - Delegated permissions are supported.
         ///
         /// When running under service prinicipal authentication, an app **must

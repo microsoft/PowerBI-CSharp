@@ -23112,7 +23112,8 @@
             ],
             "properties": {
                 "expression": {
-                    "$ref": "#/definitions/ASMashupExpression"
+                    "type": "string",
+                    "description": "The expression value"
                 },
                 "name": {
                     "type": "string",

@@ -26,8 +26,7 @@ namespace Microsoft.PowerBI.Api
             ///
             /// ## Permissions
             ///
-            /// - The user must have administrator rights (such as Office 365 Global
-            /// Administrator or Power BI Service Administrator).
+            /// - The user must be a Fabric administrator.
             /// - The admin user must have sufficient [usage
             /// rights](/azure/information-protection/configure-usage-rights) to delete
             /// labels.
@@ -64,8 +63,7 @@ namespace Microsoft.PowerBI.Api
             ///
             /// ## Permissions
             ///
-            /// - The user must have administrator rights (such as Office 365 Global
-            /// Administrator or Power BI Service Administrator).
+            /// - The user must be a Fabric administrator.
             /// - The admin user must have sufficient [usage
             /// rights](/azure/information-protection/configure-usage-rights) to delete
             /// labels.
@@ -111,8 +109,7 @@ namespace Microsoft.PowerBI.Api
             ///
             /// ## Permissions
             ///
-            /// - The user must have administrator rights (such as Office 365 Global
-            /// Administrator or Power BI Service Administrator).
+            /// - The user must be a Fabric administrator.
             /// - The admin user and the delegated user (if provided) must have sufficient
             /// [usage rights](/azure/information-protection/configure-usage-rights) to set
             /// labels.
@@ -152,8 +149,7 @@ namespace Microsoft.PowerBI.Api
             ///
             /// ## Permissions
             ///
-            /// - The user must have administrator rights (such as Office 365 Global
-            /// Administrator or Power BI Service Administrator).
+            /// - The user must be a Fabric administrator.
             /// - The admin user and the delegated user (if provided) must have sufficient
             /// [usage rights](/azure/information-protection/configure-usage-rights) to set
             /// labels.

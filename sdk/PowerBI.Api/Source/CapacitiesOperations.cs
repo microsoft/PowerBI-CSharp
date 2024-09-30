@@ -1182,8 +1182,7 @@ namespace Microsoft.PowerBI.Api
         ///
         /// ## Permissions
         ///
-        /// The user must have administrator rights (such as Office 365 Global
-        /// Administrator or Power BI Service Administrator).
+        /// The user must be a Fabric administrator.
         ///
         /// ## Required Scope
         ///
@@ -1319,8 +1318,7 @@ namespace Microsoft.PowerBI.Api
         ///
         /// ## Permissions
         ///
-        /// The user must have administrator rights (such as Office 365 Global
-        /// Administrator or Power BI Service Administrator).
+        /// The user must be a Fabric administrator.
         ///
         /// ## Required Scope
         ///
@@ -1460,8 +1458,7 @@ namespace Microsoft.PowerBI.Api
         ///
         /// ## Permissions
         ///
-        /// - The user must have administrator rights (such as Office 365 Global
-        /// Administrator or Power BI Service Administrator).
+        /// - The user must be a Fabric administrator.
         /// - Delegated permissions are supported.
         ///
         /// When running under service prinicipal authentication, an app **must not**
