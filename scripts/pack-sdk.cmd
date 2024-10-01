@@ -6,7 +6,7 @@ call .\init-dev-cmd.cmd
 REM Set Major and Minor package version
 SET MAJOR=%CDP_MAJOR_NUMBER_ONLY%
 SET MINOR=%CDP_MINOR_NUMBER_ONLY%
-SET PATCH=0
+SET PATCH=1
 if "%MAJOR%"=="" SET MAJOR=0
 if "%MINOR%"=="" SET MINOR=0
 
