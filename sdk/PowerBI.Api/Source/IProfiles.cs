@@ -31,6 +31,10 @@ namespace Microsoft.PowerBI.Api
         /// ## Required Scope
         ///
         /// Tenant.Read.All or Tenant.ReadWrite.All
+        ///
+        /// ## Limitations
+        ///
+        /// Maximum 200 requests per hour.
         /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='filter'>
@@ -71,6 +75,10 @@ namespace Microsoft.PowerBI.Api
         /// ## Required Scope
         ///
         /// Tenant.ReadWrite.All
+        ///
+        /// ## Limitations
+        ///
+        /// Maximum 200 requests per hour.
         /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='profileId'>

@@ -101,6 +101,10 @@ namespace Microsoft.PowerBI.Api
             /// Relevant only when authenticating via a standard delegated admin access
             /// token. Must not be present when authentication via a service principal is
             /// used.
+            ///
+            /// ## Limitations
+            ///
+            /// Maximum 200 requests per hour.
             /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
@@ -133,6 +137,10 @@ namespace Microsoft.PowerBI.Api
             /// Relevant only when authenticating via a standard delegated admin access
             /// token. Must not be present when authentication via a service principal is
             /// used.
+            ///
+            /// ## Limitations
+            ///
+            /// Maximum 200 requests per hour.
             /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
@@ -241,6 +249,10 @@ namespace Microsoft.PowerBI.Api
             /// Relevant only when authenticating via a standard delegated admin access
             /// token. Must not be present when authentication via a service principal is
             /// used.
+            ///
+            /// ## Limitations
+            ///
+            /// Maximum 200 requests per hour.
             /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
@@ -276,6 +288,10 @@ namespace Microsoft.PowerBI.Api
             /// Relevant only when authenticating via a standard delegated admin access
             /// token. Must not be present when authentication via a service principal is
             /// used.
+            ///
+            /// ## Limitations
+            ///
+            /// Maximum 200 requests per hour.
             /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
@@ -308,6 +324,10 @@ namespace Microsoft.PowerBI.Api
             /// ## Required Scope
             ///
             /// Tenant.Read.All or Tenant.ReadWrite.All
+            ///
+            /// ## Limitations
+            ///
+            /// Maximum 200 requests per hour.
             /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
@@ -337,6 +357,10 @@ namespace Microsoft.PowerBI.Api
             /// ## Required Scope
             ///
             /// Tenant.Read.All or Tenant.ReadWrite.All
+            ///
+            /// ## Limitations
+            ///
+            /// Maximum 200 requests per hour.
             /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
@@ -381,6 +405,10 @@ namespace Microsoft.PowerBI.Api
             /// Relevant only when authenticating via a standard delegated admin access
             /// token. Must not be present when authentication via a service principal is
             /// used.
+            ///
+            /// ## Limitations
+            ///
+            /// Maximum 200 requests per hour.
             /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
@@ -432,6 +460,10 @@ namespace Microsoft.PowerBI.Api
             /// Relevant only when authenticating via a standard delegated admin access
             /// token. Must not be present when authentication via a service principal is
             /// used.
+            ///
+            /// ## Limitations
+            ///
+            /// Maximum 200 requests per hour.
             /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
@@ -490,6 +522,10 @@ namespace Microsoft.PowerBI.Api
             /// Relevant only when authenticating via a standard delegated admin access
             /// token. Must not be present when authentication via a service principal is
             /// used.
+            ///
+            /// ## Limitations
+            ///
+            /// Maximum 200 requests per hour.
             /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
@@ -545,6 +581,10 @@ namespace Microsoft.PowerBI.Api
             /// Relevant only when authenticating via a standard delegated admin access
             /// token. Must not be present when authentication via a service principal is
             /// used.
+            ///
+            /// ## Limitations
+            ///
+            /// Maximum 200 requests per hour.
             /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
@@ -606,6 +646,10 @@ namespace Microsoft.PowerBI.Api
             /// Relevant only when authenticating via a standard delegated admin access
             /// token. Must not be present when authentication via a service principal is
             /// used.
+            ///
+            /// ## Limitations
+            ///
+            /// Maximum 200 requests per hour.
             /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
@@ -652,6 +696,10 @@ namespace Microsoft.PowerBI.Api
             /// Relevant only when authenticating via a standard delegated admin access
             /// token. Must not be present when authentication via a service principal is
             /// used.
+            ///
+            /// ## Limitations
+            ///
+            /// Maximum 200 requests per hour.
             /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
