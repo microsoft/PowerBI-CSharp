@@ -2987,6 +2987,10 @@ namespace Microsoft.PowerBI.Api
         /// <param name='reportId'>
         /// The report ID
         /// </param>
+        /// <param name='downloadType'>
+        /// The type of download. Valid values are LiveConnect and IncludeModel.
+        /// Possible values include: 'IncludeModel', 'LiveConnect'
+        /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
         /// </param>
@@ -3002,7 +3006,7 @@ namespace Microsoft.PowerBI.Api
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<Stream>> ExportReportInGroupWithHttpMessagesAsync(System.Guid groupId, System.Guid reportId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<Stream>> ExportReportInGroupWithHttpMessagesAsync(System.Guid groupId, System.Guid reportId, DownloadType? downloadType = default(DownloadType?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
@@ -3013,6 +3017,7 @@ namespace Microsoft.PowerBI.Api
                 Dictionary<string, object> tracingParameters = new Dictionary<string, object>();
                 tracingParameters.Add("groupId", groupId);
                 tracingParameters.Add("reportId", reportId);
+                tracingParameters.Add("downloadType", downloadType);
                 tracingParameters.Add("cancellationToken", cancellationToken);
                 ServiceClientTracing.Enter(_invocationId, this, "ExportReportInGroup", tracingParameters);
             }
@@ -3021,6 +3026,15 @@ namespace Microsoft.PowerBI.Api
             var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v1.0/myorg/groups/{groupId}/reports/{reportId}/Export").ToString();
             _url = _url.Replace("{groupId}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(groupId, Client.SerializationSettings).Trim('"')));
             _url = _url.Replace("{reportId}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(reportId, Client.SerializationSettings).Trim('"')));
+            List<string> _queryParameters = new List<string>();
+            if (downloadType != null)
+            {
+                _queryParameters.Add(string.Format("downloadType={0}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(downloadType, Client.SerializationSettings).Trim('"'))));
+            }
+            if (_queryParameters.Count > 0)
+            {
+                _url += "?" + string.Join("&", _queryParameters);
+            }
             // Create HTTP transport objects
             var _httpRequest = new HttpRequestMessage();
             HttpResponseMessage _httpResponse = null;

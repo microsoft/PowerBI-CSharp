@@ -789,6 +789,11 @@ namespace Microsoft.PowerBI.Api
         /// <param name='reportId'>
         /// The report ID
         /// </param>
+        /// <param name='downloadType'>
+        /// The type of download. Valid values are LiveConnect and
+        /// IncludeModel. Possible values include: 'IncludeModel',
+        /// 'LiveConnect'
+        /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
         /// </param>
@@ -801,7 +806,7 @@ namespace Microsoft.PowerBI.Api
         /// <exception cref="Microsoft.Rest.SerializationException">
         /// Thrown when unable to deserialize the response
         /// </exception>
-        Task<HttpOperationResponse<Stream>> ExportReportInGroupWithHttpMessagesAsync(System.Guid groupId, System.Guid reportId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<Stream>> ExportReportInGroupWithHttpMessagesAsync(System.Guid groupId, System.Guid reportId, DownloadType? downloadType = default(DownloadType?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Updates the content of the specified report from the specified
         /// workspace with the content of a specified source report.

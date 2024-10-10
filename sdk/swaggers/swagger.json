@@ -7517,6 +7517,31 @@
                         "description": "The report ID",
                         "type": "string",
                         "format": "uuid"
+                    },
+                    {
+                        "name": "downloadType",
+                        "description": "The type of download. Valid values are LiveConnect and IncludeModel",
+                        "in": "query",
+                        "required": false,
+                        "type": "string",
+                        "enum": [
+                            "IncludeModel",
+                            "LiveConnect"
+                        ],
+                        "x-ms-enum": {
+                            "name": "DownloadType",
+                            "modelAsExtensible": true,
+                            "values": [
+                                {
+                                    "value": "IncludeModel",
+                                    "description": "Export the report with the semantic model included."
+                                },
+                                {
+                                    "value": "LiveConnect",
+                                    "description": "Export the report with a live connection to the semantic model."
+                                }
+                            ]
+                        }
                     }
                 ],
                 "responses": {

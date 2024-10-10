@@ -1354,9 +1354,13 @@ namespace Microsoft.PowerBI.Api
             /// <param name='reportId'>
             /// The report ID
             /// </param>
-            public static Stream ExportReportInGroup(this IReportsOperations operations, System.Guid groupId, System.Guid reportId)
+            /// <param name='downloadType'>
+            /// The type of download. Valid values are LiveConnect and IncludeModel.
+            /// Possible values include: 'IncludeModel', 'LiveConnect'
+            /// </param>
+            public static Stream ExportReportInGroup(this IReportsOperations operations, System.Guid groupId, System.Guid reportId, DownloadType? downloadType = default(DownloadType?))
             {
-                return operations.ExportReportInGroupAsync(groupId, reportId).GetAwaiter().GetResult();
+                return operations.ExportReportInGroupAsync(groupId, reportId, downloadType).GetAwaiter().GetResult();
             }
 
             /// <summary>
@@ -1412,12 +1416,16 @@ namespace Microsoft.PowerBI.Api
             /// <param name='reportId'>
             /// The report ID
             /// </param>
+            /// <param name='downloadType'>
+            /// The type of download. Valid values are LiveConnect and IncludeModel.
+            /// Possible values include: 'IncludeModel', 'LiveConnect'
+            /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<Stream> ExportReportInGroupAsync(this IReportsOperations operations, System.Guid groupId, System.Guid reportId, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<Stream> ExportReportInGroupAsync(this IReportsOperations operations, System.Guid groupId, System.Guid reportId, DownloadType? downloadType = default(DownloadType?), CancellationToken cancellationToken = default(CancellationToken))
             {
-                var _result = await operations.ExportReportInGroupWithHttpMessagesAsync(groupId, reportId, null, cancellationToken).ConfigureAwait(false);
+                var _result = await operations.ExportReportInGroupWithHttpMessagesAsync(groupId, reportId, downloadType, null, cancellationToken).ConfigureAwait(false);
                 _result.Request.Dispose();
                 return _result.Body;
             }
