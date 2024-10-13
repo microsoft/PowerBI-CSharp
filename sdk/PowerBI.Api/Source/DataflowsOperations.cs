@@ -1860,7 +1860,6 @@ namespace Microsoft.PowerBI.Api
         /// ## Limitations
         ///
         /// Maximum 200 requests per hour.
-        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='filter'>
         /// Returns a subset of a results based on
@@ -2042,7 +2041,6 @@ namespace Microsoft.PowerBI.Api
         /// ## Limitations
         ///
         /// Maximum 200 requests per hour.
-        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='dataflowId'>
         /// The dataflow ID

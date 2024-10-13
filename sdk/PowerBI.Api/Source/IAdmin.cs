@@ -35,7 +35,6 @@ namespace Microsoft.PowerBI.Api
         /// ## Limitations
         ///
         /// Maximum 600 requests per hour.
-        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='tenantKeyCreationRequest'>
         /// Tenant key information
@@ -82,7 +81,6 @@ namespace Microsoft.PowerBI.Api
         /// ## Limitations
         ///
         /// Maximum 200 requests per hour.
-        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -164,7 +162,6 @@ namespace Microsoft.PowerBI.Api
         /// ## Limitations
         ///
         /// Maximum 200 requests per hour.
-        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='expand'>
         /// Expands related entities inline
@@ -199,7 +196,6 @@ namespace Microsoft.PowerBI.Api
         /// ## Limitations
         ///
         /// Maximum 200 requests per hour.
-        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='capacityId'>
         /// The capacity ID
@@ -250,7 +246,6 @@ namespace Microsoft.PowerBI.Api
         /// ## Limitations
         ///
         /// Maximum 200 requests per hour.
-        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='top'>
         /// Returns only the first n results.
@@ -312,7 +307,6 @@ namespace Microsoft.PowerBI.Api
         /// ## Limitations
         ///
         /// Maximum 200 requests per hour.
-        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='capacityId'>
         /// The capacity ID
@@ -377,7 +371,6 @@ namespace Microsoft.PowerBI.Api
         /// ## Limitations
         ///
         /// Maximum 200 requests per hour.
-        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='capacityId'>
         /// The capacity ID

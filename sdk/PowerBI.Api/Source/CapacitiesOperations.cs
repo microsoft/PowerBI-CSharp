@@ -1191,7 +1191,6 @@ namespace Microsoft.PowerBI.Api
         /// ## Limitations
         ///
         /// Maximum 200 requests per hour.
-        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='requestParameters'>
         /// Admin assign workspaces capacity parameters
@@ -1331,7 +1330,6 @@ namespace Microsoft.PowerBI.Api
         /// ## Limitations
         ///
         /// Maximum 200 requests per hour.
-        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='requestParameters'>
         /// Admin assign workspaces to shared capacity parameters
@@ -1484,7 +1482,6 @@ namespace Microsoft.PowerBI.Api
         /// ## Limitations
         ///
         /// Maximum 200 requests per hour.
-        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='capacityId'>
         /// The capacity ID

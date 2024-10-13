@@ -22,17 +22,17 @@ namespace Microsoft.PowerBI.Api
             ///
             /// ## Permissions
             ///
-            /// The user must have administrator rights or authenticate using a service
+            /// The user must be a Fabric administrator or authenticate using a service
             /// principal.
             ///
             /// ## Required Scope
             ///
             /// Tenant.Read.All or Tenant.ReadWrite.All
+            /// &lt;br&gt;&lt;br&gt;
             ///
             /// ## Limitations
             ///
             /// Maximum 200 requests per hour.
-            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -61,17 +61,17 @@ namespace Microsoft.PowerBI.Api
             ///
             /// ## Permissions
             ///
-            /// The user must have administrator rights or authenticate using a service
+            /// The user must be a Fabric administrator or authenticate using a service
             /// principal.
             ///
             /// ## Required Scope
             ///
             /// Tenant.Read.All or Tenant.ReadWrite.All
+            /// &lt;br&gt;&lt;br&gt;
             ///
             /// ## Limitations
             ///
             /// Maximum 200 requests per hour.
-            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -106,16 +106,16 @@ namespace Microsoft.PowerBI.Api
             ///
             /// ## Permissions
             ///
-            /// The user must have administrator rights.
+            /// The user must be a Fabric administrator.
             ///
             /// ## Required Scope
             ///
             /// Tenant.ReadWrite.All
+            /// &lt;br&gt;&lt;br&gt;
             ///
             /// ## Limitations
             ///
             /// Maximum 200 requests per hour.
-            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -135,16 +135,16 @@ namespace Microsoft.PowerBI.Api
             ///
             /// ## Permissions
             ///
-            /// The user must have administrator rights.
+            /// The user must be a Fabric administrator.
             ///
             /// ## Required Scope
             ///
             /// Tenant.ReadWrite.All
+            /// &lt;br&gt;&lt;br&gt;
             ///
             /// ## Limitations
             ///
             /// Maximum 200 requests per hour.
-            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
