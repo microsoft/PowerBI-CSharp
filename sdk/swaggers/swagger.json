@@ -10263,7 +10263,9 @@
                             "dataflowId": "928228ba-008d-4fd9-864a-92d2752ee5ce",
                             "refreshScheduleRequest": {
                                 "value": {
-                                    "enabled": false
+                                    "enabled": false,
+                                    "times": [],
+                                    "localTimeZoneId": "UTC"
                                 }
                             }
                         },
@@ -28209,15 +28211,6 @@
                 "configuredBy": {
                     "type": "string",
                     "description": "The dataflow owner"
-                },
-                "modifiedBy": {
-                    "type": "string",
-                    "description": "The user that modified the dataflow"
-                },
-                "modifiedDateTime": {
-                    "type": "string",
-                    "format": "date-time",
-                    "description": "The date and time that the dataflow was last modified"
                 },
                 "users": {
                     "type": "array",

@@ -35,10 +35,6 @@ namespace Microsoft.PowerBI.Api.Models
         /// <param name="modelUrl">A URL to the dataflow definition file
         /// (model.json)</param>
         /// <param name="configuredBy">The dataflow owner</param>
-        /// <param name="modifiedBy">The user that modified the
-        /// dataflow</param>
-        /// <param name="modifiedDateTime">The date and time that the dataflow
-        /// was last modified</param>
         /// <param name="users">(Empty value) The dataflow user access details.
         /// This property will be removed from the payload response in an
         /// upcoming release. You can retrieve user information on a Power BI
@@ -47,8 +43,8 @@ namespace Microsoft.PowerBI.Api.Models
         /// API call, or the
         /// [PostWorkspaceInfo](/rest/api/power-bi/admin/workspace-info-post-workspace-info)
         /// API call with the `getArtifactUser` parameter.</param>
-        public Dataflow(System.Guid objectId, string name = default(string), string description = default(string), string modelUrl = default(string), string configuredBy = default(string), string modifiedBy = default(string), System.DateTime? modifiedDateTime = default(System.DateTime?), IList<DataflowUser> users = default(IList<DataflowUser>))
-            : base(objectId, name, description, modelUrl, configuredBy, modifiedBy, modifiedDateTime, users)
+        public Dataflow(System.Guid objectId, string name = default(string), string description = default(string), string modelUrl = default(string), string configuredBy = default(string), IList<DataflowUser> users = default(IList<DataflowUser>))
+            : base(objectId, name, description, modelUrl, configuredBy, users)
         {
             CustomInit();
         }
