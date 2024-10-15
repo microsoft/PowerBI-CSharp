@@ -1354,9 +1354,13 @@ namespace Microsoft.PowerBI.Api
             /// <param name='reportId'>
             /// The report ID
             /// </param>
-            public static Stream ExportReportInGroup(this IReportsOperations operations, System.Guid groupId, System.Guid reportId)
+            /// <param name='downloadType'>
+            /// The type of download. Valid values are LiveConnect and IncludeModel.
+            /// Possible values include: 'IncludeModel', 'LiveConnect'
+            /// </param>
+            public static Stream ExportReportInGroup(this IReportsOperations operations, System.Guid groupId, System.Guid reportId, DownloadType? downloadType = default(DownloadType?))
             {
-                return operations.ExportReportInGroupAsync(groupId, reportId).GetAwaiter().GetResult();
+                return operations.ExportReportInGroupAsync(groupId, reportId, downloadType).GetAwaiter().GetResult();
             }
 
             /// <summary>
@@ -1412,12 +1416,16 @@ namespace Microsoft.PowerBI.Api
             /// <param name='reportId'>
             /// The report ID
             /// </param>
+            /// <param name='downloadType'>
+            /// The type of download. Valid values are LiveConnect and IncludeModel.
+            /// Possible values include: 'IncludeModel', 'LiveConnect'
+            /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<Stream> ExportReportInGroupAsync(this IReportsOperations operations, System.Guid groupId, System.Guid reportId, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<Stream> ExportReportInGroupAsync(this IReportsOperations operations, System.Guid groupId, System.Guid reportId, DownloadType? downloadType = default(DownloadType?), CancellationToken cancellationToken = default(CancellationToken))
             {
-                var _result = await operations.ExportReportInGroupWithHttpMessagesAsync(groupId, reportId, null, cancellationToken).ConfigureAwait(false);
+                var _result = await operations.ExportReportInGroupWithHttpMessagesAsync(groupId, reportId, downloadType, null, cancellationToken).ConfigureAwait(false);
                 _result.Request.Dispose();
                 return _result.Body;
             }
@@ -2511,9 +2519,8 @@ namespace Microsoft.PowerBI.Api
             ///
             /// ## Permissions
             ///
-            /// - The user must have administrator rights (such as Office 365 Global
-            /// Administrator or Power BI Service Administrator) or authenticate using a
-            /// service principal.
+            /// - The user must be a Fabric administrator or authenticate using a service
+            /// principal.
             /// - Delegated permissions are supported.
             ///
             /// When running under service prinicipal authentication, an app **must not**
@@ -2540,7 +2547,9 @@ namespace Microsoft.PowerBI.Api
             /// The workspace ID
             /// </param>
             /// <param name='filter'>
-            /// Filters the results, based on a boolean condition
+            /// Returns a subset of a results based on
+            /// [Odata](https://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part2-url-conventions.html#sec_SystemQueryOptions)
+            /// filter query parameter condition.
             /// </param>
             /// <param name='top'>
             /// Returns only the first n results
@@ -2560,9 +2569,8 @@ namespace Microsoft.PowerBI.Api
             ///
             /// ## Permissions
             ///
-            /// - The user must have administrator rights (such as Office 365 Global
-            /// Administrator or Power BI Service Administrator) or authenticate using a
-            /// service principal.
+            /// - The user must be a Fabric administrator or authenticate using a service
+            /// principal.
             /// - Delegated permissions are supported.
             ///
             /// When running under service prinicipal authentication, an app **must not**
@@ -2589,7 +2597,9 @@ namespace Microsoft.PowerBI.Api
             /// The workspace ID
             /// </param>
             /// <param name='filter'>
-            /// Filters the results, based on a boolean condition
+            /// Returns a subset of a results based on
+            /// [Odata](https://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part2-url-conventions.html#sec_SystemQueryOptions)
+            /// filter query parameter condition.
             /// </param>
             /// <param name='top'>
             /// Returns only the first n results
@@ -2615,9 +2625,8 @@ namespace Microsoft.PowerBI.Api
             ///
             /// ## Permissions
             ///
-            /// - The user must have administrator rights (such as Office 365 Global
-            /// Administrator or Power BI Service Administrator) or authenticate using a
-            /// service principal.
+            /// - The user must be a Fabric administrator or authenticate using a service
+            /// principal.
             /// - Delegated permissions are supported.
             ///
             /// When running under service prinicipal authentication, an app **must not**
@@ -2641,7 +2650,9 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='filter'>
-            /// Filters the results, based on a boolean condition
+            /// Returns a subset of a results based on
+            /// [Odata](https://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part2-url-conventions.html#sec_SystemQueryOptions)
+            /// filter query parameter condition.
             /// </param>
             /// <param name='top'>
             /// Returns only the first n results
@@ -2661,9 +2672,8 @@ namespace Microsoft.PowerBI.Api
             ///
             /// ## Permissions
             ///
-            /// - The user must have administrator rights (such as Office 365 Global
-            /// Administrator or Power BI Service Administrator) or authenticate using a
-            /// service principal.
+            /// - The user must be a Fabric administrator or authenticate using a service
+            /// principal.
             /// - Delegated permissions are supported.
             ///
             /// When running under service prinicipal authentication, an app **must not**
@@ -2687,7 +2697,9 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='filter'>
-            /// Filters the results, based on a boolean condition
+            /// Returns a subset of a results based on
+            /// [Odata](https://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part2-url-conventions.html#sec_SystemQueryOptions)
+            /// filter query parameter condition.
             /// </param>
             /// <param name='top'>
             /// Returns only the first n results
@@ -2713,9 +2725,8 @@ namespace Microsoft.PowerBI.Api
             ///
             /// ## Permissions
             ///
-            /// - The user must have administrator rights (such as Office 365 Global
-            /// Administrator or Power BI Service Administrator) or authenticate using a
-            /// service principal.
+            /// - The user must be a Fabric administrator or authenticate using a service
+            /// principal.
             /// - Delegated permissions are supported.
             ///
             /// When running under service prinicipal authentication, an app **must not**
@@ -2753,9 +2764,8 @@ namespace Microsoft.PowerBI.Api
             ///
             /// ## Permissions
             ///
-            /// - The user must have administrator rights (such as Office 365 Global
-            /// Administrator or Power BI Service Administrator) or authenticate using a
-            /// service principal.
+            /// - The user must be a Fabric administrator or authenticate using a service
+            /// principal.
             /// - Delegated permissions are supported.
             ///
             /// When running under service prinicipal authentication, an app **must not**
@@ -2800,9 +2810,8 @@ namespace Microsoft.PowerBI.Api
             ///
             /// ## Permissions
             ///
-            /// - The user must have administrator rights (such as Office 365 Global
-            /// Administrator or Power BI Service Administrator) or authenticate using a
-            /// service principal.
+            /// - The user must be a Fabric administrator or authenticate using a service
+            /// principal.
             /// - Delegated permissions are supported.
             ///
             /// ## Required Scope
@@ -2833,9 +2842,8 @@ namespace Microsoft.PowerBI.Api
             ///
             /// ## Permissions
             ///
-            /// - The user must have administrator rights (such as Office 365 Global
-            /// Administrator or Power BI Service Administrator) or authenticate using a
-            /// service principal.
+            /// - The user must be a Fabric administrator or authenticate using a service
+            /// principal.
             /// - Delegated permissions are supported.
             ///
             /// ## Required Scope

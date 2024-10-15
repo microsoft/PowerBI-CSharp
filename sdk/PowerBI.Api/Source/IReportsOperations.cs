@@ -789,6 +789,11 @@ namespace Microsoft.PowerBI.Api
         /// <param name='reportId'>
         /// The report ID
         /// </param>
+        /// <param name='downloadType'>
+        /// The type of download. Valid values are LiveConnect and
+        /// IncludeModel. Possible values include: 'IncludeModel',
+        /// 'LiveConnect'
+        /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
         /// </param>
@@ -801,7 +806,7 @@ namespace Microsoft.PowerBI.Api
         /// <exception cref="Microsoft.Rest.SerializationException">
         /// Thrown when unable to deserialize the response
         /// </exception>
-        Task<HttpOperationResponse<Stream>> ExportReportInGroupWithHttpMessagesAsync(System.Guid groupId, System.Guid reportId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<Stream>> ExportReportInGroupWithHttpMessagesAsync(System.Guid groupId, System.Guid reportId, DownloadType? downloadType = default(DownloadType?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Updates the content of the specified report from the specified
         /// workspace with the content of a specified source report.
@@ -1410,9 +1415,8 @@ namespace Microsoft.PowerBI.Api
         ///
         /// ## Permissions
         ///
-        /// - The user must have administrator rights (such as Office 365
-        /// Global Administrator or Power BI Service Administrator) or
-        /// authenticate using a service principal.
+        /// - The user must be a Fabric administrator or authenticate using a
+        /// service principal.
         /// - Delegated permissions are supported.
         ///
         /// When running under service prinicipal authentication, an app **must
@@ -1436,7 +1440,9 @@ namespace Microsoft.PowerBI.Api
         /// The workspace ID
         /// </param>
         /// <param name='filter'>
-        /// Filters the results, based on a boolean condition
+        /// Returns a subset of a results based on
+        /// [Odata](https://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part2-url-conventions.html#sec_SystemQueryOptions)
+        /// filter query parameter condition.
         /// </param>
         /// <param name='top'>
         /// Returns only the first n results
@@ -1464,9 +1470,8 @@ namespace Microsoft.PowerBI.Api
         ///
         /// ## Permissions
         ///
-        /// - The user must have administrator rights (such as Office 365
-        /// Global Administrator or Power BI Service Administrator) or
-        /// authenticate using a service principal.
+        /// - The user must be a Fabric administrator or authenticate using a
+        /// service principal.
         /// - Delegated permissions are supported.
         ///
         /// When running under service prinicipal authentication, an app **must
@@ -1487,7 +1492,9 @@ namespace Microsoft.PowerBI.Api
         /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='filter'>
-        /// Filters the results, based on a boolean condition
+        /// Returns a subset of a results based on
+        /// [Odata](https://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part2-url-conventions.html#sec_SystemQueryOptions)
+        /// filter query parameter condition.
         /// </param>
         /// <param name='top'>
         /// Returns only the first n results
@@ -1515,9 +1522,8 @@ namespace Microsoft.PowerBI.Api
         ///
         /// ## Permissions
         ///
-        /// - The user must have administrator rights (such as Office 365
-        /// Global Administrator or Power BI Service Administrator) or
-        /// authenticate using a service principal.
+        /// - The user must be a Fabric administrator or authenticate using a
+        /// service principal.
         /// - Delegated permissions are supported.
         ///
         /// When running under service prinicipal authentication, an app **must
@@ -1561,9 +1567,8 @@ namespace Microsoft.PowerBI.Api
         ///
         /// ## Permissions
         ///
-        /// - The user must have administrator rights (such as Office 365
-        /// Global Administrator or Power BI Service Administrator) or
-        /// authenticate using a service principal.
+        /// - The user must be a Fabric administrator or authenticate using a
+        /// service principal.
         /// - Delegated permissions are supported.
         ///
         /// ## Required Scope
