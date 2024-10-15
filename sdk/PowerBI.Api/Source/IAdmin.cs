@@ -26,8 +26,7 @@ namespace Microsoft.PowerBI.Api
         ///
         /// ## Permissions
         ///
-        /// The user must have administrator rights (such as Office 365 Global
-        /// Administrator or Power BI Service Administrator).
+        /// The user must be a Fabric administrator.
         ///
         /// ## Required Scope
         ///
@@ -36,7 +35,6 @@ namespace Microsoft.PowerBI.Api
         /// ## Limitations
         ///
         /// Maximum 600 requests per hour.
-        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='tenantKeyCreationRequest'>
         /// Tenant key information
@@ -64,9 +62,8 @@ namespace Microsoft.PowerBI.Api
         ///
         /// ## Permissions
         ///
-        /// - The user must have administrator rights (such as Office 365
-        /// Global Administrator or Power BI Service Administrator) or
-        /// authenticate using a service principal.
+        /// - The user must be a Fabric administrator or authenticate using a
+        /// service principal.
         /// - Delegated permissions are supported.
         ///
         /// When running under service prinicipal authentication, an app **must
@@ -80,7 +77,10 @@ namespace Microsoft.PowerBI.Api
         /// Relevant only when authenticating via a standard delegated admin
         /// access token. Must not be present when authentication via a service
         /// principal is used.
-        /// &lt;br&gt;&lt;br&gt;
+        ///
+        /// ## Limitations
+        ///
+        /// Maximum 200 requests per hour.
         /// </remarks>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -103,8 +103,7 @@ namespace Microsoft.PowerBI.Api
         ///
         /// ## Permissions
         ///
-        /// The user must have administrator rights (such as Office 365 Global
-        /// Administrator or Power BI Service Administrator).
+        /// The user must be a Fabric administrator.
         ///
         /// ## Required Scope
         ///
@@ -144,9 +143,8 @@ namespace Microsoft.PowerBI.Api
         ///
         /// ## Permissions
         ///
-        /// - The user must have administrator rights (such as Office 365
-        /// Global Administrator or Power BI Service Administrator) or
-        /// authenticate using a service principal.
+        /// - The user must be a Fabric administrator or authenticate using a
+        /// service principal.
         /// - Delegated permissions are supported.
         ///
         /// When running under service prinicipal authentication, an app **must
@@ -160,7 +158,10 @@ namespace Microsoft.PowerBI.Api
         /// Relevant only when authenticating via a standard delegated admin
         /// access token. Must not be present when authentication via a service
         /// principal is used.
-        /// &lt;br&gt;&lt;br&gt;
+        ///
+        /// ## Limitations
+        ///
+        /// Maximum 200 requests per hour.
         /// </remarks>
         /// <param name='expand'>
         /// Expands related entities inline
@@ -186,13 +187,15 @@ namespace Microsoft.PowerBI.Api
         ///
         /// ## Permissions
         ///
-        /// The user must have administrator rights (such as Office 365 Global
-        /// Administrator or Power BI Service Administrator).
+        /// The user must be a Fabric administrator.
         ///
         /// ## Required Scope
         ///
         /// Tenant.Read.All or Tenant.ReadWrite.All
-        /// &lt;br&gt;&lt;br&gt;
+        ///
+        /// ## Limitations
+        ///
+        /// Maximum 200 requests per hour.
         /// </remarks>
         /// <param name='capacityId'>
         /// The capacity ID
@@ -224,9 +227,8 @@ namespace Microsoft.PowerBI.Api
         ///
         /// ## Permissions
         ///
-        /// - The user must have administrator rights (such as Office 365
-        /// Global Administrator or Power BI Service Administrator) or
-        /// authenticate using a service principal.
+        /// - The user must be a Fabric administrator or authenticate using a
+        /// service principal.
         /// - Delegated permissions are supported.
         ///
         /// When running under service prinicipal authentication, an app **must
@@ -240,7 +242,10 @@ namespace Microsoft.PowerBI.Api
         /// Relevant only when authenticating via a standard delegated admin
         /// access token. Must not be present when authentication via a service
         /// principal is used.
-        /// &lt;br&gt;&lt;br&gt;
+        ///
+        /// ## Limitations
+        ///
+        /// Maximum 200 requests per hour.
         /// </remarks>
         /// <param name='top'>
         /// Returns only the first n results.
@@ -251,7 +256,9 @@ namespace Microsoft.PowerBI.Api
         /// `groups`.
         /// </param>
         /// <param name='filter'>
-        /// Filters the results based on a boolean condition
+        /// Returns a subset of a results based on
+        /// [Odata](https://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part2-url-conventions.html#sec_SystemQueryOptions)
+        /// filter query parameter condition.
         /// </param>
         /// <param name='skip'>
         /// Skips the first n results. Use with top to fetch results beyond the
@@ -281,9 +288,8 @@ namespace Microsoft.PowerBI.Api
         ///
         /// ## Permissions
         ///
-        /// - The user must have administrator rights (such as Office 365
-        /// Global Administrator or Power BI Service Administrator) or
-        /// authenticate using a service principal.
+        /// - The user must be a Fabric administrator or authenticate using a
+        /// service principal.
         /// - Delegated permissions are supported.
         ///
         /// When running under service prinicipal authentication, an app **must
@@ -297,7 +303,10 @@ namespace Microsoft.PowerBI.Api
         /// Relevant only when authenticating via a standard delegated admin
         /// access token. Must not be present when authentication via a service
         /// principal is used.
-        /// &lt;br&gt;&lt;br&gt;
+        ///
+        /// ## Limitations
+        ///
+        /// Maximum 200 requests per hour.
         /// </remarks>
         /// <param name='capacityId'>
         /// The capacity ID
@@ -311,7 +320,9 @@ namespace Microsoft.PowerBI.Api
         /// `groups`.
         /// </param>
         /// <param name='filter'>
-        /// Filters the results based on a boolean condition
+        /// Returns a subset of a results based on
+        /// [Odata](https://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part2-url-conventions.html#sec_SystemQueryOptions)
+        /// filter query parameter condition.
         /// </param>
         /// <param name='skip'>
         /// Skips the first n results. Use with top to fetch results beyond the
@@ -341,9 +352,8 @@ namespace Microsoft.PowerBI.Api
         ///
         /// ## Permissions
         ///
-        /// - The user must have administrator rights (such as Office 365
-        /// Global Administrator or Power BI Service Administrator) or
-        /// authenticate using a service principal.
+        /// - The user must be a Fabric administrator or authenticate using a
+        /// service principal.
         /// - Delegated permissions are supported.
         ///
         /// When running under service prinicipal authentication, an app **must
@@ -357,7 +367,10 @@ namespace Microsoft.PowerBI.Api
         /// Relevant only when authenticating via a standard delegated admin
         /// access token. Must not be present when authentication via a service
         /// principal is used.
-        /// &lt;br&gt;&lt;br&gt;
+        ///
+        /// ## Limitations
+        ///
+        /// Maximum 200 requests per hour.
         /// </remarks>
         /// <param name='capacityId'>
         /// The capacity ID
@@ -397,9 +410,8 @@ namespace Microsoft.PowerBI.Api
         ///
         /// ## Permissions
         ///
-        /// - The user must have administrator rights (such as Office 365
-        /// Global Administrator or Power BI Service Administrator) or
-        /// authenticate using a service principal.
+        /// - The user must be a Fabric administrator or authenticate using a
+        /// service principal.
         /// - Delegated permissions are supported.
         ///
         /// When running under service prinicipal authentication, an app **must

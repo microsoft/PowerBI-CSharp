@@ -7517,6 +7517,31 @@
                         "description": "The report ID",
                         "type": "string",
                         "format": "uuid"
+                    },
+                    {
+                        "name": "downloadType",
+                        "description": "The type of download. Valid values are LiveConnect and IncludeModel",
+                        "in": "query",
+                        "required": false,
+                        "type": "string",
+                        "enum": [
+                            "IncludeModel",
+                            "LiveConnect"
+                        ],
+                        "x-ms-enum": {
+                            "name": "DownloadType",
+                            "modelAsExtensible": true,
+                            "values": [
+                                {
+                                    "value": "IncludeModel",
+                                    "description": "Export the report with the semantic model included."
+                                },
+                                {
+                                    "value": "LiveConnect",
+                                    "description": "Export the report with a live connection to the semantic model."
+                                }
+                            ]
+                        }
                     }
                 ],
                 "responses": {
@@ -10238,7 +10263,9 @@
                             "dataflowId": "928228ba-008d-4fd9-864a-92d2752ee5ce",
                             "refreshScheduleRequest": {
                                 "value": {
-                                    "enabled": false
+                                    "enabled": false,
+                                    "times": [],
+                                    "localTimeZoneId": "UTC"
                                 }
                             }
                         },
@@ -11163,7 +11190,7 @@
                     {
                         "name": "$filter",
                         "in": "query",
-                        "description": "Filters the results, based on a boolean condition",
+                        "description": "Returns a subset of a results based on [Odata](https://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part2-url-conventions.html#sec_SystemQueryOptions) filter query parameter condition.",
                         "required": false,
                         "type": "string"
                     },
@@ -11973,7 +12000,7 @@
                     {
                         "name": "$filter",
                         "in": "query",
-                        "description": "Filters the results based on a boolean condition",
+                        "description": "Returns a subset of a results based on [Odata](https://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part2-url-conventions.html#sec_SystemQueryOptions) filter query parameter condition.",
                         "required": false,
                         "type": "string"
                     },
@@ -12199,7 +12226,7 @@
                     {
                         "name": "$filter",
                         "in": "query",
-                        "description": "Filters the results based on a boolean condition",
+                        "description": "Returns a subset of a results based on [Odata](https://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part2-url-conventions.html#sec_SystemQueryOptions) filter query parameter condition.",
                         "required": false,
                         "type": "string"
                     },
@@ -13815,7 +13842,7 @@
                     "Pipelines"
                 ],
                 "summary": "Deploys all supported items from the source stage of the specified deployment pipeline.",
-                "description": "\nTo learn about items that aren't supported in deployment pipelines, see [Unsupported items](/power-bi/create-reports/deployment-pipelines-process#unsupported-items).\n\n## Permissions\n\nThe user must at least be a member on both source and target deployment workspaces. For more information, see [Permissions](/power-bi/create-reports/deployment-pipelines-process#permissions).\n\n## Required Scope\n\nPipeline.Deploy\n\n## Limitations\n\nMaximum 300 deployed items per request.\n<br><br>",
+                "description": "\nTo learn about items that aren't supported in deployment pipelines, see [Unsupported items](/power-bi/create-reports/deployment-pipelines-process#unsupported-items).\n\n## Permissions\n\nThe user must at least be a contributor on both source and target deployment workspaces. For more information, see [Permissions](/power-bi/create-reports/deployment-pipelines-process#permissions).\n\n## Required Scope\n\nPipeline.Deploy\n\n## Limitations\n\nMaximum 300 deployed items per request.\n<br><br>",
                 "operationId": "Pipelines_DeployAll",
                 "consumes": [
                     "application/json"
@@ -13890,7 +13917,7 @@
                     "Pipelines"
                 ],
                 "summary": "Deploys the specified items from the source stage of the specified deployment pipeline.",
-                "description": "\n## Permissions\n\nThe user must at least be a member on both source and target deployment workspaces. For more information, see [Permissions](/power-bi/create-reports/deployment-pipelines-process#permissions).\n\n## Required Scope\n\nPipeline.Deploy\n\n## Limitations\n\nMaximum 300 deployed items per request.\n<br><br>",
+                "description": "\n## Permissions\n\nThe user must at least be a contributor on both source and target deployment workspaces. For more information, see [Permissions](/power-bi/create-reports/deployment-pipelines-process#permissions).\n\n## Required Scope\n\nPipeline.Deploy\n\n## Limitations\n\nMaximum 300 deployed items per request.\n<br><br>",
                 "operationId": "Pipelines_SelectiveDeploy",
                 "consumes": [
                     "application/json"
@@ -14127,7 +14154,7 @@
                     "Admin"
                 ],
                 "summary": "Initiates a call to receive metadata for the requested list of workspaces.",
-                "description": "\n> [!IMPORTANT]\n> If you set the `datasetSchema` or `datasetExpressions` parameters to `true`, you must fully enable metadata scanning in order for data to be returned. For more information, see [Enable tenant settings for metadata scanning](/power-bi/admin/service-admin-metadata-scanning-setup#enable-tenant-settings-for-metadata-scanning).\n\n## Permissions\n\nThe user must have administrator rights (such as Microsoft 365 Global Administrator or Power BI Service Administrator) or authenticate using a service principal.\n\nWhen running under service principal authentication, an app **must not** have any admin-consent required permissions for Power BI set on it in the Azure portal.\n\n## Required Scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n\nRelevant only when authenticating via a standard delegated admin access token. Must not be present when authentication via a service principal is used.\n\n## Limitations\n\n- Maximum 500 requests per hour.\n- Maximum 16 simultaneous requests.\n<br><br>",
+                "description": "\n> [!IMPORTANT]\n> If you set the `datasetSchema` or `datasetExpressions` parameters to `true`, you must fully enable metadata scanning in order for data to be returned. For more information, see [Enable tenant settings for metadata scanning](/power-bi/admin/service-admin-metadata-scanning-setup#enable-tenant-settings-for-metadata-scanning).\n\n## Permissions\n\nThe user must be a Fabric administrator or authenticate using a service principal.\n\nWhen running under service principal authentication, an app **must not** have any admin-consent required permissions for Power BI set on it in the Azure portal.\n\n## Required Scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n\nRelevant only when authenticating via a standard delegated admin access token. Must not be present when authentication via a service principal is used.\n\n## Limitations\n\n- Maximum 500 requests per hour.\n- Maximum 16 simultaneous requests.\n<br><br>",
                 "operationId": "WorkspaceInfo_PostWorkspaceInfo",
                 "consumes": [
                     "application/json"
@@ -14224,7 +14251,7 @@
                     "Admin"
                 ],
                 "summary": "Gets the scan status for the specified scan.",
-                "description": "\n## Permissions\n\nThe user must have administrator rights (such as Microsoft 365 Global Administrator or Power BI Service Administrator) or authenticate using a service principal.\n\nWhen running under service principal authentication, an app **must not** have any admin-consent required permissions for Power BI set on it in the Azure portal. \n\n## Required Scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n\nRelevant only when authenticating via a standard delegated admin access token. Must not be present when authentication via a service principal is used.\n\n## Limitations\n\nMaximum 10,000 requests per hour.\n<br><br>",
+                "description": "\n## Permissions\n\nThe user must be a Fabric administrator or authenticate using a service principal.\n\nWhen running under service principal authentication, an app **must not** have any admin-consent required permissions for Power BI set on it in the Azure portal. \n\n## Required Scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n\nRelevant only when authenticating via a standard delegated admin access token. Must not be present when authentication via a service principal is used.\n\n## Limitations\n\nMaximum 10,000 requests per hour.\n<br><br>",
                 "operationId": "WorkspaceInfo_GetScanStatus",
                 "consumes": [
                     "application/json"
@@ -14276,7 +14303,7 @@
                     "Admin"
                 ],
                 "summary": "Gets the scan result for the specified scan.",
-                "description": "\nOnly make this API call after a successful [GetScanStatus](/rest/api/power-bi/admin/workspace-info-get-scan-status) API call. The scan result will remain available for 24 hours.\n\n## Permissions\n\nThe user must have administrator rights (such as Microsoft 365 Global Administrator or Power BI Service Administrator) or authenticate using a service principal.\n\nWhen running under service principal authentication, an app **must not** have any admin-consent required permissions for Power BI set on it in the Azure portal.\n\n## Required Scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n\nRelevant only when authenticating via a standard delegated admin access token. Must not be present when authentication via a service principal is used.\n\n## Limitations\n\nMaximum 500 requests per hour.\n<br><br>",
+                "description": "\nOnly make this API call after a successful [GetScanStatus](/rest/api/power-bi/admin/workspace-info-get-scan-status) API call. The scan result will remain available for 24 hours.\n\n## Permissions\n\nThe user must be a Fabric administrator or authenticate using a service principal.\n\nWhen running under service principal authentication, an app **must not** have any admin-consent required permissions for Power BI set on it in the Azure portal.\n\n## Required Scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n\nRelevant only when authenticating via a standard delegated admin access token. Must not be present when authentication via a service principal is used.\n\n## Limitations\n\nMaximum 500 requests per hour.\n<br><br>",
                 "operationId": "WorkspaceInfo_GetScanResult",
                 "consumes": [
                     "application/json"
@@ -14616,7 +14643,7 @@
                     "Admin"
                 ],
                 "summary": "Gets a list of workspace IDs in the organization.",
-                "description": "\nIf the optional `modifiedSince` parameter is set to a date-time, only the IDs of workspaces that changed after that date-time are returned. If the `modifiedSince` parameter isn't used, the IDs of all workspaces in the organization are returned. The date-time specified by the `modifiedSince` parameter must be in the range of 30 minutes (to allow workspace changes to take effect) to 30 days prior to the current time.\n\n## Permissions\n\nThe user must have administrator rights (such as Microsoft 365 Global Administrator or Power BI Service Administrator) or authenticate using a service principal.\n\nWhen running under service principal authentication, an app **must not** have any admin-consent required permissions for Power BI set on it in the Azure portal. \n\n## Required Scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n\nRelevant only when authenticating via a standard delegated admin access token. Must not be present when authentication via a service principal is used.\n\n## Limitations\n\nMaximum 30 requests per hour.\n<br><br>",
+                "description": "\nIf the optional `modifiedSince` parameter is set to a date-time, only the IDs of workspaces that changed after that date-time are returned. If the `modifiedSince` parameter isn't used, the IDs of all workspaces in the organization are returned. The date-time specified by the `modifiedSince` parameter must be in the range of 30 minutes (to allow workspace changes to take effect) to 30 days prior to the current time.\n\n## Permissions\n\nThe user must be a Fabric administrator or authenticate using a service principal.\n\nWhen running under service principal authentication, an app **must not** have any admin-consent required permissions for Power BI set on it in the Azure portal. \n\n## Required Scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n\nRelevant only when authenticating via a standard delegated admin access token. Must not be present when authentication via a service principal is used.\n\n## Limitations\n\nMaximum 30 requests per hour.\n<br><br>",
                 "operationId": "WorkspaceInfo_GetModifiedWorkspaces",
                 "consumes": [
                     "application/json"
@@ -14690,7 +14717,7 @@
                     "Admin"
                 ],
                 "summary": "Assigns the specified workspaces to the specified Premium capacity.",
-                "description": "\n## Permissions\n\nThe user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator).\n\n## Required Scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n<br><br>",
+                "description": "\n## Permissions\n\nThe user must be a Fabric administrator.\n\n## Required Scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n\n## Limitations\n\nMaximum 200 requests per hour.",
                 "operationId": "Capacities_AssignWorkspacesToCapacity",
                 "consumes": [
                     "application/json"
@@ -14740,7 +14767,7 @@
                     "Admin"
                 ],
                 "summary": "Unassigns the specified workspaces from capacity.",
-                "description": "\n## Permissions\n\nThe user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator).\n\n## Required Scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n<br><br>",
+                "description": "\n## Permissions\n\nThe user must be a Fabric administrator.\n\n## Required Scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n\n## Limitations\n\nMaximum 200 requests per hour.",
                 "operationId": "Capacities_UnassignWorkspacesFromCapacity",
                 "consumes": [
                     "application/json"
@@ -14785,7 +14812,7 @@
                     "Admin"
                 ],
                 "summary": "Returns a list of datasets for the organization.",
-                "description": "\n## Permissions\n\n- The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) or authenticate using a service principal.\n- Delegated permissions are supported.\n\nWhen running under service prinicipal authentication, an app **must not** have any admin-consent required premissions for Power BI set on it in the Azure portal. \n\n## Required Scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n\nRelevant only when authenticating via a standard delegated admin access token. Must not be present when authentication via a service principal is used.\n\n## Limitations\n\nMaximum 50 requests per hour or 5 requests per minute, per tenant.\n<br><br>",
+                "description": "\n## Permissions\n\n- The user must be a Fabric administrator or authenticate using a service principal.\n- Delegated permissions are supported.\n\nWhen running under service prinicipal authentication, an app **must not** have any admin-consent required premissions for Power BI set on it in the Azure portal. \n\n## Required Scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n\nRelevant only when authenticating via a standard delegated admin access token. Must not be present when authentication via a service principal is used.\n\n## Limitations\n\nMaximum 50 requests per hour or 5 requests per minute, per tenant.\n<br><br>",
                 "operationId": "Datasets_GetDatasetsAsAdmin",
                 "consumes": [],
                 "produces": [
@@ -14795,7 +14822,7 @@
                     {
                         "name": "$filter",
                         "in": "query",
-                        "description": "Filters the results, based on a boolean condition",
+                        "description": "Returns a subset of a results based on [Odata](https://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part2-url-conventions.html#sec_SystemQueryOptions) filter query parameter condition.",
                         "required": false,
                         "type": "string"
                     },
@@ -14858,7 +14885,7 @@
                     "Admin"
                 ],
                 "summary": "Returns a list of data sources for the specified dataset.",
-                "description": "\nEach request takes 0.5 seconds to process, during which time other requests are queued.\n\n## Permissions\n\n- The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) or authenticate using a service principal. \n- Delegated permissions are supported.\n\nWhen running under service prinicipal authentication, an app **must not** have any admin-consent required premissions for Power BI set on it in the Azure portal.\n\n## Required Scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n\nRelevant only when authenticating via a standard delegated admin access token. Must not be present when authentication via a service principal is used.\n<br><br>",
+                "description": "\nEach request takes 0.5 seconds to process, during which time other requests are queued.\n\n## Permissions\n\n- The user must be a Fabric administrator or authenticate using a service principal. \n- Delegated permissions are supported.\n\nWhen running under service prinicipal authentication, an app **must not** have any admin-consent required premissions for Power BI set on it in the Azure portal.\n\n## Required Scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n\nRelevant only when authenticating via a standard delegated admin access token. Must not be present when authentication via a service principal is used.\n<br><br>",
                 "operationId": "Datasets_GetDatasourcesAsAdmin",
                 "consumes": [],
                 "produces": [
@@ -14915,7 +14942,7 @@
                     "Admin"
                 ],
                 "summary": "Returns a list of users that have access to the specified dataset.",
-                "description": "\n## Permissions\n\n- The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) or authenticate using a service principal.\n- Delegated permissions are supported.\n- The permissions for this API call are listed in [Datasets permissions](/power-bi/developer/embedded/datasets-permissions).\n\nWhen running under service prinicipal authentication, an app **must not** have any admin-consent required premissions for Power BI set on it in the Azure portal.\n\n## Required Scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n\nRelevant only when authenticating via a standard delegated admin access token. Must not be present when authentication via a service principal is used.\n\n## Limitations\n\nMaximum 200 requests per hour.\n<br><br>",
+                "description": "\n## Permissions\n\n- The user must be a Fabric administrator or authenticate using a service principal.\n- Delegated permissions are supported.\n- The permissions for this API call are listed in [Datasets permissions](/power-bi/developer/embedded/datasets-permissions).\n\nWhen running under service prinicipal authentication, an app **must not** have any admin-consent required premissions for Power BI set on it in the Azure portal.\n\n## Required Scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n\nRelevant only when authenticating via a standard delegated admin access token. Must not be present when authentication via a service principal is used.\n\n## Limitations\n\nMaximum 200 requests per hour.\n<br><br>",
                 "operationId": "Datasets_GetDatasetUsersAsAdmin",
                 "consumes": [],
                 "produces": [
@@ -14969,7 +14996,7 @@
                     "Admin"
                 ],
                 "summary": "Returns a list of workspaces for the organization.",
-                "description": "\n## Permissions\n\n- The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) or authenticate using a service principal.\n- Delegated permissions are supported.\n\nWhen running under service prinicipal authentication, an app **must not** have any admin-consent required premissions for Power BI set on it in the Azure portal. \n\n## Required Scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n\nRelevant only when authenticating via a standard delegated admin access token. Must not be present when authentication via a service principal is used.\n\n## Limitations\n\nMaximum 50 requests per hour or 15 requests per minute, per tenant. This call will also time out after 30 seconds to prevent adverse effect on the Power BI service.\n<br><br>",
+                "description": "\n## Permissions\n\n- The user must be a Fabric administrator or authenticate using a service principal.\n- Delegated permissions are supported.\n\nWhen running under service prinicipal authentication, an app **must not** have any admin-consent required premissions for Power BI set on it in the Azure portal. \n\n## Required Scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n\nRelevant only when authenticating via a standard delegated admin access token. Must not be present when authentication via a service principal is used.\n\n## Limitations\n\nMaximum 50 requests per hour or 15 requests per minute, per tenant. This call will also time out after 30 seconds to prevent adverse effect on the Power BI service.\n<br><br>",
                 "operationId": "Groups_GetGroupsAsAdmin",
                 "consumes": [],
                 "produces": [
@@ -14986,7 +15013,7 @@
                     {
                         "name": "$filter",
                         "in": "query",
-                        "description": "Filters the results based on a boolean condition",
+                        "description": "Returns a subset of a results based on [Odata](https://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part2-url-conventions.html#sec_SystemQueryOptions) filter query parameter condition.",
                         "required": false,
                         "type": "string"
                     },
@@ -15348,7 +15375,7 @@
                     "Admin"
                 ],
                 "summary": "Returns a workspace for the organization.",
-                "description": "\n## Permissions\n\n- The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) or authenticate using a service principal.\n- Delegated permissions are supported.\n\n## Required Scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n\n## Limitations\n\nMaximum 200 requests per hour.\n<br><br>",
+                "description": "\n## Permissions\n\n- The user must be a Fabric administrator or authenticate using a service principal.\n- Delegated permissions are supported.\n\n## Required Scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n\n## Limitations\n\nMaximum 200 requests per hour.\n<br><br>",
                 "operationId": "Groups_GetGroupAsAdmin",
                 "consumes": [],
                 "produces": [
@@ -15414,7 +15441,7 @@
                     "Admin"
                 ],
                 "summary": "Updates the properties of the specified workspace.",
-                "description": "\nTo unassign a Log Analytics workspace, explicitly set the value to null.\n\n## Permissions\n\nThe user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator).\n\n## Required Scope\n\nTenant.ReadWrite.All\n\n## Limitations\n\n- Maximum 200 requests per hour.\n- For Shared capacities, only the name and description can be updated.\n- For Premium capacities, only the name, description, defaultDatasetStorageFormat and Log Analytics workspace can be updated.\n- The name must be unique inside an organization.\n<br><br>",
+                "description": "\nTo unassign a Log Analytics workspace, explicitly set the value to null.\n\n## Permissions\n\nThe user must be a Fabric administrator.\n\n## Required Scope\n\nTenant.ReadWrite.All\n\n## Limitations\n\n- Maximum 200 requests per hour.\n- For Shared capacities, only the name and description can be updated.\n- For Premium capacities, only the name, description, defaultDatasetStorageFormat and Log Analytics workspace can be updated.\n- The name must be unique inside an organization.\n<br><br>",
                 "operationId": "Groups_UpdateGroupAsAdmin",
                 "consumes": [],
                 "produces": [],
@@ -15492,7 +15519,7 @@
                     "Admin"
                 ],
                 "summary": "Returns a list of users that have access to the specified workspace.",
-                "description": "\n## Permissions\n\n- The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) or authenticate using a service principal.\n- Delegated permissions are supported.\n\nWhen running under service prinicipal authentication, an app **must not** have any admin-consent required premissions for Power BI set on it in the Azure portal.\n\n## Required Scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n\nRelevant only when authenticating via a standard delegated admin access token. Must not be present when authentication via a service principal is used.\n\n## Limitations\n\nMaximum 200 requests per hour.\n<br><br>",
+                "description": "\n## Permissions\n\n- The user must be a Fabric administrator or authenticate using a service principal.\n- Delegated permissions are supported.\n\nWhen running under service prinicipal authentication, an app **must not** have any admin-consent required premissions for Power BI set on it in the Azure portal.\n\n## Required Scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n\nRelevant only when authenticating via a standard delegated admin access token. Must not be present when authentication via a service principal is used.\n\n## Limitations\n\nMaximum 200 requests per hour.\n<br><br>",
                 "operationId": "Groups_GetGroupUsersAsAdmin",
                 "consumes": [],
                 "produces": [
@@ -15559,7 +15586,7 @@
                     "Admin"
                 ],
                 "summary": "Grants user permissions to the specified workspace.",
-                "description": "\nThis API call only supports adding a user, security group, M365 group and service principal.\n\n## Permissions\n\nThe user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator).\n\n## Required Scope\n\nTenant.ReadWrite.All\n\n## Limitations\n\nMaximum 200 requests per hour.\n<br><br>",
+                "description": "\nThis API call only supports adding a user, security group, M365 group and service principal.\n\n## Permissions\n\nThe user must be a Fabric administrator.\n\n## Required Scope\n\nTenant.ReadWrite.All\n\n## Limitations\n\nMaximum 200 requests per hour.\n<br><br>",
                 "operationId": "Groups_AddUserAsAdmin",
                 "consumes": [
                     "application/json"
@@ -15638,7 +15665,7 @@
                     "Admin"
                 ],
                 "summary": "Removes user permissions from the specified workspace.",
-                "description": "\nThis API call supports removing a user, security group, M365 group and service principal.Please use email address or UPN for user, group object Id for group and app object Id for service principal to delete.\n\n## Permissions\n\nThe user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator).\n\n## Required Scope\n\nTenant.ReadWrite.All\n\n## Limitations\n\nMaximum 200 requests per hour.\n<br><br>",
+                "description": "\nThis API call supports removing a user, security group, M365 group and service principal.Please use email address or UPN for user, group object Id for group and app object Id for service principal to delete.\n\n## Permissions\n\nThe user must be a Fabric administrator.\n\n## Required Scope\n\nTenant.ReadWrite.All\n\n## Limitations\n\nMaximum 200 requests per hour.\n<br><br>",
                 "operationId": "Groups_DeleteUserAsAdmin",
                 "consumes": [],
                 "produces": [],
@@ -15727,7 +15754,7 @@
                     "Admin"
                 ],
                 "summary": "Restores a deleted workspace.",
-                "description": "\nUse this API call to restore workspaces.\n\n## Permissions\n\nThe user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator).\n\n## Required Scope\n\nTenant.ReadWrite.All\n\n## Limitations\n\nMaximum 200 requests per hour.\n<br><br>",
+                "description": "\nUse this API call to restore workspaces.\n\n## Permissions\n\nThe user must be a Fabric administrator.\n\n## Required Scope\n\nTenant.ReadWrite.All\n\n## Limitations\n\nMaximum 200 requests per hour.\n<br><br>",
                 "operationId": "Groups_RestoreDeletedGroupAsAdmin",
                 "consumes": [
                     "application/json"
@@ -15780,7 +15807,7 @@
                     "Admin"
                 ],
                 "summary": "Returns a list of upstream dataflows for the specified dataflow.",
-                "description": "\n## Permissions\n\n- The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) or authenticate using a service principal.\n- Delegated permissions are supported.\n\nWhen running under service prinicipal authentication, an app **must not** have any admin-consent required premissions for Power BI set on it in the Azure portal.\n\n## Required Scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n\nRelevant only when authenticating via a standard delegated admin access token. Must not be present when authentication via a service principal is used.\n\n## Limitations\n\nMaximum 200 requests per hour.\n<br><br>",
+                "description": "\n## Permissions\n\n- The user must be a Fabric administrator or authenticate using a service principal.\n- Delegated permissions are supported.\n\nWhen running under service prinicipal authentication, an app **must not** have any admin-consent required premissions for Power BI set on it in the Azure portal.\n\n## Required Scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n\nRelevant only when authenticating via a standard delegated admin access token. Must not be present when authentication via a service principal is used.\n\n## Limitations\n\nMaximum 200 requests per hour.\n<br><br>",
                 "operationId": "Dataflows_GetUpstreamDataflowsInGroupAsAdmin",
                 "consumes": [],
                 "produces": [
@@ -15845,7 +15872,7 @@
                     "Admin"
                 ],
                 "summary": "Returns a list of dashboards from the specified workspace.",
-                "description": "\n## Permissions\n\n- The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) or authenticate using a service principal.\n- Delegated permissions are supported.\n\nWhen running under service prinicipal authentication, an app **must not** have any admin-consent required premissions for Power BI set on it in the Azure portal.\n\n## Required Scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n\nRelevant only when authenticating via a standard delegated admin access token. Must not be present when authentication via a service principal is used.\n\n## Limitations\n\nMaximum 200 requests per hour.\n<br><br>",
+                "description": "\n## Permissions\n\n- The user must be a Fabric administrator or authenticate using a service principal.\n- Delegated permissions are supported.\n\nWhen running under service prinicipal authentication, an app **must not** have any admin-consent required premissions for Power BI set on it in the Azure portal.\n\n## Required Scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n\nRelevant only when authenticating via a standard delegated admin access token. Must not be present when authentication via a service principal is used.\n\n## Limitations\n\nMaximum 200 requests per hour.\n<br><br>",
                 "operationId": "Dashboards_GetDashboardsInGroupAsAdmin",
                 "consumes": [],
                 "produces": [
@@ -15863,7 +15890,7 @@
                     {
                         "name": "$filter",
                         "in": "query",
-                        "description": "Filters the results, based on a boolean condition",
+                        "description": "Returns a subset of a results based on [Odata](https://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part2-url-conventions.html#sec_SystemQueryOptions) filter query parameter condition.",
                         "required": false,
                         "type": "string"
                     },
@@ -15922,7 +15949,7 @@
                     "Admin"
                 ],
                 "summary": "Returns a list of reports from the specified workspace.",
-                "description": "\n## Permissions\n\n- The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) or authenticate using a service principal.\n- Delegated permissions are supported.\n\nWhen running under service prinicipal authentication, an app **must not** have any admin-consent required premissions for Power BI set on it in the Azure portal.\n\n## Required Scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n\nRelevant only when authenticating via a standard delegated admin access token. Must not be present when authentication via a service principal is used.\n\n## Limitations\n\nMaximum 200 requests per hour.\n<br><br>",
+                "description": "\n## Permissions\n\n- The user must be a Fabric administrator or authenticate using a service principal.\n- Delegated permissions are supported.\n\nWhen running under service prinicipal authentication, an app **must not** have any admin-consent required premissions for Power BI set on it in the Azure portal.\n\n## Required Scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n\nRelevant only when authenticating via a standard delegated admin access token. Must not be present when authentication via a service principal is used.\n\n## Limitations\n\nMaximum 200 requests per hour.\n<br><br>",
                 "operationId": "Reports_GetReportsInGroupAsAdmin",
                 "consumes": [],
                 "produces": [
@@ -15940,7 +15967,7 @@
                     {
                         "name": "$filter",
                         "in": "query",
-                        "description": "Filters the results, based on a boolean condition",
+                        "description": "Returns a subset of a results based on [Odata](https://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part2-url-conventions.html#sec_SystemQueryOptions) filter query parameter condition.",
                         "required": false,
                         "type": "string"
                     },
@@ -16000,7 +16027,7 @@
                     "Admin"
                 ],
                 "summary": "Returns a list of datasets from the specified workspace.",
-                "description": "\n## Permissions\n\n- The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) or authenticate using a service principal.\n- Delegated permissions are supported.\n\nWhen running under service prinicipal authentication, an app **must not** have any admin-consent required premissions for Power BI set on it in the Azure portal.\n\n## Required Scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n\nRelevant only when authenticating via a standard delegated admin access token. Must not be present when authentication via a service principal is used.\n\n## Limitations\n\nMaximum 200 requests per hour.\n<br><br>",
+                "description": "\n## Permissions\n\n- The user must be a Fabric administrator or authenticate using a service principal.\n- Delegated permissions are supported.\n\nWhen running under service prinicipal authentication, an app **must not** have any admin-consent required premissions for Power BI set on it in the Azure portal.\n\n## Required Scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n\nRelevant only when authenticating via a standard delegated admin access token. Must not be present when authentication via a service principal is used.\n\n## Limitations\n\nMaximum 200 requests per hour.\n<br><br>",
                 "operationId": "Datasets_GetDatasetsInGroupAsAdmin",
                 "consumes": [],
                 "produces": [
@@ -16018,7 +16045,7 @@
                     {
                         "name": "$filter",
                         "in": "query",
-                        "description": "Filters the results, based on a boolean condition",
+                        "description": "Returns a subset of a results based on [Odata](https://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part2-url-conventions.html#sec_SystemQueryOptions) filter query parameter condition.",
                         "required": false,
                         "type": "string"
                     },
@@ -16118,7 +16145,7 @@
                     "Admin"
                 ],
                 "summary": "Returns a list of upstream dataflows for datasets from the specified workspace.",
-                "description": "\n## Permissions\n\n- The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) or authenticate using a service principal.\n- Delegated permissions are supported.\n\nWhen running under service prinicipal authentication, an app **must not** have any admin-consent required premissions for Power BI set on it in the Azure portal.\n\n## Required Scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n\nRelevant only when authenticating via a standard delegated admin access token. Must not be present when authentication via a service principal is used.\n\n## Limitations\n\nMaximum 200 requests per hour.\n<br><br>",
+                "description": "\n## Permissions\n\n- The user must be a Fabric administrator or authenticate using a service principal.\n- Delegated permissions are supported.\n\nWhen running under service prinicipal authentication, an app **must not** have any admin-consent required premissions for Power BI set on it in the Azure portal.\n\n## Required Scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n\nRelevant only when authenticating via a standard delegated admin access token. Must not be present when authentication via a service principal is used.\n\n## Limitations\n\nMaximum 200 requests per hour.\n<br><br>",
                 "operationId": "Datasets_GetDatasetToDataflowsLinksInGroupAsAdmin",
                 "consumes": [],
                 "produces": [
@@ -16171,7 +16198,7 @@
                     "Admin"
                 ],
                 "summary": "Returns a list of dataflows from the specified workspace.",
-                "description": "\n## Permissions\n\n- The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) or authenticate using a service principal.\n- Delegated permissions are supported.\n\nWhen running under service prinicipal authentication, an app **must not** have any admin-consent required premissions for Power BI set on it in the Azure portal.\n\n## Required Scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n\nRelevant only when authenticating via a standard delegated admin access token. Must not be present when authentication via a service principal is used.\n\n## Limitations\n\nMaximum 200 requests per hour.\n<br><br>",
+                "description": "\n## Permissions\n\n- The user must be a Fabric administrator or authenticate using a service principal.\n- Delegated permissions are supported.\n\nWhen running under service prinicipal authentication, an app **must not** have any admin-consent required premissions for Power BI set on it in the Azure portal.\n\n## Required Scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n\nRelevant only when authenticating via a standard delegated admin access token. Must not be present when authentication via a service principal is used.\n\n## Limitations\n\nMaximum 200 requests per hour.\n<br><br>",
                 "operationId": "Dataflows_GetDataflowsInGroupAsAdmin",
                 "consumes": [],
                 "produces": [
@@ -16189,7 +16216,7 @@
                     {
                         "name": "$filter",
                         "in": "query",
-                        "description": "Filters the results, based on a boolean condition",
+                        "description": "Returns a subset of a results based on [Odata](https://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part2-url-conventions.html#sec_SystemQueryOptions) filter query parameter condition.",
                         "required": false,
                         "type": "string"
                     },
@@ -16249,7 +16276,7 @@
                     "Admin"
                 ],
                 "summary": "Returns a list of datasets, reports, and dashboards that have not been used within 30 days for the specified workspace. This is a preview API call.",
-                "description": "\n## Permissions\n\n- The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) or authenticate using a service principal.\n- Delegated permissions are supported.\n\n## Required Scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n\n## Limitations\n\nMaximum 200 requests per hour.\n<br><br>",
+                "description": "\n## Permissions\n\n- The user must be a Fabric administrator or authenticate using a service principal.\n- Delegated permissions are supported.\n\n## Required Scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n\n## Limitations\n\nMaximum 200 requests per hour.\n<br><br>",
                 "operationId": "Groups_GetUnusedArtifactsAsAdmin",
                 "consumes": [],
                 "produces": [
@@ -16312,7 +16339,7 @@
                     "Admin"
                 ],
                 "summary": "Returns a list of reports for the organization.",
-                "description": "\n## Permissions\n\n- The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) or authenticate using a service principal.\n- Delegated permissions are supported.\n\nWhen running under service prinicipal authentication, an app **must not** have any admin-consent required premissions for Power BI set on it in the Azure portal.\n\n## Required Scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n\nRelevant only when authenticating via a standard delegated admin access token. Must not be present when authentication via a service principal is used.\n\n## Limitations\n\nMaximum 50 requests per hour or 5 requests per minute, per tenant.\n<br><br>",
+                "description": "\n## Permissions\n\n- The user must be a Fabric administrator or authenticate using a service principal.\n- Delegated permissions are supported.\n\nWhen running under service prinicipal authentication, an app **must not** have any admin-consent required premissions for Power BI set on it in the Azure portal.\n\n## Required Scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n\nRelevant only when authenticating via a standard delegated admin access token. Must not be present when authentication via a service principal is used.\n\n## Limitations\n\nMaximum 50 requests per hour or 5 requests per minute, per tenant.\n<br><br>",
                 "operationId": "Reports_GetReportsAsAdmin",
                 "consumes": [],
                 "produces": [
@@ -16322,7 +16349,7 @@
                     {
                         "name": "$filter",
                         "in": "query",
-                        "description": "Filters the results, based on a boolean condition",
+                        "description": "Returns a subset of a results based on [Odata](https://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part2-url-conventions.html#sec_SystemQueryOptions) filter query parameter condition.",
                         "required": false,
                         "type": "string"
                     },
@@ -16381,7 +16408,7 @@
                     "Admin"
                 ],
                 "summary": "Returns a list of users that have access to the specified report.",
-                "description": "\n## Permissions\n\n- The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) or authenticate using a service principal.\n- Delegated permissions are supported.\n\nWhen running under service prinicipal authentication, an app **must not** have any admin-consent required premissions for Power BI set on it in the Azure portal.\n\n## Required Scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n\nRelevant only when authenticating via a standard delegated admin access token. Must not be present when authentication via a service principal is used.\n\n## Limitations\n\nMaximum 200 requests per hour.\n<br><br>",
+                "description": "\n## Permissions\n\n- The user must be a Fabric administrator or authenticate using a service principal.\n- Delegated permissions are supported.\n\nWhen running under service prinicipal authentication, an app **must not** have any admin-consent required premissions for Power BI set on it in the Azure portal.\n\n## Required Scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n\nRelevant only when authenticating via a standard delegated admin access token. Must not be present when authentication via a service principal is used.\n\n## Limitations\n\nMaximum 200 requests per hour.\n<br><br>",
                 "operationId": "Reports_GetReportUsersAsAdmin",
                 "consumes": [],
                 "produces": [
@@ -16435,7 +16462,7 @@
                     "Admin"
                 ],
                 "summary": "Returns a list of report subscriptions along with subscriber details. This is a preview API call.",
-                "description": "\n## Permissions\n\n- The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) or authenticate using a service principal.\n- Delegated permissions are supported.\n\n## Required Scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n\n## Limitations\n\nMaximum 200 requests per hour.\n<br><br>",
+                "description": "\n## Permissions\n\n- The user must be a Fabric administrator or authenticate using a service principal.\n- Delegated permissions are supported.\n\n## Required Scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n\n## Limitations\n\nMaximum 200 requests per hour.\n<br><br>",
                 "operationId": "Reports_GetReportSubscriptionsAsAdmin",
                 "consumes": [],
                 "produces": [
@@ -16505,7 +16532,7 @@
                     "Admin"
                 ],
                 "summary": "Returns a list of dashboards for the organization.",
-                "description": "\n## Permissions\n\n- The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) or authenticate using a service principal.\n- Delegated permissions are supported.\n\nWhen running under service prinicipal authentication, an app **must not** have any admin-consent required premissions for Power BI set on it in the Azure portal.\n\n## Required Scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n\nRelevant only when authenticating via a standard delegated admin access token. Must not be present when authentication via a service principal is used.\n\n## Limitations\n\nMaximum 50 requests per hour or 5 requests per minute, per tenant.\n<br><br>",
+                "description": "\n## Permissions\n\n- The user must be a Fabric administrator or authenticate using a service principal.\n- Delegated permissions are supported.\n\nWhen running under service prinicipal authentication, an app **must not** have any admin-consent required premissions for Power BI set on it in the Azure portal.\n\n## Required Scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n\nRelevant only when authenticating via a standard delegated admin access token. Must not be present when authentication via a service principal is used.\n\n## Limitations\n\nMaximum 50 requests per hour or 5 requests per minute, per tenant.\n<br><br>",
                 "operationId": "Dashboards_GetDashboardsAsAdmin",
                 "consumes": [],
                 "produces": [
@@ -16522,7 +16549,7 @@
                     {
                         "name": "$filter",
                         "in": "query",
-                        "description": "Filters the results, based on a boolean condition",
+                        "description": "Returns a subset of a results based on [Odata](https://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part2-url-conventions.html#sec_SystemQueryOptions) filter query parameter condition.",
                         "required": false,
                         "type": "string"
                     },
@@ -16580,7 +16607,7 @@
                     "Admin"
                 ],
                 "summary": "Returns a list of tiles within the specified dashboard.",
-                "description": "\n## Permissions\n\n- The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) or authenticate using a service principal.\n- Delegated permissions are supported.\n\nWhen running under service prinicipal authentication, an app **must not** have any admin-consent required premissions for Power BI set on it in the Azure portal.\n\n## Required Scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n\nRelevant only when authenticating via a standard delegated admin access token. Must not be present when authentication via a service principal is used.\n\n## Limitations\n\nMaximum 200 requests per hour.\n<br><br>",
+                "description": "\n## Permissions\n\n- The user must be a Fabric administrator or authenticate using a service principal.\n- Delegated permissions are supported.\n\nWhen running under service prinicipal authentication, an app **must not** have any admin-consent required premissions for Power BI set on it in the Azure portal.\n\n## Required Scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n\nRelevant only when authenticating via a standard delegated admin access token. Must not be present when authentication via a service principal is used.\n\n## Limitations\n\nMaximum 200 requests per hour.\n<br><br>",
                 "operationId": "Dashboards_GetTilesAsAdmin",
                 "consumes": [],
                 "produces": [
@@ -16637,7 +16664,7 @@
                     "Admin"
                 ],
                 "summary": "Returns a list of users that have access to the specified dashboard.",
-                "description": "\n## Permissions\n\n- The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) or authenticate using a service principal.\n- Delegated permissions are supported.\n\nWhen running under service prinicipal authentication, an app **must not** have any admin-consent required premissions for Power BI set on it in the Azure portal. \n\n## Required Scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n\nRelevant only when authenticating via a standard delegated admin access token. Must not be present when authentication via a service principal is used.\n\n## Limitations\n\nMaximum 200 requests per hour.\n<br><br>",
+                "description": "\n## Permissions\n\n- The user must be a Fabric administrator or authenticate using a service principal.\n- Delegated permissions are supported.\n\nWhen running under service prinicipal authentication, an app **must not** have any admin-consent required premissions for Power BI set on it in the Azure portal. \n\n## Required Scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n\nRelevant only when authenticating via a standard delegated admin access token. Must not be present when authentication via a service principal is used.\n\n## Limitations\n\nMaximum 200 requests per hour.\n<br><br>",
                 "operationId": "Dashboards_GetDashboardUsersAsAdmin",
                 "consumes": [],
                 "produces": [
@@ -16691,7 +16718,7 @@
                     "Admin"
                 ],
                 "summary": "Returns a list of dashboard subscriptions along with subscriber details. This is a preview API call.",
-                "description": "\n## Permissions\n\n- The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) or authenticate using a service principal.\n- Delegated permissions are supported.\n\n## Required Scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n\n## Limitations\n\nMaximum 200 requests per hour.\n<br><br>",
+                "description": "\n## Permissions\n\n- The user must be a Fabric administrator or authenticate using a service principal.\n- Delegated permissions are supported.\n\n## Required Scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n\n## Limitations\n\nMaximum 200 requests per hour.\n<br><br>",
                 "operationId": "Dashboards_GetDashboardSubscriptionsAsAdmin",
                 "consumes": [],
                 "produces": [
@@ -16759,7 +16786,7 @@
                     "Admin"
                 ],
                 "summary": "Returns a list of Power BI reports that are shared with the whole organization through links.",
-                "description": "\n## Permissions\n\n- The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) or authenticate using a service principal.\n- Delegated permissions are supported.\n\n## Required Scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n\n## Limitations\n\nMaximum 200 requests per hour.\n<br><br>",
+                "description": "\n## Permissions\n\n- The user must be a Fabric administrator or authenticate using a service principal.\n- Delegated permissions are supported.\n\n## Required Scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n\n## Limitations\n\nMaximum 200 requests per hour.\n<br><br>",
                 "operationId": "WidelySharedArtifacts_LinksSharedToWholeOrganization",
                 "consumes": [],
                 "produces": [
@@ -16820,7 +16847,7 @@
                     "Admin"
                 ],
                 "summary": "Returns a list of Power BI items (such as reports or dashboards) that are published to the web.",
-                "description": "\n## Permissions\n\n- The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) or authenticate using a service principal.\n- Delegated permissions are supported.\n\n## Required Scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n\n## Limitations\n\nMaximum 200 requests per hour.\n<br><br>",
+                "description": "\n## Permissions\n\n- The user must be a Fabric administrator or authenticate using a service principal.\n- Delegated permissions are supported.\n\n## Required Scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n\n## Limitations\n\nMaximum 200 requests per hour.\n<br><br>",
                 "operationId": "WidelySharedArtifacts_PublishedToWeb",
                 "consumes": [],
                 "produces": [
@@ -16881,7 +16908,7 @@
                     "Admin"
                 ],
                 "summary": "Returns a list of imports for the organization.",
-                "description": "\n## Permissions\n\n- The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) or authenticate using a service principal.\n- Delegated permissions are supported.\n\nWhen running under service prinicipal authentication, an app **must not** have any admin-consent required premissions for Power BI set on it in the Azure portal.\n\n## Required Scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n\nRelevant only when authenticating via a standard delegated admin access token. Must not be present when authentication via a service principal is used.\n\n## Limitations\n\nMaximum 200 requests per hour.\n<br><br>",
+                "description": "\n## Permissions\n\n- The user must be a Fabric administrator or authenticate using a service principal.\n- Delegated permissions are supported.\n\nWhen running under service prinicipal authentication, an app **must not** have any admin-consent required premissions for Power BI set on it in the Azure portal.\n\n## Required Scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n\nRelevant only when authenticating via a standard delegated admin access token. Must not be present when authentication via a service principal is used.\n\n## Limitations\n\nMaximum 200 requests per hour.\n<br><br>",
                 "operationId": "Imports_GetImportsAsAdmin",
                 "consumes": [],
                 "produces": [
@@ -16898,7 +16925,7 @@
                     {
                         "name": "$filter",
                         "in": "query",
-                        "description": "Filters the results, based on a boolean condition",
+                        "description": "Returns a subset of a results based on [Odata](https://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part2-url-conventions.html#sec_SystemQueryOptions) filter query parameter condition.",
                         "required": false,
                         "type": "string"
                     },
@@ -16973,7 +17000,7 @@
                     "Admin"
                 ],
                 "summary": "Adds an encryption key for Power BI workspaces assigned to a capacity.",
-                "description": "\n## Permissions\n\nThe user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator).\n\n## Required Scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n\n## Limitations\n\nMaximum 600 requests per hour.\n<br><br>",
+                "description": "\n## Permissions\n\nThe user must be a Fabric administrator.\n\n## Required Scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n\n## Limitations\n\nMaximum 600 requests per hour.",
                 "operationId": "Admin_AddPowerBIEncryptionKey",
                 "consumes": [
                     "application/json"
@@ -17031,7 +17058,7 @@
                     "Admin"
                 ],
                 "summary": "Returns the encryption keys for the tenant.",
-                "description": "\n## Permissions\n\n- The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) or authenticate using a service principal.\n- Delegated permissions are supported.\n\nWhen running under service prinicipal authentication, an app **must not** have any admin-consent required premissions for Power BI set on it in the Azure portal.\n\n## Required Scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n\nRelevant only when authenticating via a standard delegated admin access token. Must not be present when authentication via a service principal is used.\n<br><br>",
+                "description": "\n## Permissions\n\n- The user must be a Fabric administrator or authenticate using a service principal.\n- Delegated permissions are supported.\n\nWhen running under service prinicipal authentication, an app **must not** have any admin-consent required premissions for Power BI set on it in the Azure portal.\n\n## Required Scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n\nRelevant only when authenticating via a standard delegated admin access token. Must not be present when authentication via a service principal is used.\n\n## Limitations\n\nMaximum 200 requests per hour.",
                 "operationId": "Admin_GetPowerBIEncryptionKeys",
                 "consumes": [],
                 "produces": [
@@ -17076,7 +17103,7 @@
                     "Admin"
                 ],
                 "summary": "Rotate the encryption key for Power BI workspaces assigned to a capacity.",
-                "description": "\n## Permissions\n\nThe user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator).\n\n## Required Scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n\n## Limitations\n\nMaximum 600 requests per hour.\n<br><br>",
+                "description": "\n## Permissions\n\nThe user must be a Fabric administrator.\n\n## Required Scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n\n## Limitations\n\nMaximum 600 requests per hour.\n<br><br>",
                 "operationId": "Admin_RotatePowerBIEncryptionKey",
                 "consumes": [
                     "application/json"
@@ -17142,7 +17169,7 @@
                     "Admin"
                 ],
                 "summary": "Returns a list of capacities for the organization.",
-                "description": "\n## Permissions\n\n- The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) or authenticate using a service principal.\n- Delegated permissions are supported.\n\nWhen running under service prinicipal authentication, an app **must not** have any admin-consent required premissions for Power BI set on it in the Azure portal.\n\n## Required Scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n\nRelevant only when authenticating via a standard delegated admin access token. Must not be present when authentication via a service principal is used.\n<br><br>",
+                "description": "\n## Permissions\n\n- The user must be a Fabric administrator or authenticate using a service principal.\n- Delegated permissions are supported.\n\nWhen running under service prinicipal authentication, an app **must not** have any admin-consent required premissions for Power BI set on it in the Azure portal.\n\n## Required Scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n\nRelevant only when authenticating via a standard delegated admin access token. Must not be present when authentication via a service principal is used.\n\n## Limitations\n\nMaximum 200 requests per hour.",
                 "operationId": "Admin_GetCapacitiesAsAdmin",
                 "consumes": [],
                 "produces": [
@@ -17232,7 +17259,7 @@
                     "Admin"
                 ],
                 "summary": "Changes specific capacity information. Currently, this API call only supports changing the capacity's encryption key.",
-                "description": "\n## Permissions\n\nThe user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator).\n\n## Required Scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n<br><br>",
+                "description": "\n## Permissions\n\nThe user must be a Fabric administrator.\n\n## Required Scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n\n## Limitations\n\nMaximum 200 requests per hour.",
                 "operationId": "Admin_PatchCapacityAsAdmin",
                 "consumes": [
                     "application/json"
@@ -17286,7 +17313,7 @@
                     "Admin"
                 ],
                 "summary": "Returns a list of users that have access to the specified workspace.",
-                "description": "\n## Permissions\n\n- The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator).\n- Delegated permissions are supported.\n\nWhen running under service prinicipal authentication, an app **must not** have any admin-consent required premissions for Power BI set on it in the Azure portal.\n\n## Required Scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n\nRelevant only when authenticating via a standard delegated admin access token. Must not be present when authentication via a service principal is used.\n<br><br>",
+                "description": "\n## Permissions\n\n- The user must be a Fabric administrator.\n- Delegated permissions are supported.\n\nWhen running under service prinicipal authentication, an app **must not** have any admin-consent required premissions for Power BI set on it in the Azure portal.\n\n## Required Scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n\nRelevant only when authenticating via a standard delegated admin access token. Must not be present when authentication via a service principal is used.\n\n## Limitations\n\nMaximum 200 requests per hour.",
                 "operationId": "Capacities_GetCapacityUsersAsAdmin",
                 "consumes": [
                     "application/json"
@@ -17319,7 +17346,7 @@
                     "Admin"
                 ],
                 "summary": "Returns a list of refreshables for the organization within a capacity.",
-                "description": "\nPower BI retains a seven-day refresh history for each dataset, up to a maximum of sixty refreshes.\n\n## Permissions\n\n- The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) or authenticate using a service principal.\n- Delegated permissions are supported.\n\nWhen running under service prinicipal authentication, an app **must not** have any admin-consent required premissions for Power BI set on it in the Azure portal.\n\n## Required Scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n\nRelevant only when authenticating via a standard delegated admin access token. Must not be present when authentication via a service principal is used.\n<br><br>",
+                "description": "\nPower BI retains a seven-day refresh history for each dataset, up to a maximum of sixty refreshes.\n\n## Permissions\n\n- The user must be a Fabric administrator or authenticate using a service principal.\n- Delegated permissions are supported.\n\nWhen running under service prinicipal authentication, an app **must not** have any admin-consent required premissions for Power BI set on it in the Azure portal.\n\n## Required Scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n\nRelevant only when authenticating via a standard delegated admin access token. Must not be present when authentication via a service principal is used.\n\n## Limitations\n\nMaximum 200 requests per hour.",
                 "operationId": "Admin_GetRefreshables",
                 "consumes": [],
                 "produces": [
@@ -17336,7 +17363,7 @@
                     {
                         "name": "$filter",
                         "in": "query",
-                        "description": "Filters the results based on a boolean condition",
+                        "description": "Returns a subset of a results based on [Odata](https://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part2-url-conventions.html#sec_SystemQueryOptions) filter query parameter condition.",
                         "required": false,
                         "type": "string"
                     },
@@ -17537,7 +17564,7 @@
                     "Admin"
                 ],
                 "summary": "Returns a list of refreshables for the specified capacity that the user has access to.",
-                "description": "\nPower BI retains a seven-day refresh history for each dataset, up to a maximum of sixty refreshes.\n\n## Permissions\n\n- The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) or authenticate using a service principal.\n- Delegated permissions are supported.\n\nWhen running under service prinicipal authentication, an app **must not** have any admin-consent required premissions for Power BI set on it in the Azure portal. \n\n## Required Scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n\nRelevant only when authenticating via a standard delegated admin access token. Must not be present when authentication via a service principal is used.\n<br><br>",
+                "description": "\nPower BI retains a seven-day refresh history for each dataset, up to a maximum of sixty refreshes.\n\n## Permissions\n\n- The user must be a Fabric administrator or authenticate using a service principal.\n- Delegated permissions are supported.\n\nWhen running under service prinicipal authentication, an app **must not** have any admin-consent required premissions for Power BI set on it in the Azure portal. \n\n## Required Scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n\nRelevant only when authenticating via a standard delegated admin access token. Must not be present when authentication via a service principal is used.\n\n## Limitations\n\nMaximum 200 requests per hour.",
                 "operationId": "Admin_GetRefreshablesForCapacity",
                 "consumes": [],
                 "produces": [
@@ -17562,7 +17589,7 @@
                     {
                         "name": "$filter",
                         "in": "query",
-                        "description": "Filters the results based on a boolean condition",
+                        "description": "Returns a subset of a results based on [Odata](https://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part2-url-conventions.html#sec_SystemQueryOptions) filter query parameter condition.",
                         "required": false,
                         "type": "string"
                     },
@@ -17763,7 +17790,7 @@
                     "Admin"
                 ],
                 "summary": "Returns the specified refreshable for the specified capacity that the user has access to.",
-                "description": "\nPower BI retains a seven-day refresh history for each dataset, up to a maximum of sixty refreshes.\n\n## Permissions\n\n- The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) or authenticate using a service principal.\n- Delegated permissions are supported.\n\nWhen running under service prinicipal authentication, an app **must not** have any admin-consent required premissions for Power BI set on it in the Azure portal.\n\n## Required Scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n\nRelevant only when authenticating via a standard delegated admin access token. Must not be present when authentication via a service principal is used.\n<br><br>",
+                "description": "\nPower BI retains a seven-day refresh history for each dataset, up to a maximum of sixty refreshes.\n\n## Permissions\n\n- The user must be a Fabric administrator or authenticate using a service principal.\n- Delegated permissions are supported.\n\nWhen running under service prinicipal authentication, an app **must not** have any admin-consent required premissions for Power BI set on it in the Azure portal.\n\n## Required Scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n\nRelevant only when authenticating via a standard delegated admin access token. Must not be present when authentication via a service principal is used.\n\n## Limitations\n\nMaximum 200 requests per hour.",
                 "operationId": "Admin_GetRefreshableForCapacity",
                 "consumes": [],
                 "produces": [
@@ -17921,7 +17948,7 @@
                     "Admin"
                 ],
                 "summary": "Returns a list of dataflows for the organization.",
-                "description": "\n## Permissions\n\n- The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) or authenticate using a service principal.\n- Delegated permissions are supported.\n\nWhen running under service prinicipal authentication, an app **must not** have any admin-consent required premissions for Power BI set on it in the Azure portal.\n\n## Required Scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n\nRelevant only when authenticating via a standard delegated admin access token. Must not be present when authentication via a service principal is used.\n<br><br>",
+                "description": "\n## Permissions\n\n- The user must be a Fabric administrator or authenticate using a service principal.\n- Delegated permissions are supported.\n\nWhen running under service prinicipal authentication, an app **must not** have any admin-consent required premissions for Power BI set on it in the Azure portal.\n\n## Required Scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n\nRelevant only when authenticating via a standard delegated admin access token. Must not be present when authentication via a service principal is used.\n\n## Limitations\n\nMaximum 200 requests per hour.",
                 "operationId": "Dataflows_GetDataflowsAsAdmin",
                 "consumes": [],
                 "produces": [
@@ -17931,7 +17958,7 @@
                     {
                         "name": "$filter",
                         "in": "query",
-                        "description": "Filters the results, based on a boolean condition",
+                        "description": "Returns a subset of a results based on [Odata](https://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part2-url-conventions.html#sec_SystemQueryOptions) filter query parameter condition.",
                         "required": false,
                         "type": "string"
                     },
@@ -17990,7 +18017,7 @@
                     "Admin"
                 ],
                 "summary": "Exports the definition for the specified dataflow to a JSON file.",
-                "description": "\n## Permissions\n\n- The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) or authenticate using a service principal.\n- Delegated permissions are supported.\n\nWhen running under service prinicipal authentication, an app **must not** have any admin-consent required premissions for Power BI set on it in the Azure portal.\n\n## Required Scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n\nRelevant only when authenticating via a standard delegated admin access token. Must not be present when authentication via a service principal is used.\n<br><br>",
+                "description": "\n## Permissions\n\n- The user must be a Fabric administrator or authenticate using a service principal.\n- Delegated permissions are supported.\n\nWhen running under service prinicipal authentication, an app **must not** have any admin-consent required premissions for Power BI set on it in the Azure portal.\n\n## Required Scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n\nRelevant only when authenticating via a standard delegated admin access token. Must not be present when authentication via a service principal is used.\n\n## Limitations\n\nMaximum 200 requests per hour.",
                 "operationId": "Dataflows_ExportDataflowAsAdmin",
                 "consumes": [],
                 "produces": [
@@ -18023,7 +18050,7 @@
                     "Admin"
                 ],
                 "summary": "Returns a list of data sources for the specified dataflow.",
-                "description": "\nDeleted data sources will still appear in the response. This may include both cloud and on-premise data gateway sources. For more information see [Dataflows considerations and limitations](/power-bi/transform-model/dataflows/dataflows-features-limitations).\n\n## Permissions\n\n- The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) or authenticate using a service principal.\n- Delegated permissions are supported.\n\nWhen running under service prinicipal authentication, an app **must not** have any admin-consent required premissions for Power BI set on it in the Azure portal.\n\n## Required Scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n\nRelevant only when authenticating via a standard delegated admin access token. Must not be present when authentication via a service principal is used.\n<br><br>",
+                "description": "\nDeleted data sources will still appear in the response. This may include both cloud and on-premise data gateway sources. For more information see [Dataflows considerations and limitations](/power-bi/transform-model/dataflows/dataflows-features-limitations).\n\n## Permissions\n\n- The user must be a Fabric administrator or authenticate using a service principal.\n- Delegated permissions are supported.\n\nWhen running under service prinicipal authentication, an app **must not** have any admin-consent required premissions for Power BI set on it in the Azure portal.\n\n## Required Scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n\nRelevant only when authenticating via a standard delegated admin access token. Must not be present when authentication via a service principal is used.\n<br><br>",
                 "operationId": "Dataflows_GetDataflowDatasourcesAsAdmin",
                 "consumes": [],
                 "produces": [
@@ -18082,7 +18109,7 @@
                     "Admin"
                 ],
                 "summary": "Returns a list of users that have access to the specified dataflow.",
-                "description": "\n## Permissions\n\n- The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) or authenticate using a service principal.\n- Delegated permissions are supported.\n\nWhen running under service prinicipal authentication, an app **must not** have any admin-consent required premissions for Power BI set on it in the Azure portal.\n\n## Required Scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n\nRelevant only when authenticating via a standard delegated admin access token. Must not be present when authentication via a service principal is used.\n\n## Limitations\n\nMaximum 200 requests per hour.\n<br><br>",
+                "description": "\n## Permissions\n\n- The user must be a Fabric administrator or authenticate using a service principal.\n- Delegated permissions are supported.\n\nWhen running under service prinicipal authentication, an app **must not** have any admin-consent required premissions for Power BI set on it in the Azure portal.\n\n## Required Scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n\nRelevant only when authenticating via a standard delegated admin access token. Must not be present when authentication via a service principal is used.\n\n## Limitations\n\nMaximum 200 requests per hour.\n<br><br>",
                 "operationId": "Dataflows_GetDataflowUsersAsAdmin",
                 "consumes": [],
                 "produces": [
@@ -18524,7 +18551,7 @@
                     "Admin"
                 ],
                 "summary": "Returns a list of apps in the organization.",
-                "description": "\nThe query parameter $top is required.\n\n## Permissions\n\n- The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) or authenticate using a service principal.\n- Delegated permissions are supported.\n\nWhen running under service prinicipal authentication, an app **must not** have any admin-consent required premissions for Power BI set on it in the Azure portal.\n\n## Required Scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n\nRelevant only when authenticating via a standard delegated admin access token. Must not be present when authentication via a service principal is used.\n\n## Limitations\n\nMaximum 200 requests per hour.\n<br><br>",
+                "description": "\nThe query parameter $top is required.\n\n## Permissions\n\n- The user must be a Fabric administrator or authenticate using a service principal.\n- Delegated permissions are supported.\n\nWhen running under service prinicipal authentication, an app **must not** have any admin-consent required premissions for Power BI set on it in the Azure portal.\n\n## Required Scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n\nRelevant only when authenticating via a standard delegated admin access token. Must not be present when authentication via a service principal is used.\n\n## Limitations\n\nMaximum 200 requests per hour.\n<br><br>",
                 "operationId": "Apps_GetAppsAsAdmin",
                 "consumes": [],
                 "produces": [
@@ -18594,7 +18621,7 @@
                     "Admin"
                 ],
                 "summary": "Returns a list of users that have access to the specified app.",
-                "description": "\n## Permissions\n\n- The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) or authenticate using a service principal.\n- Delegated permissions are supported.\n\nWhen running under service prinicipal authentication, an app **must not** have any admin-consent required premissions for Power BI set on it in the Azure portal.\n\n## Required Scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n\nRelevant only when authenticating via a standard delegated admin access token. Must not be present when authentication via a service principal is used.\n\n## Limitations\n\nMaximum 200 requests per hour.\n<br><br>",
+                "description": "\n## Permissions\n\n- The user must be a Fabric administrator or authenticate using a service principal.\n- Delegated permissions are supported.\n\nWhen running under service prinicipal authentication, an app **must not** have any admin-consent required premissions for Power BI set on it in the Azure portal.\n\n## Required Scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n\nRelevant only when authenticating via a standard delegated admin access token. Must not be present when authentication via a service principal is used.\n\n## Limitations\n\nMaximum 200 requests per hour.\n<br><br>",
                 "operationId": "Apps_GetAppUsersAsAdmin",
                 "consumes": [],
                 "produces": [
@@ -18648,7 +18675,7 @@
                     "Admin"
                 ],
                 "summary": "Returns a list of Power BI items (such as reports or dashboards) that the specified user has access to.",
-                "description": "\n## Permissions\n\n- The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) or authenticate using a service principal.\n- Delegated permissions are supported.\n\n## Required Scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n\n## Limitations\n\nMaximum 200 requests per hour.\n<br><br>",
+                "description": "\n## Permissions\n\n- The user must be a Fabric administrator or authenticate using a service principal.\n- Delegated permissions are supported.\n\n## Required Scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n\n## Limitations\n\nMaximum 200 requests per hour.\n<br><br>",
                 "operationId": "Users_GetUserArtifactAccessAsAdmin",
                 "consumes": [],
                 "produces": [
@@ -18781,7 +18808,7 @@
                     "Admin"
                 ],
                 "summary": "Returns a list of subscriptions for the specified user. This is a preview API call.",
-                "description": "\n### Permissions\n\n- The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) or authenticate using a service principal.\n- Delegated permissions are supported.\n\n## Required Scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n\n## Limitations\n\nMaximum 200 requests per hour.\n<br><br>",
+                "description": "\n### Permissions\n\n- The user must be a Fabric administrator or authenticate using a service principal.\n- Delegated permissions are supported.\n\n## Required Scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n\n## Limitations\n\nMaximum 200 requests per hour.\n<br><br>",
                 "operationId": "Users_GetUserSubscriptionsAsAdmin",
                 "consumes": [],
                 "produces": [
@@ -18853,7 +18880,7 @@
                     "Admin"
                 ],
                 "summary": "Returns a list of audit activity events for a tenant.",
-                "description": "\nProvide either a continuation token or both a start and end date time. `StartDateTime` and `EndDateTime` must be in the same UTC day and should be wrapped in single quotes.\n\n## Permissions\n\n- The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) or authenticate using a service principal.\n- Delegated permissions are supported.\n\nWhen running under service prinicipal authentication, an app **must not** have any admin-consent required premissions for Power BI set on it in the Azure portal.\n\n## Required Scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n\nRelevant only when authenticating via a standard delegated admin access token. Must not be present when authentication via a service principal is used.\n\n## Limitations\n\n- Maximum 200 requests per hour.\n- Activity logging isn't supported for Microsoft Cloud Deutschland.\n<br><br>",
+                "description": "\nProvide either a continuation token or both a start and end date time. `StartDateTime` and `EndDateTime` must be in the same UTC day and should be wrapped in single quotes.\n\n## Permissions\n\n- The user must be a Fabric administrator or authenticate using a service principal.\n- Delegated permissions are supported.\n\nWhen running under service prinicipal authentication, an app **must not** have any admin-consent required premissions for Power BI set on it in the Azure portal.\n\n## Required Scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n\nRelevant only when authenticating via a standard delegated admin access token. Must not be present when authentication via a service principal is used.\n\n## Limitations\n\n- Maximum 200 requests per hour.\n- Activity logging isn't supported for Microsoft Cloud Deutschland.\n<br><br>",
                 "operationId": "Admin_GetActivityEvents",
                 "consumes": [],
                 "produces": [
@@ -19135,7 +19162,7 @@
                     "Admin"
                 ],
                 "summary": "Remove sensitivity labels from Power BI items (such as reports or dashboards) by item ID.",
-                "description": "\nFor a usage example, see [Set or remove sensitivity labels](/power-bi/admin/service-security-sensitivity-label-inheritance-set-remove-api).\n\n## Permissions\n\n- The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator).\n- The admin user must have sufficient [usage rights](/azure/information-protection/configure-usage-rights) to delete labels.\n\n## Required Scope\n\nTenant.ReadWrite.All\n\n## Limitations\n\n- Maximum 25 requests per hour.\n- Each request can update up to 2,000 Power BI items.\n<br><br>",
+                "description": "\nFor a usage example, see [Set or remove sensitivity labels](/power-bi/admin/service-security-sensitivity-label-inheritance-set-remove-api).\n\n## Permissions\n\n- The user must be a Fabric administrator.\n- The admin user must have sufficient [usage rights](/azure/information-protection/configure-usage-rights) to delete labels.\n\n## Required Scope\n\nTenant.ReadWrite.All\n\n## Limitations\n\n- Maximum 25 requests per hour.\n- Each request can update up to 2,000 Power BI items.\n<br><br>",
                 "operationId": "InformationProtection_RemoveLabelsAsAdmin",
                 "consumes": [
                     "application/json"
@@ -19243,7 +19270,7 @@
                     "Admin"
                 ],
                 "summary": "Set sensitivity labels on Power BI items (such as reports or dashboards) by item ID.",
-                "description": "\nTo set a sensitivity label using this API, the admin user or the delegated user (if provided) must have the label included in their [label policy](/microsoft-365/compliance/create-sensitivity-labels?view=o365-worldwide). For a usage example, see [Set or remove sensitivity labels](/power-bi/admin/service-security-sensitivity-label-inheritance-set-remove-api).\n\n## Permissions\n\n- The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator).\n- The admin user and the delegated user (if provided) must have sufficient [usage rights](/azure/information-protection/configure-usage-rights) to set labels.\n\n## Required Scope\n\nTenant.ReadWrite.All\n\n## Limitations\n\n- Maximum 25 requests per hour.\n- Each request can update up to 2,000 Power BI items.\n<br><br>",
+                "description": "\nTo set a sensitivity label using this API, the admin user or the delegated user (if provided) must have the label included in their [label policy](/microsoft-365/compliance/create-sensitivity-labels?view=o365-worldwide). For a usage example, see [Set or remove sensitivity labels](/power-bi/admin/service-security-sensitivity-label-inheritance-set-remove-api).\n\n## Permissions\n\n- The user must be a Fabric administrator.\n- The admin user and the delegated user (if provided) must have sufficient [usage rights](/azure/information-protection/configure-usage-rights) to set labels.\n\n## Required Scope\n\nTenant.ReadWrite.All\n\n## Limitations\n\n- Maximum 25 requests per hour.\n- Each request can update up to 2,000 Power BI items.\n<br><br>",
                 "operationId": "InformationProtection_SetLabelsAsAdmin",
                 "consumes": [
                     "application/json"
@@ -19737,7 +19764,7 @@
                     "Admin"
                 ],
                 "summary": "Returns a list of service principal profiles for the organization.",
-                "description": "\n## Permissions\n\nThe user must have administrator rights or authenticate using a service principal.\n\n## Required Scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n<br><br>",
+                "description": "\n## Permissions\n\nThe user must be a Fabric administrator or authenticate using a service principal.\n\n## Required Scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n<br><br>\n\n## Limitations\n\nMaximum 200 requests per hour.",
                 "operationId": "Profiles_GetProfilesAsAdmin",
                 "consumes": [],
                 "produces": [
@@ -19830,7 +19857,7 @@
                     "Admin"
                 ],
                 "summary": "Deletes the specified service principal profile.",
-                "description": "\n## Permissions\n\nThe user must have administrator rights.\n\n## Required Scope\n\nTenant.ReadWrite.All\n<br><br>",
+                "description": "\n## Permissions\n\nThe user must be a Fabric administrator.\n\n## Required Scope\n\nTenant.ReadWrite.All\n<br><br>\n\n## Limitations\n\nMaximum 200 requests per hour.",
                 "operationId": "Profiles_DeleteProfileAsAdmin",
                 "consumes": [],
                 "produces": [],
@@ -20083,7 +20110,7 @@
                     "Profiles"
                 ],
                 "summary": "Creates a new service principal profile.",
-                "description": "<br/>Creates a new profile that belongs to service principal caller.\n\n## Limitations\n\nCan only be called by a service principal.",
+                "description": "<br/>Creates a new profile that belongs to service principal caller.\n\n## Limitations\n\nCan only be called by a service principal. The maximum number of profiles a single service principal can have, is 100,000.",
                 "operationId": "Profiles_CreateProfile",
                 "consumes": [
                     "application/json"
@@ -23112,7 +23139,8 @@
             ],
             "properties": {
                 "expression": {
-                    "$ref": "#/definitions/ASMashupExpression"
+                    "type": "string",
+                    "description": "The expression value"
                 },
                 "name": {
                     "type": "string",
@@ -25597,7 +25625,7 @@
                 },
                 "retryCount": {
                     "type": "integer",
-                    "description": "Number of times the operation will retry before failing"
+                    "description": "Number of times the operation will retry before failing. Temporary internal errors may trigger a retry of the refresh, even when this parameter is set to 0."
                 },
                 "objects": {
                     "type": "array",
@@ -28183,15 +28211,6 @@
                 "configuredBy": {
                     "type": "string",
                     "description": "The dataflow owner"
-                },
-                "modifiedBy": {
-                    "type": "string",
-                    "description": "The user that modified the dataflow"
-                },
-                "modifiedDateTime": {
-                    "type": "string",
-                    "format": "date-time",
-                    "description": "The date and time that the dataflow was last modified"
                 },
                 "users": {
                     "type": "array",

@@ -595,9 +595,8 @@ namespace Microsoft.PowerBI.Api
         ///
         /// ## Permissions
         ///
-        /// - The user must have administrator rights (such as Office 365
-        /// Global Administrator or Power BI Service Administrator) or
-        /// authenticate using a service principal.
+        /// - The user must be a Fabric administrator or authenticate using a
+        /// service principal.
         /// - Delegated permissions are supported.
         ///
         /// When running under service prinicipal authentication, an app **must
@@ -621,7 +620,9 @@ namespace Microsoft.PowerBI.Api
         /// The workspace ID
         /// </param>
         /// <param name='filter'>
-        /// Filters the results, based on a boolean condition
+        /// Returns a subset of a results based on
+        /// [Odata](https://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part2-url-conventions.html#sec_SystemQueryOptions)
+        /// filter query parameter condition.
         /// </param>
         /// <param name='top'>
         /// Returns only the first n results
@@ -649,9 +650,8 @@ namespace Microsoft.PowerBI.Api
         ///
         /// ## Permissions
         ///
-        /// - The user must have administrator rights (such as Office 365
-        /// Global Administrator or Power BI Service Administrator) or
-        /// authenticate using a service principal.
+        /// - The user must be a Fabric administrator or authenticate using a
+        /// service principal.
         /// - Delegated permissions are supported.
         ///
         /// When running under service prinicipal authentication, an app **must
@@ -676,7 +676,9 @@ namespace Microsoft.PowerBI.Api
         /// expanded inline in the response. Supports `tiles`.
         /// </param>
         /// <param name='filter'>
-        /// Filters the results, based on a boolean condition
+        /// Returns a subset of a results based on
+        /// [Odata](https://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part2-url-conventions.html#sec_SystemQueryOptions)
+        /// filter query parameter condition.
         /// </param>
         /// <param name='top'>
         /// Returns only the first n results
@@ -704,9 +706,8 @@ namespace Microsoft.PowerBI.Api
         ///
         /// ## Permissions
         ///
-        /// - The user must have administrator rights (such as Office 365
-        /// Global Administrator or Power BI Service Administrator) or
-        /// authenticate using a service principal.
+        /// - The user must be a Fabric administrator or authenticate using a
+        /// service principal.
         /// - Delegated permissions are supported.
         ///
         /// When running under service prinicipal authentication, an app **must
@@ -750,9 +751,8 @@ namespace Microsoft.PowerBI.Api
         ///
         /// ## Permissions
         ///
-        /// - The user must have administrator rights (such as Office 365
-        /// Global Administrator or Power BI Service Administrator) or
-        /// authenticate using a service principal.
+        /// - The user must be a Fabric administrator or authenticate using a
+        /// service principal.
         /// - Delegated permissions are supported.
         ///
         /// When running under service prinicipal authentication, an app **must
@@ -796,9 +796,8 @@ namespace Microsoft.PowerBI.Api
         ///
         /// ## Permissions
         ///
-        /// - The user must have administrator rights (such as Office 365
-        /// Global Administrator or Power BI Service Administrator) or
-        /// authenticate using a service principal.
+        /// - The user must be a Fabric administrator or authenticate using a
+        /// service principal.
         /// - Delegated permissions are supported.
         ///
         /// ## Required Scope

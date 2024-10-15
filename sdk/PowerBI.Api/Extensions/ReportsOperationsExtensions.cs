@@ -246,7 +246,11 @@ namespace Microsoft.PowerBI.Api
         /// <param name='reportId'>
         /// The report id
         /// </param>
-        public static Stream ExportReport(this IReportsOperations operations, Guid groupId, Guid reportId)
+        /// <param name='downloadType'>
+        /// The type of download. Valid values are LiveConnect and IncludeModel.
+        /// Possible values include: 'IncludeModel', 'LiveConnect'
+        /// </param>
+        public static Stream ExportReport(this IReportsOperations operations, Guid groupId, Guid reportId, DownloadType? downloadType = default(DownloadType?))
         {
             return operations.ExportReportAsync(groupId, reportId).GetAwaiter().GetResult();
         }
@@ -263,12 +267,16 @@ namespace Microsoft.PowerBI.Api
         /// <param name='reportId'>
         /// The report id
         /// </param>
+        /// <param name='downloadType'>
+        /// The type of download. Valid values are LiveConnect and IncludeModel.
+        /// Possible values include: 'IncludeModel', 'LiveConnect'
+        /// </param>
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
-        public static async Task<Stream> ExportReportAsync(this IReportsOperations operations, Guid groupId, Guid reportId, CancellationToken cancellationToken = default(CancellationToken))
+        public static async Task<Stream> ExportReportAsync(this IReportsOperations operations, Guid groupId, Guid reportId, DownloadType? downloadType = default(DownloadType?), CancellationToken cancellationToken = default(CancellationToken))
         {
-            var _result = await operations.ExportReportInGroupWithHttpMessagesAsync(groupId, reportId, null, cancellationToken).ConfigureAwait(false);
+            var _result = await operations.ExportReportInGroupWithHttpMessagesAsync(groupId, reportId, downloadType, null,cancellationToken).ConfigureAwait(false);
             _result.Request.Dispose();
             return _result.Body;
         }

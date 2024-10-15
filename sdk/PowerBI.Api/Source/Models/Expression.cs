@@ -26,9 +26,10 @@ namespace Microsoft.PowerBI.Api.Models
         /// <summary>
         /// Initializes a new instance of the Expression class.
         /// </summary>
+        /// <param name="expressionProperty">The expression value</param>
         /// <param name="name">The expression name</param>
         /// <param name="description">The expression description</param>
-        public Expression(ASMashupExpression expressionProperty, string name = default(string), string description = default(string))
+        public Expression(string expressionProperty, string name = default(string), string description = default(string))
         {
             ExpressionProperty = expressionProperty;
             Name = name;
@@ -42,9 +43,10 @@ namespace Microsoft.PowerBI.Api.Models
         partial void CustomInit();
 
         /// <summary>
+        /// Gets or sets the expression value
         /// </summary>
         [JsonProperty(PropertyName = "expression")]
-        public ASMashupExpression ExpressionProperty { get; set; }
+        public string ExpressionProperty { get; set; }
 
         /// <summary>
         /// Gets or sets the expression name
@@ -69,10 +71,6 @@ namespace Microsoft.PowerBI.Api.Models
             if (ExpressionProperty == null)
             {
                 throw new ValidationException(ValidationRules.CannotBeNull, "ExpressionProperty");
-            }
-            if (ExpressionProperty != null)
-            {
-                ExpressionProperty.Validate();
             }
         }
     }

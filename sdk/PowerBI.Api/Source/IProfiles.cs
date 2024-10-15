@@ -25,13 +25,17 @@ namespace Microsoft.PowerBI.Api
         ///
         /// ## Permissions
         ///
-        /// The user must have administrator rights or authenticate using a
+        /// The user must be a Fabric administrator or authenticate using a
         /// service principal.
         ///
         /// ## Required Scope
         ///
         /// Tenant.Read.All or Tenant.ReadWrite.All
         /// &lt;br&gt;&lt;br&gt;
+        ///
+        /// ## Limitations
+        ///
+        /// Maximum 200 requests per hour.
         /// </remarks>
         /// <param name='filter'>
         /// Filters the results based on a boolean condition, using 'id',
@@ -66,12 +70,16 @@ namespace Microsoft.PowerBI.Api
         ///
         /// ## Permissions
         ///
-        /// The user must have administrator rights.
+        /// The user must be a Fabric administrator.
         ///
         /// ## Required Scope
         ///
         /// Tenant.ReadWrite.All
         /// &lt;br&gt;&lt;br&gt;
+        ///
+        /// ## Limitations
+        ///
+        /// Maximum 200 requests per hour.
         /// </remarks>
         /// <param name='profileId'>
         /// The service principal profile ID
@@ -128,7 +136,8 @@ namespace Microsoft.PowerBI.Api
         ///
         /// ## Limitations
         ///
-        /// Can only be called by a service principal.
+        /// Can only be called by a service principal. The maximum number of
+        /// profiles a single service principal can have, is 100,000.
         /// </remarks>
         /// <param name='createOrUpdateProfileRequest'>
         /// The create profile request

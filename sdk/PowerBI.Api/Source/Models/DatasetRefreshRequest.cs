@@ -40,7 +40,8 @@ namespace Microsoft.PowerBI.Api.Models
         /// <param name="maxParallelism">The maximum number of threads on which
         /// to run parallel processing commands</param>
         /// <param name="retryCount">Number of times the operation will retry
-        /// before failing</param>
+        /// before failing. Temporary internal errors may trigger a retry of
+        /// the refresh, even when this parameter is set to 0.</param>
         /// <param name="objects">An array of objects to be processed</param>
         /// <param name="applyRefreshPolicy">Determine if the policy is applied
         /// or not</param>
@@ -99,7 +100,8 @@ namespace Microsoft.PowerBI.Api.Models
 
         /// <summary>
         /// Gets or sets number of times the operation will retry before
-        /// failing
+        /// failing. Temporary internal errors may trigger a retry of the
+        /// refresh, even when this parameter is set to 0.
         /// </summary>
         [JsonProperty(PropertyName = "retryCount")]
         public int? RetryCount { get; set; }

@@ -2054,8 +2054,8 @@ namespace Microsoft.PowerBI.Api
         ///
         /// ## Permissions
         ///
-        /// The user must at least be a member on both source and target deployment
-        /// workspaces. For more information, see
+        /// The user must at least be a contributor on both source and target
+        /// deployment workspaces. For more information, see
         /// [Permissions](/power-bi/create-reports/deployment-pipelines-process#permissions).
         ///
         /// ## Required Scope
@@ -2227,8 +2227,8 @@ namespace Microsoft.PowerBI.Api
         ///
         /// ## Permissions
         ///
-        /// The user must at least be a member on both source and target deployment
-        /// workspaces. For more information, see
+        /// The user must at least be a contributor on both source and target
+        /// deployment workspaces. For more information, see
         /// [Permissions](/power-bi/create-reports/deployment-pipelines-process#permissions).
         ///
         /// ## Required Scope
