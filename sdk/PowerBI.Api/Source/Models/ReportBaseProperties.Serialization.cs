@@ -54,6 +54,11 @@ namespace Microsoft.PowerBI.Api.Models
                 writer.WritePropertyName("isOwnedByMe"u8);
                 writer.WriteBooleanValue(IsOwnedByMe.Value);
             }
+            if (Optional.IsDefined(Format))
+            {
+                writer.WritePropertyName("format"u8);
+                writer.WriteStringValue(Format);
+            }
             writer.WriteEndObject();
         }
 
@@ -71,6 +76,7 @@ namespace Microsoft.PowerBI.Api.Models
             ReportBasePropertiesReportType? reportType = default;
             Guid? originalReportId = default;
             bool? isOwnedByMe = default;
+            string format = default;
             foreach (var property in element.EnumerateObject())
             {
                 if (property.NameEquals("id"u8))
@@ -125,6 +131,11 @@ namespace Microsoft.PowerBI.Api.Models
                     isOwnedByMe = property.Value.GetBoolean();
                     continue;
                 }
+                if (property.NameEquals("format"u8))
+                {
+                    format = property.Value.GetString();
+                    continue;
+                }
             }
             return new ReportBaseProperties(
                 id,
@@ -134,7 +145,8 @@ namespace Microsoft.PowerBI.Api.Models
                 description,
                 reportType,
                 originalReportId,
-                isOwnedByMe);
+                isOwnedByMe,
+                format);
         }
 
         /// <summary> Deserializes the model from a raw response. </summary>

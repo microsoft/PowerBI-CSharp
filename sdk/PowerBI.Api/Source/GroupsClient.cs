@@ -133,7 +133,8 @@ namespace Microsoft.PowerBI.Api
         /// <remarks>
         /// ## Permissions
         ///
-        /// This API call can be called by a service principal profile. For more information see: [Service principal profiles in Power BI Embedded](/power-bi/developer/embedded/embed-multi-tenancy).
+        /// - This API call can be called by a service principal profile. For more information see: [Service principal profiles in Power BI Embedded](/power-bi/developer/embedded/embed-multi-tenancy).
+        /// - Service Principals must have permission granted by Fabric administrator. For more information see: [Service principals can create workspaces, connections, and deployment pipelines](/fabric/admin/service-admin-portal-developer#service-principals-can-create-workspaces-connections-and-deployment-pipelines).
         ///
         /// ## Required Scope
         ///
@@ -162,7 +163,8 @@ namespace Microsoft.PowerBI.Api
         /// <remarks>
         /// ## Permissions
         ///
-        /// This API call can be called by a service principal profile. For more information see: [Service principal profiles in Power BI Embedded](/power-bi/developer/embedded/embed-multi-tenancy).
+        /// - This API call can be called by a service principal profile. For more information see: [Service principal profiles in Power BI Embedded](/power-bi/developer/embedded/embed-multi-tenancy).
+        /// - Service Principals must have permission granted by Fabric administrator. For more information see: [Service principals can create workspaces, connections, and deployment pipelines](/fabric/admin/service-admin-portal-developer#service-principals-can-create-workspaces-connections-and-deployment-pipelines).
         ///
         /// ## Required Scope
         ///
@@ -458,6 +460,7 @@ namespace Microsoft.PowerBI.Api
         /// ## Limitations
         ///
         /// - User permissions for workspaces take time to get updated and may not be immediately available when using API calls. To refresh user permissions, use the [Refresh User Permissions](/rest/api/power-bi/users/refresh-user-permissions) API call.
+        /// - Each workspace is limited to a maximum of 1,000 users or groups in workspace roles (Admin, Member, Contributor, Viewer). The number of users within a group is not limited. The limitation also covers external guests.
         /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         public virtual async Task<Response> AddGroupUserAsync(Guid groupId, GroupUser userDetails, CancellationToken cancellationToken = default)
@@ -491,6 +494,7 @@ namespace Microsoft.PowerBI.Api
         /// ## Limitations
         ///
         /// - User permissions for workspaces take time to get updated and may not be immediately available when using API calls. To refresh user permissions, use the [Refresh User Permissions](/rest/api/power-bi/users/refresh-user-permissions) API call.
+        /// - Each workspace is limited to a maximum of 1,000 users or groups in workspace roles (Admin, Member, Contributor, Viewer). The number of users within a group is not limited. The limitation also covers external guests.
         /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         public virtual Response AddGroupUser(Guid groupId, GroupUser userDetails, CancellationToken cancellationToken = default)
@@ -1235,7 +1239,8 @@ namespace Microsoft.PowerBI.Api
         ///
         /// ## Limitations
         ///
-        /// Maximum 200 requests per hour.
+        /// - Maximum 200 requests per hour.
+        /// - Each workspace is limited to a maximum of 1,000 users or groups in workspace roles (Admin, Member, Contributor, Viewer). The number of users within a group is not limited. The limitation also covers external guests.
         /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         public virtual async Task<Response> AddUserAsAdminAsync(Guid groupId, GroupUser userDetails, CancellationToken cancellationToken = default)
@@ -1270,7 +1275,8 @@ namespace Microsoft.PowerBI.Api
         ///
         /// ## Limitations
         ///
-        /// Maximum 200 requests per hour.
+        /// - Maximum 200 requests per hour.
+        /// - Each workspace is limited to a maximum of 1,000 users or groups in workspace roles (Admin, Member, Contributor, Viewer). The number of users within a group is not limited. The limitation also covers external guests.
         /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         public virtual Response AddUserAsAdmin(Guid groupId, GroupUser userDetails, CancellationToken cancellationToken = default)

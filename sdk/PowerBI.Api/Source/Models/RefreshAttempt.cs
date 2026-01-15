@@ -6,6 +6,7 @@
 #nullable disable
 
 using System;
+using System.Collections.Generic;
 
 namespace Microsoft.PowerBI.Api.Models
 {
@@ -15,6 +16,7 @@ namespace Microsoft.PowerBI.Api.Models
         /// <summary> Initializes a new instance of <see cref="RefreshAttempt"/>. </summary>
         internal RefreshAttempt()
         {
+            ExecutionMetrics = new ChangeTrackingList<IDictionary<string, object>>();
         }
 
         /// <summary> Initializes a new instance of <see cref="RefreshAttempt"/>. </summary>
@@ -23,13 +25,15 @@ namespace Microsoft.PowerBI.Api.Models
         /// <param name="endTime"> The end date and time of the refresh attempt. The value is void if the refresh attempt is in progress. </param>
         /// <param name="serviceExceptionJson"> Failure error code in JSON format. Void if there's no error. </param>
         /// <param name="type"> The type of refresh attempt. </param>
-        internal RefreshAttempt(int? attemptId, DateTimeOffset? startTime, DateTimeOffset? endTime, string serviceExceptionJson, RefreshAttemptType? type)
+        /// <param name="executionMetrics"> The Analysis Services engine execution metrics captured during the refresh attempt. </param>
+        internal RefreshAttempt(int? attemptId, DateTimeOffset? startTime, DateTimeOffset? endTime, string serviceExceptionJson, RefreshAttemptType? type, IReadOnlyList<IDictionary<string, object>> executionMetrics)
         {
             AttemptId = attemptId;
             StartTime = startTime;
             EndTime = endTime;
             ServiceExceptionJson = serviceExceptionJson;
             Type = type;
+            ExecutionMetrics = executionMetrics;
         }
 
         /// <summary> The index of the refresh attempt. </summary>
@@ -42,5 +46,7 @@ namespace Microsoft.PowerBI.Api.Models
         public string ServiceExceptionJson { get; }
         /// <summary> The type of refresh attempt. </summary>
         public RefreshAttemptType? Type { get; }
+        /// <summary> The Analysis Services engine execution metrics captured during the refresh attempt. </summary>
+        public IReadOnlyList<IDictionary<string, object>> ExecutionMetrics { get; }
     }
 }

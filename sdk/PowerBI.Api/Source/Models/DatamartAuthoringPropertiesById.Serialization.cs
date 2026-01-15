@@ -7,11 +7,28 @@
 
 using System.Text.Json;
 using Azure;
+using Azure.Core;
 
 namespace Microsoft.PowerBI.Api.Models
 {
-    public partial class DatamartAuthoringPropertiesById
+    public partial class DatamartAuthoringPropertiesById : IUtf8JsonSerializable
     {
+        void IUtf8JsonSerializable.Write(Utf8JsonWriter writer)
+        {
+            writer.WriteStartObject();
+            if (Optional.IsDefined(ModifiedById))
+            {
+                writer.WritePropertyName("modifiedById"u8);
+                writer.WriteStringValue(ModifiedById);
+            }
+            if (Optional.IsDefined(ConfiguredById))
+            {
+                writer.WritePropertyName("configuredById"u8);
+                writer.WriteStringValue(ConfiguredById);
+            }
+            writer.WriteEndObject();
+        }
+
         internal static DatamartAuthoringPropertiesById DeserializeDatamartAuthoringPropertiesById(JsonElement element)
         {
             if (element.ValueKind == JsonValueKind.Null)
@@ -42,6 +59,14 @@ namespace Microsoft.PowerBI.Api.Models
         {
             using var document = JsonDocument.Parse(response.Content);
             return DeserializeDatamartAuthoringPropertiesById(document.RootElement);
+        }
+
+        /// <summary> Convert into a <see cref="RequestContent"/>. </summary>
+        internal virtual RequestContent ToRequestContent()
+        {
+            var content = new Utf8JsonRequestContent();
+            content.JsonWriter.WriteObjectValue(this);
+            return content;
         }
     }
 }

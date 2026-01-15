@@ -49,7 +49,7 @@ namespace Microsoft.PowerBI.Api.Extensions
             Buffer.BlockCopy(keyMac, 0, keys, keyEnc.Length + 2, keyMac.Length);
             byte[] encryptedKeys;
 
-            using (var rsa = RSA.Create())
+            using (var rsa = new RSACng())
             {
                 var rsaKeyInfo = rsa.ExportParameters(false);
                 rsaKeyInfo.Modulus = modulusBytes;

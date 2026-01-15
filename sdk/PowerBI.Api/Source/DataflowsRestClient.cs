@@ -37,6 +37,137 @@ namespace Microsoft.PowerBI.Api
             _endpoint = endpoint ?? new Uri("https://api.powerbi.com");
         }
 
+        internal HttpMessage CreateSaveDataflowGenOneAsDataflowGenTwoRequest(Guid groupId, Guid gen1DataflowId, SaveAsNativeDataflowRequest saveAsNativeDataflowRequest)
+        {
+            var message = _pipeline.CreateMessage();
+            var request = message.Request;
+            request.Method = RequestMethod.Post;
+            var uri = new RawRequestUriBuilder();
+            uri.Reset(_endpoint);
+            uri.AppendPath("/v1.0/myorg/groups/", false);
+            uri.AppendPath(groupId, true);
+            uri.AppendPath("/dataflows/", false);
+            uri.AppendPath(gen1DataflowId, true);
+            uri.AppendPath("/saveAsNativeArtifact", false);
+            request.Uri = uri;
+            request.Headers.Add("Accept", "application/json");
+            request.Headers.Add("Content-Type", "application/json");
+            var content = new Utf8JsonRequestContent();
+            content.JsonWriter.WriteObjectValue(saveAsNativeDataflowRequest);
+            request.Content = content;
+            return message;
+        }
+
+        /// <summary> Save Dataflow Gen1 As Dataflow Gen2 (CI/CD) (Preview). </summary>
+        /// <param name="groupId"> The workspace (group) ID of the gen1 dataflow, where the new artifact will be created. </param>
+        /// <param name="gen1DataflowId"> The object ID of the Gen1 dataflow to save as a native artifact. </param>
+        /// <param name="saveAsNativeDataflowRequest"> Patch dataflow properties, capabilities and settings. </param>
+        /// <param name="cancellationToken"> The cancellation token to use. </param>
+        /// <exception cref="ArgumentNullException"> <paramref name="saveAsNativeDataflowRequest"/> is null. </exception>
+        /// <remarks>
+        /// Converts a Gen1 dataflow to a Fabric native artifact (Gen2 CI/CD).
+        ///
+        /// **Key Features:**
+        /// - Creates a new Gen2 (CI/CD) artifact while preserving the original Gen1 dataflow
+        /// - Optionally migrates refresh schedules
+        /// - Updates connection formats to Fabric-compatible formats
+        /// - Preserves sensitivity labels and security settings
+        /// - Provides detailed error reporting for non-fatal issues
+        ///
+        /// **Prerequisites:**
+        /// - Source dataflow must be Generation 1
+        /// - User must have appropriate permissions on the workspace
+        /// **Migration Process:**
+        /// 1. Validates source dataflow and permissions
+        /// 2. Converts dataflow definition to Fabric format
+        /// 3. Updates connection strings for Fabric compatibility
+        /// 4. Creates new Gen2 artifact in the specified workspace
+        /// 5. Optionally migrates refresh schedule
+        /// 6. Sets dataflow origin tracking
+        ///
+        /// **Error Handling:**
+        /// The API returns success even if some non-critical operations fail (e.g., schedule migration).
+        /// Such failures are reported in the `errors` array of the response. (Preview)
+        ///
+        /// </remarks>
+        public async Task<Response<SaveAsNativeDataflowResponse>> SaveDataflowGenOneAsDataflowGenTwoAsync(Guid groupId, Guid gen1DataflowId, SaveAsNativeDataflowRequest saveAsNativeDataflowRequest, CancellationToken cancellationToken = default)
+        {
+            if (saveAsNativeDataflowRequest == null)
+            {
+                throw new ArgumentNullException(nameof(saveAsNativeDataflowRequest));
+            }
+
+            using var message = CreateSaveDataflowGenOneAsDataflowGenTwoRequest(groupId, gen1DataflowId, saveAsNativeDataflowRequest);
+            await _pipeline.SendAsync(message, cancellationToken).ConfigureAwait(false);
+            switch (message.Response.Status)
+            {
+                case 200:
+                    {
+                        SaveAsNativeDataflowResponse value = default;
+                        using var document = await JsonDocument.ParseAsync(message.Response.ContentStream, default, cancellationToken).ConfigureAwait(false);
+                        value = SaveAsNativeDataflowResponse.DeserializeSaveAsNativeDataflowResponse(document.RootElement);
+                        return Response.FromValue(value, message.Response);
+                    }
+                default:
+                    throw new RequestFailedException(message.Response);
+            }
+        }
+
+        /// <summary> Save Dataflow Gen1 As Dataflow Gen2 (CI/CD) (Preview). </summary>
+        /// <param name="groupId"> The workspace (group) ID of the gen1 dataflow, where the new artifact will be created. </param>
+        /// <param name="gen1DataflowId"> The object ID of the Gen1 dataflow to save as a native artifact. </param>
+        /// <param name="saveAsNativeDataflowRequest"> Patch dataflow properties, capabilities and settings. </param>
+        /// <param name="cancellationToken"> The cancellation token to use. </param>
+        /// <exception cref="ArgumentNullException"> <paramref name="saveAsNativeDataflowRequest"/> is null. </exception>
+        /// <remarks>
+        /// Converts a Gen1 dataflow to a Fabric native artifact (Gen2 CI/CD).
+        ///
+        /// **Key Features:**
+        /// - Creates a new Gen2 (CI/CD) artifact while preserving the original Gen1 dataflow
+        /// - Optionally migrates refresh schedules
+        /// - Updates connection formats to Fabric-compatible formats
+        /// - Preserves sensitivity labels and security settings
+        /// - Provides detailed error reporting for non-fatal issues
+        ///
+        /// **Prerequisites:**
+        /// - Source dataflow must be Generation 1
+        /// - User must have appropriate permissions on the workspace
+        /// **Migration Process:**
+        /// 1. Validates source dataflow and permissions
+        /// 2. Converts dataflow definition to Fabric format
+        /// 3. Updates connection strings for Fabric compatibility
+        /// 4. Creates new Gen2 artifact in the specified workspace
+        /// 5. Optionally migrates refresh schedule
+        /// 6. Sets dataflow origin tracking
+        ///
+        /// **Error Handling:**
+        /// The API returns success even if some non-critical operations fail (e.g., schedule migration).
+        /// Such failures are reported in the `errors` array of the response. (Preview)
+        ///
+        /// </remarks>
+        public Response<SaveAsNativeDataflowResponse> SaveDataflowGenOneAsDataflowGenTwo(Guid groupId, Guid gen1DataflowId, SaveAsNativeDataflowRequest saveAsNativeDataflowRequest, CancellationToken cancellationToken = default)
+        {
+            if (saveAsNativeDataflowRequest == null)
+            {
+                throw new ArgumentNullException(nameof(saveAsNativeDataflowRequest));
+            }
+
+            using var message = CreateSaveDataflowGenOneAsDataflowGenTwoRequest(groupId, gen1DataflowId, saveAsNativeDataflowRequest);
+            _pipeline.Send(message, cancellationToken);
+            switch (message.Response.Status)
+            {
+                case 200:
+                    {
+                        SaveAsNativeDataflowResponse value = default;
+                        using var document = JsonDocument.Parse(message.Response.ContentStream);
+                        value = SaveAsNativeDataflowResponse.DeserializeSaveAsNativeDataflowResponse(document.RootElement);
+                        return Response.FromValue(value, message.Response);
+                    }
+                default:
+                    throw new RequestFailedException(message.Response);
+            }
+        }
+
         internal HttpMessage CreateGetDataflowRequest(Guid groupId, Guid dataflowId)
         {
             var message = _pipeline.CreateMessage();
@@ -261,7 +392,7 @@ namespace Microsoft.PowerBI.Api
             }
         }
 
-        internal HttpMessage CreateRefreshDataflowRequest(Guid groupId, Guid dataflowId, Enum10? processType, RefreshRequest refreshRequest)
+        internal HttpMessage CreateRefreshDataflowRequest(Guid groupId, Guid dataflowId, Enum12? processType, RefreshRequest refreshRequest)
         {
             var message = _pipeline.CreateMessage();
             var request = message.Request;
@@ -306,7 +437,7 @@ namespace Microsoft.PowerBI.Api
         /// Dataflow.ReadWrite.All
         /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
-        public async Task<Response> RefreshDataflowAsync(Guid groupId, Guid dataflowId, Enum10? processType = null, RefreshRequest refreshRequest = null, CancellationToken cancellationToken = default)
+        public async Task<Response> RefreshDataflowAsync(Guid groupId, Guid dataflowId, Enum12? processType = null, RefreshRequest refreshRequest = null, CancellationToken cancellationToken = default)
         {
             using var message = CreateRefreshDataflowRequest(groupId, dataflowId, processType, refreshRequest);
             await _pipeline.SendAsync(message, cancellationToken).ConfigureAwait(false);
@@ -337,7 +468,7 @@ namespace Microsoft.PowerBI.Api
         /// Dataflow.ReadWrite.All
         /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
-        public Response RefreshDataflow(Guid groupId, Guid dataflowId, Enum10? processType = null, RefreshRequest refreshRequest = null, CancellationToken cancellationToken = default)
+        public Response RefreshDataflow(Guid groupId, Guid dataflowId, Enum12? processType = null, RefreshRequest refreshRequest = null, CancellationToken cancellationToken = default)
         {
             using var message = CreateRefreshDataflowRequest(groupId, dataflowId, processType, refreshRequest);
             _pipeline.Send(message, cancellationToken);

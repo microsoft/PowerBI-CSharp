@@ -11,7 +11,7 @@ using System.Collections.Generic;
 namespace Microsoft.PowerBI.Api.Models
 {
     /// <summary> A Power BI report returned by Admin APIs. The API returns a subset of the following list of report properties. The subset depends on the API called, caller permissions, and the availability of data in the Power BI database. </summary>
-    public partial class AdminReport : ReportBaseProperties
+    public partial class AdminReport : AdminReportBaseProperties
     {
         /// <summary> Initializes a new instance of <see cref="AdminReport"/>. </summary>
         /// <param name="id"> The report ID. </param>
@@ -30,6 +30,15 @@ namespace Microsoft.PowerBI.Api.Models
         /// <param name="reportType"> The report type. </param>
         /// <param name="originalReportId"> The actual report ID when the workspace is published as an app. </param>
         /// <param name="isOwnedByMe"> Indicates whether the current user has the ability to either modify or create a copy of the report. </param>
+        /// <param name="format">
+        /// The report definition format type.
+        /// For **PowerBIReport**:
+        /// - [PBIR](https://learn.microsoft.com/power-bi/developer/projects/projects-report?tabs=v2%2Cdesktop#pbir-format)
+        /// - [PBIR-Legacy](https://learn.microsoft.com/power-bi/developer/projects/projects-report?tabs=v2%2Cdesktop#reportjson)
+        ///
+        /// For **PaginatedReport**:
+        /// - [`RDL`](https://learn.microsoft.com/power-bi/paginated-reports/report-definition-language)
+        /// </param>
         /// <param name="webUrl"> The web URL of the report. </param>
         /// <param name="embedUrl"> The embed URL of the report. </param>
         /// <param name="createdBy"> The report owner. Available only for reports created after June 2019. </param>
@@ -39,7 +48,7 @@ namespace Microsoft.PowerBI.Api.Models
         /// <param name="users"> (Empty value) The user access details for a Power BI report. This property will be removed from the payload response in an upcoming release. You can retrieve user information on a Power BI report by using the [Get Report Users as Admin](/rest/api/power-bi/admin/reports-get-report-users-as-admin) API call, or the [PostWorkspaceInfo](/rest/api/power-bi/admin/workspace-info-post-workspace-info) API call with the `getArtifactUsers` parameter. </param>
         /// <param name="subscriptions"> (Empty Value) The subscription details for a Power BI item (such as a report or a dashboard). This property will be removed from the payload response in an upcoming release. You can retrieve subscription information for a Power BI report by using the [Get Report Subscriptions as Admin](/rest/api/power-bi/admin/reports-get-report-subscriptions-as-admin) API call. </param>
         /// <param name="workspaceId"> The workspace ID (GUID) of the report. This property will be returned only in GetReportsAsAdmin. </param>
-        internal AdminReport(Guid id, string name, string datasetId, string appId, string description, ReportBasePropertiesReportType? reportType, Guid? originalReportId, bool? isOwnedByMe, string webUrl, string embedUrl, string createdBy, string modifiedBy, DateTimeOffset? createdDateTime, DateTimeOffset? modifiedDateTime, IList<ReportUser> users, IList<Subscription> subscriptions, Guid? workspaceId) : base(id, name, datasetId, appId, description, reportType, originalReportId, isOwnedByMe)
+        internal AdminReport(Guid id, string name, string datasetId, string appId, string description, AdminReportBasePropertiesReportType? reportType, Guid? originalReportId, bool? isOwnedByMe, string format, string webUrl, string embedUrl, string createdBy, string modifiedBy, DateTimeOffset? createdDateTime, DateTimeOffset? modifiedDateTime, IList<ReportUser> users, IList<Subscription> subscriptions, Guid? workspaceId) : base(id, name, datasetId, appId, description, reportType, originalReportId, isOwnedByMe, format)
         {
             WebUrl = webUrl;
             EmbedUrl = embedUrl;

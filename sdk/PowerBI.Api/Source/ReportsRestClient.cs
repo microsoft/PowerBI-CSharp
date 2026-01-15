@@ -881,6 +881,8 @@ namespace Microsoft.PowerBI.Api
         ///
         /// - Only supports paginated reports.
         /// - Changing the data source type isn't supported.
+        ///
+        /// - Open Database Connectivity (ODBC) aren't supported.
         /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         public async Task<Response> UpdateDatasourcesAsync(Guid reportId, UpdateRdlDatasourcesRequest updateRdlDatasourcesRequest, CancellationToken cancellationToken = default)
@@ -922,6 +924,8 @@ namespace Microsoft.PowerBI.Api
         ///
         /// - Only supports paginated reports.
         /// - Changing the data source type isn't supported.
+        ///
+        /// - Open Database Connectivity (ODBC) aren't supported.
         /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         public Response UpdateDatasources(Guid reportId, UpdateRdlDatasourcesRequest updateRdlDatasourcesRequest, CancellationToken cancellationToken = default)
@@ -2203,6 +2207,7 @@ namespace Microsoft.PowerBI.Api
         ///
         /// - Only supports paginated reports.
         /// - Changing the data source type isn't supported.
+        /// - Open Database Connectivity (ODBC) aren't supported.
         /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         public async Task<Response> UpdateDatasourcesInGroupAsync(Guid groupId, Guid reportId, UpdateRdlDatasourcesRequest updateRdlDatasourcesRequest, CancellationToken cancellationToken = default)
@@ -2246,6 +2251,7 @@ namespace Microsoft.PowerBI.Api
         ///
         /// - Only supports paginated reports.
         /// - Changing the data source type isn't supported.
+        /// - Open Database Connectivity (ODBC) aren't supported.
         /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         public Response UpdateDatasourcesInGroup(Guid groupId, Guid reportId, UpdateRdlDatasourcesRequest updateRdlDatasourcesRequest, CancellationToken cancellationToken = default)

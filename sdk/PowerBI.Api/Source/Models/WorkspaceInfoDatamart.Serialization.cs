@@ -9,11 +9,135 @@ using System;
 using System.Collections.Generic;
 using System.Text.Json;
 using Azure;
+using Azure.Core;
 
 namespace Microsoft.PowerBI.Api.Models
 {
-    public partial class WorkspaceInfoDatamart
+    public partial class WorkspaceInfoDatamart : IUtf8JsonSerializable
     {
+        void IUtf8JsonSerializable.Write(Utf8JsonWriter writer)
+        {
+            writer.WriteStartObject();
+            if (Optional.IsDefined(EndorsementDetails))
+            {
+                writer.WritePropertyName("endorsementDetails"u8);
+                writer.WriteObjectValue(EndorsementDetails);
+            }
+            if (Optional.IsDefined(SensitivityLabel))
+            {
+                writer.WritePropertyName("sensitivityLabel"u8);
+                writer.WriteObjectValue(SensitivityLabel);
+            }
+            if (Optional.IsDefined(ModifiedBy))
+            {
+                writer.WritePropertyName("modifiedBy"u8);
+                writer.WriteStringValue(ModifiedBy);
+            }
+            if (Optional.IsDefined(ModifiedDateTime))
+            {
+                writer.WritePropertyName("modifiedDateTime"u8);
+                writer.WriteStringValue(ModifiedDateTime.Value, "O");
+            }
+            if (Optional.IsDefined(ConfiguredBy))
+            {
+                writer.WritePropertyName("configuredBy"u8);
+                writer.WriteStringValue(ConfiguredBy);
+            }
+            if (Optional.IsDefined(ModifiedById))
+            {
+                writer.WritePropertyName("modifiedById"u8);
+                writer.WriteStringValue(ModifiedById);
+            }
+            if (Optional.IsDefined(ConfiguredById))
+            {
+                writer.WritePropertyName("configuredById"u8);
+                writer.WriteStringValue(ConfiguredById);
+            }
+            if (Optional.IsCollectionDefined(UpstreamDataflows))
+            {
+                writer.WritePropertyName("upstreamDataflows"u8);
+                writer.WriteStartArray();
+                foreach (var item in UpstreamDataflows)
+                {
+                    writer.WriteObjectValue(item);
+                }
+                writer.WriteEndArray();
+            }
+            if (Optional.IsCollectionDefined(UpstreamDatamarts))
+            {
+                writer.WritePropertyName("upstreamDatamarts"u8);
+                writer.WriteStartArray();
+                foreach (var item in UpstreamDatamarts)
+                {
+                    writer.WriteObjectValue(item);
+                }
+                writer.WriteEndArray();
+            }
+            if (Optional.IsCollectionDefined(DatasourceUsages))
+            {
+                writer.WritePropertyName("datasourceUsages"u8);
+                writer.WriteStartArray();
+                foreach (var item in DatasourceUsages)
+                {
+                    writer.WriteObjectValue(item);
+                }
+                writer.WriteEndArray();
+            }
+            if (Optional.IsCollectionDefined(Users))
+            {
+                writer.WritePropertyName("users"u8);
+                writer.WriteStartArray();
+                foreach (var item in Users)
+                {
+                    writer.WriteObjectValue(item);
+                }
+                writer.WriteEndArray();
+            }
+            if (Optional.IsCollectionDefined(Tags))
+            {
+                writer.WritePropertyName("tags"u8);
+                writer.WriteStartArray();
+                foreach (var item in Tags)
+                {
+                    writer.WriteStringValue(item);
+                }
+                writer.WriteEndArray();
+            }
+            writer.WritePropertyName("id"u8);
+            writer.WriteStringValue(Id);
+            if (Optional.IsDefined(Name))
+            {
+                writer.WritePropertyName("name"u8);
+                writer.WriteStringValue(Name);
+            }
+            if (Optional.IsDefined(Description))
+            {
+                writer.WritePropertyName("description"u8);
+                writer.WriteStringValue(Description);
+            }
+            if (Optional.IsDefined(Type))
+            {
+                writer.WritePropertyName("type"u8);
+                writer.WriteStringValue(Type.Value.ToSerialString());
+            }
+            if (Optional.IsDefined(Status))
+            {
+                writer.WritePropertyName("status"u8);
+                writer.WriteStringValue(Status.Value.ToSerialString());
+            }
+            if (Optional.IsDefined(State))
+            {
+                writer.WritePropertyName("state"u8);
+                writer.WriteStringValue(State.Value.ToSerialString());
+            }
+            if (Optional.IsDefined(SuspendedBatchId))
+            {
+                writer.WritePropertyName("suspendedBatchId"u8);
+                writer.WriteStringValue(SuspendedBatchId);
+            }
+            writer.WriteEndObject();
+        }
+
         internal static WorkspaceInfoDatamart DeserializeWorkspaceInfoDatamart(JsonElement element)
         {
             if (element.ValueKind == JsonValueKind.Null)
@@ -27,10 +151,11 @@ namespace Microsoft.PowerBI.Api.Models
             string configuredBy = default;
             string modifiedById = default;
             string configuredById = default;
-            IReadOnlyList<DependentDataflow> upstreamDataflows = default;
-            IReadOnlyList<DependentDatamart> upstreamDatamarts = default;
-            IReadOnlyList<DatasourceUsage> datasourceUsages = default;
-            IReadOnlyList<DatamartUser> users = default;
+            IList<DependentDataflow> upstreamDataflows = default;
+            IList<DependentDatamart> upstreamDatamarts = default;
+            IList<DatasourceUsage> datasourceUsages = default;
+            IList<DatamartUser> users = default;
+            IList<Guid> tags = default;
             Guid id = default;
             string name = default;
             string description = default;
@@ -143,6 +268,20 @@ namespace Microsoft.PowerBI.Api.Models
                     users = array;
                     continue;
                 }
+                if (property.NameEquals("tags"u8))
+                {
+                    if (property.Value.ValueKind == JsonValueKind.Null)
+                    {
+                        continue;
+                    }
+                    List<Guid> array = new List<Guid>();
+                    foreach (var item in property.Value.EnumerateArray())
+                    {
+                        array.Add(item.GetGuid());
+                    }
+                    tags = array;
+                    continue;
+                }
                 if (property.NameEquals("id"u8))
                 {
                     id = property.Value.GetGuid();
@@ -209,7 +348,8 @@ namespace Microsoft.PowerBI.Api.Models
                 upstreamDataflows ?? new ChangeTrackingList<DependentDataflow>(),
                 upstreamDatamarts ?? new ChangeTrackingList<DependentDatamart>(),
                 datasourceUsages ?? new ChangeTrackingList<DatasourceUsage>(),
-                users ?? new ChangeTrackingList<DatamartUser>());
+                users ?? new ChangeTrackingList<DatamartUser>(),
+                tags ?? new ChangeTrackingList<Guid>());
         }
 
         /// <summary> Deserializes the model from a raw response. </summary>
@@ -218,6 +358,14 @@ namespace Microsoft.PowerBI.Api.Models
         {
             using var document = JsonDocument.Parse(response.Content);
             return DeserializeWorkspaceInfoDatamart(document.RootElement);
+        }
+
+        /// <summary> Convert into a <see cref="RequestContent"/>. </summary>
+        internal override RequestContent ToRequestContent()
+        {
+            var content = new Utf8JsonRequestContent();
+            content.JsonWriter.WriteObjectValue(this);
+            return content;
         }
     }
 }

@@ -6,6 +6,7 @@
 #nullable disable
 
 using System;
+using System.Collections.Generic;
 using System.Text.Json;
 using Azure;
 
@@ -24,6 +25,7 @@ namespace Microsoft.PowerBI.Api.Models
             DateTimeOffset? endTime = default;
             string serviceExceptionJson = default;
             RefreshAttemptType? type = default;
+            IReadOnlyList<IDictionary<string, object>> executionMetrics = default;
             foreach (var property in element.EnumerateObject())
             {
                 if (property.NameEquals("attemptId"u8))
@@ -67,8 +69,47 @@ namespace Microsoft.PowerBI.Api.Models
                     type = property.Value.GetString().ToRefreshAttemptType();
                     continue;
                 }
+                if (property.NameEquals("executionMetrics"u8))
+                {
+                    if (property.Value.ValueKind == JsonValueKind.Null)
+                    {
+                        continue;
+                    }
+                    List<IDictionary<string, object>> array = new List<IDictionary<string, object>>();
+                    foreach (var item in property.Value.EnumerateArray())
+                    {
+                        if (item.ValueKind == JsonValueKind.Null)
+                        {
+                            array.Add(null);
+                        }
+                        else
+                        {
+                            Dictionary<string, object> dictionary = new Dictionary<string, object>();
+                            foreach (var property0 in item.EnumerateObject())
+                            {
+                                if (property0.Value.ValueKind == JsonValueKind.Null)
+                                {
+                                    dictionary.Add(property0.Name, null);
+                                }
+                                else
+                                {
+                                    dictionary.Add(property0.Name, property0.Value.GetObject());
+                                }
+                            }
+                            array.Add(dictionary);
+                        }
+                    }
+                    executionMetrics = array;
+                    continue;
+                }
             }
-            return new RefreshAttempt(attemptId, startTime, endTime, serviceExceptionJson, type);
+            return new RefreshAttempt(
+                attemptId,
+                startTime,
+                endTime,
+                serviceExceptionJson,
+                type,
+                executionMetrics ?? new ChangeTrackingList<IDictionary<string, object>>());
         }
 
         /// <summary> Deserializes the model from a raw response. </summary>

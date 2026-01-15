@@ -28,7 +28,16 @@ namespace Microsoft.PowerBI.Api.Models
         /// <param name="reportType"> The report type. </param>
         /// <param name="originalReportId"> The actual report ID when the workspace is published as an app. </param>
         /// <param name="isOwnedByMe"> Indicates whether the current user has the ability to either modify or create a copy of the report. </param>
-        internal ReportBaseProperties(Guid id, string name, string datasetId, string appId, string description, ReportBasePropertiesReportType? reportType, Guid? originalReportId, bool? isOwnedByMe)
+        /// <param name="format">
+        /// The report definition format type.
+        /// For **PowerBIReport**:
+        /// - [PBIR](https://learn.microsoft.com/power-bi/developer/projects/projects-report?tabs=v2%2Cdesktop#pbir-format)
+        /// - [PBIR-Legacy](https://learn.microsoft.com/power-bi/developer/projects/projects-report?tabs=v2%2Cdesktop#reportjson)
+        ///
+        /// For **PaginatedReport**:
+        /// - [`RDL`](https://learn.microsoft.com/power-bi/paginated-reports/report-definition-language)
+        /// </param>
+        internal ReportBaseProperties(Guid id, string name, string datasetId, string appId, string description, ReportBasePropertiesReportType? reportType, Guid? originalReportId, bool? isOwnedByMe, string format)
         {
             Id = id;
             Name = name;
@@ -38,6 +47,7 @@ namespace Microsoft.PowerBI.Api.Models
             ReportType = reportType;
             OriginalReportId = originalReportId;
             IsOwnedByMe = isOwnedByMe;
+            Format = format;
         }
 
         /// <summary> The report ID. </summary>
@@ -56,5 +66,15 @@ namespace Microsoft.PowerBI.Api.Models
         public Guid? OriginalReportId { get; set; }
         /// <summary> Indicates whether the current user has the ability to either modify or create a copy of the report. </summary>
         public bool? IsOwnedByMe { get; set; }
+        /// <summary>
+        /// The report definition format type.
+        /// For **PowerBIReport**:
+        /// - [PBIR](https://learn.microsoft.com/power-bi/developer/projects/projects-report?tabs=v2%2Cdesktop#pbir-format)
+        /// - [PBIR-Legacy](https://learn.microsoft.com/power-bi/developer/projects/projects-report?tabs=v2%2Cdesktop#reportjson)
+        ///
+        /// For **PaginatedReport**:
+        /// - [`RDL`](https://learn.microsoft.com/power-bi/paginated-reports/report-definition-language)
+        /// </summary>
+        public string Format { get; set; }
     }
 }

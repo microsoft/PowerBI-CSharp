@@ -33,7 +33,9 @@ namespace Microsoft.PowerBI.Api.Models
         /// <param name="objects"> An array of objects included in the refresh request. </param>
         /// <param name="messages"> An array of engine error or warning messages for the refresh request. </param>
         /// <param name="refreshAttempts"> The refresh attempt list. </param>
-        internal DatasetRefreshDetail(DateTimeOffset? startTime, DateTimeOffset? endTime, DatasetRefreshDetailType? type, DatasetRefreshDetailCommitMode? commitMode, DatasetRefreshDetailStatus? status, DatasetRefreshDetailExtendedStatus? extendedStatus, DatasetRefreshDetailType? currentRefreshType, int? numberOfAttempts, IReadOnlyList<DatasetRefreshObjects> objects, IReadOnlyList<EngineMessage> messages, IReadOnlyList<RefreshAttempt> refreshAttempts)
+        /// <param name="initiatedBy"> The type of refresh request that initiated this refresh operation. </param>
+        /// <param name="serviceExceptionJson"> The service exception details in JSON format, if any. </param>
+        internal DatasetRefreshDetail(DateTimeOffset? startTime, DateTimeOffset? endTime, DatasetRefreshDetailType? type, DatasetRefreshDetailCommitMode? commitMode, DatasetRefreshDetailStatus? status, DatasetRefreshDetailExtendedStatus? extendedStatus, DatasetRefreshDetailType? currentRefreshType, int? numberOfAttempts, IReadOnlyList<DatasetRefreshObjects> objects, IReadOnlyList<EngineMessage> messages, IReadOnlyList<RefreshAttempt> refreshAttempts, InitiatedBy? initiatedBy, string serviceExceptionJson)
         {
             StartTime = startTime;
             EndTime = endTime;
@@ -46,6 +48,8 @@ namespace Microsoft.PowerBI.Api.Models
             Objects = objects;
             Messages = messages;
             RefreshAttempts = refreshAttempts;
+            InitiatedBy = initiatedBy;
+            ServiceExceptionJson = serviceExceptionJson;
         }
 
         /// <summary> The start date and time of the refresh. </summary>
@@ -70,5 +74,9 @@ namespace Microsoft.PowerBI.Api.Models
         public IReadOnlyList<EngineMessage> Messages { get; }
         /// <summary> The refresh attempt list. </summary>
         public IReadOnlyList<RefreshAttempt> RefreshAttempts { get; }
+        /// <summary> The type of refresh request that initiated this refresh operation. </summary>
+        public InitiatedBy? InitiatedBy { get; }
+        /// <summary> The service exception details in JSON format, if any. </summary>
+        public string ServiceExceptionJson { get; }
     }
 }

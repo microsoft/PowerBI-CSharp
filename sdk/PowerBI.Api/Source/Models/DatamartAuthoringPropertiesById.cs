@@ -11,7 +11,7 @@ namespace Microsoft.PowerBI.Api.Models
     public partial class DatamartAuthoringPropertiesById
     {
         /// <summary> Initializes a new instance of <see cref="DatamartAuthoringPropertiesById"/>. </summary>
-        internal DatamartAuthoringPropertiesById()
+        public DatamartAuthoringPropertiesById()
         {
         }
 
@@ -25,8 +25,8 @@ namespace Microsoft.PowerBI.Api.Models
         }
 
         /// <summary> The ID of the last user that modified the datamart. </summary>
-        public string ModifiedById { get; }
+        public string ModifiedById { get; set; }
         /// <summary> The ID of the datamart owner. </summary>
-        public string ConfiguredById { get; }
+        public string ConfiguredById { get; set; }
     }
 }

@@ -8,18 +8,35 @@
 using System.Collections.Generic;
 using System.Text.Json;
 using Azure;
+using Azure.Core;
 
 namespace Microsoft.PowerBI.Api.Models
 {
-    public partial class DatamartDatasourceUsagesProperties
+    public partial class DatamartDatasourceUsagesProperties : IUtf8JsonSerializable
     {
+        void IUtf8JsonSerializable.Write(Utf8JsonWriter writer)
+        {
+            writer.WriteStartObject();
+            if (Optional.IsCollectionDefined(DatasourceUsages))
+            {
+                writer.WritePropertyName("datasourceUsages"u8);
+                writer.WriteStartArray();
+                foreach (var item in DatasourceUsages)
+                {
+                    writer.WriteObjectValue(item);
+                }
+                writer.WriteEndArray();
+            }
+            writer.WriteEndObject();
+        }
+
         internal static DatamartDatasourceUsagesProperties DeserializeDatamartDatasourceUsagesProperties(JsonElement element)
         {
             if (element.ValueKind == JsonValueKind.Null)
             {
                 return null;
             }
-            IReadOnlyList<DatasourceUsage> datasourceUsages = default;
+            IList<DatasourceUsage> datasourceUsages = default;
             foreach (var property in element.EnumerateObject())
             {
                 if (property.NameEquals("datasourceUsages"u8))
@@ -46,6 +63,14 @@ namespace Microsoft.PowerBI.Api.Models
         {
             using var document = JsonDocument.Parse(response.Content);
             return DeserializeDatamartDatasourceUsagesProperties(document.RootElement);
+        }
+
+        /// <summary> Convert into a <see cref="RequestContent"/>. </summary>
+        internal virtual RequestContent ToRequestContent()
+        {
+            var content = new Utf8JsonRequestContent();
+            content.JsonWriter.WriteObjectValue(this);
+            return content;
         }
     }
 }

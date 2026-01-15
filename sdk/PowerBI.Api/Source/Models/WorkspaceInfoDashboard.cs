@@ -19,6 +19,7 @@ namespace Microsoft.PowerBI.Api.Models
         {
             Tiles = new ChangeTrackingList<WorkspaceInfoTile>();
             Users = new ChangeTrackingList<DashboardUser>();
+            Tags = new ChangeTrackingList<Guid>();
         }
 
         /// <summary> Initializes a new instance of <see cref="WorkspaceInfoDashboard"/>. </summary>
@@ -30,12 +31,14 @@ namespace Microsoft.PowerBI.Api.Models
         /// <param name="sensitivityLabel"> The sensitivity label. </param>
         /// <param name="tiles"> The tiles that belong to the dashboard. </param>
         /// <param name="users"> (Empty value) The dashboard user access details. This property will be removed from the payload response in an upcoming release. You can retrieve user information on a Power BI dashboard by using the [Get Dashboard Users as Admin](/rest/api/power-bi/admin/dashboards-get-dashboard-users-as-admin) API call, or the [PostWorkspaceInfo](/rest/api/power-bi/admin/workspace-info-post-workspace-info) API call with the `getArtifactUsers` parameter. </param>
-        internal WorkspaceInfoDashboard(Guid id, string displayName, bool? isReadOnly, string appId, string dataClassification, SensitivityLabel sensitivityLabel, IList<WorkspaceInfoTile> tiles, IList<DashboardUser> users) : base(id, displayName, isReadOnly, appId)
+        /// <param name="tags"> The unique identifiers for the tags applied on an item. </param>
+        internal WorkspaceInfoDashboard(Guid id, string displayName, bool? isReadOnly, string appId, string dataClassification, SensitivityLabel sensitivityLabel, IList<WorkspaceInfoTile> tiles, IList<DashboardUser> users, IList<Guid> tags) : base(id, displayName, isReadOnly, appId)
         {
             DataClassification = dataClassification;
             SensitivityLabel = sensitivityLabel;
             Tiles = tiles;
             Users = users;
+            Tags = tags;
         }
 
         /// <summary> The data classification tag of a Power BI item (such as a report or a dashboard). </summary>
@@ -46,5 +49,7 @@ namespace Microsoft.PowerBI.Api.Models
         public IList<WorkspaceInfoTile> Tiles { get; }
         /// <summary> (Empty value) The dashboard user access details. This property will be removed from the payload response in an upcoming release. You can retrieve user information on a Power BI dashboard by using the [Get Dashboard Users as Admin](/rest/api/power-bi/admin/dashboards-get-dashboard-users-as-admin) API call, or the [PostWorkspaceInfo](/rest/api/power-bi/admin/workspace-info-post-workspace-info) API call with the `getArtifactUsers` parameter. </summary>
         public IList<DashboardUser> Users { get; }
+        /// <summary> The unique identifiers for the tags applied on an item. </summary>
+        public IList<Guid> Tags { get; }
     }
 }

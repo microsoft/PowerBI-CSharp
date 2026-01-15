@@ -28,6 +28,7 @@ namespace Microsoft.PowerBI.Api.Models
             UpstreamDatamarts = new ChangeTrackingList<DependentDatamart>();
             UpstreamDatasets = new ChangeTrackingList<DependentDataset>();
             Users = new ChangeTrackingList<DatasetUser>();
+            Tags = new ChangeTrackingList<Guid>();
         }
 
         /// <summary> Initializes a new instance of <see cref="WorkspaceInfoDataset"/>. </summary>
@@ -51,7 +52,8 @@ namespace Microsoft.PowerBI.Api.Models
         /// <param name="upstreamDatamarts"> The list of all the datamarts this item depends on. </param>
         /// <param name="upstreamDatasets"> The upstream datasets. </param>
         /// <param name="users"> (Empty value) The dataset user access details. This property will be removed from the payload response in an upcoming release. You can retrieve user information on a Power BI item (such as a report or a dashboard) by using the [Get Dataset Users as Admin](/rest/api/power-bi/admin/datasets-get-dataset-users-as-admin) API, or the [PostWorkspaceInfo](/rest/api/power-bi/admin/workspace-info-post-workspace-info) API with the `getArtifactUsers` parameter. </param>
-        internal WorkspaceInfoDataset(string id, string name, string configuredBy, DateTimeOffset? createdDate, string contentProviderType, string description, IList<DependentDataflow> upstreamDataflows, IList<Table> tables, string schemaRetrievalError, bool? schemaMayNotBeUpToDate, IList<Expression> expressions, IList<Role> roles, EndorsementDetails endorsementDetails, SensitivityLabel sensitivityLabel, string targetStorageMode, IList<DatasourceUsage> datasourceUsages, IList<DatasourceUsage> misconfiguredDatasourceUsages, IList<DependentDatamart> upstreamDatamarts, IList<DependentDataset> upstreamDatasets, IList<DatasetUser> users) : base(id, name, configuredBy, createdDate, contentProviderType, description, upstreamDataflows)
+        /// <param name="tags"> The unique identifiers for the tags applied on an item. </param>
+        internal WorkspaceInfoDataset(string id, string name, string configuredBy, DateTimeOffset? createdDate, string contentProviderType, string description, IList<DependentDataflow> upstreamDataflows, IList<Table> tables, string schemaRetrievalError, bool? schemaMayNotBeUpToDate, IList<Expression> expressions, IList<Role> roles, EndorsementDetails endorsementDetails, SensitivityLabel sensitivityLabel, string targetStorageMode, IList<DatasourceUsage> datasourceUsages, IList<DatasourceUsage> misconfiguredDatasourceUsages, IList<DependentDatamart> upstreamDatamarts, IList<DependentDataset> upstreamDatasets, IList<DatasetUser> users, IList<Guid> tags) : base(id, name, configuredBy, createdDate, contentProviderType, description, upstreamDataflows)
         {
             Tables = tables;
             SchemaRetrievalError = schemaRetrievalError;
@@ -66,6 +68,7 @@ namespace Microsoft.PowerBI.Api.Models
             UpstreamDatamarts = upstreamDatamarts;
             UpstreamDatasets = upstreamDatasets;
             Users = users;
+            Tags = tags;
         }
 
         /// <summary> The dataset tables. </summary>
@@ -94,5 +97,7 @@ namespace Microsoft.PowerBI.Api.Models
         public IList<DependentDataset> UpstreamDatasets { get; }
         /// <summary> (Empty value) The dataset user access details. This property will be removed from the payload response in an upcoming release. You can retrieve user information on a Power BI item (such as a report or a dashboard) by using the [Get Dataset Users as Admin](/rest/api/power-bi/admin/datasets-get-dataset-users-as-admin) API, or the [PostWorkspaceInfo](/rest/api/power-bi/admin/workspace-info-post-workspace-info) API with the `getArtifactUsers` parameter. </summary>
         public IList<DatasetUser> Users { get; }
+        /// <summary> The unique identifiers for the tags applied on an item. </summary>
+        public IList<Guid> Tags { get; }
     }
 }

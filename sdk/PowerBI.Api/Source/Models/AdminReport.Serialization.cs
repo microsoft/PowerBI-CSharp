@@ -102,13 +102,18 @@ namespace Microsoft.PowerBI.Api.Models
             }
             if (Optional.IsDefined(OriginalReportId))
             {
-                writer.WritePropertyName("originalReportId"u8);
+                writer.WritePropertyName("originalReportObjectId"u8);
                 writer.WriteStringValue(OriginalReportId.Value);
             }
             if (Optional.IsDefined(IsOwnedByMe))
             {
                 writer.WritePropertyName("isOwnedByMe"u8);
                 writer.WriteBooleanValue(IsOwnedByMe.Value);
+            }
+            if (Optional.IsDefined(Format))
+            {
+                writer.WritePropertyName("format"u8);
+                writer.WriteStringValue(Format);
             }
             writer.WriteEndObject();
         }
@@ -133,9 +138,10 @@ namespace Microsoft.PowerBI.Api.Models
             string datasetId = default;
             string appId = default;
             string description = default;
-            ReportBasePropertiesReportType? reportType = default;
-            Guid? originalReportId = default;
+            AdminReportBasePropertiesReportType? reportType = default;
+            Guid? originalReportObjectId = default;
             bool? isOwnedByMe = default;
+            string format = default;
             foreach (var property in element.EnumerateObject())
             {
                 if (property.NameEquals("webUrl"u8))
@@ -244,16 +250,16 @@ namespace Microsoft.PowerBI.Api.Models
                     {
                         continue;
                     }
-                    reportType = new ReportBasePropertiesReportType(property.Value.GetString());
+                    reportType = new AdminReportBasePropertiesReportType(property.Value.GetString());
                     continue;
                 }
-                if (property.NameEquals("originalReportId"u8))
+                if (property.NameEquals("originalReportObjectId"u8))
                 {
                     if (property.Value.ValueKind == JsonValueKind.Null)
                     {
                         continue;
                     }
-                    originalReportId = property.Value.GetGuid();
+                    originalReportObjectId = property.Value.GetGuid();
                     continue;
                 }
                 if (property.NameEquals("isOwnedByMe"u8))
@@ -265,6 +271,11 @@ namespace Microsoft.PowerBI.Api.Models
                     isOwnedByMe = property.Value.GetBoolean();
                     continue;
                 }
+                if (property.NameEquals("format"u8))
+                {
+                    format = property.Value.GetString();
+                    continue;
+                }
             }
             return new AdminReport(
                 id,
@@ -273,8 +284,9 @@ namespace Microsoft.PowerBI.Api.Models
                 appId,
                 description,
                 reportType,
-                originalReportId,
+                originalReportObjectId,
                 isOwnedByMe,
+                format,
                 webUrl,
                 embedUrl,
                 createdBy,

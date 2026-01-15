@@ -30,7 +30,8 @@ namespace Microsoft.PowerBI.Api.Models
         /// <param name="datasets"> The datasets associated with this import. </param>
         /// <param name="createdDateTime"> Import creation date and time. </param>
         /// <param name="updatedDateTime"> Import last update date and time. </param>
-        internal Import(Guid id, string name, ImportState? importState, IReadOnlyList<Report> reports, IReadOnlyList<Dataset> datasets, DateTimeOffset? createdDateTime, DateTimeOffset? updatedDateTime)
+        /// <param name="error"> The error details when the import has failed. </param>
+        internal Import(Guid id, string name, ImportState? importState, IReadOnlyList<Report> reports, IReadOnlyList<Dataset> datasets, DateTimeOffset? createdDateTime, DateTimeOffset? updatedDateTime, ImportError error)
         {
             Id = id;
             Name = name;
@@ -39,6 +40,7 @@ namespace Microsoft.PowerBI.Api.Models
             Datasets = datasets;
             CreatedDateTime = createdDateTime;
             UpdatedDateTime = updatedDateTime;
+            Error = error;
         }
 
         /// <summary> The import ID. </summary>
@@ -55,5 +57,7 @@ namespace Microsoft.PowerBI.Api.Models
         public DateTimeOffset? CreatedDateTime { get; }
         /// <summary> Import last update date and time. </summary>
         public DateTimeOffset? UpdatedDateTime { get; }
+        /// <summary> The error details when the import has failed. </summary>
+        public ImportError Error { get; }
     }
 }

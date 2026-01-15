@@ -27,6 +27,7 @@ namespace Microsoft.PowerBI.Api.Models
             IReadOnlyList<Dataset> datasets = default;
             DateTimeOffset? createdDateTime = default;
             DateTimeOffset? updatedDateTime = default;
+            ImportError error = default;
             foreach (var property in element.EnumerateObject())
             {
                 if (property.NameEquals("id"u8))
@@ -94,6 +95,15 @@ namespace Microsoft.PowerBI.Api.Models
                     updatedDateTime = property.Value.GetDateTimeOffset("O");
                     continue;
                 }
+                if (property.NameEquals("error"u8))
+                {
+                    if (property.Value.ValueKind == JsonValueKind.Null)
+                    {
+                        continue;
+                    }
+                    error = ImportError.DeserializeImportError(property.Value);
+                    continue;
+                }
             }
             return new Import(
                 id,
@@ -102,7 +112,8 @@ namespace Microsoft.PowerBI.Api.Models
                 reports ?? new ChangeTrackingList<Report>(),
                 datasets ?? new ChangeTrackingList<Dataset>(),
                 createdDateTime,
-                updatedDateTime);
+                updatedDateTime,
+                error);
         }
 
         /// <summary> Deserializes the model from a raw response. </summary>

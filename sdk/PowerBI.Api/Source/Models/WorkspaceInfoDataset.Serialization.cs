@@ -123,6 +123,16 @@ namespace Microsoft.PowerBI.Api.Models
                 }
                 writer.WriteEndArray();
             }
+            if (Optional.IsCollectionDefined(Tags))
+            {
+                writer.WritePropertyName("tags"u8);
+                writer.WriteStartArray();
+                foreach (var item in Tags)
+                {
+                    writer.WriteStringValue(item);
+                }
+                writer.WriteEndArray();
+            }
             writer.WritePropertyName("id"u8);
             writer.WriteStringValue(Id);
             if (Optional.IsDefined(Name))
@@ -182,6 +192,7 @@ namespace Microsoft.PowerBI.Api.Models
             IList<DependentDatamart> upstreamDatamarts = default;
             IList<DependentDataset> upstreamDatasets = default;
             IList<DatasetUser> users = default;
+            IList<Guid> tags = default;
             string id = default;
             string name = default;
             string configuredBy = default;
@@ -340,6 +351,20 @@ namespace Microsoft.PowerBI.Api.Models
                     users = array;
                     continue;
                 }
+                if (property.NameEquals("tags"u8))
+                {
+                    if (property.Value.ValueKind == JsonValueKind.Null)
+                    {
+                        continue;
+                    }
+                    List<Guid> array = new List<Guid>();
+                    foreach (var item in property.Value.EnumerateArray())
+                    {
+                        array.Add(item.GetGuid());
+                    }
+                    tags = array;
+                    continue;
+                }
                 if (property.NameEquals("id"u8))
                 {
                     id = property.Value.GetString();
@@ -409,7 +434,8 @@ namespace Microsoft.PowerBI.Api.Models
                 misconfiguredDatasourceUsages ?? new ChangeTrackingList<DatasourceUsage>(),
                 upstreamDatamarts ?? new ChangeTrackingList<DependentDatamart>(),
                 upstreamDatasets ?? new ChangeTrackingList<DependentDataset>(),
-                users ?? new ChangeTrackingList<DatasetUser>());
+                users ?? new ChangeTrackingList<DatasetUser>(),
+                tags ?? new ChangeTrackingList<Guid>());
         }
 
         /// <summary> Deserializes the model from a raw response. </summary>

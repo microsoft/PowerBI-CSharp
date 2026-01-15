@@ -794,7 +794,7 @@ namespace Microsoft.PowerBI.Api
             }
         }
 
-        /// <summary> Returns execution details of an [enhanced refresh operation](/power-bi/connect-data/asynchronous-refresh) for the specified dataset from **My workspace**. </summary>
+        /// <summary> Returns execution details of a refresh operation for the specified dataset from **My workspace**. </summary>
         /// <param name="datasetId"> The dataset ID. </param>
         /// <param name="refreshId"> The refresh ID. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
@@ -819,7 +819,7 @@ namespace Microsoft.PowerBI.Api
             }
         }
 
-        /// <summary> Returns execution details of an [enhanced refresh operation](/power-bi/connect-data/asynchronous-refresh) for the specified dataset from **My workspace**. </summary>
+        /// <summary> Returns execution details of a refresh operation for the specified dataset from **My workspace**. </summary>
         /// <param name="datasetId"> The dataset ID. </param>
         /// <param name="refreshId"> The refresh ID. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
@@ -2191,6 +2191,9 @@ namespace Microsoft.PowerBI.Api
         /// ## Required Scope
         ///
         /// Dataset.ReadWrite.All or Dataset.Read.All
+        /// ## Limitations
+        ///
+        ///  Caller must have Write permissions on the dataset to get full content. Caller with Read Permission only get limited content in response.
         /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         public virtual async Task<Response<Datasets>> GetDatasetsInGroupAsync(Guid groupId, CancellationToken cancellationToken = default)
@@ -2219,6 +2222,9 @@ namespace Microsoft.PowerBI.Api
         /// ## Required Scope
         ///
         /// Dataset.ReadWrite.All or Dataset.Read.All
+        /// ## Limitations
+        ///
+        ///  Caller must have Write permissions on the dataset to get full content. Caller with Read Permission only get limited content in response.
         /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         public virtual Response<Datasets> GetDatasetsInGroup(Guid groupId, CancellationToken cancellationToken = default)
@@ -2364,6 +2370,9 @@ namespace Microsoft.PowerBI.Api
         /// ## Required Scope
         ///
         /// Dataset.ReadWrite.All or Dataset.Read.All
+        /// ## Limitations
+        ///
+        ///  Caller must have Write permissions on the dataset to get full content. Caller with Read Permission only get limited content in response.
         /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         public virtual async Task<Response<Dataset>> GetDatasetInGroupAsync(Guid groupId, string datasetId, CancellationToken cancellationToken = default)
@@ -2393,6 +2402,9 @@ namespace Microsoft.PowerBI.Api
         /// ## Required Scope
         ///
         /// Dataset.ReadWrite.All or Dataset.Read.All
+        /// ## Limitations
+        ///
+        ///  Caller must have Write permissions on the dataset to get full content. Caller with Read Permission only get limited content in response.
         /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         public virtual Response<Dataset> GetDatasetInGroup(Guid groupId, string datasetId, CancellationToken cancellationToken = default)
@@ -2785,6 +2797,7 @@ namespace Microsoft.PowerBI.Api
         /// ## Limitations
         ///
         /// OneDrive refresh history isn't returned.
+        ///  Caller must have Write permissions on the dataset.
         /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         public virtual async Task<Response<Refreshes>> GetRefreshHistoryInGroupAsync(Guid groupId, string datasetId, int? top = null, CancellationToken cancellationToken = default)
@@ -2819,6 +2832,7 @@ namespace Microsoft.PowerBI.Api
         /// ## Limitations
         ///
         /// OneDrive refresh history isn't returned.
+        ///  Caller must have Write permissions on the dataset.
         /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         public virtual Response<Refreshes> GetRefreshHistoryInGroup(Guid groupId, string datasetId, int? top = null, CancellationToken cancellationToken = default)
@@ -2912,7 +2926,7 @@ namespace Microsoft.PowerBI.Api
             }
         }
 
-        /// <summary> Returns execution details of an [enhanced refresh operation](/power-bi/connect-data/asynchronous-refresh) for the specified dataset from the specified workspace. </summary>
+        /// <summary> Returns execution details of a refresh operation for the specified dataset from the specified workspace. </summary>
         /// <param name="groupId"> The workspace ID. </param>
         /// <param name="datasetId"> The dataset ID. </param>
         /// <param name="refreshId"> The refresh ID. </param>
@@ -2942,7 +2956,7 @@ namespace Microsoft.PowerBI.Api
             }
         }
 
-        /// <summary> Returns execution details of an [enhanced refresh operation](/power-bi/connect-data/asynchronous-refresh) for the specified dataset from the specified workspace. </summary>
+        /// <summary> Returns execution details of a refresh operation for the specified dataset from the specified workspace. </summary>
         /// <param name="groupId"> The workspace ID. </param>
         /// <param name="datasetId"> The dataset ID. </param>
         /// <param name="refreshId"> The refresh ID. </param>
@@ -3476,6 +3490,9 @@ namespace Microsoft.PowerBI.Api
         /// ## Required Scope
         ///
         /// Dataset.ReadWrite.All or Dataset.Read.All
+        /// ## Limitations
+        ///
+        ///  Caller must have Write permissions on the dataset.
         /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         public virtual async Task<Response<Datasources>> GetDatasourcesInGroupAsync(Guid groupId, string datasetId, CancellationToken cancellationToken = default)
@@ -3505,6 +3522,9 @@ namespace Microsoft.PowerBI.Api
         /// ## Required Scope
         ///
         /// Dataset.ReadWrite.All or Dataset.Read.All
+        /// ## Limitations
+        ///
+        ///  Caller must have Write permissions on the dataset.
         /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         public virtual Response<Datasources> GetDatasourcesInGroup(Guid groupId, string datasetId, CancellationToken cancellationToken = default)
@@ -4072,6 +4092,9 @@ namespace Microsoft.PowerBI.Api
         /// ## Required Scope
         ///
         /// Dataset.ReadWrite.All or Dataset.Read.All
+        /// ## Limitations
+        ///
+        ///  Caller must have Write permissions on the dataset.
         /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         public virtual async Task<Response<DatasetQueryScaleOutSyncStatus>> GetQueryScaleOutSyncStatusInGroupAsync(Guid groupId, string datasetId, CancellationToken cancellationToken = default)
@@ -4101,6 +4124,9 @@ namespace Microsoft.PowerBI.Api
         /// ## Required Scope
         ///
         /// Dataset.ReadWrite.All or Dataset.Read.All
+        /// ## Limitations
+        ///
+        ///  Caller must have Write permissions on the dataset.
         /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         public virtual Response<DatasetQueryScaleOutSyncStatus> GetQueryScaleOutSyncStatusInGroup(Guid groupId, string datasetId, CancellationToken cancellationToken = default)
