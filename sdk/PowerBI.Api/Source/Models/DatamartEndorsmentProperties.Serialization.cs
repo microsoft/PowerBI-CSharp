@@ -7,11 +7,23 @@
 
 using System.Text.Json;
 using Azure;
+using Azure.Core;
 
 namespace Microsoft.PowerBI.Api.Models
 {
-    public partial class DatamartEndorsmentProperties
+    public partial class DatamartEndorsmentProperties : IUtf8JsonSerializable
     {
+        void IUtf8JsonSerializable.Write(Utf8JsonWriter writer)
+        {
+            writer.WriteStartObject();
+            if (Optional.IsDefined(EndorsementDetails))
+            {
+                writer.WritePropertyName("endorsementDetails"u8);
+                writer.WriteObjectValue(EndorsementDetails);
+            }
+            writer.WriteEndObject();
+        }
+
         internal static DatamartEndorsmentProperties DeserializeDatamartEndorsmentProperties(JsonElement element)
         {
             if (element.ValueKind == JsonValueKind.Null)
@@ -40,6 +52,14 @@ namespace Microsoft.PowerBI.Api.Models
         {
             using var document = JsonDocument.Parse(response.Content);
             return DeserializeDatamartEndorsmentProperties(document.RootElement);
+        }
+
+        /// <summary> Convert into a <see cref="RequestContent"/>. </summary>
+        internal virtual RequestContent ToRequestContent()
+        {
+            var content = new Utf8JsonRequestContent();
+            content.JsonWriter.WriteObjectValue(this);
+            return content;
         }
     }
 }

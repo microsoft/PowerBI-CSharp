@@ -13,19 +13,19 @@ namespace Microsoft.PowerBI.Api.Models
     public partial class DatamartUserProperties
     {
         /// <summary> Initializes a new instance of <see cref="DatamartUserProperties"/>. </summary>
-        internal DatamartUserProperties()
+        public DatamartUserProperties()
         {
             Users = new ChangeTrackingList<DatamartUser>();
         }
 
         /// <summary> Initializes a new instance of <see cref="DatamartUserProperties"/>. </summary>
         /// <param name="users"> The user access details for a Power BI datamart. </param>
-        internal DatamartUserProperties(IReadOnlyList<DatamartUser> users)
+        internal DatamartUserProperties(IList<DatamartUser> users)
         {
             Users = users;
         }
 
         /// <summary> The user access details for a Power BI datamart. </summary>
-        public IReadOnlyList<DatamartUser> Users { get; }
+        public IList<DatamartUser> Users { get; }
     }
 }

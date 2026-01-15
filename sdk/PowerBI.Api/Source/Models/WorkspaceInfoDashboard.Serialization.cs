@@ -48,6 +48,16 @@ namespace Microsoft.PowerBI.Api.Models
                 }
                 writer.WriteEndArray();
             }
+            if (Optional.IsCollectionDefined(Tags))
+            {
+                writer.WritePropertyName("tags"u8);
+                writer.WriteStartArray();
+                foreach (var item in Tags)
+                {
+                    writer.WriteStringValue(item);
+                }
+                writer.WriteEndArray();
+            }
             writer.WritePropertyName("id"u8);
             writer.WriteStringValue(Id);
             if (Optional.IsDefined(DisplayName))
@@ -78,6 +88,7 @@ namespace Microsoft.PowerBI.Api.Models
             SensitivityLabel sensitivityLabel = default;
             IList<WorkspaceInfoTile> tiles = default;
             IList<DashboardUser> users = default;
+            IList<Guid> tags = default;
             Guid id = default;
             string displayName = default;
             bool? isReadOnly = default;
@@ -126,6 +137,20 @@ namespace Microsoft.PowerBI.Api.Models
                     users = array;
                     continue;
                 }
+                if (property.NameEquals("tags"u8))
+                {
+                    if (property.Value.ValueKind == JsonValueKind.Null)
+                    {
+                        continue;
+                    }
+                    List<Guid> array = new List<Guid>();
+                    foreach (var item in property.Value.EnumerateArray())
+                    {
+                        array.Add(item.GetGuid());
+                    }
+                    tags = array;
+                    continue;
+                }
                 if (property.NameEquals("id"u8))
                 {
                     id = property.Value.GetGuid();
@@ -159,7 +184,8 @@ namespace Microsoft.PowerBI.Api.Models
                 dataClassification,
                 sensitivityLabel,
                 tiles ?? new ChangeTrackingList<WorkspaceInfoTile>(),
-                users ?? new ChangeTrackingList<DashboardUser>());
+                users ?? new ChangeTrackingList<DashboardUser>(),
+                tags ?? new ChangeTrackingList<Guid>());
         }
 
         /// <summary> Deserializes the model from a raw response. </summary>

@@ -31,6 +31,8 @@ namespace Microsoft.PowerBI.Api.Models
             IReadOnlyList<DatasetRefreshObjects> objects = default;
             IReadOnlyList<EngineMessage> messages = default;
             IReadOnlyList<RefreshAttempt> refreshAttempts = default;
+            InitiatedBy? initiatedBy = default;
+            string serviceExceptionJson = default;
             foreach (var property in element.EnumerateObject())
             {
                 if (property.NameEquals("startTime"u8))
@@ -147,6 +149,20 @@ namespace Microsoft.PowerBI.Api.Models
                     refreshAttempts = array;
                     continue;
                 }
+                if (property.NameEquals("initiatedBy"u8))
+                {
+                    if (property.Value.ValueKind == JsonValueKind.Null)
+                    {
+                        continue;
+                    }
+                    initiatedBy = property.Value.GetString().ToInitiatedBy();
+                    continue;
+                }
+                if (property.NameEquals("serviceExceptionJson"u8))
+                {
+                    serviceExceptionJson = property.Value.GetString();
+                    continue;
+                }
             }
             return new DatasetRefreshDetail(
                 startTime,
@@ -159,7 +175,9 @@ namespace Microsoft.PowerBI.Api.Models
                 numberOfAttempts,
                 objects ?? new ChangeTrackingList<DatasetRefreshObjects>(),
                 messages ?? new ChangeTrackingList<EngineMessage>(),
-                refreshAttempts ?? new ChangeTrackingList<RefreshAttempt>());
+                refreshAttempts ?? new ChangeTrackingList<RefreshAttempt>(),
+                initiatedBy,
+                serviceExceptionJson);
         }
 
         /// <summary> Deserializes the model from a raw response. </summary>

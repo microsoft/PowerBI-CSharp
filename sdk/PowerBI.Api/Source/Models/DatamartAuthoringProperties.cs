@@ -13,7 +13,7 @@ namespace Microsoft.PowerBI.Api.Models
     public partial class DatamartAuthoringProperties
     {
         /// <summary> Initializes a new instance of <see cref="DatamartAuthoringProperties"/>. </summary>
-        internal DatamartAuthoringProperties()
+        public DatamartAuthoringProperties()
         {
         }
 
@@ -29,10 +29,10 @@ namespace Microsoft.PowerBI.Api.Models
         }
 
         /// <summary> The last user that modified the datamart. </summary>
-        public string ModifiedBy { get; }
+        public string ModifiedBy { get; set; }
         /// <summary> The date and time that the datamart was last modified. </summary>
-        public DateTimeOffset? ModifiedDateTime { get; }
+        public DateTimeOffset? ModifiedDateTime { get; set; }
         /// <summary> The name of the datamart owner. </summary>
-        public string ConfiguredBy { get; }
+        public string ConfiguredBy { get; set; }
     }
 }

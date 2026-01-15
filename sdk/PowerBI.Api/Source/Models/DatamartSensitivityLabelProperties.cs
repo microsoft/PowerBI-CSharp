@@ -11,7 +11,7 @@ namespace Microsoft.PowerBI.Api.Models
     public partial class DatamartSensitivityLabelProperties
     {
         /// <summary> Initializes a new instance of <see cref="DatamartSensitivityLabelProperties"/>. </summary>
-        internal DatamartSensitivityLabelProperties()
+        public DatamartSensitivityLabelProperties()
         {
         }
 
@@ -23,6 +23,6 @@ namespace Microsoft.PowerBI.Api.Models
         }
 
         /// <summary> The datamart sensitivity label. </summary>
-        public SensitivityLabel SensitivityLabel { get; }
+        public SensitivityLabel SensitivityLabel { get; set; }
     }
 }
