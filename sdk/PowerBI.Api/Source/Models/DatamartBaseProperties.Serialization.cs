@@ -8,11 +8,50 @@
 using System;
 using System.Text.Json;
 using Azure;
+using Azure.Core;
 
 namespace Microsoft.PowerBI.Api.Models
 {
-    public partial class DatamartBaseProperties
+    public partial class DatamartBaseProperties : IUtf8JsonSerializable
     {
+        void IUtf8JsonSerializable.Write(Utf8JsonWriter writer)
+        {
+            writer.WriteStartObject();
+            writer.WritePropertyName("id"u8);
+            writer.WriteStringValue(Id);
+            if (Optional.IsDefined(Name))
+            {
+                writer.WritePropertyName("name"u8);
+                writer.WriteStringValue(Name);
+            }
+            if (Optional.IsDefined(Description))
+            {
+                writer.WritePropertyName("description"u8);
+                writer.WriteStringValue(Description);
+            }
+            if (Optional.IsDefined(Type))
+            {
+                writer.WritePropertyName("type"u8);
+                writer.WriteStringValue(Type.Value.ToSerialString());
+            }
+            if (Optional.IsDefined(Status))
+            {
+                writer.WritePropertyName("status"u8);
+                writer.WriteStringValue(Status.Value.ToSerialString());
+            }
+            if (Optional.IsDefined(State))
+            {
+                writer.WritePropertyName("state"u8);
+                writer.WriteStringValue(State.Value.ToSerialString());
+            }
+            if (Optional.IsDefined(SuspendedBatchId))
+            {
+                writer.WritePropertyName("suspendedBatchId"u8);
+                writer.WriteStringValue(SuspendedBatchId);
+            }
+            writer.WriteEndObject();
+        }
+
         internal static DatamartBaseProperties DeserializeDatamartBaseProperties(JsonElement element)
         {
             if (element.ValueKind == JsonValueKind.Null)
@@ -92,6 +131,14 @@ namespace Microsoft.PowerBI.Api.Models
         {
             using var document = JsonDocument.Parse(response.Content);
             return DeserializeDatamartBaseProperties(document.RootElement);
+        }
+
+        /// <summary> Convert into a <see cref="RequestContent"/>. </summary>
+        internal virtual RequestContent ToRequestContent()
+        {
+            var content = new Utf8JsonRequestContent();
+            content.JsonWriter.WriteObjectValue(this);
+            return content;
         }
     }
 }

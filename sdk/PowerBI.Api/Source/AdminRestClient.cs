@@ -895,7 +895,7 @@ namespace Microsoft.PowerBI.Api
         /// <param name="filter"> Filters the results based on a boolean condition, using 'Activity', 'UserId', or both properties. Supports only 'eq' and 'and' operators. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
         /// <remarks>
-        /// Provide either a continuation token or both a start and end date time. `StartDateTime` and `EndDateTime` must be in the same UTC day and should be wrapped in single quotes.
+        /// Provide either a continuation token or both a start and end date time. `StartDateTime` and `EndDateTime` must be in the same UTC day, within the last 28 days, and should be wrapped in single quotes.
         ///
         /// ## Permissions
         ///
@@ -941,7 +941,7 @@ namespace Microsoft.PowerBI.Api
         /// <param name="filter"> Filters the results based on a boolean condition, using 'Activity', 'UserId', or both properties. Supports only 'eq' and 'and' operators. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
         /// <remarks>
-        /// Provide either a continuation token or both a start and end date time. `StartDateTime` and `EndDateTime` must be in the same UTC day and should be wrapped in single quotes.
+        /// Provide either a continuation token or both a start and end date time. `StartDateTime` and `EndDateTime` must be in the same UTC day, within the last 28 days, and should be wrapped in single quotes.
         ///
         /// ## Permissions
         ///

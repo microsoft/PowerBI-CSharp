@@ -13,7 +13,7 @@ namespace Microsoft.PowerBI.Api.Models
     public partial class DatamartUpstreamProperties
     {
         /// <summary> Initializes a new instance of <see cref="DatamartUpstreamProperties"/>. </summary>
-        internal DatamartUpstreamProperties()
+        public DatamartUpstreamProperties()
         {
             UpstreamDataflows = new ChangeTrackingList<DependentDataflow>();
             UpstreamDatamarts = new ChangeTrackingList<DependentDatamart>();
@@ -22,15 +22,15 @@ namespace Microsoft.PowerBI.Api.Models
         /// <summary> Initializes a new instance of <see cref="DatamartUpstreamProperties"/>. </summary>
         /// <param name="upstreamDataflows"> The list of all the dataflows this item depends on. </param>
         /// <param name="upstreamDatamarts"> The list of all the datamarts this item depends on. </param>
-        internal DatamartUpstreamProperties(IReadOnlyList<DependentDataflow> upstreamDataflows, IReadOnlyList<DependentDatamart> upstreamDatamarts)
+        internal DatamartUpstreamProperties(IList<DependentDataflow> upstreamDataflows, IList<DependentDatamart> upstreamDatamarts)
         {
             UpstreamDataflows = upstreamDataflows;
             UpstreamDatamarts = upstreamDatamarts;
         }
 
         /// <summary> The list of all the dataflows this item depends on. </summary>
-        public IReadOnlyList<DependentDataflow> UpstreamDataflows { get; }
+        public IList<DependentDataflow> UpstreamDataflows { get; }
         /// <summary> The list of all the datamarts this item depends on. </summary>
-        public IReadOnlyList<DependentDatamart> UpstreamDatamarts { get; }
+        public IList<DependentDatamart> UpstreamDatamarts { get; }
     }
 }

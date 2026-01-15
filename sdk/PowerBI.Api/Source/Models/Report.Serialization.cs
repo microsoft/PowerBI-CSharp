@@ -85,6 +85,11 @@ namespace Microsoft.PowerBI.Api.Models
                 writer.WritePropertyName("isOwnedByMe"u8);
                 writer.WriteBooleanValue(IsOwnedByMe.Value);
             }
+            if (Optional.IsDefined(Format))
+            {
+                writer.WritePropertyName("format"u8);
+                writer.WriteStringValue(Format);
+            }
             writer.WriteEndObject();
         }
 
@@ -106,6 +111,7 @@ namespace Microsoft.PowerBI.Api.Models
             ReportBasePropertiesReportType? reportType = default;
             Guid? originalReportId = default;
             bool? isOwnedByMe = default;
+            string format = default;
             foreach (var property in element.EnumerateObject())
             {
                 if (property.NameEquals("webUrl"u8))
@@ -198,6 +204,11 @@ namespace Microsoft.PowerBI.Api.Models
                     isOwnedByMe = property.Value.GetBoolean();
                     continue;
                 }
+                if (property.NameEquals("format"u8))
+                {
+                    format = property.Value.GetString();
+                    continue;
+                }
             }
             return new Report(
                 id,
@@ -208,6 +219,7 @@ namespace Microsoft.PowerBI.Api.Models
                 reportType,
                 originalReportId,
                 isOwnedByMe,
+                format,
                 webUrl,
                 embedUrl,
                 users ?? new ChangeTrackingList<ReportUser>(),

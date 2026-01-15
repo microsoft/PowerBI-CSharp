@@ -14,7 +14,7 @@ namespace Microsoft.PowerBI.Api.Models
     {
         /// <summary> Initializes a new instance of <see cref="DatamartBaseProperties"/>. </summary>
         /// <param name="id"> The datamart ID. </param>
-        internal DatamartBaseProperties(Guid id)
+        public DatamartBaseProperties(Guid id)
         {
             Id = id;
         }
@@ -39,18 +39,18 @@ namespace Microsoft.PowerBI.Api.Models
         }
 
         /// <summary> The datamart ID. </summary>
-        public Guid Id { get; }
+        public Guid Id { get; set; }
         /// <summary> The datamart name. </summary>
-        public string Name { get; }
+        public string Name { get; set; }
         /// <summary> The datamart description. </summary>
-        public string Description { get; }
+        public string Description { get; set; }
         /// <summary> The datamart type. </summary>
-        public DatamartType? Type { get; }
+        public DatamartType? Type { get; set; }
         /// <summary> The datamart status. </summary>
-        public DatamartStatus? Status { get; }
+        public DatamartStatus? Status { get; set; }
         /// <summary> The datamart current state. </summary>
-        public DatamartState? State { get; }
+        public DatamartState? State { get; set; }
         /// <summary> datamart suspended batch id. </summary>
-        public string SuspendedBatchId { get; }
+        public string SuspendedBatchId { get; set; }
     }
 }

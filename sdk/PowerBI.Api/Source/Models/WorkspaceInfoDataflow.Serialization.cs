@@ -68,6 +68,16 @@ namespace Microsoft.PowerBI.Api.Models
                 writer.WritePropertyName("sensitivityLabel"u8);
                 writer.WriteObjectValue(SensitivityLabel);
             }
+            if (Optional.IsCollectionDefined(Tags))
+            {
+                writer.WritePropertyName("tags"u8);
+                writer.WriteStartArray();
+                foreach (var item in Tags)
+                {
+                    writer.WriteStringValue(item);
+                }
+                writer.WriteEndArray();
+            }
             writer.WritePropertyName("objectId"u8);
             writer.WriteStringValue(ObjectId);
             if (Optional.IsDefined(Name))
@@ -115,6 +125,7 @@ namespace Microsoft.PowerBI.Api.Models
             IList<DependentDatamart> upstreamDatamarts = default;
             EndorsementDetails endorsementDetails = default;
             SensitivityLabel sensitivityLabel = default;
+            IList<Guid> tags = default;
             Guid objectId = default;
             string name = default;
             string description = default;
@@ -197,6 +208,20 @@ namespace Microsoft.PowerBI.Api.Models
                     sensitivityLabel = SensitivityLabel.DeserializeSensitivityLabel(property.Value);
                     continue;
                 }
+                if (property.NameEquals("tags"u8))
+                {
+                    if (property.Value.ValueKind == JsonValueKind.Null)
+                    {
+                        continue;
+                    }
+                    List<Guid> array = new List<Guid>();
+                    foreach (var item in property.Value.EnumerateArray())
+                    {
+                        array.Add(item.GetGuid());
+                    }
+                    tags = array;
+                    continue;
+                }
                 if (property.NameEquals("objectId"u8))
                 {
                     objectId = property.Value.GetGuid();
@@ -249,7 +274,8 @@ namespace Microsoft.PowerBI.Api.Models
                 upstreamDataflows ?? new ChangeTrackingList<DependentDataflow>(),
                 upstreamDatamarts ?? new ChangeTrackingList<DependentDatamart>(),
                 endorsementDetails,
-                sensitivityLabel);
+                sensitivityLabel,
+                tags ?? new ChangeTrackingList<Guid>());
         }
 
         /// <summary> Deserializes the model from a raw response. </summary>

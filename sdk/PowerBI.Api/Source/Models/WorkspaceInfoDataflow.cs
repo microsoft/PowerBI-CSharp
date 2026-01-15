@@ -21,6 +21,7 @@ namespace Microsoft.PowerBI.Api.Models
             MisconfiguredDatasourceUsages = new ChangeTrackingList<DatasourceUsage>();
             UpstreamDataflows = new ChangeTrackingList<DependentDataflow>();
             UpstreamDatamarts = new ChangeTrackingList<DependentDatamart>();
+            Tags = new ChangeTrackingList<Guid>();
         }
 
         /// <summary> Initializes a new instance of <see cref="WorkspaceInfoDataflow"/>. </summary>
@@ -36,7 +37,8 @@ namespace Microsoft.PowerBI.Api.Models
         /// <param name="upstreamDatamarts"> The list of all the datamarts this item depends on. </param>
         /// <param name="endorsementDetails"> The endorsement details. </param>
         /// <param name="sensitivityLabel"> The sensitivity label. </param>
-        internal WorkspaceInfoDataflow(Guid objectId, string name, string description, string modelUrl, string configuredBy, IList<DataflowUser> users, IList<DatasourceUsage> datasourceUsages, IList<DatasourceUsage> misconfiguredDatasourceUsages, IList<DependentDataflow> upstreamDataflows, IList<DependentDatamart> upstreamDatamarts, EndorsementDetails endorsementDetails, SensitivityLabel sensitivityLabel) : base(objectId, name, description, modelUrl, configuredBy, users)
+        /// <param name="tags"> The unique identifiers for the tags applied on an item. </param>
+        internal WorkspaceInfoDataflow(Guid objectId, string name, string description, string modelUrl, string configuredBy, IList<DataflowUser> users, IList<DatasourceUsage> datasourceUsages, IList<DatasourceUsage> misconfiguredDatasourceUsages, IList<DependentDataflow> upstreamDataflows, IList<DependentDatamart> upstreamDatamarts, EndorsementDetails endorsementDetails, SensitivityLabel sensitivityLabel, IList<Guid> tags) : base(objectId, name, description, modelUrl, configuredBy, users)
         {
             DatasourceUsages = datasourceUsages;
             MisconfiguredDatasourceUsages = misconfiguredDatasourceUsages;
@@ -44,6 +46,7 @@ namespace Microsoft.PowerBI.Api.Models
             UpstreamDatamarts = upstreamDatamarts;
             EndorsementDetails = endorsementDetails;
             SensitivityLabel = sensitivityLabel;
+            Tags = tags;
         }
 
         /// <summary> The data source usages. </summary>
@@ -58,5 +61,7 @@ namespace Microsoft.PowerBI.Api.Models
         public EndorsementDetails EndorsementDetails { get; set; }
         /// <summary> The sensitivity label. </summary>
         public SensitivityLabel SensitivityLabel { get; set; }
+        /// <summary> The unique identifiers for the tags applied on an item. </summary>
+        public IList<Guid> Tags { get; }
     }
 }

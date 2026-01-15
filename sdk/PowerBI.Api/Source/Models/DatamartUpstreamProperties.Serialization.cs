@@ -8,19 +8,46 @@
 using System.Collections.Generic;
 using System.Text.Json;
 using Azure;
+using Azure.Core;
 
 namespace Microsoft.PowerBI.Api.Models
 {
-    public partial class DatamartUpstreamProperties
+    public partial class DatamartUpstreamProperties : IUtf8JsonSerializable
     {
+        void IUtf8JsonSerializable.Write(Utf8JsonWriter writer)
+        {
+            writer.WriteStartObject();
+            if (Optional.IsCollectionDefined(UpstreamDataflows))
+            {
+                writer.WritePropertyName("upstreamDataflows"u8);
+                writer.WriteStartArray();
+                foreach (var item in UpstreamDataflows)
+                {
+                    writer.WriteObjectValue(item);
+                }
+                writer.WriteEndArray();
+            }
+            if (Optional.IsCollectionDefined(UpstreamDatamarts))
+            {
+                writer.WritePropertyName("upstreamDatamarts"u8);
+                writer.WriteStartArray();
+                foreach (var item in UpstreamDatamarts)
+                {
+                    writer.WriteObjectValue(item);
+                }
+                writer.WriteEndArray();
+            }
+            writer.WriteEndObject();
+        }
+
         internal static DatamartUpstreamProperties DeserializeDatamartUpstreamProperties(JsonElement element)
         {
             if (element.ValueKind == JsonValueKind.Null)
             {
                 return null;
             }
-            IReadOnlyList<DependentDataflow> upstreamDataflows = default;
-            IReadOnlyList<DependentDatamart> upstreamDatamarts = default;
+            IList<DependentDataflow> upstreamDataflows = default;
+            IList<DependentDatamart> upstreamDatamarts = default;
             foreach (var property in element.EnumerateObject())
             {
                 if (property.NameEquals("upstreamDataflows"u8))
@@ -61,6 +88,14 @@ namespace Microsoft.PowerBI.Api.Models
         {
             using var document = JsonDocument.Parse(response.Content);
             return DeserializeDatamartUpstreamProperties(document.RootElement);
+        }
+
+        /// <summary> Convert into a <see cref="RequestContent"/>. </summary>
+        internal virtual RequestContent ToRequestContent()
+        {
+            var content = new Utf8JsonRequestContent();
+            content.JsonWriter.WriteObjectValue(this);
+            return content;
         }
     }
 }

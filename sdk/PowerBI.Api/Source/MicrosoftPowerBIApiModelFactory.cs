@@ -183,10 +183,19 @@ namespace Microsoft.PowerBI.Api.Models
         /// <param name="endTime"> The end date and time of the refresh attempt. The value is void if the refresh attempt is in progress. </param>
         /// <param name="serviceExceptionJson"> Failure error code in JSON format. Void if there's no error. </param>
         /// <param name="type"> The type of refresh attempt. </param>
+        /// <param name="executionMetrics"> The Analysis Services engine execution metrics captured during the refresh attempt. </param>
         /// <returns> A new <see cref="Models.RefreshAttempt"/> instance for mocking. </returns>
-        public static RefreshAttempt RefreshAttempt(int? attemptId = null, DateTimeOffset? startTime = null, DateTimeOffset? endTime = null, string serviceExceptionJson = null, RefreshAttemptType? type = null)
+        public static RefreshAttempt RefreshAttempt(int? attemptId = null, DateTimeOffset? startTime = null, DateTimeOffset? endTime = null, string serviceExceptionJson = null, RefreshAttemptType? type = null, IEnumerable<IDictionary<string, object>> executionMetrics = null)
         {
-            return new RefreshAttempt(attemptId, startTime, endTime, serviceExceptionJson, type);
+            executionMetrics ??= new List<IDictionary<string, object>>();
+
+            return new RefreshAttempt(
+                attemptId,
+                startTime,
+                endTime,
+                serviceExceptionJson,
+                type,
+                executionMetrics?.ToList());
         }
 
         /// <summary> Initializes a new instance of <see cref="Models.DatasetRefreshDetail"/>. </summary>
@@ -201,8 +210,10 @@ namespace Microsoft.PowerBI.Api.Models
         /// <param name="objects"> An array of objects included in the refresh request. </param>
         /// <param name="messages"> An array of engine error or warning messages for the refresh request. </param>
         /// <param name="refreshAttempts"> The refresh attempt list. </param>
+        /// <param name="initiatedBy"> The type of refresh request that initiated this refresh operation. </param>
+        /// <param name="serviceExceptionJson"> The service exception details in JSON format, if any. </param>
         /// <returns> A new <see cref="Models.DatasetRefreshDetail"/> instance for mocking. </returns>
-        public static DatasetRefreshDetail DatasetRefreshDetail(DateTimeOffset? startTime = null, DateTimeOffset? endTime = null, DatasetRefreshDetailType? type = null, DatasetRefreshDetailCommitMode? commitMode = null, DatasetRefreshDetailStatus? status = null, DatasetRefreshDetailExtendedStatus? extendedStatus = null, DatasetRefreshDetailType? currentRefreshType = null, int? numberOfAttempts = null, IEnumerable<DatasetRefreshObjects> objects = null, IEnumerable<EngineMessage> messages = null, IEnumerable<RefreshAttempt> refreshAttempts = null)
+        public static DatasetRefreshDetail DatasetRefreshDetail(DateTimeOffset? startTime = null, DateTimeOffset? endTime = null, DatasetRefreshDetailType? type = null, DatasetRefreshDetailCommitMode? commitMode = null, DatasetRefreshDetailStatus? status = null, DatasetRefreshDetailExtendedStatus? extendedStatus = null, DatasetRefreshDetailType? currentRefreshType = null, int? numberOfAttempts = null, IEnumerable<DatasetRefreshObjects> objects = null, IEnumerable<EngineMessage> messages = null, IEnumerable<RefreshAttempt> refreshAttempts = null, InitiatedBy? initiatedBy = null, string serviceExceptionJson = null)
         {
             objects ??= new List<DatasetRefreshObjects>();
             messages ??= new List<EngineMessage>();
@@ -219,7 +230,9 @@ namespace Microsoft.PowerBI.Api.Models
                 numberOfAttempts,
                 objects?.ToList(),
                 messages?.ToList(),
-                refreshAttempts?.ToList());
+                refreshAttempts?.ToList(),
+                initiatedBy,
+                serviceExceptionJson);
         }
 
         /// <summary> Initializes a new instance of <see cref="Models.EngineMessage"/>. </summary>
@@ -426,8 +439,9 @@ namespace Microsoft.PowerBI.Api.Models
         /// <param name="datasets"> The datasets associated with this import. </param>
         /// <param name="createdDateTime"> Import creation date and time. </param>
         /// <param name="updatedDateTime"> Import last update date and time. </param>
+        /// <param name="error"> The error details when the import has failed. </param>
         /// <returns> A new <see cref="Models.Import"/> instance for mocking. </returns>
-        public static Import Import(Guid id = default, string name = null, ImportState? importState = null, IEnumerable<Report> reports = null, IEnumerable<Dataset> datasets = null, DateTimeOffset? createdDateTime = null, DateTimeOffset? updatedDateTime = null)
+        public static Import Import(Guid id = default, string name = null, ImportState? importState = null, IEnumerable<Report> reports = null, IEnumerable<Dataset> datasets = null, DateTimeOffset? createdDateTime = null, DateTimeOffset? updatedDateTime = null, ImportError error = null)
         {
             reports ??= new List<Report>();
             datasets ??= new List<Dataset>();
@@ -439,7 +453,29 @@ namespace Microsoft.PowerBI.Api.Models
                 reports?.ToList(),
                 datasets?.ToList(),
                 createdDateTime,
-                updatedDateTime);
+                updatedDateTime,
+                error);
+        }
+
+        /// <summary> Initializes a new instance of <see cref="Models.ImportError"/>. </summary>
+        /// <param name="code"> The error code. </param>
+        /// <param name="details"> An array of error details. </param>
+        /// <returns> A new <see cref="Models.ImportError"/> instance for mocking. </returns>
+        public static ImportError ImportError(string code = null, IEnumerable<PowerBIApiErrorResponseDetail> details = null)
+        {
+            details ??= new List<PowerBIApiErrorResponseDetail>();
+
+            return new ImportError(code, details?.ToList());
+        }
+
+        /// <summary> Initializes a new instance of <see cref="Models.PowerBIApiErrorResponseDetail"/>. </summary>
+        /// <param name="code"> The error code. </param>
+        /// <param name="message"> The error message. </param>
+        /// <param name="target"> The error target. </param>
+        /// <returns> A new <see cref="Models.PowerBIApiErrorResponseDetail"/> instance for mocking. </returns>
+        public static PowerBIApiErrorResponseDetail PowerBIApiErrorResponseDetail(string code = null, string message = null, string target = null)
+        {
+            return new PowerBIApiErrorResponseDetail(code, message, target);
         }
 
         /// <summary> Initializes a new instance of <see cref="Models.TemporaryUploadLocation"/>. </summary>
@@ -596,6 +632,65 @@ namespace Microsoft.PowerBI.Api.Models
         public static App App(Guid id = default, string name = null, string description = null, DateTimeOffset? lastUpdate = null, string publishedBy = null)
         {
             return new App(id, name, description, lastUpdate, publishedBy);
+        }
+
+        /// <summary> Initializes a new instance of <see cref="Models.SaveAsNativeDataflowResponse"/>. </summary>
+        /// <param name="artifactMetadata"> Complete metadata of the newly created Gen2(CI/CD) artifact. </param>
+        /// <param name="errors">
+        /// List of non-fatal errors that occurred during the migration process.
+        /// The migration is considered successful even if these errors occur,
+        /// but some features may not have been migrated properly.
+        ///
+        /// </param>
+        /// <returns> A new <see cref="Models.SaveAsNativeDataflowResponse"/> instance for mocking. </returns>
+        public static SaveAsNativeDataflowResponse SaveAsNativeDataflowResponse(ArtifactMetadata artifactMetadata = null, IEnumerable<SaveAsNativeDataflowErrorCode> errors = null)
+        {
+            errors ??= new List<SaveAsNativeDataflowErrorCode>();
+
+            return new SaveAsNativeDataflowResponse(artifactMetadata, errors?.ToList());
+        }
+
+        /// <summary> Initializes a new instance of <see cref="Models.ArtifactMetadata"/>. </summary>
+        /// <param name="objectId"> Unique identifier for the artifact. </param>
+        /// <param name="artifactType"> Type of the artifact. </param>
+        /// <param name="displayName"> Display name of the artifact. </param>
+        /// <param name="description"> Description of the artifact. </param>
+        /// <param name="folderObjectId"> ID of the workspace/folder containing this artifact. </param>
+        /// <param name="provisionState"> Current provisioning state of the artifact. </param>
+        /// <param name="lastUpdatedDate"> When the artifact was last updated. </param>
+        /// <param name="createdDate"> When the artifact was created. </param>
+        /// <param name="capacityObjectId"> ID of the capacity hosting this artifact. </param>
+        /// <param name="workloadPayload"> Workload-specific payload data. </param>
+        /// <param name="ownerUser"> User information in artifact metadata. </param>
+        /// <param name="createdByUser"> User information in artifact metadata. </param>
+        /// <param name="modifiedByUser"> User information in artifact metadata. </param>
+        /// <returns> A new <see cref="Models.ArtifactMetadata"/> instance for mocking. </returns>
+        public static ArtifactMetadata ArtifactMetadata(Guid objectId = default, string artifactType = null, string displayName = null, string description = null, Guid folderObjectId = default, ArtifactProvisionState provisionState = default, DateTimeOffset lastUpdatedDate = default, DateTimeOffset createdDate = default, Guid? capacityObjectId = null, string workloadPayload = null, ArtifactMetadataUser ownerUser = null, ArtifactMetadataUser createdByUser = null, ArtifactMetadataUser modifiedByUser = null)
+        {
+            return new ArtifactMetadata(
+                objectId,
+                artifactType,
+                displayName,
+                description,
+                folderObjectId,
+                provisionState,
+                lastUpdatedDate,
+                createdDate,
+                capacityObjectId,
+                workloadPayload,
+                ownerUser,
+                createdByUser,
+                modifiedByUser);
+        }
+
+        /// <summary> Initializes a new instance of <see cref="Models.ArtifactMetadataUser"/>. </summary>
+        /// <param name="objectId"> User's object ID. </param>
+        /// <param name="displayName"> User's display name. </param>
+        /// <param name="emailAddress"> User's email address. </param>
+        /// <returns> A new <see cref="Models.ArtifactMetadataUser"/> instance for mocking. </returns>
+        public static ArtifactMetadataUser ArtifactMetadataUser(Guid? objectId = null, string displayName = null, string emailAddress = null)
+        {
+            return new ArtifactMetadataUser(objectId, displayName, emailAddress);
         }
 
         /// <summary> Initializes a new instance of <see cref="Models.Dataflows"/>. </summary>
@@ -1184,16 +1279,6 @@ namespace Microsoft.PowerBI.Api.Models
             return new ScanRequest(id, createdDateTime, status, error);
         }
 
-        /// <summary> Initializes a new instance of <see cref="Models.PowerBIApiErrorResponseDetail"/>. </summary>
-        /// <param name="code"> The error code. </param>
-        /// <param name="message"> The error message. </param>
-        /// <param name="target"> The error target. </param>
-        /// <returns> A new <see cref="Models.PowerBIApiErrorResponseDetail"/> instance for mocking. </returns>
-        public static PowerBIApiErrorResponseDetail PowerBIApiErrorResponseDetail(string code = null, string message = null, string target = null)
-        {
-            return new PowerBIApiErrorResponseDetail(code, message, target);
-        }
-
         /// <summary> Initializes a new instance of <see cref="Models.WorkspaceInfoResponse"/>. </summary>
         /// <param name="workspaces"> The workspace info associated with this scan. </param>
         /// <param name="datasourceInstances"> The data source instances associated with this scan. </param>
@@ -1250,142 +1335,6 @@ namespace Microsoft.PowerBI.Api.Models
                 dataflows?.ToList(),
                 datamarts?.ToList(),
                 users?.ToList());
-        }
-
-        /// <summary> Initializes a new instance of <see cref="Models.WorkspaceInfoDatamart"/>. </summary>
-        /// <param name="id"> The datamart ID. </param>
-        /// <param name="name"> The datamart name. </param>
-        /// <param name="description"> The datamart description. </param>
-        /// <param name="type"> The datamart type. </param>
-        /// <param name="status"> The datamart status. </param>
-        /// <param name="state"> The datamart current state. </param>
-        /// <param name="suspendedBatchId"> datamart suspended batch id. </param>
-        /// <param name="endorsementDetails"> The datamart endorsement details. </param>
-        /// <param name="sensitivityLabel"> The datamart sensitivity label. </param>
-        /// <param name="modifiedBy"> The last user that modified the datamart. </param>
-        /// <param name="modifiedDateTime"> The date and time that the datamart was last modified. </param>
-        /// <param name="configuredBy"> The name of the datamart owner. </param>
-        /// <param name="modifiedById"> The ID of the last user that modified the datamart. </param>
-        /// <param name="configuredById"> The ID of the datamart owner. </param>
-        /// <param name="upstreamDataflows"> The list of all the dataflows this item depends on. </param>
-        /// <param name="upstreamDatamarts"> The list of all the datamarts this item depends on. </param>
-        /// <param name="datasourceUsages"> The data source usages. </param>
-        /// <param name="users"> The user access details for a Power BI datamart. </param>
-        /// <returns> A new <see cref="Models.WorkspaceInfoDatamart"/> instance for mocking. </returns>
-        public static WorkspaceInfoDatamart WorkspaceInfoDatamart(Guid id = default, string name = null, string description = null, DatamartType? type = null, DatamartStatus? status = null, DatamartState? state = null, string suspendedBatchId = null, EndorsementDetails endorsementDetails = null, SensitivityLabel sensitivityLabel = null, string modifiedBy = null, DateTimeOffset? modifiedDateTime = null, string configuredBy = null, string modifiedById = null, string configuredById = null, IEnumerable<DependentDataflow> upstreamDataflows = null, IEnumerable<DependentDatamart> upstreamDatamarts = null, IEnumerable<DatasourceUsage> datasourceUsages = null, IEnumerable<DatamartUser> users = null)
-        {
-            upstreamDataflows ??= new List<DependentDataflow>();
-            upstreamDatamarts ??= new List<DependentDatamart>();
-            datasourceUsages ??= new List<DatasourceUsage>();
-            users ??= new List<DatamartUser>();
-
-            return new WorkspaceInfoDatamart(
-                id,
-                name,
-                description,
-                type,
-                status,
-                state,
-                suspendedBatchId,
-                endorsementDetails,
-                sensitivityLabel,
-                modifiedBy,
-                modifiedDateTime,
-                configuredBy,
-                modifiedById,
-                configuredById,
-                upstreamDataflows?.ToList(),
-                upstreamDatamarts?.ToList(),
-                datasourceUsages?.ToList(),
-                users?.ToList());
-        }
-
-        /// <summary> Initializes a new instance of <see cref="Models.DatamartBaseProperties"/>. </summary>
-        /// <param name="id"> The datamart ID. </param>
-        /// <param name="name"> The datamart name. </param>
-        /// <param name="description"> The datamart description. </param>
-        /// <param name="type"> The datamart type. </param>
-        /// <param name="status"> The datamart status. </param>
-        /// <param name="state"> The datamart current state. </param>
-        /// <param name="suspendedBatchId"> datamart suspended batch id. </param>
-        /// <returns> A new <see cref="Models.DatamartBaseProperties"/> instance for mocking. </returns>
-        public static DatamartBaseProperties DatamartBaseProperties(Guid id = default, string name = null, string description = null, DatamartType? type = null, DatamartStatus? status = null, DatamartState? state = null, string suspendedBatchId = null)
-        {
-            return new DatamartBaseProperties(
-                id,
-                name,
-                description,
-                type,
-                status,
-                state,
-                suspendedBatchId);
-        }
-
-        /// <summary> Initializes a new instance of <see cref="Models.DatamartEndorsmentProperties"/>. </summary>
-        /// <param name="endorsementDetails"> The datamart endorsement details. </param>
-        /// <returns> A new <see cref="Models.DatamartEndorsmentProperties"/> instance for mocking. </returns>
-        public static DatamartEndorsmentProperties DatamartEndorsmentProperties(EndorsementDetails endorsementDetails = null)
-        {
-            return new DatamartEndorsmentProperties(endorsementDetails);
-        }
-
-        /// <summary> Initializes a new instance of <see cref="Models.DatamartSensitivityLabelProperties"/>. </summary>
-        /// <param name="sensitivityLabel"> The datamart sensitivity label. </param>
-        /// <returns> A new <see cref="Models.DatamartSensitivityLabelProperties"/> instance for mocking. </returns>
-        public static DatamartSensitivityLabelProperties DatamartSensitivityLabelProperties(SensitivityLabel sensitivityLabel = null)
-        {
-            return new DatamartSensitivityLabelProperties(sensitivityLabel);
-        }
-
-        /// <summary> Initializes a new instance of <see cref="Models.DatamartAuthoringProperties"/>. </summary>
-        /// <param name="modifiedBy"> The last user that modified the datamart. </param>
-        /// <param name="modifiedDateTime"> The date and time that the datamart was last modified. </param>
-        /// <param name="configuredBy"> The name of the datamart owner. </param>
-        /// <returns> A new <see cref="Models.DatamartAuthoringProperties"/> instance for mocking. </returns>
-        public static DatamartAuthoringProperties DatamartAuthoringProperties(string modifiedBy = null, DateTimeOffset? modifiedDateTime = null, string configuredBy = null)
-        {
-            return new DatamartAuthoringProperties(modifiedBy, modifiedDateTime, configuredBy);
-        }
-
-        /// <summary> Initializes a new instance of <see cref="Models.DatamartAuthoringPropertiesById"/>. </summary>
-        /// <param name="modifiedById"> The ID of the last user that modified the datamart. </param>
-        /// <param name="configuredById"> The ID of the datamart owner. </param>
-        /// <returns> A new <see cref="Models.DatamartAuthoringPropertiesById"/> instance for mocking. </returns>
-        public static DatamartAuthoringPropertiesById DatamartAuthoringPropertiesById(string modifiedById = null, string configuredById = null)
-        {
-            return new DatamartAuthoringPropertiesById(modifiedById, configuredById);
-        }
-
-        /// <summary> Initializes a new instance of <see cref="Models.DatamartUpstreamProperties"/>. </summary>
-        /// <param name="upstreamDataflows"> The list of all the dataflows this item depends on. </param>
-        /// <param name="upstreamDatamarts"> The list of all the datamarts this item depends on. </param>
-        /// <returns> A new <see cref="Models.DatamartUpstreamProperties"/> instance for mocking. </returns>
-        public static DatamartUpstreamProperties DatamartUpstreamProperties(IEnumerable<DependentDataflow> upstreamDataflows = null, IEnumerable<DependentDatamart> upstreamDatamarts = null)
-        {
-            upstreamDataflows ??= new List<DependentDataflow>();
-            upstreamDatamarts ??= new List<DependentDatamart>();
-
-            return new DatamartUpstreamProperties(upstreamDataflows?.ToList(), upstreamDatamarts?.ToList());
-        }
-
-        /// <summary> Initializes a new instance of <see cref="Models.DatamartDatasourceUsagesProperties"/>. </summary>
-        /// <param name="datasourceUsages"> The data source usages. </param>
-        /// <returns> A new <see cref="Models.DatamartDatasourceUsagesProperties"/> instance for mocking. </returns>
-        public static DatamartDatasourceUsagesProperties DatamartDatasourceUsagesProperties(IEnumerable<DatasourceUsage> datasourceUsages = null)
-        {
-            datasourceUsages ??= new List<DatasourceUsage>();
-
-            return new DatamartDatasourceUsagesProperties(datasourceUsages?.ToList());
-        }
-
-        /// <summary> Initializes a new instance of <see cref="Models.DatamartUserProperties"/>. </summary>
-        /// <param name="users"> The user access details for a Power BI datamart. </param>
-        /// <returns> A new <see cref="Models.DatamartUserProperties"/> instance for mocking. </returns>
-        public static DatamartUserProperties DatamartUserProperties(IEnumerable<DatamartUser> users = null)
-        {
-            users ??= new List<DatamartUser>();
-
-            return new DatamartUserProperties(users?.ToList());
         }
 
         /// <summary> Initializes a new instance of <see cref="Models.ModifiedWorkspace"/>. </summary>

@@ -893,7 +893,7 @@
                 "tags": [
                     "Datasets"
                 ],
-                "summary": "Returns execution details of an [enhanced refresh operation](/power-bi/connect-data/asynchronous-refresh) for the specified dataset from **My workspace**.",
+                "summary": "Returns execution details of a refresh operation for the specified dataset from **My workspace**.",
                 "description": "\n## Required Scope\n\nDataset.ReadWrite.All or Dataset.Read.All\n<br><br>",
                 "operationId": "Datasets_GetRefreshExecutionDetails",
                 "consumes": [],
@@ -933,7 +933,60 @@
                     }
                 },
                 "x-ms-examples": {
-                    "In progress refresh example": {
+                    "On-Demand refresh - Completed": {
+                        "parameters": {
+                            "datasetId": "f7fc6510-e151-42a3-850b-d0805a391db0",
+                            "refreshId": "a1b2c3d4-e5f6-7890-abcd-ef1234567890"
+                        },
+                        "responses": {
+                            "200": {
+                                "body": {
+                                    "startTime": "2025-10-31T10:09:38.53",
+                                    "endTime": "2025-10-31T10:10:08.23",
+                                    "status": "Completed",
+                                    "numberOfAttempts": 2,
+                                    "refreshAttempts": [
+                                        {
+                                            "attemptId": 1,
+                                            "startTime": "2025-10-31T10:09:40.2432886Z",
+                                            "endTime": "2025-10-31T10:10:02.93333Z",
+                                            "type": "Data",
+                                            "executionMetrics": [
+                                                {
+                                                    "timeStart": "2025-10-31T10:09:41.318Z",
+                                                    "timeEnd": "2025-10-31T10:10:02.875Z",
+                                                    "durationMs": 21558,
+                                                    "externalQueryExecutionTimeMs": 24208,
+                                                    "vertipaqJobCpuTimeMs": 3984,
+                                                    "mEngineCpuTimeMs": 6625,
+                                                    "queryProcessingCpuTimeMs": 1563,
+                                                    "totalCpuTimeMs": 24672,
+                                                    "executionDelayMs": 504,
+                                                    "approximatePeakMemConsumptionKB": 419886,
+                                                    "tabularConnectionTimeoutMs": 17999000,
+                                                    "commandType": "Batch",
+                                                    "discoverType": 127,
+                                                    "queryDialect": 4,
+                                                    "refreshParallelism": 6,
+                                                    "vertipaqTotalRows": 432682,
+                                                    "intendedUsage": 2,
+                                                    "mEnginePeakMemoryKB": 322412
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "attemptId": 1,
+                                            "startTime": "2025-10-31T10:10:03.1449471Z",
+                                            "endTime": "2025-10-31T10:10:03.5996278Z",
+                                            "type": "Query"
+                                        }
+                                    ],
+                                    "initiatedBy": "OnDemand"
+                                }
+                            }
+                        }
+                    },
+                    "Enhanced refresh - In progress": {
                         "parameters": {
                             "datasetId": "f7fc6510-e151-42a3-850b-d0805a391db0",
                             "refreshId": "630110f5-8f93-49c2-afee-bfc87072460c"
@@ -947,12 +1000,13 @@
                                     "status": "Unknown",
                                     "extendedStatus": "NotStarted",
                                     "currentRefreshType": "Full",
-                                    "numberOfAttempts": 0
+                                    "numberOfAttempts": 0,
+                                    "initiatedBy": "ViaEnhancedApi"
                                 }
                             }
                         }
                     },
-                    "Completed refresh example": {
+                    "Enhanced refresh - Completed": {
                         "parameters": {
                             "datasetId": "f7fc6510-e151-42a3-850b-d0805a391db0",
                             "refreshId": "87f31ef7-1e3a-4006-9b0b-191693e79e9e"
@@ -967,26 +1021,11 @@
                                     "status": "Completed",
                                     "extendedStatus": "Completed",
                                     "currentRefreshType": "Full",
-                                    "numberOfAttempts": 0,
+                                    "numberOfAttempts": 1,
                                     "objects": [
                                         {
                                             "table": "DateTableTemplate_78e78207-b3fb-41b5-8b95-e5efca989067",
                                             "partition": "DateTableTemplate_78e78207-b3fb-41b5-8b95-e5efca989067-ae306fb4-3b7e-4a41-824d-cb3b452fedfc",
-                                            "status": "Completed"
-                                        },
-                                        {
-                                            "table": "LocalDateTable_e9d8a66b-4018-4d16-be8c-402b2037c051",
-                                            "partition": "LocalDateTable_e9d8a66b-4018-4d16-be8c-402b2037c051-59bc07f8-85c9-456a-ad36-18e1de4d77ed",
-                                            "status": "Completed"
-                                        },
-                                        {
-                                            "table": "LocalDateTable_55935f6b-04d1-4cfe-8856-ed9f9e73ab2e",
-                                            "partition": "LocalDateTable_55935f6b-04d1-4cfe-8856-ed9f9e73ab2e-d95ae7f7-19c9-48a8-9c16-fcab26558bc2",
-                                            "status": "Completed"
-                                        },
-                                        {
-                                            "table": "LocalDateTable_ff25f80e-eb04-4229-986d-b40223c04f1c",
-                                            "partition": "LocalDateTable_ff25f80e-eb04-4229-986d-b40223c04f1c-6606fc4c-4cda-49e1-8acd-e55a6ec36cb3",
                                             "status": "Completed"
                                         },
                                         {
@@ -1000,23 +1039,8 @@
                                             "status": "Completed"
                                         },
                                         {
-                                            "table": "LocalDateTable_fa65a206-f320-4d5d-abcc-1dc0f051ca7d",
-                                            "partition": "LocalDateTable_fa65a206-f320-4d5d-abcc-1dc0f051ca7d-06a48a0a-a32b-48a3-b113-924aafd6363c",
-                                            "status": "Completed"
-                                        },
-                                        {
-                                            "table": "LocalDateTable_78a4e1b7-a2e5-4bbf-ab68-7c87961b68a2",
-                                            "partition": "LocalDateTable_78a4e1b7-a2e5-4bbf-ab68-7c87961b68a2-5b3ba715-7c84-4e52-b310-485b93cfbe6d",
-                                            "status": "Completed"
-                                        },
-                                        {
                                             "table": "DimDate",
                                             "partition": "DimDate-62e2f91b-53e5-4ed3-8618-fec74dba5e0d",
-                                            "status": "Completed"
-                                        },
-                                        {
-                                            "table": "LocalDateTable_e72c294f-0a06-4051-b943-e6bf8389e2c3",
-                                            "partition": "LocalDateTable_e72c294f-0a06-4051-b943-e6bf8389e2c3-891a0e68-d414-4ba3-9c4b-e6f1ec73d4f3",
                                             "status": "Completed"
                                         },
                                         {
@@ -1025,28 +1049,8 @@
                                             "status": "Completed"
                                         },
                                         {
-                                            "table": "LocalDateTable_e37e4431-8c1a-449c-8796-b704df200a92",
-                                            "partition": "LocalDateTable_e37e4431-8c1a-449c-8796-b704df200a92-8596ebb8-418f-4e50-a921-dac88c6f1339",
-                                            "status": "Completed"
-                                        },
-                                        {
-                                            "table": "LocalDateTable_73faffeb-a0c7-4ea1-83dc-530823b0fea0",
-                                            "partition": "LocalDateTable_73faffeb-a0c7-4ea1-83dc-530823b0fea0-13795c4e-708f-4ddc-8ea3-5a2f39ae2253",
-                                            "status": "Completed"
-                                        },
-                                        {
                                             "table": "DimPromotion",
                                             "partition": "DimPromotion-21e6c333-430e-4350-8c94-cdceb362c4c7",
-                                            "status": "Completed"
-                                        },
-                                        {
-                                            "table": "LocalDateTable_9c19746b-db7d-4b7e-b95d-c66e4b8fefc8",
-                                            "partition": "LocalDateTable_9c19746b-db7d-4b7e-b95d-c66e4b8fefc8-395de144-ad53-41c0-9ec0-68bab6158d99",
-                                            "status": "Completed"
-                                        },
-                                        {
-                                            "table": "LocalDateTable_d96435dd-6110-4246-996c-616c96125e71",
-                                            "partition": "LocalDateTable_d96435dd-6110-4246-996c-616c96125e71-891737ee-c46c-4b9f-bfa8-e4555004e20f",
                                             "status": "Completed"
                                         },
                                         {
@@ -1064,14 +1068,34 @@
                                             "attemptId": 1,
                                             "startTime": "2021-12-10T08:40:31.57",
                                             "endTime": "2021-12-10T08:40:43.87",
-                                            "type": "Data"
+                                            "type": "Data",
+                                            "executionMetrics": [
+                                                {
+                                                    "timeStart": "2021-12-10T08:40:32.5Z",
+                                                    "timeEnd": "2021-12-10T08:40:43.8Z",
+                                                    "durationMs": 11300,
+                                                    "externalQueryExecutionTimeMs": 2100,
+                                                    "vertipaqJobCpuTimeMs": 1850,
+                                                    "mEngineCpuTimeMs": 950,
+                                                    "totalCpuTimeMs": 8200,
+                                                    "executionDelayMs": 25,
+                                                    "approximatePeakMemConsumptionKB": 185432,
+                                                    "tabularConnectionTimeoutMs": 7200000,
+                                                    "commandType": "Batch",
+                                                    "refreshParallelism": 2,
+                                                    "vertipaqTotalRows": 315420,
+                                                    "intendedUsage": 2,
+                                                    "mEnginePeakMemoryKB": 142380
+                                                }
+                                            ]
                                         }
-                                    ]
+                                    ],
+                                    "initiatedBy": "ViaEnhancedApi"
                                 }
                             }
                         }
                     },
-                    "Failed refresh example": {
+                    "Enhanced refresh - Failed": {
                         "parameters": {
                             "datasetId": "f7fc6510-e151-42a3-850b-d0805a391db0",
                             "refreshId": "351f7113-59bb-4e5e-8c1e-e15ae7414121"
@@ -1086,7 +1110,7 @@
                                     "status": "Failed",
                                     "extendedStatus": "Failed",
                                     "currentRefreshType": "Full",
-                                    "numberOfAttempts": 0,
+                                    "numberOfAttempts": 1,
                                     "messages": [
                                         {
                                             "message": "RefreshApiRequest for table refresh using refresh policy must have the property 'CommitMode' = 'Transactional' instead of 'PartialBatch'.",
@@ -1101,7 +1125,9 @@
                                             "serviceExceptionJson": "{\"errorCode\":\"ModelRefresh_ShortMessage_ProcessingError\",\"errorDescription\":\"0xC112001C: Expression.Error: Forced Error. . The exception was raised by the IDbCommand interface.\\n0xC112001C: The command has been canceled.. The exception was raised by the IDbCommand interface.\\n0xC11C0006: The current operation was cancelled because another operation in the transaction failed.\\n0xC112001C: The command has been canceled.. The exception was raised by the IDbCommand interface.\\n0xC112001C: The command has been canceled.. The exception was raised by the IDbCommand interface.\\n0xC112001C: The command has been canceled.. The exception was raised by the IDbCommand interface.\"}",
                                             "type": "Data"
                                         }
-                                    ]
+                                    ],
+                                    "serviceExceptionJson": "{\"errorCode\":\"ModelRefresh_ShortMessage_ProcessingError\"}",
+                                    "initiatedBy": "ViaEnhancedApi"
                                 }
                             }
                         }
@@ -2804,7 +2830,7 @@
                     "Imports"
                 ],
                 "summary": "Creates new content in **My workspace**.",
-                "description": "\nSee the [Import Large Files](https://github.com/microsoft/PowerBI-Developer-Samples/blob/master/PowerShell%20Scripts/Import%20Large%20Files) PowerShell script for an example of using this API.\n\n> [!NOTE]\n> Supported content:\n> - Power BI .pbix files\n> - JSON files (.json)\n> - Excel files (.xlsx)\n> - RDL files (.rdl)\n\n- To import a file, specify the content type **multipart/form-data** in the request headers and encode the file as [form data](https://www.w3.org/TR/html401/interact/forms.html) in the request body.\n- To import an .rdl file, include the file extension in the name specified by `datasetDisplayName`, as described in [URI parameters](/rest/api/power-bi/imports/post-import-in-group#uri-parameters).\n- To import an .xlsx file from OneDrive for Business, include the content type **application/json** in the request headers. Include [ImportInfo](/rest/api/power-bi/imports/post-import-in-group#importinfo) with `filePath` set to the .xlsx file path in the request body.\n- To import large Power BI .pbix files that are between 1 GB and 10 GB in size, see [Create Temporary Upload Location](/rest/api/power-bi/imports/create-temporary-upload-location). This is only supported for Premium capacity workspaces.\n- To create a dataflow from a model.json file, set `datasetDisplayName` to *model.json*, as described in [URI parameters](/rest/api/power-bi/imports/post-import-in-group#uri-parameters).\n\n## Required Scope\n\nDataset.ReadWrite.All\n\n## Limitations\n\n- Dataflows with service principal aren't supported.\n- Importing a Power BI .pbix file from OneDrive isn't supported.\n- Importing a file that has a **protected** sensitivity label isn't supported for service principals.\n<br><br>",
+                "description": "\nSee the [Import Large Files](https://github.com/microsoft/PowerBI-Developer-Samples/blob/master/PowerShell%20Scripts/Import%20Large%20Files) PowerShell script for an example of using this API.\n\n> [!NOTE]\n> Supported content:\n> - Power BI .pbix files\n> - JSON files (.json)\n> - Excel files (.xlsx)\n> - Report Definition Language files (.rdl)\n\n- To import a file, specify the content type **multipart/form-data** in the request headers and encode the file as [form data](https://www.w3.org/TR/html401/interact/forms.html) in the request body.\n- To import Paginated Reports(.rdl) file, include the .rdl file extension in the name specified by `datasetDisplayName` such as `paginatedReport.rdl`, as described in [URI parameters](/rest/api/power-bi/imports/post-import-in-group#uri-parameters). File extension in the `datasetDisplayName` will help to distinguish Paginated Report(.rdl file) upload from other uploads.\n  - It is also suggested to use C# SDK[(NuGet Gallery | Microsoft.PowerBI.Api)](https://www.nuget.org/packages/Microsoft.PowerBI.Api/) for Paginated Report(.rdl) uploads. \n- To import an .xlsx file from OneDrive for Business, include the content type **application/json** in the request headers. Include [ImportInfo](/rest/api/power-bi/imports/post-import-in-group#importinfo) with `filePath` set to the .xlsx file path in the request body.\n- To import large Power BI .pbix files that are between 1 GB and 10 GB in size, see [Create Temporary Upload Location](/rest/api/power-bi/imports/create-temporary-upload-location). This is only supported for Premium capacity workspaces.\n- To create a dataflow from a model.json file, set `datasetDisplayName` to *model.json*, as described in [URI parameters](/rest/api/power-bi/imports/post-import-in-group#uri-parameters).\n\n## Required Scope\n\nDataset.ReadWrite.All\n\n## Limitations\n\n- Dataflows with service principal aren't supported.\n- Importing a Power BI .pbix file from OneDrive isn't supported.\n- Importing a file that has a **protected** sensitivity label isn't supported for service principals.\n<br><br>",
                 "operationId": "Imports_PostImport",
                 "consumes": [
                     "application/json"
@@ -2824,7 +2850,7 @@
                         "name": "nameConflict",
                         "in": "query",
                         "required": false,
-                        "description": "Specifies what to do if a dataset with the same name already exists. The default value is `Ignore`. For RDL files, `Abort` and `Overwrite` are the only supported options.",
+                        "description": "Specifies what to do if a dataset with the same name already exists. The default value is `Ignore`. For RDL files, `Abort` and `Overwrite` are the only supported options and not others.",
                         "type": "string",
                         "enum": [
                             "Ignore",
@@ -3057,6 +3083,30 @@
                                             "embedUrl": "https://app.powerbi.com/reportEmbed?reportId=5b218778-e7a5-4d73-8187-f10824047715"
                                         }
                                     ]
+                                }
+                            }
+                        }
+                    }, 
+                    "Failed import example": {
+                        "parameters": {
+                            "importId": "34e9d22d-11fb-43d1-9577-d9bd827ee4f2"
+                        },
+                        "responses": {
+                            "200": {
+                                "body": {
+                                    "id": "34e9d22d-11fb-43d1-9577-d9bd827ee4f2",
+                                    "importState": "Failed",
+                                    "createdDateTime": "2025-09-04T19:09:38.357Z",
+                                    "updatedDateTime": "2025-09-04T19:09:38.357Z",
+                                    "error": {
+                                        "code": "DMTS_PowerBIDataMovementUserDatasourceExceededLimit",
+                                        "details": []
+                                    },
+                                    "name": "example.pbix",
+                                    "connectionType": "import",
+                                    "source": "Upload",
+                                    "datasets": [],
+                                    "reports": []
                                 }
                             }
                         }
@@ -3591,7 +3641,7 @@
                     "Reports"
                 ],
                 "summary": "Updates the data sources of the specified paginated report (RDL) from **My workspace**.",
-                "description": "\n> [!IMPORTANT]\n> Both the original data source and the new data source must have the exact same schema.\n\n## Permissions\n\nThe user must be the data source owner.\n\n## Required Scope\n\nReports.ReadWrite.All\n\n## Limitations\n\n- Only supports paginated reports.\n- Changing the data source type isn't supported.\n<br><br>",
+                "description": "\n> [!IMPORTANT]\n> Both the original data source and the new data source must have the exact same schema.\n\n## Permissions\n\nThe user must be the data source owner.\n\n## Required Scope\n\nReports.ReadWrite.All\n\n## Limitations\n\n- Only supports paginated reports.\n- Changing the data source type isn't supported.\n\n- Open Database Connectivity (ODBC) aren't supported.\n<br><br>",
                 "operationId": "Reports_UpdateDatasources",
                 "consumes": [
                     "application/json"
@@ -4234,7 +4284,7 @@
                     "Datasets"
                 ],
                 "summary": "Returns a list of datasets from the specified workspace.",
-                "description": "\n## Permissions\n\nThis API call can be called by a service principal profile. For more information see: [Service principal profiles in Power BI Embedded](/power-bi/developer/embedded/embed-multi-tenancy).\n\n## Required Scope\n\nDataset.ReadWrite.All or Dataset.Read.All\n<br><br>",
+                "description": "\n## Permissions\n\nThis API call can be called by a service principal profile. For more information see: [Service principal profiles in Power BI Embedded](/power-bi/developer/embedded/embed-multi-tenancy).\n\n## Required Scope\n\nDataset.ReadWrite.All or Dataset.Read.All\n## Limitations\n\n Caller must have Write permissions on the dataset to get full content. Caller with Read Permission only get limited content in response.\n<br><br>",
                 "operationId": "Datasets_GetDatasetsInGroup",
                 "consumes": [],
                 "produces": [
@@ -4276,6 +4326,23 @@
                                             "isEffectiveIdentityRequired": false,
                                             "isEffectiveIdentityRolesRequired": false,
                                             "isOnPremGatewayRequired": false
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    "Example with Read Only Permission": {
+                        "parameters": {
+                            "groupId": "f089354e-8366-4e18-aea3-4cb4a3a50b48"
+                        },
+                        "responses": {
+                            "200": {
+                                "body": {
+                                    "value": [
+                                        {
+                                            "id": "cfafbeb1-8037-4d0c-896e-a46fb27ff229",
+                                            "name": "SalesMarketing"
                                         }
                                     ]
                                 }
@@ -4451,7 +4518,7 @@
                     "Datasets"
                 ],
                 "summary": "Returns the specified dataset from the specified workspace.",
-                "description": "\n## Permissions\n\nThis API call can be called by a service principal profile. For more information see: [Service principal profiles in Power BI Embedded](/power-bi/developer/embedded/embed-multi-tenancy).\n\n## Required Scope\n\nDataset.ReadWrite.All or Dataset.Read.All\n<br><br>",
+                "description": "\n## Permissions\n\nThis API call can be called by a service principal profile. For more information see: [Service principal profiles in Power BI Embedded](/power-bi/developer/embedded/embed-multi-tenancy).\n\n## Required Scope\n\nDataset.ReadWrite.All or Dataset.Read.All\n## Limitations\n\n Caller must have Write permissions on the dataset to get full content. Caller with Read Permission only get limited content in response.\n<br><br>",
                 "operationId": "Datasets_GetDatasetInGroup",
                 "consumes": [],
                 "produces": [
@@ -4500,6 +4567,20 @@
                                     "isEffectiveIdentityRolesRequired": true,
                                     "isOnPremGatewayRequired": false,
                                     "targetStorageMode": "Abf"
+                                }
+                            }
+                        }
+                    },
+                    "Example with Read Only Permission": {
+                        "parameters": {
+                            "groupId": "f089354e-8366-4e18-aea3-4cb4a3a50b48",
+                            "datasetId": "cfafbeb1-8037-4d0c-896e-a46fb27ff229"
+                        },
+                        "responses": {
+                            "200": {
+                                "body": {
+                                    "id": "cfafbeb1-8037-4d0c-896e-a46fb27ff229",
+                                    "name": "SalesMarketing"
                                 }
                             }
                         }
@@ -4922,7 +5003,7 @@
                     "Datasets"
                 ],
                 "summary": "Returns the refresh history for the specified dataset from the specified workspace.",
-                "description": "\n## Permissions\n\nThis API call can be called by a service principal profile. For more information see: [Service principal profiles in Power BI Embedded](/power-bi/developer/embedded/embed-multi-tenancy).\n\n## Required Scope\n\nDataset.ReadWrite.All or Dataset.Read.All\n\n## Limitations\n\nOneDrive refresh history isn't returned.\n<br><br>",
+                "description": "\n## Permissions\n\nThis API call can be called by a service principal profile. For more information see: [Service principal profiles in Power BI Embedded](/power-bi/developer/embedded/embed-multi-tenancy).\n\n## Required Scope\n\nDataset.ReadWrite.All or Dataset.Read.All\n\n## Limitations\n\nOneDrive refresh history isn't returned.\n Caller must have Write permissions on the dataset.\n<br><br>",
                 "operationId": "Datasets_GetRefreshHistoryInGroup",
                 "consumes": [],
                 "produces": [
@@ -5156,7 +5237,7 @@
                 "tags": [
                     "Datasets"
                 ],
-                "summary": "Returns execution details of an [enhanced refresh operation](/power-bi/connect-data/asynchronous-refresh) for the specified dataset from the specified workspace.",
+                "summary": "Returns execution details of a refresh operation for the specified dataset from the specified workspace.",
                 "description": "\n## Permissions\n\nThis API call can be called by a service principal profile. For more information see: [Service principal profiles in Power BI Embedded](/power-bi/developer/embedded/embed-multi-tenancy).\n\n## Required Scope\n\nDataset.ReadWrite.All or Dataset.Read.All\n<br><br>",
                 "operationId": "Datasets_GetRefreshExecutionDetailsInGroup",
                 "consumes": [],
@@ -5204,7 +5285,61 @@
                     }
                 },
                 "x-ms-examples": {
-                    "In progress refresh example": {
+                    "On-Demand refresh - Completed": {
+                        "parameters": {
+                            "groupId": "fdb91b8f-0a9b-44c1-b6c0-0cb185c6ebfb",
+                            "datasetId": "f7fc6510-e151-42a3-850b-d0805a391db0",
+                            "refreshId": "a1b2c3d4-e5f6-7890-abcd-ef1234567890"
+                        },
+                        "responses": {
+                            "200": {
+                                "body": {
+                                    "startTime": "2025-10-31T10:09:38.53",
+                                    "endTime": "2025-10-31T10:10:08.23",
+                                    "status": "Completed",
+                                    "numberOfAttempts": 2,
+                                    "refreshAttempts": [
+                                        {
+                                            "attemptId": 1,
+                                            "startTime": "2025-10-31T10:09:40.2432886Z",
+                                            "endTime": "2025-10-31T10:10:02.93333Z",
+                                            "type": "Data",
+                                            "executionMetrics": [
+                                                {
+                                                    "timeStart": "2025-10-31T10:09:41.318Z",
+                                                    "timeEnd": "2025-10-31T10:10:02.875Z",
+                                                    "durationMs": 21558,
+                                                    "externalQueryExecutionTimeMs": 24208,
+                                                    "vertipaqJobCpuTimeMs": 3984,
+                                                    "mEngineCpuTimeMs": 6625,
+                                                    "queryProcessingCpuTimeMs": 1563,
+                                                    "totalCpuTimeMs": 24672,
+                                                    "executionDelayMs": 504,
+                                                    "approximatePeakMemConsumptionKB": 419886,
+                                                    "tabularConnectionTimeoutMs": 17999000,
+                                                    "commandType": "Batch",
+                                                    "discoverType": 127,
+                                                    "queryDialect": 4,
+                                                    "refreshParallelism": 6,
+                                                    "vertipaqTotalRows": 432682,
+                                                    "intendedUsage": 2,
+                                                    "mEnginePeakMemoryKB": 322412
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "attemptId": 1,
+                                            "startTime": "2025-10-31T10:10:03.1449471Z",
+                                            "endTime": "2025-10-31T10:10:03.5996278Z",
+                                            "type": "Query"
+                                        }
+                                    ],
+                                    "initiatedBy": "OnDemand"
+                                }
+                            }
+                        }
+                    },
+                    "Enhanced refresh - In progress": {
                         "parameters": {
                             "groupId": "fdb91b8f-0a9b-44c1-b6c0-0cb185c6ebfb",
                             "datasetId": "f7fc6510-e151-42a3-850b-d0805a391db0",
@@ -5219,12 +5354,13 @@
                                     "status": "Unknown",
                                     "extendedStatus": "NotStarted",
                                     "currentRefreshType": "Full",
-                                    "numberOfAttempts": 0
+                                    "numberOfAttempts": 0,
+                                    "initiatedBy": "ViaEnhancedApi"
                                 }
                             }
                         }
                     },
-                    "Completed refresh example": {
+                    "Enhanced refresh - Completed": {
                         "parameters": {
                             "groupId": "fdb91b8f-0a9b-44c1-b6c0-0cb185c6ebfb",
                             "datasetId": "f7fc6510-e151-42a3-850b-d0805a391db0",
@@ -5240,26 +5376,11 @@
                                     "status": "Completed",
                                     "extendedStatus": "Completed",
                                     "currentRefreshType": "Full",
-                                    "numberOfAttempts": 0,
+                                    "numberOfAttempts": 1,
                                     "objects": [
                                         {
                                             "table": "DateTableTemplate_78e78207-b3fb-41b5-8b95-e5efca989067",
                                             "partition": "DateTableTemplate_78e78207-b3fb-41b5-8b95-e5efca989067-ae306fb4-3b7e-4a41-824d-cb3b452fedfc",
-                                            "status": "Completed"
-                                        },
-                                        {
-                                            "table": "LocalDateTable_e9d8a66b-4018-4d16-be8c-402b2037c051",
-                                            "partition": "LocalDateTable_e9d8a66b-4018-4d16-be8c-402b2037c051-59bc07f8-85c9-456a-ad36-18e1de4d77ed",
-                                            "status": "Completed"
-                                        },
-                                        {
-                                            "table": "LocalDateTable_55935f6b-04d1-4cfe-8856-ed9f9e73ab2e",
-                                            "partition": "LocalDateTable_55935f6b-04d1-4cfe-8856-ed9f9e73ab2e-d95ae7f7-19c9-48a8-9c16-fcab26558bc2",
-                                            "status": "Completed"
-                                        },
-                                        {
-                                            "table": "LocalDateTable_ff25f80e-eb04-4229-986d-b40223c04f1c",
-                                            "partition": "LocalDateTable_ff25f80e-eb04-4229-986d-b40223c04f1c-6606fc4c-4cda-49e1-8acd-e55a6ec36cb3",
                                             "status": "Completed"
                                         },
                                         {
@@ -5273,23 +5394,8 @@
                                             "status": "Completed"
                                         },
                                         {
-                                            "table": "LocalDateTable_fa65a206-f320-4d5d-abcc-1dc0f051ca7d",
-                                            "partition": "LocalDateTable_fa65a206-f320-4d5d-abcc-1dc0f051ca7d-06a48a0a-a32b-48a3-b113-924aafd6363c",
-                                            "status": "Completed"
-                                        },
-                                        {
-                                            "table": "LocalDateTable_78a4e1b7-a2e5-4bbf-ab68-7c87961b68a2",
-                                            "partition": "LocalDateTable_78a4e1b7-a2e5-4bbf-ab68-7c87961b68a2-5b3ba715-7c84-4e52-b310-485b93cfbe6d",
-                                            "status": "Completed"
-                                        },
-                                        {
                                             "table": "DimDate",
                                             "partition": "DimDate-62e2f91b-53e5-4ed3-8618-fec74dba5e0d",
-                                            "status": "Completed"
-                                        },
-                                        {
-                                            "table": "LocalDateTable_e72c294f-0a06-4051-b943-e6bf8389e2c3",
-                                            "partition": "LocalDateTable_e72c294f-0a06-4051-b943-e6bf8389e2c3-891a0e68-d414-4ba3-9c4b-e6f1ec73d4f3",
                                             "status": "Completed"
                                         },
                                         {
@@ -5298,28 +5404,8 @@
                                             "status": "Completed"
                                         },
                                         {
-                                            "table": "LocalDateTable_e37e4431-8c1a-449c-8796-b704df200a92",
-                                            "partition": "LocalDateTable_e37e4431-8c1a-449c-8796-b704df200a92-8596ebb8-418f-4e50-a921-dac88c6f1339",
-                                            "status": "Completed"
-                                        },
-                                        {
-                                            "table": "LocalDateTable_73faffeb-a0c7-4ea1-83dc-530823b0fea0",
-                                            "partition": "LocalDateTable_73faffeb-a0c7-4ea1-83dc-530823b0fea0-13795c4e-708f-4ddc-8ea3-5a2f39ae2253",
-                                            "status": "Completed"
-                                        },
-                                        {
                                             "table": "DimPromotion",
                                             "partition": "DimPromotion-21e6c333-430e-4350-8c94-cdceb362c4c7",
-                                            "status": "Completed"
-                                        },
-                                        {
-                                            "table": "LocalDateTable_9c19746b-db7d-4b7e-b95d-c66e4b8fefc8",
-                                            "partition": "LocalDateTable_9c19746b-db7d-4b7e-b95d-c66e4b8fefc8-395de144-ad53-41c0-9ec0-68bab6158d99",
-                                            "status": "Completed"
-                                        },
-                                        {
-                                            "table": "LocalDateTable_d96435dd-6110-4246-996c-616c96125e71",
-                                            "partition": "LocalDateTable_d96435dd-6110-4246-996c-616c96125e71-891737ee-c46c-4b9f-bfa8-e4555004e20f",
                                             "status": "Completed"
                                         },
                                         {
@@ -5337,14 +5423,34 @@
                                             "attemptId": 1,
                                             "startTime": "2021-12-10T08:40:31.57",
                                             "endTime": "2021-12-10T08:40:43.87",
-                                            "type": "Data"
+                                            "type": "Data",
+                                            "executionMetrics": [
+                                                {
+                                                    "timeStart": "2021-12-10T08:40:32.5Z",
+                                                    "timeEnd": "2021-12-10T08:40:43.8Z",
+                                                    "durationMs": 11300,
+                                                    "externalQueryExecutionTimeMs": 2100,
+                                                    "vertipaqJobCpuTimeMs": 1850,
+                                                    "mEngineCpuTimeMs": 950,
+                                                    "totalCpuTimeMs": 8200,
+                                                    "executionDelayMs": 25,
+                                                    "approximatePeakMemConsumptionKB": 185432,
+                                                    "tabularConnectionTimeoutMs": 7200000,
+                                                    "commandType": "Batch",
+                                                    "refreshParallelism": 2,
+                                                    "vertipaqTotalRows": 315420,
+                                                    "intendedUsage": 2,
+                                                    "mEnginePeakMemoryKB": 142380
+                                                }
+                                            ]
                                         }
-                                    ]
+                                    ],
+                                    "initiatedBy": "ViaEnhancedApi"
                                 }
                             }
                         }
                     },
-                    "Failed refresh example": {
+                    "Enhanced refresh - Failed": {
                         "parameters": {
                             "groupId": "fdb91b8f-0a9b-44c1-b6c0-0cb185c6ebfb",
                             "datasetId": "f7fc6510-e151-42a3-850b-d0805a391db0",
@@ -5360,7 +5466,7 @@
                                     "status": "Failed",
                                     "extendedStatus": "Failed",
                                     "currentRefreshType": "Full",
-                                    "numberOfAttempts": 0,
+                                    "numberOfAttempts": 1,
                                     "messages": [
                                         {
                                             "message": "RefreshApiRequest for table refresh using refresh policy must have the property 'CommitMode' = 'Transactional' instead of 'PartialBatch'.",
@@ -5375,7 +5481,9 @@
                                             "serviceExceptionJson": "{\"errorCode\":\"ModelRefresh_ShortMessage_ProcessingError\",\"errorDescription\":\"0xC112001C: Expression.Error: Forced Error. . The exception was raised by the IDbCommand interface.\\n0xC112001C: The command has been canceled.. The exception was raised by the IDbCommand interface.\\n0xC11C0006: The current operation was cancelled because another operation in the transaction failed.\\n0xC112001C: The command has been canceled.. The exception was raised by the IDbCommand interface.\\n0xC112001C: The command has been canceled.. The exception was raised by the IDbCommand interface.\\n0xC112001C: The command has been canceled.. The exception was raised by the IDbCommand interface.\"}",
                                             "type": "Data"
                                         }
-                                    ]
+                                    ],
+                                    "serviceExceptionJson": "{\"errorCode\":\"ModelRefresh_ShortMessage_ProcessingError\"}",
+                                    "initiatedBy": "ViaEnhancedApi"
                                 }
                             }
                         }
@@ -5973,7 +6081,7 @@
                     "Datasets"
                 ],
                 "summary": "Returns a list of data sources for the specified dataset from the specified workspace.",
-                "description": "\n## Permissions\n\nThis API call can be called by a service principal profile. For more information see: [Service principal profiles in Power BI Embedded](/power-bi/developer/embedded/embed-multi-tenancy).\n\n## Required Scope\n\nDataset.ReadWrite.All or Dataset.Read.All\n<br><br>",
+                "description": "\n## Permissions\n\nThis API call can be called by a service principal profile. For more information see: [Service principal profiles in Power BI Embedded](/power-bi/developer/embedded/embed-multi-tenancy).\n\n## Required Scope\n\nDataset.ReadWrite.All or Dataset.Read.All\n## Limitations\n\n Caller must have Write permissions on the dataset.\n<br><br>",
                 "operationId": "Datasets_GetDatasourcesInGroup",
                 "consumes": [],
                 "produces": [
@@ -6747,7 +6855,7 @@
                     "Datasets"
                 ],
                 "summary": "Returns the query scale-out sync status for the specified dataset from the specified workspace.",
-                "description": "\n## Permissions\n\nThis API call can be called by a service principal profile. For more information see: [Service principal profiles in Power BI Embedded](/power-bi/developer/embedded/embed-multi-tenancy).\n\n## Required Scope\n\nDataset.ReadWrite.All or Dataset.Read.All\n<br><br>",
+                "description": "\n## Permissions\n\nThis API call can be called by a service principal profile. For more information see: [Service principal profiles in Power BI Embedded](/power-bi/developer/embedded/embed-multi-tenancy).\n\n## Required Scope\n\nDataset.ReadWrite.All or Dataset.Read.All\n## Limitations\n\n Caller must have Write permissions on the dataset.\n<br><br>",
                 "operationId": "Datasets_GetQueryScaleOutSyncStatusInGroup",
                 "consumes": [],
                 "produces": [
@@ -6945,7 +7053,7 @@
                     "Imports"
                 ],
                 "summary": "Creates new content in the specified workspace.",
-                "description": "\n> [!NOTE]\n> Supported content:\n>\n> - Power BI .pbix files\n> - JSON files (.json)\n> - Excel files (.xlsx)\n> - SQL Server Report Definition Language files (.rdl)\n\n- To import a file, specify the content type **multipart/form-data** in the request headers and encode the file as [form data](https://www.w3.org/TR/html401/interact/forms.html) in the request body.\n- To import an .rdl file, include the file extension in the name specified by `datasetDisplayName`, as described in [URI parameters](/rest/api/power-bi/imports/post-import-in-group#uri-parameters).\n- To import an .xlsx file from OneDrive for Business, include the content type **application/json** in the request headers. Include [ImportInfo](/rest/api/power-bi/imports/post-import-in-group#importinfo) with `filePath` set to the .xlsx file path in the request body.\n- To import large Power BI .pbix files that are between 1 GB and 10 GB in size, see [Create Temporary Upload Location In Group](/rest/api/power-bi/imports/create-temporary-upload-location-in-group) and the [Import Large Files](https://github.com/microsoft/PowerBI-Developer-Samples/blob/master/PowerShell%20Scripts/Import%20Large%20Files) PowerShell script. This is only supported for Premium capacity workspaces.\n- To create a dataflow from a model.json file, set `datasetDisplayName` to *model.json*, as described in [URI parameters](/rest/api/power-bi/imports/post-import-in-group#uri-parameters).\n\n## Permissions\n\nThis API call can be called by a service principal profile. For more information see: [Service principal profiles in Power BI Embedded](/power-bi/developer/embedded/embed-multi-tenancy).\n\n## Required Scope\n\nDataset.ReadWrite.All\n\n## Limitations\n\n- Dataflows with service principal aren't supported.\n- Importing a Power BI .pbix file from OneDrive isn't supported.\n- Importing a file that has a **protected** sensitivity label isn't supported for service principals.\n<br><br>",
+                "description": "\n> [!NOTE]\n> Supported content:\n>\n> - Power BI .pbix files\n> - JSON files (.json)\n> - Excel files (.xlsx)\n> - Report Definition Language files (.rdl)\n\n- To import a file, specify the content type **multipart/form-data** in the request headers and encode the file as [form data](https://www.w3.org/TR/html401/interact/forms.html) in the request body.\n- To import a Paginated Report(.rdl) file, include the `.rdl` file extension in the name specified by `datasetDisplayName` such as `paginatedReport.rdl`, as described in [URI parameters](/rest/api/power-bi/imports/post-import-in-group#uri-parameters). File extension in the `datasetDisplayName` will help to distinguish Paginated Report(.rdl) upload from other uploads.\n  - It is also suggested to use C# SDK[(NuGet Gallery | Microsoft.PowerBI.Api)](https://www.nuget.org/packages/Microsoft.PowerBI.Api/) for Paginated Report(.rdl) uploads. \n- To import an .xlsx file from OneDrive for Business, include the content type **application/json** in the request headers. Include [ImportInfo](/rest/api/power-bi/imports/post-import-in-group#importinfo) with `filePath` set to the .xlsx file path in the request body.\n- To import large Power BI .pbix files that are between 1 GB and 10 GB in size, see [Create Temporary Upload Location In Group](/rest/api/power-bi/imports/create-temporary-upload-location-in-group) and the [Import Large Files](https://github.com/microsoft/PowerBI-Developer-Samples/blob/master/PowerShell%20Scripts/Import%20Large%20Files) PowerShell script. This is only supported for Premium capacity workspaces.\n- To create a dataflow from a model.json file, set `datasetDisplayName` to *model.json*, as described in [URI parameters](/rest/api/power-bi/imports/post-import-in-group#uri-parameters).\n\n## Permissions\n\nThis API call can be called by a service principal profile. For more information see: [Service principal profiles in Power BI Embedded](/power-bi/developer/embedded/embed-multi-tenancy).\n\n## Required Scope\n\nDataset.ReadWrite.All\n\n## Limitations\n\n- Dataflows with service principal aren't supported.\n- Importing a Power BI .pbix file from OneDrive isn't supported.\n- Importing a file that has a **protected** sensitivity label isn't supported for service principals.\n<br><br>",
                 "operationId": "Imports_PostImportInGroup",
                 "consumes": [
                     "application/json"
@@ -6973,7 +7081,7 @@
                         "name": "nameConflict",
                         "in": "query",
                         "required": false,
-                        "description": "Specifies what to do if a dataset with the same name already exists. The default value is `Ignore`. For RDL files, `Abort` and `Overwrite` are the only supported options. For dataflow model.json files, `Abort` and `GenerateUniqueName` are the only supported options.",
+                        "description": "Specifies what to do if a dataset with the same name already exists. The default value is `Ignore`. For RDL files, `Abort` and `Overwrite` are the only supported options and not others.. For dataflow model.json files, `Abort` and `GenerateUniqueName` are the only supported options.",
                         "type": "string",
                         "enum": [
                             "Ignore",
@@ -7220,6 +7328,31 @@
                                             "embedUrl": "https://app.powerbi.com/reportEmbed?reportId=5b218778-e7a5-4d73-8187-f10824047715&groupId=f089354e-8366-4e18-aea3-4cb4a3a50b48"
                                         }
                                     ]
+                                }
+                            }
+                        }
+                    },
+                    "Failed import example": {
+                        "parameters": {
+                            "groupId": "f089354e-8366-4e18-aea3-4cb4a3a50b48",
+                            "importId": "34e9d22d-11fb-43d1-9577-d9bd827ee4f2"
+                        },
+                        "responses": {
+                            "200": {
+                                "body": {
+                                    "id": "34e9d22d-11fb-43d1-9577-d9bd827ee4f2",
+                                    "importState": "Failed",
+                                    "createdDateTime": "2025-09-04T19:09:38.357Z",
+                                    "updatedDateTime": "2025-09-04T19:09:38.357Z",
+                                    "error": {
+                                        "code": "DMTS_PowerBIDataMovementUserDatasourceExceededLimit",
+                                        "details": []
+                                    },
+                                    "name": "example.pbix",
+                                    "connectionType": "import",
+                                    "source": "Upload",
+                                    "datasets": [],
+                                    "reports": []
                                 }
                             }
                         }
@@ -7494,7 +7627,7 @@
                     "Reports"
                 ],
                 "summary": "Exports the specified report from the specified workspace to a Power BI .pbix or .rdl file.",
-                "description": "\n- For .pbix reports - \n You can set the `preferClientRouting` URL query parameter to `true` as a [workaround](/power-bi/developer/embedded/troubleshoot-rest-api#fix-timeout-exceptions-when-using-import-and-export-apis) for timeout issues.\n- Large files are downloaded to a temporary blob. Their URL is returned in the response and stored in the locally downloaded Power BI .pbix file.\n- For more information on requirements and limitations, see [Download a report from the Power BI service to Power BI Desktop](/power-bi/create-reports/service-export-to-pbix).\n\n## Permissions\n\nThis API call can be called by a service principal profile. For more information see: [Service principal profiles in Power BI Embedded](/power-bi/developer/embedded/embed-multi-tenancy).\n\n> [!NOTE]\n> Try-it feature is not supported for this API.\n See [Export Power BI Report](https://github.com/microsoft/PowerBI-Developer-Samples/blob/master/PowerShell%20Scripts/Export-PowerBIReport.ps1) Powershell script for an example of how to use this API.\n\n## Required Scope\n\nReport.ReadWrite.All or both Report.Read.All and Dataset.Read.All\n\n## Limitations\n\nFor .pbix reports, exporting a report with a [Power BI service live connection](/power-bi/desktop-report-lifecycle-datasets) isn't supported after calling [Rebind Report](/rest/api/power-bi/reports/rebind-report).\n<br><br>",
+                "description": "\n- For .pbix reports - \n You can set the `preferClientRouting` URL query parameter to `true` as a [workaround](/power-bi/developer/embedded/troubleshoot-rest-api#fix-timeout-exceptions-when-using-import-and-export-apis) for timeout issues.\n- Large files are downloaded to a temporary blob. Their URL is returned in the response and stored in the locally downloaded Power BI .pbix file.\n- For more information on requirements and limitations, see [Download a report from the Power BI service to Power BI Desktop](/power-bi/create-reports/service-export-to-pbix).\n\n## Permissions\n\nThis API call can be called by a service principal profile. For more information see: [Service principal profiles in Power BI Embedded](/power-bi/developer/embedded/embed-multi-tenancy).\n\n> [!NOTE]\n> Try-it feature is not supported for this API.\n See [Export Power BI Report](https://github.com/microsoft/PowerBI-Developer-Samples/blob/master/PowerShell%20Scripts/Export-PowerBIReport.ps1) Powershell script for an example of how to use this API.\n\n## Required Scope\n\nReport.ReadWrite.All or both Report.Read.All and Dataset.Read.All\n\n## Limitations\n\n* For .pbix reports, exporting a report is subject to the same limitation as [downloading a report .pbix file](/power-bi/create-reports/service-export-to-pbix#limitations-when-downloading-a-report-pbix-file).\n\n* After calling [Rebind Report](/rest/api/power-bi/reports/rebind-report), exporting a report with a [Power BI service live connection](/power-bi/connect-data/desktop-report-lifecycle-datasets) isn't supported.\n<br><br>",
                 "operationId": "Reports_ExportReportInGroup",
                 "consumes": [],
                 "produces": [
@@ -7876,7 +8009,7 @@
                     "Reports"
                 ],
                 "summary": "Updates the data sources of the specified paginated report (RDL) from the specified workspace.",
-                "description": "\n> [!IMPORTANT]\n> Both the original data source and the new data source must have the exact same schema.\n\n## Permissions\n\n- The user must be the data source owner.\n- This API call can be called by a service principal profile. For more information see: [Service principal profiles in Power BI Embedded](/power-bi/developer/embedded/embed-multi-tenancy).\n\n## Required Scope\n\nReports.ReadWrite.All\n\n## Limitations\n\n- Only supports paginated reports.\n- Changing the data source type isn't supported.\n<br><br>",
+                "description": "\n> [!IMPORTANT]\n> Both the original data source and the new data source must have the exact same schema.\n\n## Permissions\n\n- The user must be the data source owner.\n- This API call can be called by a service principal profile. For more information see: [Service principal profiles in Power BI Embedded](/power-bi/developer/embedded/embed-multi-tenancy).\n\n## Required Scope\n\nReports.ReadWrite.All\n\n## Limitations\n\n- Only supports paginated reports.\n- Changing the data source type isn't supported.\n- Open Database Connectivity (ODBC) aren't supported.\n<br><br>",
                 "operationId": "Reports_UpdateDatasourcesInGroup",
                 "consumes": [
                     "application/json"
@@ -9772,6 +9905,73 @@
                 "deprecated": false
             }
         },
+        "/v1.0/myorg/groups/{groupId}/dataflows/{gen1DataflowId}/saveAsNativeArtifact": {
+            "post": {
+                "tags": [
+                    "Dataflows"
+                ],
+                "summary": "Save Dataflow Gen1 As Dataflow Gen2 (CI/CD) (Preview)",
+                "description": "Converts a Gen1 dataflow to a Fabric native artifact (Gen2 CI/CD).\n\n**Key Features:**\n- Creates a new Gen2 (CI/CD) artifact while preserving the original Gen1 dataflow\n- Optionally migrates refresh schedules\n- Updates connection formats to Fabric-compatible formats\n- Preserves sensitivity labels and security settings\n- Provides detailed error reporting for non-fatal issues\n\n**Prerequisites:**\n- Source dataflow must be Generation 1\n- User must have appropriate permissions on the workspace\n**Migration Process:**\n1. Validates source dataflow and permissions\n2. Converts dataflow definition to Fabric format\n3. Updates connection strings for Fabric compatibility\n4. Creates new Gen2 artifact in the specified workspace\n5. Optionally migrates refresh schedule\n6. Sets dataflow origin tracking\n\n**Error Handling:**\nThe API returns success even if some non-critical operations fail (e.g., schedule migration).\nSuch failures are reported in the `errors` array of the response. (Preview)\n",
+                "operationId": "Dataflows_SaveDataflowGenOneAsDataflowGenTwo",
+                "parameters": [
+                    {
+                        "name": "groupId",
+                        "in": "path",
+                        "required": true,
+                        "description": "The workspace (group) ID of the gen1 dataflow, where the new artifact will be created",
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    {
+                        "name": "gen1DataflowId",
+                        "in": "path",
+                        "required": true,
+                        "description": "The object ID of the Gen1 dataflow to save as a native artifact",
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    {
+                        "name": "saveAsNativeDataflowRequest",
+                        "description": "Patch dataflow properties, capabilities and settings",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/SaveAsNativeDataflowRequest"
+                        }
+                    }
+                ],
+                "x-ms-examples": {
+                    "Example": {
+                        "parameters": {
+                            "groupId": "51e47fc5-48fd-4826-89f0-021bd3a80abd",
+                            "gen1DataflowId": "928228ba-008d-4fd9-864a-92d2752ee5ce",
+                            "saveAsNativeDataflowRequest": {
+                                "displayName": "newDataflowName",
+                                "description": "New dataflow description",
+                                "includeSchedule": "true",
+                                "targetWorkspaceId": "d4c3b4a1-2f5e-4c3a-9f7e-123456789abc"
+                            }
+                        },
+                        "responses": {
+                            "200": {
+                                "description": "Ok"
+                            },
+                            "400": {
+                                "description": "Bad Request"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/SaveAsNativeDataflowResponse"
+                        }
+                    }
+                }
+            }
+        },
         "/v1.0/myorg/groups/{groupId}/dataflows/{dataflowId}": {
             "get": {
                 "tags": [
@@ -11282,7 +11482,7 @@
                     "Groups"
                 ],
                 "summary": "Creates a new workspace.",
-                "description": "\n## Permissions\n\nThis API call can be called by a service principal profile. For more information see: [Service principal profiles in Power BI Embedded](/power-bi/developer/embedded/embed-multi-tenancy).\n\n## Required Scope\n\nWorkspace.ReadWrite.All\n<br><br>",
+                "description": "\n## Permissions\n\n- This API call can be called by a service principal profile. For more information see: [Service principal profiles in Power BI Embedded](/power-bi/developer/embedded/embed-multi-tenancy).\n- Service Principals must have permission granted by Fabric administrator. For more information see: [Service principals can create workspaces, connections, and deployment pipelines](/fabric/admin/service-admin-portal-developer#service-principals-can-create-workspaces-connections-and-deployment-pipelines).\n\n## Required Scope\n\nWorkspace.ReadWrite.All\n<br><br>",
                 "operationId": "Groups_CreateGroup",
                 "consumes": [
                     "application/json"
@@ -11580,7 +11780,7 @@
                     "Groups"
                 ],
                 "summary": "Grants the specified user the specified permissions to the specified workspace.",
-                "description": "\n## Permissions\n\nThis API call can be called by a service principal profile. For more information see: [Service principal profiles in Power BI Embedded](/power-bi/developer/embedded/embed-multi-tenancy).\n\n## Required Scope\n\nWorkspace.ReadWrite.All\n\n## Limitations\n\n- User permissions for workspaces take time to get updated and may not be immediately available when using API calls. To refresh user permissions, use the [Refresh User Permissions](/rest/api/power-bi/users/refresh-user-permissions) API call.\n<br><br>",
+                "description": "\n## Permissions\n\nThis API call can be called by a service principal profile. For more information see: [Service principal profiles in Power BI Embedded](/power-bi/developer/embedded/embed-multi-tenancy).\n\n## Required Scope\n\nWorkspace.ReadWrite.All\n\n## Limitations\n\n- User permissions for workspaces take time to get updated and may not be immediately available when using API calls. To refresh user permissions, use the [Refresh User Permissions](/rest/api/power-bi/users/refresh-user-permissions) API call.\n- Each workspace is limited to a maximum of 1,000 users or groups in workspace roles (Admin, Member, Contributor, Viewer). The number of users within a group is not limited. The limitation also covers external guests.\n<br><br>",
                 "operationId": "Groups_AddGroupUser",
                 "consumes": [
                     "application/json"
@@ -14369,7 +14569,8 @@
                                                             "graphId": "3fadb6e4-130c-4a8f-aeac-416e38b66756",
                                                             "principalType": "User"
                                                         }
-                                                    ]
+                                                    ],
+                                                    "tags": ["3b4b36a5-7895-4548-93b7-924e6e65833e", "8ce91ed7-8423-4492-b831-48906997aab2"]
                                                 }
                                             ],
                                             "dashboards": [
@@ -14397,7 +14598,8 @@
                                                             "graphId": "3fadb6e4-130c-4a8f-aeac-416e38b66756",
                                                             "principalType": "User"
                                                         }
-                                                    ]
+                                                    ],
+                                                    "tags": ["3b4b36a5-7895-4548-93b7-924e6e65833e", "8ce91ed7-8423-4492-b831-48906997aab2"]
                                                 }
                                             ],
                                             "datasets": [
@@ -14508,7 +14710,8 @@
                                                             "graphId": "3fadb6e4-130c-4a8f-aeac-416e38b66756",
                                                             "principalType": "User"
                                                         }
-                                                    ]
+                                                    ],
+                                                    "tags": ["3b4b36a5-7895-4548-93b7-924e6e65833e", "8ce91ed7-8423-4492-b831-48906997aab2"]
                                                 }
                                             ],
                                             "dataflows": [
@@ -14545,7 +14748,8 @@
                                                             "graphId": "3fadb6e4-130c-4a8f-aeac-416e38b66756",
                                                             "principalType": "User"
                                                         }
-                                                    ]
+                                                    ],
+                                                    "tags": ["3b4b36a5-7895-4548-93b7-924e6e65833e", "8ce91ed7-8423-4492-b831-48906997aab2"]
                                                 }
                                             ],
                                             "datamarts": [
@@ -14590,7 +14794,8 @@
                                                             },
                                                             "datamartUserAccessRight": "Read"
                                                         }
-                                                    ]
+                                                    ],
+                                                    "tags": ["3b4b36a5-7895-4548-93b7-924e6e65833e", "8ce91ed7-8423-4492-b831-48906997aab2"]
                                                 }
                                             ],
                                             "users": [
@@ -15584,7 +15789,7 @@
                     "Admin"
                 ],
                 "summary": "Grants user permissions to the specified workspace.",
-                "description": "\nThis API call only supports adding a user, security group, M365 group and service principal.\n\n## Permissions\n\nThe user must be a Fabric administrator.\n\n## Required Scope\n\nTenant.ReadWrite.All\n\n## Limitations\n\nMaximum 200 requests per hour.\n<br><br>",
+                "description": "\nThis API call only supports adding a user, security group, M365 group and service principal.\n\n## Permissions\n\nThe user must be a Fabric administrator.\n\n## Required Scope\n\nTenant.ReadWrite.All\n\n## Limitations\n\n- Maximum 200 requests per hour.\n- Each workspace is limited to a maximum of 1,000 users or groups in workspace roles (Admin, Member, Contributor, Viewer). The number of users within a group is not limited. The limitation also covers external guests.\n<br><br>",
                 "operationId": "Groups_AddUserAsAdmin",
                 "consumes": [
                     "application/json"
@@ -18878,7 +19083,7 @@
                     "Admin"
                 ],
                 "summary": "Returns a list of audit activity events for a tenant.",
-                "description": "\nProvide either a continuation token or both a start and end date time. `StartDateTime` and `EndDateTime` must be in the same UTC day and should be wrapped in single quotes.\n\n## Permissions\n\n- The user must be a Fabric administrator or authenticate using a service principal.\n- Delegated permissions are supported.\n\nWhen running under service prinicipal authentication, an app **must not** have any admin-consent required premissions for Power BI set on it in the Azure portal.\n\n## Required Scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n\nRelevant only when authenticating via a standard delegated admin access token. Must not be present when authentication via a service principal is used.\n\n## Limitations\n\n- Maximum 200 requests per hour.\n- Activity logging isn't supported for Microsoft Cloud Deutschland.\n<br><br>",
+                "description": "\nProvide either a continuation token or both a start and end date time. `StartDateTime` and `EndDateTime` must be in the same UTC day, within the last 28 days, and should be wrapped in single quotes.\n\n## Permissions\n\n- The user must be a Fabric administrator or authenticate using a service principal.\n- Delegated permissions are supported.\n\nWhen running under service prinicipal authentication, an app **must not** have any admin-consent required premissions for Power BI set on it in the Azure portal.\n\n## Required Scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n\nRelevant only when authenticating via a standard delegated admin access token. Must not be present when authentication via a service principal is used.\n\n## Limitations\n\n- Maximum 200 requests per hour.\n- Activity logging isn't supported for Microsoft Cloud Deutschland.\n<br><br>",
                 "operationId": "Admin_GetActivityEvents",
                 "consumes": [],
                 "produces": [
@@ -22360,6 +22565,247 @@
                 }
             }
         },
+        "SaveAsNativeDataflowRequest": {
+            "type": "object",
+            "description": "Request body for migrating a Gen1 dataflow to Gen2(CI/CD) native artifact",
+            "properties": {
+                "includeSchedule": {
+                    "type": "boolean",
+                    "description": "Whether to include the refresh schedule from the source dataflow in the migration.\nIf true, attempts to copy the existing schedule to the new artifact in disabled state.\nIf false, the new artifact will be created without a schedule.\n"
+                },
+                "displayName": {
+                    "type": "string",
+                    "description": "Optional display name for the new artifact. If not provided or empty,\nthe system will generate a name based on the source dataflow name with\na suffix like \"_copy1\", \"_copy2\", etc. to avoid naming conflicts.\n\nMaximum length: 200 characters\n",
+                    "maxLength": 200
+                },
+                "description": {
+                    "type": "string",
+                    "description": "Optional description for the new artifact. If not provided or empty,\nthe description from the source dataflow will be copied.\n\nMaximum length: 4000 characters\n",
+                    "maxLength": 4000
+                },
+                "targetWorkspaceId": {
+                    "type": "string",
+                    "format": "uuid",
+                    "description": "Optional target workspace ID where the new artifact will be created.\nIf not provided or empty, the new artifact will be created in the same\nworkspace as the source dataflow.\n"
+                }
+            }
+    },
+        "SaveAsNativeDataflowResponse": {
+            "type": "object",
+            "description": "Response from the dataflow migration operation",
+            "required": ["artifactMetadata", "errors"],
+            "properties": {
+                "artifactMetadata": {
+                    "$ref": "#/definitions/ArtifactMetadata",
+                    "description": "Complete metadata of the newly created Gen2(CI/CD) artifact"
+                },
+                "errors": {
+                    "type": "array",
+                    "description": "List of non-fatal errors that occurred during the migration process.\nThe migration is considered successful even if these errors occur,\nbut some features may not have been migrated properly.\n",
+                    "items": {
+                    "$ref": "#/definitions/SaveAsNativeDataflowErrorCode"
+                    }
+                }
+            }
+        },
+        "SaveAsNativeDataflowErrorCode": {
+            "type": "string",
+            "description": "Non-fatal error codes that can occur during migration",
+            "enum": [
+                "FailedToCopySchedule",
+                "SetDataflowOriginFailed",
+                "ConnectionsUpdateFailed"
+            ],
+            "x-ms-enum": {
+                "name": "SaveAsNativeDataflowErrorCode",
+                "modelAsExtensible": true,
+                "modelAsString": true,
+                "values": [
+                    {
+                        "value": "FailedToCopySchedule",
+                        "description": "The refresh schedule could not be copied to the new artifact"
+                    },
+                    {
+                        "value": "SetDataflowOriginFailed",
+                        "description": "Failed to set the origin tracking information on the new artifact"
+                    },
+                    {
+                        "value": "ConnectionsUpdateFailed",
+                        "description": "Connection strings could not be updated to Fabric format"
+                    }
+                ]
+            }
+        },
+        "ArtifactMetadata": {
+            "type": "object",
+            "description": "Metadata information for a Fabric artifact",
+            "required": [
+                "objectId",
+                "artifactType",
+                "displayName",
+                "folderObjectId",
+                "provisionState",
+                "lastUpdatedDate",
+                "createdDate"
+            ],
+            "properties": {
+                "objectId": {
+                    "type": "string",
+                    "format": "uuid",
+                    "description": "Unique identifier for the artifact",
+                    "example": "a1b2c3d4-e5f6-7g8h-9i0j-k1l2m3n4o5p6"
+                },
+                "artifactType": {
+                    "type": "string",
+                    "description": "Type of the artifact",
+                    "example": "Dataflow"
+                },
+                "displayName": {
+                    "type": "string",
+                    "description": "Display name of the artifact",
+                    "example": "Sales Data Gen2"
+                },
+                "description": {
+                    "type": "string",
+                    "description": "Description of the artifact",
+                    "example": "Migrated sales dataflow with enhanced capabilities"
+                },
+                "folderObjectId": {
+                    "type": "string",
+                    "format": "uuid",
+                    "description": "ID of the workspace/folder containing this artifact",
+                    "example": "f089354e-8366-4e18-aea3-4cb4a3a50b48"
+                },
+                "provisionState": {
+                    "$ref": "#/definitions/ArtifactProvisioningState"
+                },
+                "lastUpdatedDate": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "When the artifact was last updated",
+                    "example": "2023-11-02T08:30:00Z"
+                },
+                "createdDate": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "When the artifact was created",
+                    "example": "2023-11-02T08:30:00Z"
+                },
+                "capacityObjectId": {
+                    "type": "string",
+                    "format": "uuid",
+                    "description": "ID of the capacity hosting this artifact"
+                },
+                "workloadPayload": {
+                    "type": "string",
+                    "description": "Workload-specific payload data"
+                },
+                "ownerUser": {
+                    "$ref": "#/definitions/ArtifactMetadataUser"
+                },
+                "createdByUser": {
+                    "$ref": "#/definitions/ArtifactMetadataUser"
+                },
+                "modifiedByUser": {
+                    "$ref": "#/definitions/ArtifactMetadataUser"
+                }
+            }
+        },
+        "ArtifactMetadataUser": {
+            "type": "object",
+            "description": "User information in artifact metadata",
+            "properties": {
+                "objectId": {
+                    "type": "string",
+                    "format": "uuid",
+                    "description": "User's object ID",
+                    "example": "c3d4e5f6-g7h8-9i0j-1k2l-m3n4o5p6q7r8"
+                },
+                "displayName": {
+                    "type": "string",
+                    "description": "User's display name",
+                    "example": "John Doe"
+                },
+                "emailAddress": {
+                    "type": "string",
+                    "format": "email",
+                    "description": "User's email address",
+                    "example": "john.doe@contoso.com"
+                }
+            }
+        },
+        "ArtifactProvisioningState": {
+            "type": "string",
+            "description": "Current provisioning state of the artifact",
+            "enum": [
+                "InProgress",
+                "Active",
+                "Migrating",
+                "Recovering",
+                "SoftDeletedByUser",
+                "SoftDeleted",
+                "Failed",
+                "Deleting",
+                "DisabledByDeprovisioning",
+                "DeprovisioningFailed",
+                "DeletedByDeprovision",
+                "DeletedByWorkload"
+            ],
+            "x-ms-enum": {
+                "name": "ArtifactProvisionState",
+                "modelAsString": true,
+                "values":[
+                    {
+                        "value": "InProgress",
+                        "description": "The artifact is being provisioned"
+                    },
+                    {
+                        "value": "Active",
+                        "description": "The artifact is active"
+                    },
+                    {
+                        "value": "Migrating",
+                        "description": "The artifact is being migrated"
+                    },
+                    {
+                        "value": "Recovering",
+                        "description": "The artifact is recovering"
+                    },
+                    {
+                        "value": "SoftDeletedByUser",
+                        "description": "The artifact is soft deleted by the user"
+                    },
+                    {
+                        "value": "DeletedByWorkload",
+                        "description": "The artifact is deleted by the workload"
+                    },
+                    {
+                        "value": "SoftDeleted",
+                        "description": "The artifact is soft deleted"
+                    },
+                    {
+                        "value": "Failed",
+                        "description": "The artifact provisioning failed"
+                    },
+                    {
+                        "value": "Deleting",
+                        "description": "The artifact is being deleted"
+                    },
+                    {
+                        "value": "DisabledByDeprovisioning",
+                        "description": "The artifact is disabled by deprovisioning"
+                    },
+                    {
+                        "value": "DeprovisioningFailed",
+                        "description": "The artifact deprovisioning failed"
+                    },
+                    {
+                        "value": "DeletedByDeprovision",
+                        "description": "The artifact is deleted by deprovisioning"
+                    }
+                ]
+            }
+        },
         "DatasourceUsage": {
             "required": [
                 "datasourceInstanceId"
@@ -22566,6 +23012,22 @@
                 }
             }
         },
+        "ImportError": {
+            "description": "The error details for a failed import",
+            "properties": {
+                "code": {
+                    "type": "string",
+                    "description": "The error code"
+                },
+                "details": {
+                    "type": "array",
+                    "description": "An array of error details",
+                    "items": {
+                        "$ref": "#/definitions/PowerBIApiErrorResponseDetail"
+                    }
+                }
+            }
+        },
         "Import": {
             "required": [
                 "id"
@@ -22613,6 +23075,10 @@
                     "type": "string",
                     "format": "date-time",
                     "description": "Import last update date and time"
+                },
+                "error": {
+                    "$ref": "#/definitions/ImportError",
+                    "description": "The error details when the import has failed"
                 }
             }
         },
@@ -22962,6 +23428,9 @@
                 },
                 {
                     "$ref": "#/definitions/DatasetUserProperties"
+                },
+                {
+                    "$ref": "#/definitions/TagsProperties"
                 }
             ]
         },
@@ -24113,6 +24582,20 @@
                 }
             }
         },
+        "TagsProperties": {
+            "description": "A list of tag properties returned for a Power BI item (such as a report or a dashboard) by WorkspaceInfo APIs",
+            "properties": {
+                "tags": {
+                    "type": "array",
+                    "description": "The unique identifiers for the tags applied on an item.",
+                    "items": {
+                        "type": "string",
+                        "format": "uuid",
+                        "description": "A business tag ID"
+                    }
+                }
+            }
+        },
         "SubscriptionsByUserResponse": {
             "description": "OData response wrapper for a Power BI subscriptions for user",
             "properties": {
@@ -24179,6 +24662,61 @@
                 "isOwnedByMe": {
                     "type": "boolean",
                     "description": "Indicates whether the current user has the ability to either modify or create a copy of the report."
+                },
+                "format": {
+                    "type": "string",
+                    "description": "The report definition format type.\nFor **PowerBIReport**:\n- [PBIR](https://learn.microsoft.com/power-bi/developer/projects/projects-report?tabs=v2%2Cdesktop#pbir-format)\n- [PBIR-Legacy](https://learn.microsoft.com/power-bi/developer/projects/projects-report?tabs=v2%2Cdesktop#reportjson) \n\nFor **PaginatedReport**: \n- [`RDL`](https://learn.microsoft.com/power-bi/paginated-reports/report-definition-language)"
+                }
+            }
+        },
+        "AdminReportBaseProperties": {
+            "required": [
+                "id"
+            ],
+            "description": "Power BI report common properties. The API returns a subset of the following list of report properties. The subset depends on the API called, caller permissions, and the availability of data in the Power BI database.",
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "format": "uuid",
+                    "description": "The report ID"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The name of the report. App reports start with the prefix [App]."
+                },
+                "datasetId": {
+                    "type": "string",
+                    "description": "The dataset ID of the report"
+                },
+                "appId": {
+                    "type": "string",
+                    "description": "The app ID, returned only if the report belongs to an app"
+                },
+                "description": {
+                    "type": "string",
+                    "description": "The report description"
+                },
+                "reportType": {
+                    "type": "string",
+                    "description": "The report type",
+                    "enum": [
+                        "PaginatedReport",
+                        "PowerBIReport"
+                    ]
+                },
+                "originalReportObjectId": {
+                    "type": "string",
+                    "format": "uuid",
+                    "description": "The actual report ID when the workspace is published as an app.",
+                    "x-ms-client-name": "originalReportId"
+                },
+                "isOwnedByMe": {
+                    "type": "boolean",
+                    "description": "Indicates whether the current user has the ability to either modify or create a copy of the report."
+                },
+                "format": {
+                    "type": "string",
+                    "description": "The report definition format type.\nFor **PowerBIReport**:\n- [PBIR](https://learn.microsoft.com/power-bi/developer/projects/projects-report?tabs=v2%2Cdesktop#pbir-format)\n- [PBIR-Legacy](https://learn.microsoft.com/power-bi/developer/projects/projects-report?tabs=v2%2Cdesktop#reportjson) \n\nFor **PaginatedReport**: \n- [`RDL`](https://learn.microsoft.com/power-bi/paginated-reports/report-definition-language)"
                 }
             }
         },
@@ -24531,7 +25069,7 @@
             "description": "A Power BI report returned by Admin APIs. The API returns a subset of the following list of report properties. The subset depends on the API called, caller permissions, and the availability of data in the Power BI database.",
             "allOf": [
                 {
-                    "$ref": "#/definitions/ReportBaseProperties"
+                    "$ref": "#/definitions/AdminReportBaseProperties"
                 },
                 {
                     "$ref": "#/definitions/ReportNavigationProperties"
@@ -24573,6 +25111,9 @@
                 },
                 {
                     "$ref": "#/definitions/RelatedDatasetProperties"
+                },
+                {
+                    "$ref": "#/definitions/TagsProperties"
                 }
             ]
         },
@@ -24602,6 +25143,9 @@
                 },
                 {
                     "$ref": "#/definitions/DatamartUserProperties"
+                },
+                {
+                    "$ref": "#/definitions/TagsProperties"
                 }
             ]
         },
@@ -24777,6 +25321,9 @@
                 },
                 {
                     "$ref": "#/definitions/DashboardUserProperties"
+                },
+                {
+                    "$ref": "#/definitions/TagsProperties"
                 }
             ]
         },
@@ -25478,6 +26025,15 @@
                             }
                         ]
                     }
+                },
+                "executionMetrics": {
+                    "type": "array",
+                    "description": "The Analysis Services engine execution metrics captured during the refresh attempt.",
+                    "items": {
+                        "type": "object",
+                        "description": "A dictionary of execution metrics as key-value pairs. Keys are metric names (e.g., 'timeStart', 'durationMs', 'commandType') and values can be strings, numbers, or timestamps depending on the metric.",
+                        "additionalProperties": true
+                    }
                 }
             }
         },
@@ -25796,6 +26352,52 @@
                     "items": {
                         "$ref": "#/definitions/RefreshAttempt"
                     }
+                },
+                "initiatedBy": {
+                    "type": "string",
+                    "description": "The type of refresh request that initiated this refresh operation",
+                    "enum": [
+                        "Scheduled",
+                        "OnDemand",
+                        "ViaApi",
+                        "ViaXmlaEndpoint",
+                        "ViaEnhancedApi",
+                        "OnDemandTraining"
+                    ],
+                    "x-ms-enum": {
+                        "name": "initiatedBy",
+                        "modelAsExtensible": true,
+                        "values": [
+                            {
+                                "value": "Scheduled",
+                                "description": "The refresh was triggered by a dataset refresh schedule setting"
+                            },
+                            {
+                                "value": "OnDemand",
+                                "description": "The refresh was triggered interactively through the Power BI portal"
+                            },
+                            {
+                                "value": "ViaApi",
+                                "description": "The refresh was triggered by an API call"
+                            },
+                            {
+                                "value": "ViaXmlaEndpoint",
+                                "description": "The refresh was triggered through Power BI public XMLA endpoint"
+                            },
+                            {
+                                "value": "ViaEnhancedApi",
+                                "description": "The refresh was triggered by an enhanced refresh REST API call"
+                            },
+                            {
+                                "value": "OnDemandTraining",
+                                "description": "The refresh was triggered interactively through the Power BI portal with automatic aggregations training"
+                            }
+                        ]
+                    }
+                },
+                "serviceExceptionJson": {
+                    "type": "string",
+                    "description": "The service exception details in JSON format, if any"
                 }
             }
         },
@@ -28298,6 +28900,9 @@
                 },
                 {
                     "$ref": "#/definitions/SensitivityProperties"
+                },
+                {
+                    "$ref": "#/definitions/TagsProperties"
                 }
             ]
         },

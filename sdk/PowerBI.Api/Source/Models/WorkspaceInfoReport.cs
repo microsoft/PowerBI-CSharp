@@ -18,6 +18,7 @@ namespace Microsoft.PowerBI.Api.Models
         public WorkspaceInfoReport(Guid id) : base(id)
         {
             Users = new ChangeTrackingList<ReportUser>();
+            Tags = new ChangeTrackingList<Guid>();
         }
 
         /// <summary> Initializes a new instance of <see cref="WorkspaceInfoReport"/>. </summary>
@@ -29,6 +30,15 @@ namespace Microsoft.PowerBI.Api.Models
         /// <param name="reportType"> The report type. </param>
         /// <param name="originalReportId"> The actual report ID when the workspace is published as an app. </param>
         /// <param name="isOwnedByMe"> Indicates whether the current user has the ability to either modify or create a copy of the report. </param>
+        /// <param name="format">
+        /// The report definition format type.
+        /// For **PowerBIReport**:
+        /// - [PBIR](https://learn.microsoft.com/power-bi/developer/projects/projects-report?tabs=v2%2Cdesktop#pbir-format)
+        /// - [PBIR-Legacy](https://learn.microsoft.com/power-bi/developer/projects/projects-report?tabs=v2%2Cdesktop#reportjson)
+        ///
+        /// For **PaginatedReport**:
+        /// - [`RDL`](https://learn.microsoft.com/power-bi/paginated-reports/report-definition-language)
+        /// </param>
         /// <param name="createdBy"> The report owner. Available only for reports created after June 2019. </param>
         /// <param name="modifiedBy"> The last user that modified the report. </param>
         /// <param name="createdDateTime"> The report creation date and time. </param>
@@ -39,7 +49,8 @@ namespace Microsoft.PowerBI.Api.Models
         /// <param name="sensitivityLabel"> The sensitivity label. </param>
         /// <param name="users"> (Empty value) The user access details for a Power BI report. This property will be removed from the payload response in an upcoming release. You can retrieve user information on a Power BI report by using the [Get Report Users as Admin](/rest/api/power-bi/admin/reports-get-report-users-as-admin) API call, or the [PostWorkspaceInfo](/rest/api/power-bi/admin/workspace-info-post-workspace-info) API call with the `getArtifactUsers` parameter. </param>
         /// <param name="datasetWorkspaceId"> The workspace ID of the related dataset, returned only if the related dataset belongs to a different workspace. </param>
-        internal WorkspaceInfoReport(Guid id, string name, string datasetId, string appId, string description, ReportBasePropertiesReportType? reportType, Guid? originalReportId, bool? isOwnedByMe, string createdBy, string modifiedBy, DateTimeOffset? createdDateTime, DateTimeOffset? modifiedDateTime, string createdById, string modifiedById, EndorsementDetails endorsementDetails, SensitivityLabel sensitivityLabel, IList<ReportUser> users, Guid? datasetWorkspaceId) : base(id, name, datasetId, appId, description, reportType, originalReportId, isOwnedByMe)
+        /// <param name="tags"> The unique identifiers for the tags applied on an item. </param>
+        internal WorkspaceInfoReport(Guid id, string name, string datasetId, string appId, string description, ReportBasePropertiesReportType? reportType, Guid? originalReportId, bool? isOwnedByMe, string format, string createdBy, string modifiedBy, DateTimeOffset? createdDateTime, DateTimeOffset? modifiedDateTime, string createdById, string modifiedById, EndorsementDetails endorsementDetails, SensitivityLabel sensitivityLabel, IList<ReportUser> users, Guid? datasetWorkspaceId, IList<Guid> tags) : base(id, name, datasetId, appId, description, reportType, originalReportId, isOwnedByMe, format)
         {
             CreatedBy = createdBy;
             ModifiedBy = modifiedBy;
@@ -51,6 +62,7 @@ namespace Microsoft.PowerBI.Api.Models
             SensitivityLabel = sensitivityLabel;
             Users = users;
             DatasetWorkspaceId = datasetWorkspaceId;
+            Tags = tags;
         }
 
         /// <summary> The report owner. Available only for reports created after June 2019. </summary>
@@ -73,5 +85,7 @@ namespace Microsoft.PowerBI.Api.Models
         public IList<ReportUser> Users { get; }
         /// <summary> The workspace ID of the related dataset, returned only if the related dataset belongs to a different workspace. </summary>
         public Guid? DatasetWorkspaceId { get; set; }
+        /// <summary> The unique identifiers for the tags applied on an item. </summary>
+        public IList<Guid> Tags { get; }
     }
 }

@@ -11,7 +11,7 @@ namespace Microsoft.PowerBI.Api.Models
     public partial class DatamartEndorsmentProperties
     {
         /// <summary> Initializes a new instance of <see cref="DatamartEndorsmentProperties"/>. </summary>
-        internal DatamartEndorsmentProperties()
+        public DatamartEndorsmentProperties()
         {
         }
 
@@ -23,6 +23,6 @@ namespace Microsoft.PowerBI.Api.Models
         }
 
         /// <summary> The datamart endorsement details. </summary>
-        public EndorsementDetails EndorsementDetails { get; }
+        public EndorsementDetails EndorsementDetails { get; set; }
     }
 }

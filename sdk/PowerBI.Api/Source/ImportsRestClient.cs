@@ -142,7 +142,7 @@ namespace Microsoft.PowerBI.Api
         /// <summary> Creates new content in **My workspace**. </summary>
         /// <param name="datasetDisplayName"> The display name of the dataset, should include file extension. Not supported when importing from OneDrive for Business. </param>
         /// <param name="importInfo"> The import to post. </param>
-        /// <param name="nameConflict"> Specifies what to do if a dataset with the same name already exists. The default value is `Ignore`. For RDL files, `Abort` and `Overwrite` are the only supported options. </param>
+        /// <param name="nameConflict"> Specifies what to do if a dataset with the same name already exists. The default value is `Ignore`. For RDL files, `Abort` and `Overwrite` are the only supported options and not others. </param>
         /// <param name="skipReport"> Whether to skip report import. If specified, the value must be `true`. Only supported for Power BI .pbix files. </param>
         /// <param name="overrideReportLabel"> Whether to override the existing report label when republishing a Power BI .pbix file. The service default value is `true`. </param>
         /// <param name="overrideModelLabel"> Whether to override the existing label on a model when republishing a Power BI .pbix file. The service default value is `true`. </param>
@@ -157,10 +157,11 @@ namespace Microsoft.PowerBI.Api
         /// &gt; - Power BI .pbix files
         /// &gt; - JSON files (.json)
         /// &gt; - Excel files (.xlsx)
-        /// &gt; - RDL files (.rdl)
+        /// &gt; - Report Definition Language files (.rdl)
         ///
         /// - To import a file, specify the content type **multipart/form-data** in the request headers and encode the file as [form data](https://www.w3.org/TR/html401/interact/forms.html) in the request body.
-        /// - To import an .rdl file, include the file extension in the name specified by `datasetDisplayName`, as described in [URI parameters](/rest/api/power-bi/imports/post-import-in-group#uri-parameters).
+        /// - To import Paginated Reports(.rdl) file, include the .rdl file extension in the name specified by `datasetDisplayName` such as `paginatedReport.rdl`, as described in [URI parameters](/rest/api/power-bi/imports/post-import-in-group#uri-parameters). File extension in the `datasetDisplayName` will help to distinguish Paginated Report(.rdl file) upload from other uploads.
+        ///   - It is also suggested to use C# SDK[(NuGet Gallery | Microsoft.PowerBI.Api)](https://www.nuget.org/packages/Microsoft.PowerBI.Api/) for Paginated Report(.rdl) uploads.
         /// - To import an .xlsx file from OneDrive for Business, include the content type **application/json** in the request headers. Include [ImportInfo](/rest/api/power-bi/imports/post-import-in-group#importinfo) with `filePath` set to the .xlsx file path in the request body.
         /// - To import large Power BI .pbix files that are between 1 GB and 10 GB in size, see [Create Temporary Upload Location](/rest/api/power-bi/imports/create-temporary-upload-location). This is only supported for Premium capacity workspaces.
         /// - To create a dataflow from a model.json file, set `datasetDisplayName` to *model.json*, as described in [URI parameters](/rest/api/power-bi/imports/post-import-in-group#uri-parameters).
@@ -207,7 +208,7 @@ namespace Microsoft.PowerBI.Api
         /// <summary> Creates new content in **My workspace**. </summary>
         /// <param name="datasetDisplayName"> The display name of the dataset, should include file extension. Not supported when importing from OneDrive for Business. </param>
         /// <param name="importInfo"> The import to post. </param>
-        /// <param name="nameConflict"> Specifies what to do if a dataset with the same name already exists. The default value is `Ignore`. For RDL files, `Abort` and `Overwrite` are the only supported options. </param>
+        /// <param name="nameConflict"> Specifies what to do if a dataset with the same name already exists. The default value is `Ignore`. For RDL files, `Abort` and `Overwrite` are the only supported options and not others. </param>
         /// <param name="skipReport"> Whether to skip report import. If specified, the value must be `true`. Only supported for Power BI .pbix files. </param>
         /// <param name="overrideReportLabel"> Whether to override the existing report label when republishing a Power BI .pbix file. The service default value is `true`. </param>
         /// <param name="overrideModelLabel"> Whether to override the existing label on a model when republishing a Power BI .pbix file. The service default value is `true`. </param>
@@ -222,10 +223,11 @@ namespace Microsoft.PowerBI.Api
         /// &gt; - Power BI .pbix files
         /// &gt; - JSON files (.json)
         /// &gt; - Excel files (.xlsx)
-        /// &gt; - RDL files (.rdl)
+        /// &gt; - Report Definition Language files (.rdl)
         ///
         /// - To import a file, specify the content type **multipart/form-data** in the request headers and encode the file as [form data](https://www.w3.org/TR/html401/interact/forms.html) in the request body.
-        /// - To import an .rdl file, include the file extension in the name specified by `datasetDisplayName`, as described in [URI parameters](/rest/api/power-bi/imports/post-import-in-group#uri-parameters).
+        /// - To import Paginated Reports(.rdl) file, include the .rdl file extension in the name specified by `datasetDisplayName` such as `paginatedReport.rdl`, as described in [URI parameters](/rest/api/power-bi/imports/post-import-in-group#uri-parameters). File extension in the `datasetDisplayName` will help to distinguish Paginated Report(.rdl file) upload from other uploads.
+        ///   - It is also suggested to use C# SDK[(NuGet Gallery | Microsoft.PowerBI.Api)](https://www.nuget.org/packages/Microsoft.PowerBI.Api/) for Paginated Report(.rdl) uploads.
         /// - To import an .xlsx file from OneDrive for Business, include the content type **application/json** in the request headers. Include [ImportInfo](/rest/api/power-bi/imports/post-import-in-group#importinfo) with `filePath` set to the .xlsx file path in the request body.
         /// - To import large Power BI .pbix files that are between 1 GB and 10 GB in size, see [Create Temporary Upload Location](/rest/api/power-bi/imports/create-temporary-upload-location). This is only supported for Premium capacity workspaces.
         /// - To create a dataflow from a model.json file, set `datasetDisplayName` to *model.json*, as described in [URI parameters](/rest/api/power-bi/imports/post-import-in-group#uri-parameters).
@@ -555,7 +557,7 @@ namespace Microsoft.PowerBI.Api
         /// <param name="groupId"> The workspace ID. </param>
         /// <param name="datasetDisplayName"> The display name of the dataset should include file extension. Not supported when importing from OneDrive for Business. For importing or creating dataflows, this parameter should be hardcoded to model.json. </param>
         /// <param name="importInfo"> The import to post. </param>
-        /// <param name="nameConflict"> Specifies what to do if a dataset with the same name already exists. The default value is `Ignore`. For RDL files, `Abort` and `Overwrite` are the only supported options. For dataflow model.json files, `Abort` and `GenerateUniqueName` are the only supported options. </param>
+        /// <param name="nameConflict"> Specifies what to do if a dataset with the same name already exists. The default value is `Ignore`. For RDL files, `Abort` and `Overwrite` are the only supported options and not others.. For dataflow model.json files, `Abort` and `GenerateUniqueName` are the only supported options. </param>
         /// <param name="skipReport"> Whether to skip report import. If specified, the value must be `true`. Only supported for Power BI .pbix files. </param>
         /// <param name="overrideReportLabel"> Whether to override the existing label on a report when republishing a Power BI .pbix file. The service default value is `true`. </param>
         /// <param name="overrideModelLabel"> Determines whether to override the existing label on a model when republishing a Power BI .pbix file. The service default value is `true`. </param>
@@ -569,10 +571,11 @@ namespace Microsoft.PowerBI.Api
         /// &gt; - Power BI .pbix files
         /// &gt; - JSON files (.json)
         /// &gt; - Excel files (.xlsx)
-        /// &gt; - SQL Server Report Definition Language files (.rdl)
+        /// &gt; - Report Definition Language files (.rdl)
         ///
         /// - To import a file, specify the content type **multipart/form-data** in the request headers and encode the file as [form data](https://www.w3.org/TR/html401/interact/forms.html) in the request body.
-        /// - To import an .rdl file, include the file extension in the name specified by `datasetDisplayName`, as described in [URI parameters](/rest/api/power-bi/imports/post-import-in-group#uri-parameters).
+        /// - To import a Paginated Report(.rdl) file, include the `.rdl` file extension in the name specified by `datasetDisplayName` such as `paginatedReport.rdl`, as described in [URI parameters](/rest/api/power-bi/imports/post-import-in-group#uri-parameters). File extension in the `datasetDisplayName` will help to distinguish Paginated Report(.rdl) upload from other uploads.
+        ///   - It is also suggested to use C# SDK[(NuGet Gallery | Microsoft.PowerBI.Api)](https://www.nuget.org/packages/Microsoft.PowerBI.Api/) for Paginated Report(.rdl) uploads.
         /// - To import an .xlsx file from OneDrive for Business, include the content type **application/json** in the request headers. Include [ImportInfo](/rest/api/power-bi/imports/post-import-in-group#importinfo) with `filePath` set to the .xlsx file path in the request body.
         /// - To import large Power BI .pbix files that are between 1 GB and 10 GB in size, see [Create Temporary Upload Location In Group](/rest/api/power-bi/imports/create-temporary-upload-location-in-group) and the [Import Large Files](https://github.com/microsoft/PowerBI-Developer-Samples/blob/master/PowerShell%20Scripts/Import%20Large%20Files) PowerShell script. This is only supported for Premium capacity workspaces.
         /// - To create a dataflow from a model.json file, set `datasetDisplayName` to *model.json*, as described in [URI parameters](/rest/api/power-bi/imports/post-import-in-group#uri-parameters).
@@ -624,7 +627,7 @@ namespace Microsoft.PowerBI.Api
         /// <param name="groupId"> The workspace ID. </param>
         /// <param name="datasetDisplayName"> The display name of the dataset should include file extension. Not supported when importing from OneDrive for Business. For importing or creating dataflows, this parameter should be hardcoded to model.json. </param>
         /// <param name="importInfo"> The import to post. </param>
-        /// <param name="nameConflict"> Specifies what to do if a dataset with the same name already exists. The default value is `Ignore`. For RDL files, `Abort` and `Overwrite` are the only supported options. For dataflow model.json files, `Abort` and `GenerateUniqueName` are the only supported options. </param>
+        /// <param name="nameConflict"> Specifies what to do if a dataset with the same name already exists. The default value is `Ignore`. For RDL files, `Abort` and `Overwrite` are the only supported options and not others.. For dataflow model.json files, `Abort` and `GenerateUniqueName` are the only supported options. </param>
         /// <param name="skipReport"> Whether to skip report import. If specified, the value must be `true`. Only supported for Power BI .pbix files. </param>
         /// <param name="overrideReportLabel"> Whether to override the existing label on a report when republishing a Power BI .pbix file. The service default value is `true`. </param>
         /// <param name="overrideModelLabel"> Determines whether to override the existing label on a model when republishing a Power BI .pbix file. The service default value is `true`. </param>
@@ -638,10 +641,11 @@ namespace Microsoft.PowerBI.Api
         /// &gt; - Power BI .pbix files
         /// &gt; - JSON files (.json)
         /// &gt; - Excel files (.xlsx)
-        /// &gt; - SQL Server Report Definition Language files (.rdl)
+        /// &gt; - Report Definition Language files (.rdl)
         ///
         /// - To import a file, specify the content type **multipart/form-data** in the request headers and encode the file as [form data](https://www.w3.org/TR/html401/interact/forms.html) in the request body.
-        /// - To import an .rdl file, include the file extension in the name specified by `datasetDisplayName`, as described in [URI parameters](/rest/api/power-bi/imports/post-import-in-group#uri-parameters).
+        /// - To import a Paginated Report(.rdl) file, include the `.rdl` file extension in the name specified by `datasetDisplayName` such as `paginatedReport.rdl`, as described in [URI parameters](/rest/api/power-bi/imports/post-import-in-group#uri-parameters). File extension in the `datasetDisplayName` will help to distinguish Paginated Report(.rdl) upload from other uploads.
+        ///   - It is also suggested to use C# SDK[(NuGet Gallery | Microsoft.PowerBI.Api)](https://www.nuget.org/packages/Microsoft.PowerBI.Api/) for Paginated Report(.rdl) uploads.
         /// - To import an .xlsx file from OneDrive for Business, include the content type **application/json** in the request headers. Include [ImportInfo](/rest/api/power-bi/imports/post-import-in-group#importinfo) with `filePath` set to the .xlsx file path in the request body.
         /// - To import large Power BI .pbix files that are between 1 GB and 10 GB in size, see [Create Temporary Upload Location In Group](/rest/api/power-bi/imports/create-temporary-upload-location-in-group) and the [Import Large Files](https://github.com/microsoft/PowerBI-Developer-Samples/blob/master/PowerShell%20Scripts/Import%20Large%20Files) PowerShell script. This is only supported for Premium capacity workspaces.
         /// - To create a dataflow from a model.json file, set `datasetDisplayName` to *model.json*, as described in [URI parameters](/rest/api/power-bi/imports/post-import-in-group#uri-parameters).

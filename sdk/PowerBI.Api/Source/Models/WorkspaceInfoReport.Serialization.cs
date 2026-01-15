@@ -73,6 +73,16 @@ namespace Microsoft.PowerBI.Api.Models
                 writer.WritePropertyName("datasetWorkspaceId"u8);
                 writer.WriteStringValue(DatasetWorkspaceId.Value);
             }
+            if (Optional.IsCollectionDefined(Tags))
+            {
+                writer.WritePropertyName("tags"u8);
+                writer.WriteStartArray();
+                foreach (var item in Tags)
+                {
+                    writer.WriteStringValue(item);
+                }
+                writer.WriteEndArray();
+            }
             writer.WritePropertyName("id"u8);
             writer.WriteStringValue(Id);
             if (Optional.IsDefined(Name))
@@ -110,6 +120,11 @@ namespace Microsoft.PowerBI.Api.Models
                 writer.WritePropertyName("isOwnedByMe"u8);
                 writer.WriteBooleanValue(IsOwnedByMe.Value);
             }
+            if (Optional.IsDefined(Format))
+            {
+                writer.WritePropertyName("format"u8);
+                writer.WriteStringValue(Format);
+            }
             writer.WriteEndObject();
         }
 
@@ -129,6 +144,7 @@ namespace Microsoft.PowerBI.Api.Models
             SensitivityLabel sensitivityLabel = default;
             IList<ReportUser> users = default;
             Guid? datasetWorkspaceId = default;
+            IList<Guid> tags = default;
             Guid id = default;
             string name = default;
             string datasetId = default;
@@ -137,6 +153,7 @@ namespace Microsoft.PowerBI.Api.Models
             ReportBasePropertiesReportType? reportType = default;
             Guid? originalReportId = default;
             bool? isOwnedByMe = default;
+            string format = default;
             foreach (var property in element.EnumerateObject())
             {
                 if (property.NameEquals("createdBy"u8))
@@ -218,6 +235,20 @@ namespace Microsoft.PowerBI.Api.Models
                     datasetWorkspaceId = property.Value.GetGuid();
                     continue;
                 }
+                if (property.NameEquals("tags"u8))
+                {
+                    if (property.Value.ValueKind == JsonValueKind.Null)
+                    {
+                        continue;
+                    }
+                    List<Guid> array = new List<Guid>();
+                    foreach (var item in property.Value.EnumerateArray())
+                    {
+                        array.Add(item.GetGuid());
+                    }
+                    tags = array;
+                    continue;
+                }
                 if (property.NameEquals("id"u8))
                 {
                     id = property.Value.GetGuid();
@@ -270,6 +301,11 @@ namespace Microsoft.PowerBI.Api.Models
                     isOwnedByMe = property.Value.GetBoolean();
                     continue;
                 }
+                if (property.NameEquals("format"u8))
+                {
+                    format = property.Value.GetString();
+                    continue;
+                }
             }
             return new WorkspaceInfoReport(
                 id,
@@ -280,6 +316,7 @@ namespace Microsoft.PowerBI.Api.Models
                 reportType,
                 originalReportId,
                 isOwnedByMe,
+                format,
                 createdBy,
                 modifiedBy,
                 createdDateTime,
@@ -289,7 +326,8 @@ namespace Microsoft.PowerBI.Api.Models
                 endorsementDetails,
                 sensitivityLabel,
                 users ?? new ChangeTrackingList<ReportUser>(),
-                datasetWorkspaceId);
+                datasetWorkspaceId,
+                tags ?? new ChangeTrackingList<Guid>());
         }
 
         /// <summary> Deserializes the model from a raw response. </summary>

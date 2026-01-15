@@ -13,19 +13,19 @@ namespace Microsoft.PowerBI.Api.Models
     public partial class DatamartDatasourceUsagesProperties
     {
         /// <summary> Initializes a new instance of <see cref="DatamartDatasourceUsagesProperties"/>. </summary>
-        internal DatamartDatasourceUsagesProperties()
+        public DatamartDatasourceUsagesProperties()
         {
             DatasourceUsages = new ChangeTrackingList<DatasourceUsage>();
         }
 
         /// <summary> Initializes a new instance of <see cref="DatamartDatasourceUsagesProperties"/>. </summary>
         /// <param name="datasourceUsages"> The data source usages. </param>
-        internal DatamartDatasourceUsagesProperties(IReadOnlyList<DatasourceUsage> datasourceUsages)
+        internal DatamartDatasourceUsagesProperties(IList<DatasourceUsage> datasourceUsages)
         {
             DatasourceUsages = datasourceUsages;
         }
 
         /// <summary> The data source usages. </summary>
-        public IReadOnlyList<DatasourceUsage> DatasourceUsages { get; }
+        public IList<DatasourceUsage> DatasourceUsages { get; }
     }
 }

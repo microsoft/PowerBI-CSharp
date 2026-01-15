@@ -15,12 +15,13 @@ namespace Microsoft.PowerBI.Api.Models
     {
         /// <summary> Initializes a new instance of <see cref="WorkspaceInfoDatamart"/>. </summary>
         /// <param name="id"> The datamart ID. </param>
-        internal WorkspaceInfoDatamart(Guid id) : base(id)
+        public WorkspaceInfoDatamart(Guid id) : base(id)
         {
             UpstreamDataflows = new ChangeTrackingList<DependentDataflow>();
             UpstreamDatamarts = new ChangeTrackingList<DependentDatamart>();
             DatasourceUsages = new ChangeTrackingList<DatasourceUsage>();
             Users = new ChangeTrackingList<DatamartUser>();
+            Tags = new ChangeTrackingList<Guid>();
         }
 
         /// <summary> Initializes a new instance of <see cref="WorkspaceInfoDatamart"/>. </summary>
@@ -42,7 +43,8 @@ namespace Microsoft.PowerBI.Api.Models
         /// <param name="upstreamDatamarts"> The list of all the datamarts this item depends on. </param>
         /// <param name="datasourceUsages"> The data source usages. </param>
         /// <param name="users"> The user access details for a Power BI datamart. </param>
-        internal WorkspaceInfoDatamart(Guid id, string name, string description, DatamartType? type, DatamartStatus? status, DatamartState? state, string suspendedBatchId, EndorsementDetails endorsementDetails, SensitivityLabel sensitivityLabel, string modifiedBy, DateTimeOffset? modifiedDateTime, string configuredBy, string modifiedById, string configuredById, IReadOnlyList<DependentDataflow> upstreamDataflows, IReadOnlyList<DependentDatamart> upstreamDatamarts, IReadOnlyList<DatasourceUsage> datasourceUsages, IReadOnlyList<DatamartUser> users) : base(id, name, description, type, status, state, suspendedBatchId)
+        /// <param name="tags"> The unique identifiers for the tags applied on an item. </param>
+        internal WorkspaceInfoDatamart(Guid id, string name, string description, DatamartType? type, DatamartStatus? status, DatamartState? state, string suspendedBatchId, EndorsementDetails endorsementDetails, SensitivityLabel sensitivityLabel, string modifiedBy, DateTimeOffset? modifiedDateTime, string configuredBy, string modifiedById, string configuredById, IList<DependentDataflow> upstreamDataflows, IList<DependentDatamart> upstreamDatamarts, IList<DatasourceUsage> datasourceUsages, IList<DatamartUser> users, IList<Guid> tags) : base(id, name, description, type, status, state, suspendedBatchId)
         {
             EndorsementDetails = endorsementDetails;
             SensitivityLabel = sensitivityLabel;
@@ -55,29 +57,32 @@ namespace Microsoft.PowerBI.Api.Models
             UpstreamDatamarts = upstreamDatamarts;
             DatasourceUsages = datasourceUsages;
             Users = users;
+            Tags = tags;
         }
 
         /// <summary> The datamart endorsement details. </summary>
-        public EndorsementDetails EndorsementDetails { get; }
+        public EndorsementDetails EndorsementDetails { get; set; }
         /// <summary> The datamart sensitivity label. </summary>
-        public SensitivityLabel SensitivityLabel { get; }
+        public SensitivityLabel SensitivityLabel { get; set; }
         /// <summary> The last user that modified the datamart. </summary>
-        public string ModifiedBy { get; }
+        public string ModifiedBy { get; set; }
         /// <summary> The date and time that the datamart was last modified. </summary>
-        public DateTimeOffset? ModifiedDateTime { get; }
+        public DateTimeOffset? ModifiedDateTime { get; set; }
         /// <summary> The name of the datamart owner. </summary>
-        public string ConfiguredBy { get; }
+        public string ConfiguredBy { get; set; }
         /// <summary> The ID of the last user that modified the datamart. </summary>
-        public string ModifiedById { get; }
+        public string ModifiedById { get; set; }
         /// <summary> The ID of the datamart owner. </summary>
-        public string ConfiguredById { get; }
+        public string ConfiguredById { get; set; }
         /// <summary> The list of all the dataflows this item depends on. </summary>
-        public IReadOnlyList<DependentDataflow> UpstreamDataflows { get; }
+        public IList<DependentDataflow> UpstreamDataflows { get; }
         /// <summary> The list of all the datamarts this item depends on. </summary>
-        public IReadOnlyList<DependentDatamart> UpstreamDatamarts { get; }
+        public IList<DependentDatamart> UpstreamDatamarts { get; }
         /// <summary> The data source usages. </summary>
-        public IReadOnlyList<DatasourceUsage> DatasourceUsages { get; }
+        public IList<DatasourceUsage> DatasourceUsages { get; }
         /// <summary> The user access details for a Power BI datamart. </summary>
-        public IReadOnlyList<DatamartUser> Users { get; }
+        public IList<DatamartUser> Users { get; }
+        /// <summary> The unique identifiers for the tags applied on an item. </summary>
+        public IList<Guid> Tags { get; }
     }
 }
